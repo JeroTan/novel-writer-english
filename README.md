@@ -51,19 +51,39 @@ Agents are **active workflow controllers** — you select one by name, and it gu
 
 **Setup:**
 
-1. Copy the `agents/` folder from this repo into your project:
+1. Create your novel project folder and set up the structure:
    ```
-   .github/agents/novel-writer.agent.md
-   .github/agents/constitution.agent.md
-   .github/agents/specify.agent.md
-   .github/agents/clarify.agent.md
-   .github/agents/planner.agent.md
-   .github/agents/task-manager.agent.md
-   .github/agents/writer.agent.md
-   .github/agents/reviewer.agent.md
+   my-novel/                          ← your project root (open this in VS Code)
+   ├── .github/
+   │   └── agents/                    ← paste the 8 agent files here
+   │       ├── novel-writer.agent.md
+   │       ├── constitution.agent.md
+   │       ├── specify.agent.md
+   │       ├── clarify.agent.md
+   │       ├── planner.agent.md
+   │       ├── task-manager.agent.md
+   │       ├── writer.agent.md
+   │       └── reviewer.agent.md
+   ├── memory/                        ← created by @constitution agent
+   │   ├── constitution.md
+   │   └── personal-voice.md
+   └── stories/                       ← created by @specify agent
+       └── [your-novel-name]/
+           ├── specification.md
+           ├── creative-plan.md
+           ├── tasks.md
+           └── content/
+               ├── chapter-01.md
+               └── chapter-02.md
+   ```
+   > **Note:** You only need to create `my-novel/` and paste in the `.github/agents/` files manually. Everything else (`memory/`, `stories/`, all the `.md` files) is **generated automatically** by the agents as you work through the seven steps.
+
+2. Install the skills for enhanced AI knowledge (strongly recommended):
+   ```bash
+   npx skills add JeroTan/novel-writer-english
    ```
 
-2. Open your AI chat panel and select **`@novel-writer`** from the agent dropdown.
+3. Open `my-novel/` as a workspace in VS Code, then open the AI chat panel and select **`@novel-writer`** from the agent dropdown.
 
 3. The orchestrator agent will:
    - Check if novel-writing skills are installed (and recommend `npx skills add` if not)
