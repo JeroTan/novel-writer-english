@@ -1,0 +1,70 @@
+{
+  "novel": "[Novel Name]",
+  "lastUpdated": "",
+
+  "characters": {
+    "[Protagonist Name]": {
+      "relationships": {
+        "allies": [],
+        "enemies": [],
+        "romantic": [],
+        "family": [],
+        "mentors": [],
+        "neutral": [],
+        "unknown": []
+      },
+      "dynamicRelations": [
+        {
+          "character": "[Character Name]",
+          "initial": "Stranger",
+          "current": "Friend",
+          "trajectory": "positive",
+          "keyEvents": []
+        }
+      ]
+    }
+  },
+
+  "factions": {
+    "[Faction Name]": {
+      "description": "",
+      "leader": "",
+      "members": [],
+      "goals": [],
+      "alliedWith": [],
+      "opposedTo": [],
+      "status": "active"
+    }
+  },
+
+  "relationshipMatrix": {
+    "description": "Quick reference matrix for character relationships",
+    "matrix": {}
+  },
+
+  "conflicts": {
+    "personal": [],
+    "factional": [],
+    "ideological": []
+  },
+
+  "history": [
+    {
+      "chapter": 1,
+      "changes": [
+        {
+          "type": "new",
+          "characters": ["A", "B"],
+          "relation": "First meeting",
+          "impact": "low"
+        }
+      ]
+    }
+  ],
+
+  "predictions": {
+    "description": "Predicted developments based on current relationships",
+    "likely": [],
+    "possible": []
+  }
+}

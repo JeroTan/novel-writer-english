@@ -1,0 +1,49 @@
+{
+  "novel": "[Novel Name]",
+  "lastUpdated": "",
+
+  "storyTime": {
+    "start": "[Story Start Time]",
+    "current": "[Current Story Time]",
+    "end": "[Estimated End Time]",
+    "format": "Description: Can be era, season, specific date, etc."
+  },
+
+  "events": [
+    {
+      "chapter": 1,
+      "date": "[In-Story Time]",
+      "event": "[Event Description]",
+      "duration": "[Duration]",
+      "participants": []
+    }
+  ],
+
+  "parallelEvents": {
+    "description": "Events happening simultaneously, grouped by timepoint",
+    "timepoints": {}
+  },
+
+  "historicalContext": {
+    "description": "Historical background events",
+    "events": []
+  },
+
+  "timeLogic": {
+    "travelTimes": {
+      "description": "Travel times between locations",
+      "routes": {}
+    },
+    "constraints": [
+      {
+        "description": "Description of time limit",
+        "rule": ""
+      }
+    ]
+  },
+
+  "anomalies": {
+    "description": "Record of logical timeline issues",
+    "issues": []
+  }
+}

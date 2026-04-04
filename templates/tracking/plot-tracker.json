@@ -1,0 +1,62 @@
+{
+  "novel": "[Novel Name]",
+  "lastUpdated": "",
+  "currentState": {
+    "chapter": 1,
+    "volume": 1,
+    "mainPlotStage": "Beginning",
+    "location": "[Current Location]",
+    "timepoint": "[Story Timepoint]"
+  },
+
+  "plotlines": {
+    "main": {
+      "name": "[Main Plot Name]",
+      "description": "[Main Plot Description]",
+      "status": "active",
+      "currentNode": "[Current Node]",
+      "completedNodes": [],
+      "upcomingNodes": [],
+      "plannedClimax": {
+        "chapter": null,
+        "description": ""
+      }
+    },
+    "subplots": []
+  },
+
+  "foreshadowing": [
+    {
+      "id": "foreshadow-001",
+      "content": "[Foreshadowing Content]",
+      "planted": {
+        "chapter": null,
+        "description": ""
+      },
+      "hints": [],
+      "plannedReveal": {
+        "chapter": null,
+        "description": ""
+      },
+      "status": "active",
+      "importance": "high"
+    }
+  ],
+
+  "conflicts": {
+    "active": [],
+    "resolved": [],
+    "upcoming": []
+  },
+
+  "checkpoints": {
+    "volumeEnd": [],
+    "majorEvents": []
+  },
+
+  "notes": {
+    "plotHoles": [],
+    "inconsistencies": [],
+    "reminders": []
+  }
+}

@@ -1,0 +1,3 @@
+name: authentic-voice
+version: 1.0.0
+description: "A plugin that enforces strict anti-AI tone rules to ensure prose sounds human and authentic."

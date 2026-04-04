@@ -1,0 +1,78 @@
+{
+  "novel": "[Novel Name]",
+  "lastUpdated": "",
+
+  "protagonist": {
+    "name": "[Protagonist Name]",
+    "currentStatus": {
+      "alive": true,
+      "health": "Good",
+      "mentalState": "Normal",
+      "location": "[Current Location]",
+      "chapter": 1,
+      "age": null,
+      "position": "[Identity/Role]",
+      "possessions": [],
+      "skills": [],
+      "knowledge": []
+    },
+    "development": {
+      "arc": "[Character Arc Description]",
+      "milestones": [],
+      "currentPhase": "Beginning",
+      "nextGoal": ""
+    },
+    "relationships": {
+      "summary": "See relationships.json for details",
+      "key": {}
+    }
+  },
+
+  "supportingCharacters": {
+    "[Character Name]": {
+      "role": "[Role/Function]",
+      "importance": "high|medium|low",
+      "status": {
+        "alive": true,
+        "lastSeen": {
+          "chapter": null,
+          "location": ""
+        },
+        "currentLocation": "unknown",
+        "occupation": ""
+      },
+      "arc": {
+        "planned": "",
+        "current": ""
+      },
+      "secrets": [],
+      "motivations": []
+    }
+  },
+
+  "characterGroups": {
+    "active": [],
+    "inactive": [],
+    "deceased": []
+  },
+
+  "appearanceTracking": [
+    {
+      "chapter": 1,
+      "appearances": [
+        {
+          "character": "[Character Name]",
+          "role": "main|secondary|background",
+          "significance": ""
+        }
+      ]
+    }
+  ],
+
+  "consistency": {
+    "physicalTraits": {},
+    "personalityTraits": {},
+    "speechPatterns": {},
+    "warnings": []
+  }
+}
