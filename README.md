@@ -49,7 +49,7 @@ The AI detects you're starting a novel project, loads the workflow guide skill, 
 
 Agents are **active workflow controllers** — you select one by name, and it guides you through structured steps with handoff buttons between each phase. They work alongside skills (skills still auto-load in the background).
 
-**Setup:**
+**Setup (VS Code / Cursor / Windsurf):**
 
 1. Create your novel project folder and set up the structure:
    ```
@@ -84,6 +84,32 @@ Agents are **active workflow controllers** — you select one by name, and it gu
    ```
 
 3. Open `my-novel/` as a workspace in VS Code, then open the AI chat panel and select **`@novel-writer`** from the agent dropdown.
+
+**Setup (Gemini CLI):**
+
+Gemini CLI uses a different agent format and path. Pre-built compatible agents are included in the `.gemini/agents/` folder of this repo.
+
+1. Copy the `.gemini/agents/` folder into your novel project:
+   ```
+   my-novel/
+   └── .gemini/
+       └── agents/              ← copy these 8 files from this repo
+           ├── novel-writer.md
+           ├── constitution.md
+           ├── specify.md
+           ├── clarify.md
+           ├── planner.md
+           ├── task-manager.md
+           ├── writer.md
+           └── reviewer.md
+   ```
+
+2. Install the skills:
+   ```bash
+   gemini skills install https://github.com/JeroTan/novel-writer-english.git
+   ```
+
+3. Open your novel project folder, start Gemini CLI, and type `@novel-writer` to begin.
 
 3. The orchestrator agent will:
    - Check if novel-writing skills are installed (and recommend `npx skills add` if not)
@@ -134,13 +160,46 @@ No IDE required. The `commands/` folder contains platform-agnostic prompt templa
 
 > **Tip:** For long novels, upload your `memory/`, `tracking/`, and `stories/` files at the start of each session so the AI has full context.
 
+### Option C (Gemini CLI): Use Native `/novel:*` Commands
+
+Gemini CLI supports project-level custom commands in TOML format, invoked with a `/` prefix. Pre-built Gemini CLI commands are included in `.gemini/commands/novel/`.
+
+**Setup:**
+1. Copy the `.gemini/commands/` folder into your novel project root.
+2. In Gemini CLI, run `/commands reload` to pick up the new commands.
+
+**Available commands:**
+
+| Command | What it does |
+|---------|-------------|
+| `/novel:constitution` | Step 1 — create or update your creative constitution |
+| `/novel:specify` | Step 2 — build the story specification |
+| `/novel:clarify` | Step 3 — resolve ambiguities in the spec |
+| `/novel:plan` | Step 4 — create chapter structure and creative plan |
+| `/novel:tasks` | Step 5 — break the plan into tracked writing tasks |
+| `/novel:write` | Step 6 — write a chapter with the pre-write checklist |
+| `/novel:analyze` | Step 7 — quality analysis of framework or chapters |
+| `/novel:checklist` | Run a pre/post-write quality checklist |
+| `/novel:expert` | Activate a specialized expert persona |
+| `/novel:track-init` | Initialize JSON consistency tracking for a new novel |
+| `/novel:track` | Update or query the tracking state |
+| `/novel:timeline` | Manage the story's chronological timeline |
+| `/novel:relations` | Manage and analyze character relationships |
+| `/novel:authenticity-audit` | Flag AI-generated patterns in text |
+| `/novel:authentic-voice` | Rewrite a passage to remove AI clichés |
+
+**Example:**
+```
+/novel:write Chapter 3 — the confrontation between Mara and the High Council
+```
+
 ### Skills vs Agents vs Commands — Which Should I Use?
 
 | Method | Best for | How it works |
 |--------|----------|--------------|
 | **Skills** (`npx skills add`) | Quick help, natural chat | Auto-activates — just ask naturally |
-| **Agents** (`.agent.md`) | Full guided workflow | Select `@novel-writer`, follow handoff steps |
-| **Commands** (copy-paste) | ChatGPT / Gemini / any AI | Copy from `commands/`, paste into chat |
+| **Agents** (`.agent.md`) | Full guided workflow — VS Code / Cursor / Windsurf | Select `@novel-writer`, follow handoff steps |
+| **Agents** (`.gemini/agents/`) | Full guided workflow — Gemini CLI | Type `@novel-writer`, follow `@agent-name` prompts || **Commands** (`.gemini/commands/`) | Quick step execution — Gemini CLI | Run `/novel:write`, `/novel:plan`, etc. || **Commands** (copy-paste) | ChatGPT / Gemini / any AI | Copy from `commands/`, paste into chat |
 
 All three methods use the same methodology. Skills are the lightweight always-on layer. Agents add structured workflow on top. Commands are the portable version for any platform.
 
@@ -204,6 +263,7 @@ my-novel/
 | VS Code (Copilot) | Full (Agents & Skills) | `docs/platform-setup/vscode-copilot.md` |
 | Cursor | Full (Agents & Skills) | `docs/platform-setup/cursor.md` |
 | Windsurf | Full (Agents & Skills) | `docs/platform-setup/windsurf.md` |
+| Gemini CLI | Full (Agents & Skills) | `docs/platform-setup/gemini-cli.md` |
 | Claude Code | Full (Commands) | `docs/platform-setup/claude-code.md` |
 | ChatGPT / Gemini / Claude Web | Manual (Prompts) | `docs/platform-setup/generic-ai.md` |
 
@@ -212,3 +272,22 @@ This project is a translation and re-architecture of the incredible work done by
 
 ## License
 MIT
+
+---
+
+## Sources & References
+
+Documentation consulted when building and verifying platform-specific setup and agent formats:
+
+### Gemini CLI
+- [Subagents — agent definition files, YAML schema, tool names, file locations](https://geminicli.com/docs/core/subagents/)
+- [Agent Skills — discovery tiers, SKILL.md format, install commands](https://geminicli.com/docs/cli/skills/)
+- [Custom Commands — TOML format, `{{args}}`, `!{...}`, file locations](https://geminicli.com/docs/cli/custom-commands/)
+- [Building Extensions — extension structure, agent skills in extensions, GEMINI.md](https://geminicli.com/docs/extensions/writing-extensions/)
+
+### VS Code Copilot
+- [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
+- [Agent mode and tools](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
+
+### Agent Skills Open Standard
+- [agentskills.io — SKILL.md specification and npx skills tooling](https://agentskills.io)

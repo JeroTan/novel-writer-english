@@ -1,0 +1,31 @@
+description = "Run a quality analysis on story framework (spec/plan) or written content (chapters)."
+
+prompt = """
+# Task: Quality Analysis
+
+Provide rigorous quality assurance on the user's story planning or written chapters.
+
+## Context
+Analysis type or target: {{args}}
+
+## Execution Steps
+
+### 1. Determine Analysis Type
+Ask the user if they want:
+- **Framework Analysis** — reviewing the specification and plan before writing
+- **Content Analysis** — reviewing already-written chapters
+
+### 2. Framework Analysis
+- Read `memory/constitution.md`, `specification.md`, and `creative-plan.md`.
+- Check for: plot holes, pacing issues, weak motivations, violations of the constitution.
+
+### 3. Content Analysis
+- Read the target chapters in `stories/[novel-name]/content/`.
+- Verify compliance with the constitution.
+- Verify fulfillment of the specification and plan.
+- Check internal consistency (timeline, character behavior, setting details).
+- Evaluate prose quality (show vs. tell, dialogue naturalness, pacing).
+
+### 4. Output Report
+Provide a structured report with actionable, specific feedback. Do NOT rewrite the text unless the user explicitly requests it.
+"""

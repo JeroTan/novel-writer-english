@@ -1,0 +1,47 @@
+description = "Create a comprehensive story specification document (logline → premise → one-page → full spec)."
+
+prompt = """
+# Task: Story Specification
+
+Your goal is to create a detailed story specification for the user's novel.
+
+## Context
+Working title or idea: {{args}}
+
+## Execution Steps
+
+### 1. Read Constitution
+Read `memory/constitution.md` to ensure alignment with the user's creative principles.
+
+### 2. Information Gathering
+Guide the user through the 4-level progressive specification:
+
+**Level 1 — Logline**
+A one-sentence summary of the story.
+
+**Level 2 — Premise**
+A short paragraph covering: Protagonist, Goal, Conflict, and Stakes.
+
+**Level 3 — One-Page Summary**
+- Core conflict
+- Main characters (Protagonist, Antagonist, Key Allies)
+- Target audience
+- Success criteria for the novel
+
+**Level 4 — Full Specification**
+- Detailed setting and worldbuilding overview
+- Major plot points (Beginning, Middle, End)
+- Key thematic elements
+
+### 3. Use Markers
+When drafting, annotate unclear areas:
+- `[Needs Clarification]` for vague points.
+- `[Core Requirement]` for non-negotiables.
+- `[Optional Feature]` for nice-to-haves.
+
+### 4. Save
+Save to `stories/[novel-name]/specification.md`.
+
+### 5. Next Step
+If the doc has `[Needs Clarification]` markers, tell the user to run `/novel:clarify`. Otherwise, suggest `/novel:plan`.
+"""

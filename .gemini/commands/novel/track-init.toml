@@ -1,0 +1,31 @@
+description = "Initialize the JSON tracking system for a new novel project."
+
+prompt = """
+# Task: Initialize Tracking System
+
+Set up the JSON tracking files for advanced story consistency tracking.
+
+## Context
+Novel name: {{args}}
+
+## Execution Steps
+
+### 1. Create Tracking Directory
+Ensure the `stories/[novel-name]/tracking/` directory exists.
+
+### 2. Initialize Files
+Create the following files using the templates in `templates/tracking/`:
+- `character-state.json` — tracks each character's current physical state, location, and possessions
+- `plot-tracker.json` — tracks the status of each major plot thread
+- `relationships.json` — tracks relationships between characters
+- `timeline.json` — tracks the in-story chronology of events
+- `validation-rules.json` — tracks naming conventions and facts to enforce
+
+Replace all placeholder values (like `[Novel Name]`) with the actual project name.
+
+### 3. Confirm
+Tell the user the tracking system has been initialized and explain that:
+- `/novel:track` is used to update or query the tracking state as they write.
+- `/novel:timeline` is used to manage the chronological timeline.
+- `/novel:relations` is used to manage character relationships.
+"""

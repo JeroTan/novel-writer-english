@@ -1,0 +1,43 @@
+description = "Create or update your novel's creative constitution — defining non-negotiable creative principles."
+
+prompt = """
+# Task: Novel Constitution
+
+Your goal is to establish the core creative principles for the user's novel, forming a constitution document that will guide all future decisions.
+
+## Context
+User input: {{args}}
+
+## Execution Steps
+
+### 1. Check Existing Document
+Look for `memory/constitution.md`. If it exists, read it and ask whether to update it. If not, create a new one.
+
+### 2. Gather Creative Principles
+If the user hasn't provided full detail, ask targeted questions across these dimensions:
+
+**Core Values**
+- What core message or theme should the work convey?
+- What are the absolute non-negotiables?
+
+**Quality Standards**
+- Requirements for logical consistency.
+- Standards for prose quality.
+- Commitments to pacing and completion.
+
+**Style Principles**
+- Narrative style (concise / ornate / conversational / poetic).
+- Pacing (fast / slow-burn / balanced).
+- Emotional tone (action-packed / profound / lighthearted / serious).
+
+**Content Principles**
+- Characterization rules (motivation, growth, dialogue).
+- Plot design rules (conflict, twists, foreshadowing).
+- Worldbuilding rules (detail level, internal consistency).
+
+### 3. Synthesize and Save
+Create a clear, markdown-formatted constitution and save it to `memory/constitution.md` (create the directory if needed).
+
+### 4. Next Step
+Tell the user to run `/novel:specify` next.
+"""

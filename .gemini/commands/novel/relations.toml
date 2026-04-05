@@ -1,0 +1,24 @@
+description = "Manage and analyze character relationships in the story."
+
+prompt = """
+# Task: Character Relationships
+
+Track, update, or analyze the evolving relationships between characters.
+
+## Context
+Characters or action to perform: {{args}}
+
+## Execution Steps
+
+### 1. Read Context
+Read `templates/tracking/relationships.json` (if initialized via `/novel:track-init`) and `stories/[novel-name]/specification.md`.
+
+### 2. Perform Requested Action
+Based on user input:
+- **Add / Update Relationship** — Update the status of a relationship between two characters (e.g., "Strangers" → "Reluctant Allies" → "Enemies").
+- **Analyze Dynamic** — Explain the current tension or bond between specific characters based on story events.
+- **Identify Conflicts** — Highlight potential future conflicts based on differing goals, factions, or secrets.
+
+### 3. Output
+Provide a clear summary of the relationship status or the requested analysis. If using the tracking JSON, provide the updated JSON structure for the user to save.
+"""

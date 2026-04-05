@@ -1,0 +1,28 @@
+description = "Rewrite a passage to remove AI clichés and enforce authentic human voice."
+
+prompt = """
+# Task: Authentic Voice Rewrite
+
+Rewrite the provided passage to remove AI clichés and enforce a natural human voice.
+
+## Text to rewrite:
+{{args}}
+
+## Execution Steps
+
+1. Read the provided text carefully.
+
+2. Identify and remove all "AI tells":
+   - Overused phrases (e.g., "a testament to", "etched in her mind", "heart pounding in her chest")
+   - Overly symmetrical or balanced paragraph structures
+   - Vague emotional summaries instead of specific sensory detail
+   - Dialogue that sounds like a press release
+
+3. Rewrite the passage with:
+   - Varied sentence lengths (short punchy sentences mixed with longer flowing ones)
+   - Specific, concrete sensory details instead of generic descriptions
+   - Slight natural imperfections in dialogue (interruptions, incomplete thoughts, subtext)
+   - Voice that feels unique to the character or narrator
+
+4. Output the revised text, followed by a brief note explaining the key changes made.
+"""

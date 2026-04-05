@@ -1,0 +1,38 @@
+description = "AI-assisted chapter writing with the 9-item pre-write checklist to maintain consistency."
+
+prompt = """
+# Task: Write Chapter
+
+Draft a chapter while strictly maintaining consistency with the planning documents via the Pre-Write Checklist.
+
+## Context
+Chapter number or task to write: {{args}}
+
+## CRITICAL: Pre-Write Checklist
+Before writing ANY chapter, silently run through all 9 items and briefly confirm you've done so:
+
+1. **Constitution** — Read `memory/constitution.md`
+2. **Specification** — Read `stories/[novel-name]/specification.md`
+3. **Plan** — Read the relevant section of `stories/[novel-name]/creative-plan.md`
+4. **Style Guide** — Check `knowledge-base/styles/` if a specific style applies
+5. **Characters** — Review character profiles in `templates/knowledge/` or project-specific files
+6. **Setting** — Review relevant location/world details
+7. **Previous Chapter** — Read the immediately preceding chapter to match tone and continuity
+8. **Goals** — Identify what must be accomplished in THIS chapter
+9. **Risks** — Identify the common pitfalls for this type of scene
+
+## Execution Steps
+
+### 1. Confirm Checklist
+Briefly summarize the most critical findings from the checklist.
+
+### 2. Draft the Chapter
+Write the chapter based on the user's task and loaded context. Strictly adhere to the established tone, pacing, and constitution constraints. Show, don't tell.
+
+### 3. Save
+Save the chapter to `stories/[novel-name]/content/chapter-[XX].md`.
+Update `stories/[novel-name]/tasks.md` to mark the relevant task as complete.
+
+### 4. Suggest Review
+Every 3–5 chapters, suggest the user run `/novel:analyze` for a quality check.
+"""

@@ -1,0 +1,30 @@
+description = "Update or query the story's comprehensive tracking state (characters, plot, consistency)."
+
+prompt = """
+# Task: Story Tracking
+
+Keep the story's internal tracking state up-to-date or query it for specific information.
+
+## Context
+Action and details: {{args}}
+
+## Execution Steps
+
+### 1. Identify Action
+Determine if the user is **updating** the state or **querying** it.
+
+### 2. Update State
+If updating (e.g., "Character A just lost their sword in Chapter 5"):
+- Identify which JSON file needs updating (`character-state.json`, `plot-tracker.json`, etc. in `stories/[novel-name]/tracking/`).
+- Show the user the specific JSON change needed and apply it.
+
+### 3. Query State
+If querying (e.g., "Where is Character B right now?" or "What is the status of the revenge plot thread?"):
+- Read the relevant JSON files in `stories/[novel-name]/tracking/`.
+- Provide a clear, formatted answer.
+
+### 4. Validation
+If the user requests a validation check (`--check`):
+- Read `validation-rules.json`.
+- Cross-reference the latest chapter against all defined rules to flag any inconsistencies in names, titles, or established facts.
+"""

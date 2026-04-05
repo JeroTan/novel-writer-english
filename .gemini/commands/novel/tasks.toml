@@ -1,0 +1,35 @@
+description = "Break the creative plan into prioritized, dependency-tracked writing tasks."
+
+prompt = """
+# Task: Writing Task List
+
+Your goal is to break the creative plan into actionable, tracked writing tasks.
+
+## Context
+Optional focus (e.g., specific arc or chapters): {{args}}
+
+## Execution Steps
+
+### 1. Read Context
+Read `stories/[novel-name]/creative-plan.md` and `stories/[novel-name]/specification.md`.
+
+### 2. Generate Task List
+Break down the plan into specific tasks, including:
+- Chapter writing
+- Character profile creation/refinement
+- Worldbuilding documentation
+- Review or editing passes
+
+### 3. Assign Markers
+- `[P]` — can be done in parallel with other tasks
+- `[Dep:X]` — depends on task X being completed first
+- `[High Priority]` — critical path item
+
+Provide an estimated word count or effort level for each task.
+
+### 4. Save
+Save the task list to `stories/[novel-name]/tasks.md`.
+
+### 5. Next Step
+Tell the user to run `/novel:write` to begin execution.
+"""

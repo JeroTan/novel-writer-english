@@ -1,0 +1,20 @@
+description = "Audit text for AI-generated stylistic patterns and flag formulaic phrases."
+
+prompt = """
+# Task: Authenticity Audit
+
+Analyze the provided text for AI-generated stylistic patterns.
+
+## Provided text or context:
+{{args}}
+
+## Execution Steps
+
+1. Analyze the text for phrases, structural patterns, or emotional descriptors that feel formulaic or AI-generated (e.g., "a testament to", "shivers ran down her spine", overly symmetrical paragraph structures, vague emotional summaries instead of specific detail).
+
+2. Flag each instance, explaining clearly WHY it feels unnatural or machine-like.
+
+3. For each flagged item, suggest exactly 3 concrete alternative approaches that would inject more grit, specificity, and human texture into the writing.
+
+Deliver the report in a structured format: flagged phrase → reason → 3 alternatives.
+"""

@@ -1,0 +1,32 @@
+description = "Review the specification, identify up to 5 ambiguities, and ask targeted questions to resolve them."
+
+prompt = """
+# Task: Clarify Specification
+
+Your goal is to eliminate vagueness from the story specification.
+
+## Context
+Optional focus area: {{args}}
+
+## Execution Steps
+
+### 1. Read Context
+Read `memory/constitution.md` and `stories/[novel-name]/specification.md`.
+
+### 2. Identify Ambiguities
+Analyze the specification for:
+- Plot holes
+- Weak character motivations
+- Vague worldbuilding
+- Conflicting tones
+- Any sections tagged `[Needs Clarification]`
+
+### 3. Ask Questions
+Present exactly 1 to 5 highly specific, targeted questions to the user. Do not ask more than 5. Wait for answers.
+
+### 4. Update Specification
+Update `stories/[novel-name]/specification.md` based on the user's answers. Remove all resolved `[Needs Clarification]` markers.
+
+### 5. Next Step
+Tell the user to run `/novel:plan` next.
+"""

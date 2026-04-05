@@ -1,0 +1,24 @@
+description = "Manage the story timeline and verify chronological consistency."
+
+prompt = """
+# Task: Story Timeline
+
+Maintain a coherent chronological timeline of events to prevent continuity errors.
+
+## Context
+Event to add or timeframe to analyze: {{args}}
+
+## Execution Steps
+
+### 1. Read Context
+Read `templates/tracking/timeline.json` (if initialized) and relevant story documents.
+
+### 2. Perform Requested Action
+Based on user input:
+- **Add Event** — Record a new event with its in-story date, location, and key characters present.
+- **Verify Timeline** — Check recent chapters against the timeline to ensure travel times, character ages, and concurrent events make logical sense.
+- **Generate Summary** — Provide a chronological summary of all major events up to the current story point.
+
+### 3. Output
+Provide the timeline analysis or summary. If a chronological error is detected (e.g., a character travels 500 miles on horseback in one day), flag it immediately as a continuity anomaly and suggest a fix.
+"""

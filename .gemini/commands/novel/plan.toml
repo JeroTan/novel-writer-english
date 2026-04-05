@@ -1,0 +1,39 @@
+description = "Create chapter structure, pacing, foreshadowing plan, and character arc mapping."
+
+prompt = """
+# Task: Creative Plan
+
+Your goal is to create a detailed technical and creative plan that defines HOW the story will be told.
+
+## Context
+Structural preference (e.g., 3-act, Save the Cat): {{args}}
+
+## Execution Steps
+
+### 1. Read Context
+Read `memory/constitution.md` and `stories/[novel-name]/specification.md`.
+
+### 2. Draft the Creative Plan
+
+**1. Structural Approach**
+State the chosen narrative structure (e.g., 3-Act, 7-Point, Hero's Journey).
+
+**2. Chapter Breakdown**
+A high-level outline of each chapter or story arc — what happens, what the goal of each chapter is.
+
+**3. Pacing & Tension**
+- Where are the high-tension action moments?
+- Where are the quiet, reflective scenes?
+
+**4. Foreshadowing Plan**
+What elements need to be set up early for later payoffs?
+
+**5. Character Arc Mapping**
+How do the main characters change over the course of the planned chapters?
+
+### 3. Save
+Save the plan to `stories/[novel-name]/creative-plan.md`.
+
+### 4. Next Step
+Tell the user to run `/novel:tasks` next.
+"""
