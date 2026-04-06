@@ -208,13 +208,13 @@ Before uploading a novel to R2, verify:
 
 ```bash
 # Upload meta.json
-wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/meta.json --file=./meta.json
+wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/meta.json --file=./meta.json --remote
 
 # Upload a chapter
-wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/chapters/00001.md --file=./chapters/00001.md
+wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/chapters/00001.md --file=./chapters/00001.md --remote
 
 # Upload cover art
-wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/assets/cover_art.jpg --file=./cover_art.jpg
+wrangler r2 object put YOUR_BUCKET_NAME/novels/my-novel/assets/cover_art.jpg --file=./cover_art.jpg --remote
 ```
 
 ### Bulk Upload Script Example
@@ -225,16 +225,16 @@ NOVEL_SLUG="my-novel"
 BUCKET="YOUR_BUCKET_NAME"  # Replace with your R2 bucket name
 
 # Upload meta
-wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/meta.json --file=./meta.json
+wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/meta.json --file=./meta.json --remote
 
 # Upload all chapters
 for chapter in chapters/*.md; do
   filename=$(basename "$chapter")
-  wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/chapters/$filename --file="$chapter"
+  wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/chapters/$filename --file="$chapter" --remote
 done
 
 # Upload cover art
-wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/assets/cover_art.jpg --file=./cover_art.jpg
+wrangler r2 object put $BUCKET/novels/$NOVEL_SLUG/assets/cover_art.jpg --file=./cover_art.jpg --remote
 ```
 
 ## Validation Tips
