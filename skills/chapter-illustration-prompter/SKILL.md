@@ -76,12 +76,19 @@ Summarize all scenes before writing prompts. Anchor each to a direct quote from 
 
 ### 3. Master Chapter Prompt
 
-One cinematic cover-style image summarizing the chapter's emotional arc. Structure:
+One cinematic cover-style image summarizing the chapter's emotional arc.
 
-- **Foreground:** Primary character(s) with pose, expression, clothing, props. Include Rank label.
-- **Midground:** Secondary elements, other characters, spatial context.
-- **Background:** Atmosphere, setting depth, distant lighting.
-- **Mood & Style:** 2–3 sentences on emotional tone. Reference Solo Leveling aesthetic. State dominant color clash.
+**Critical rule: The Master Chapter Prompt must be a fully self-contained image generation prompt. An AI with no other context — no design sheets, no chapter text — must be able to generate the correct image from the Master Prompt alone. It is NOT a brief summary. It is the most important single prompt in the file and must be the most detailed.**
+
+Apply ALL Detail Depth Rules (see Section 4) to every element in the Master Prompt — the same exhaustive standard used for individual scene prompts. Never leave characters, objects, or environment vague.
+
+**Structure:**
+
+- **Foreground:** Primary character(s) fully described per Detail Depth Rules — exact skin tone, exact clothing (fabric, color, condition), hair color/length/style, eye color, pose, expression, any props. Include Rank label and any floating System UI elements.
+- **Midground:** Secondary characters or elements — full Detail Depth description for each character present. Spatial relationship to foreground. Any System windows, overlays, or environmental phenomena.
+- **Background:** Full environment breakdown — room type, dimensions, wall/floor/ceiling materials and colors, every light source (type, position, color temperature, shadow direction), furniture and fixtures, atmospheric effects (glow, dust, heat distortion), depth layers.
+- **Mood & Style:** 2–3 sentences on emotional tone and visual atmosphere. Reference Solo Leveling manhwa aesthetic. State dominant color clash.
+- **Composition:** Camera angle (low-angle / eye-level / high-angle), framing (tight / medium / wide), focal hierarchy (what draws the eye first, second, third).
 - End with: `**No text. No watermarks. No logos.**`
 
 ### 4. Individual Scene Prompts
