@@ -21,6 +21,11 @@ If the user hasn't provided enough information, ask targeted questions to build 
 
 **Level 2: Premise**
 - A short paragraph covering: Protagonist, Goal, Conflict, and Stakes.
+- For each major character, include:
+  - **Wound / Ghost**: What past event defines them?
+  - **Origin of Motivation**: WHY they want their goal (not just what the goal is).
+  - **Internal Contradiction**: What they believe vs. what's true.
+  *(Explicitly reference the `character-depth` skill if available)*
 
 **Level 3: One-Page Summary**
 - Core conflict
@@ -32,6 +37,11 @@ If the user hasn't provided enough information, ask targeted questions to build 
 - Detailed setting/worldbuilding overview
 - Major plot points (Beginning, Middle, End)
 - Key thematic elements
+- Deep character profiles for each major character, including:
+  - **Wound / Ghost**: What past event defines them?
+  - **Origin of Motivation**: WHY they want their goal (not just what the goal is).
+  - **Internal Contradiction**: What they believe vs. what's true.
+  *(Explicitly reference the `character-depth` skill if available)*
 
 ### 3. Draft the Specification
 Draft the document using the information gathered. 

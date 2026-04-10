@@ -25,9 +25,14 @@ If the user hasn't provided full detail, ask targeted questions across these dim
 - Standards for prose quality.
 - Commitments to pacing and completion.
 
+**Pacing Preference**
+- Ask the user about their preferred pacing style (Relentless Action, Balanced (2:1), Literary Slow-Burn, Rollercoaster, Custom).
+
+**Character Psychology Approach**
+- Ask the user about how deep character psychology should go (Surface, Standard, Deep).
+
 **Style Principles**
 - Narrative style (concise / ornate / conversational / poetic).
-- Pacing (fast / slow-burn / balanced).
 - Emotional tone (action-packed / profound / lighthearted / serious).
 
 **Content Principles**
@@ -37,6 +42,7 @@ If the user hasn't provided full detail, ask targeted questions across these dim
 
 ### 3. Synthesize and Save
 Create a clear, markdown-formatted constitution and save it to `memory/constitution.md` (create the directory if needed).
+Ensure you save the pacing preference in `## Chapter 4: Pacing Strategy` and the character psychology approach in `## Chapter 5: Character Depth`.
 
 ### 4. Next Step
 Tell the user to run `/novel:specify` next.

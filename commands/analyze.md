@@ -23,6 +23,10 @@ Determine if the user wants a **Framework Analysis** (reviewing the spec/plan) o
 - Verify fulfillment of the Specification and Plan.
 - Check for internal consistency (timeline, character behavior, setting details).
 - Evaluate against quality standards (e.g., show-don't-tell, dialogue naturalness).
+- **Fragment Check**: Scan for 3+ consecutive sentence fragments.
+- **Report-Style Check**: Scan for 3+ consecutive "Subject did X" sentences with no interior reaction.
+- **Emotional Depth Check**: Does the POV character have at least 2 internal reactions per chapter?
+- **Pacing Compliance**: Does the chapter's tone match its assigned pacing tag from the plan?
 
 ### 4. Output Report
 Provide a structured report with actionable feedback. Do NOT rewrite the text automatically unless the user explicitly asks you to fix the identified issues.

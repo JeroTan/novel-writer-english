@@ -26,6 +26,11 @@ Help the user design the technical implementation of their story by creating a d
 **3. Pacing & Tension**
 - Where are the high-tension action moments?
 - Where are the quiet, reflective scenes?
+- Read the pacing preference from `memory/constitution.md` (Chapter 4: Pacing Strategy).
+- Apply that pacing archetype to the chapter breakdown.
+- Assign a **pacing tag** to every chapter: `[Action]`, `[Reflection]`, `[Transition]`, `[Climax]`, `[Breather]`, `[Setup]`.
+- If pacing preference is "Balanced", ensure at least 1 reflection/breather chapter for every 2-3 action chapters.
+- If pacing preference is "Relentless Action", acknowledge but still recommend at least one brief cooldown per arc.
 
 **4. Foreshadowing Plan**
 - What elements need to be set up early for later payoffs?

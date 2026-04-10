@@ -51,14 +51,14 @@ project-root/
 ### Step 1: Constitution
 Establishes the creative rules all subsequent work must follow.
 
-**Covers**: core values (theme/message), quality baseline (non-negotiables), style principles (language, pacing, atmosphere), content principles (character, plot, worldbuilding norms).
+**Covers**: core values (theme/message), quality baseline (non-negotiables), style principles (language, pacing, atmosphere), content principles (character, plot, worldbuilding norms). *Note: This step now also captures pacing preference and character psychology depth.*
 
 **Why it matters**: Prevents creative drift over long projects. Every decision references this document.
 
 ### Step 2: Specify
 Creates a story specification using progressive detail levels.
 
-**Levels**: Logline (one sentence) → Premise (paragraph: protagonist, goal, conflict, stakes) → One-Page (core conflict, characters, audience, success criteria) → Full Spec (setting, major plot points, themes).
+**Levels**: Logline (one sentence) → Premise (paragraph: protagonist, goal, conflict, stakes) → One-Page (core conflict, characters, audience, success criteria) → Full Spec (setting, major plot points, themes). *Note: Major characters now require Wound/Ghost and Origin of Motivation.*
 
 **Markers**: `[Needs Clarification]` for vague points, `[Core Requirement]` for non-negotiables, `[Optional Feature]` for nice-to-haves.
 
@@ -66,13 +66,13 @@ Creates a story specification using progressive detail levels.
 Identifies up to 5 ambiguities in the specification and resolves them through targeted questions. Resolved markers are removed from the specification.
 
 ### Step 4: Plan
-Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping.
+Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy.*
 
 ### Step 5: Tasks
-Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Includes estimated word counts or effort.
+Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Includes estimated word counts or effort. *Note: Tasks are tagged with pacing type.*
 
 ### Step 6: Write
-Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text.
+Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered.
 
 ### Step 7: Analyze
 Two modes: **Framework Analysis** (validates planning documents before writing) and **Content Analysis** (validates written chapters against constitution, specification, plan, and internal consistency).
@@ -129,6 +129,9 @@ These skills activate automatically based on context when installed:
 |------|-----------|-------------|
 | `skills/writing-techniques/dialogue-techniques/SKILL.md` | `dialogue-techniques` | Subtext-heavy, distinctive, character-driven dialogue |
 | `skills/writing-techniques/scene-structure/SKILL.md` | `scene-structure` | Scene/sequel framework (Goal, Conflict, Disaster, Reaction, Dilemma, Decision) |
+| `skills/writing-techniques/character-depth/SKILL.md` | `character-depth` | Psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms |
+| `skills/writing-techniques/emotional-interiority/SKILL.md` | `emotional-interiority` | Internal reactions, sensory-emotional responses, flags report-style narration |
+| `skills/writing-techniques/pacing-rhythm/SKILL.md` | `pacing-rhythm` | Pacing archetypes, sentence-level pacing, fragment detection, chapter pacing tags |
 
 ## Specification Markers Reference
 

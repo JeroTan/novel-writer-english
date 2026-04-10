@@ -25,7 +25,7 @@ It's completely free, open-source, and platform-agnostic, designed to work smoot
 Skills are passive knowledge that the AI loads **automatically** when your prompt matches. No manual invocation needed — just install and chat naturally.
 
 ```bash
-npx skills add JeroTan/novel-writer-workflow-guide-english
+npx skills add JeroTan/novel-writer-english
 ```
 
 That's it. Now open your AI chat in Agent mode and try:
@@ -136,7 +136,7 @@ You:      "The cost of ambition — how far is too far?"
                [Step 2: Specify]
 ```
 
-Each agent hands off to the next when its step is complete. The writer agent enforces the **9-item pre-write checklist** before every chapter to prevent AI context degradation.
+Each agent hands off to the next when its step is complete. The writer agent enforces the **12-item pre-write checklist** before every chapter to prevent AI context degradation.
 
 ### Option C: Use with Any AI Tool (ChatGPT, Gemini, Claude, etc.)
 
@@ -204,12 +204,12 @@ Gemini CLI supports project-level custom commands in TOML format, invoked with a
 All three methods use the same methodology. Skills are the lightweight always-on layer. Agents add structured workflow on top. Commands are the portable version for any platform.
 
 ## The Seven-Step Methodology
-1. **Constitution:** Define your core creative principles and non-negotiables.
+1. **Constitution:** Define your core creative principles and non-negotiables. Captures pacing preference and character depth level.
 2. **Specify:** Build a comprehensive story specification (logline -> premise -> one-page -> full spec).
 3. **Clarify:** The AI reviews your spec and asks targeted questions to resolve ambiguities.
 4. **Plan:** Create the chapter structure, pacing, and character arc mapping.
 5. **Tasks:** Break the plan down into actionable, tracked writing tasks.
-6. **Write:** Execute the chapters using the 9-item pre-write checklist.
+6. **Write:** Execute the chapters using the 12-item pre-write checklist.
 7. **Analyze:** Run periodic quality assurance checks on the written content.
 
 ## Project Structure
@@ -239,6 +239,9 @@ my-novel/
 | `consistency-checker` | QA tool for verifying plot, character, and worldbuilding consistency. |
 | `pre-write-checklist` | Ensures the AI has all necessary context loaded before drafting a chapter. |
 | `style-detector` | Analyzes and enforces specific prose styles (Conversational, Ornate, Minimal, etc.). |
+| `character-depth` | Enforces psychological backstory, Wound/Ghost, internal contradictions. |
+| `emotional-interiority` | Ensures internal reactions, shows emotions physically, flags report-style narration. |
+| `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
 
 ## Available Agents
 | Agent | Role |
@@ -287,6 +290,11 @@ Documentation consulted when building and verifying platform-specific setup and 
 
 ### VS Code Copilot
 - [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
+- [Agent mode and tools](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
+
+### Agent Skills Open Standard
+- [agentskills.io — SKILL.md specification and npx skills tooling](https://agentskills.io)
+ode.visualstudio.com/docs/copilot/copilot-customization)
 - [Agent mode and tools](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
 
 ### Agent Skills Open Standard

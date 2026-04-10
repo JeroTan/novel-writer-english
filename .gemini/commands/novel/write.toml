@@ -1,4 +1,4 @@
-description = "AI-assisted chapter writing with the 9-item pre-write checklist to maintain consistency."
+description = "AI-assisted chapter writing with the 12-item pre-write checklist to maintain consistency."
 
 prompt = """
 # Task: Write Chapter
@@ -9,7 +9,7 @@ Draft a chapter while strictly maintaining consistency with the planning documen
 Chapter number or task to write: {{args}}
 
 ## CRITICAL: Pre-Write Checklist
-Before writing ANY chapter, silently run through all 9 items and briefly confirm you've done so:
+Before writing ANY chapter, silently run through all 12 items and briefly confirm you've done so:
 
 1. **Constitution** — Read `memory/constitution.md`
 2. **Specification** — Read `stories/[novel-name]/specification.md`
@@ -20,6 +20,9 @@ Before writing ANY chapter, silently run through all 9 items and briefly confirm
 7. **Previous Chapter** — Read the immediately preceding chapter to match tone and continuity
 8. **Goals** — Identify what must be accomplished in THIS chapter
 9. **Risks** — Identify the common pitfalls for this type of scene
+10. **Emotional Goals** — What emotional state should the reader reach by end of chapter?
+11. **Pacing Type** — Check this chapter's pacing tag from the plan. Write accordingly.
+12. **Internal Reactions** — Plan at least 2-3 moments of character interiority.
 
 ## Execution Steps
 
@@ -28,6 +31,9 @@ Briefly summarize the most critical findings from the checklist.
 
 ### 2. Draft the Chapter
 Write the chapter based on the user's task and loaded context. Strictly adhere to the established tone, pacing, and constitution constraints. Show, don't tell.
+- Vary sentence length. Avoid 3+ consecutive sentence fragments.
+- After every significant event, include the POV character's internal reaction before moving to the next action.
+- Show emotions through physical sensations and behavior, not by naming them directly.
 
 ### 3. Save
 Save the chapter to `stories/[novel-name]/content/chapter-[XX].md`.

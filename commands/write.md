@@ -15,14 +15,23 @@ Before writing ANY chapter, you MUST review this context:
 1. **Constitution**: Read `memory/constitution.md`
 2. **Specification**: Read `stories/[novel-name]/specification.md`
 3. **Plan**: Read `stories/[novel-name]/creative-plan.md` (specifically the section for this chapter)
-4. **Characters**: Review relevant character profiles in `templates/knowledge/character-profiles.md`
-5. **Previous Chapter**: Review the preceding chapter (if it exists) to match tone and continuity.
-6. **Goals**: Identify what must be accomplished in THIS chapter.
+4. **Style Guide**: Check `knowledge-base/styles/` if a specific style applies
+5. **Characters**: Review relevant character profiles in `templates/knowledge/character-profiles.md`
+6. **Setting**: Review relevant location/world details
+7. **Previous Chapter**: Review the preceding chapter (if it exists) to match tone and continuity.
+8. **Goals**: Identify what must be accomplished in THIS chapter.
+9. **Risks**: Identify the common pitfalls for this type of scene.
+10. **Emotional Goals**: What emotional state should the reader reach by end of chapter?
+11. **Pacing Type**: Check this chapter's pacing tag from the plan. Write accordingly.
+12. **Internal Reactions**: Plan at least 2-3 moments of character interiority.
 
 ### 2. Draft the Chapter
 Write the chapter based on the user's instructions and the loaded context. 
 Strictly adhere to the established tone, pacing, and constraints.
 Do not rush the pacing; let the scene breathe. Show, don't tell.
+- Vary sentence length. Avoid 3+ consecutive sentence fragments.
+- After every significant event, include the POV character's internal reaction before moving to the next action.
+- Show emotions through physical sensations and behavior, not by naming them directly.
 
 ### 3. Output and Save
 Save the chapter to `stories/[novel-name]/content/chapter-[XX].md`.

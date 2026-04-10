@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "description": "Validation rules for story content, used to check character consistency and content quality",
+
+  "characters": {
+    "protagonist": {
+      "name": "[Protagonist Name]",
+      "aliases": ["[Nickname]", "[Other Name]"],
+      "forbidden": ["MC", "ML", "FL", "[Common Mistake Name]"],
+      "traits": ["[Core Identity]", "[Key Trait]"],
+      "note": "Please fill in specific content based on actual story setting"
+    },
+    "supporting": {
+      "[Support Character 1]": {
+        "aliases": ["[Nickname]"],
+        "addresses_to": {
+          "protagonist": ["[How they address protagonist]"]
+        }
+      },
+      "[Support Character 2]": {
+        "aliases": ["[Nickname]"],
+        "addresses_to": {
+          "protagonist": ["[How they address protagonist]"]
+        }
+      }
+    }
+  },
+
+  "relationships": {
+    "fixed_addresses": {
+      "description": "Fixed addressing relationships between characters",
+      "rules": {
+        "[Character A] -> [Character B]": ["[Fixed Title 1]", "[Fixed Title 2]"],
+        "[Character C] -> [Character D]": ["[Fixed Title]"]
+      }
+    },
+    "forbidden_addresses": {
+      "description": "Forbidden forms of address",
+      "rules": {
+        "[Subordinate] -> [Superior]": ["[Inappropriate Title]"],
+        "[Stranger] -> [Protagonist]": ["[Overly Intimate Title]"]
+      }
+    }
+  },
+
+  "validation_tasks": {
+    "character_consistency": {
+      "enabled": true,
+      "checks": [
+        "name_consistency",
+        "trait_consistency",
+        "behavior_consistency"
+      ]
+    },
+    "relationship_validation": {
+      "enabled": true,
+      "checks": [
+        "address_accuracy",
+        "relationship_development",
+        "interaction_logic"
+      ]
+    },
+    "world_rules": {
+      "enabled": true,
+      "checks": [
+        "power_system",
+        "geography",
+        "timeline"
+      ]
+    }
+  },
+
+  "auto_fix": {
+    "character_names": {
+      "enabled": true,
+      "confidence_threshold": 0.9,
+      "description": "Automatically fix obvious character name errors"
+    },
+    "addresses": {
+      "enabled": true,
+      "confidence_threshold": 0.85,
+      "description": "Automatically fix fixed address errors"
+    },
+    "simple_typos": {
+      "enabled": true,
+      "description": "Fix simple spelling mistakes"
+    },
+    "complex_issues": {
+      "enabled": false,
+      "description": "Only provide suggestions for complex issues, do not auto-fix"
+    }
+  },
+
+  "common_errors": {
+    "character_substitution": [
+      {"wrong": "John Doe", "correct": "[Correct Protagonist Name]", "context": "Common protagonist name mistake"}
+    ],
+    "address_mistakes": [
+      {"wrong": "Brother", "correct": "My Lord", "context": "Incorrect address for nobility"}
+    ]
+  },
+
+  "validation_levels": {
+    "quick": {
+      "description": "Quick validation (used during writing)",
+      "checks": ["character_names", "basic_addresses"],
+      "time_estimate": "A few seconds"
+    },
+    "standard": {
+      "description": "Standard validation (daily check)",
+      "checks": ["character_consistency", "relationship_validation"],
+      "time_estimate": "1-2 minutes"
+    },
+    "deep": {
+      "description": "Deep validation (used before publishing)",
+      "checks": ["all"],
+      "time_estimate": "5-10 minutes"
+    }
+  },
+
+  "usage_guide": {
+    "write_command": "Automatically load quick level validation during /write",
+    "track_command": "Execute standard level validation using /track --check",
+    "fix_command": "Auto-fix simple level issues using /track --fix"
+  }
+}

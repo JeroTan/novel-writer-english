@@ -25,6 +25,10 @@ Ask the user if they want:
 - Verify fulfillment of the specification and plan.
 - Check internal consistency (timeline, character behavior, setting details).
 - Evaluate prose quality (show vs. tell, dialogue naturalness, pacing).
+- **Fragment Check**: Scan for 3+ consecutive sentence fragments.
+- **Report-Style Check**: Scan for 3+ consecutive "Subject did X" sentences with no interior reaction.
+- **Emotional Depth Check**: Does the POV character have at least 2 internal reactions per chapter?
+- **Pacing Compliance**: Does the chapter's tone match its assigned pacing tag from the plan?
 
 ### 4. Output Report
 Provide a structured report with actionable, specific feedback. Do NOT rewrite the text unless the user explicitly requests it.

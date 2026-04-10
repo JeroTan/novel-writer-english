@@ -7,7 +7,7 @@ Novel Writer is fully compatible with Cursor via its custom `.agent.md` and `.cu
 ### 1. Install the Skill
 Open your Cursor terminal and run:
 ```bash
-npx skills add JeroTan/novel-writer-workflow-guide-english
+npx skills add JeroTan/novel-writer-english
 ```
 This will download the necessary skill files into your project.
 

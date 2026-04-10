@@ -32,9 +32,14 @@ Based on the user's input, gather principles across the following dimensions (if
 - Standards for prose quality.
 - Commitments to pacing and completion.
 
+#### Pacing Preference
+- Ask the user about their preferred pacing style (Relentless Action, Balanced (2:1), Literary Slow-Burn, Rollercoaster, Custom).
+
+#### Character Psychology Approach
+- Ask the user about how deep character psychology should go (Surface, Standard, Deep).
+
 #### Style Principles
 - Narrative style (concise / ornate / conversational / poetic).
-- Pacing control (fast / slow-burn / balanced).
 - Emotional tone (action-packed / profound / lighthearted / serious).
 - Linguistic features (period-accurate / modern / colloquial / literary).
 
@@ -101,7 +106,17 @@ Use the following template structure:
 
 [More style principles...]
 
-## Chapter 4: Content Norms
+## Chapter 4: Pacing Strategy
+
+**Style**: [Relentless Action / Balanced (2:1) / Literary Slow-Burn / Rollercoaster / Custom]
+**Description**: [How the pacing will be managed throughout the story]
+
+## Chapter 5: Character Depth
+
+**Level**: [Surface / Standard / Deep]
+**Description**: [How deeply character psychology will be explored]
+
+## Chapter 6: Content Norms
 
 ### Characterization Norms
 [Specific norms]
@@ -112,7 +127,7 @@ Use the following template structure:
 ### Worldbuilding Norms
 [Specific norms]
 
-## Chapter 5: Reader Contract
+## Chapter 7: Reader Contract
 
 ### Promises to the Reader
 - [Promise 1]
@@ -122,7 +137,7 @@ Use the following template structure:
 - [Guarantee 1]
 - [Guarantee 2]
 
-## Chapter 6: Revision Procedures
+## Chapter 8: Revision Procedures
 
 ### Triggers for Revision
 - Major shift in creative direction.

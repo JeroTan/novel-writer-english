@@ -24,6 +24,9 @@ Break down the plan into specific tasks, including:
 - `[P]` — can be done in parallel with other tasks
 - `[Dep:X]` — depends on task X being completed first
 - `[High Priority]` — critical path item
+- Include the pacing tag from the plan (e.g., `[Action]`, `[Reflection]`)
+
+For character-heavy scenes, include a note on which characters' psychological depth should be showcased.
 
 Provide an estimated word count or effort level for each task.
 

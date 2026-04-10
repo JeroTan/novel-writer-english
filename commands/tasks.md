@@ -25,6 +25,9 @@ Assign markers to each task to manage workflow:
 - `[P]` for tasks that can be done in parallel.
 - `[Dep:X]` for tasks that depend on task X.
 - `[High Priority]` for critical tasks.
+- Include the pacing tag from the plan (e.g., `[Action]`, `[Reflection]`).
+
+For character-heavy scenes, include a note on which characters' psychological depth should be showcased.
 
 Provide an estimated word count or effort level for each task.
 

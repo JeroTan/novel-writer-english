@@ -7,7 +7,7 @@ Novel Writer is fully compatible with GitHub Copilot in VS Code via the Agent an
 ### 1. Install the Skill
 Open your VS Code terminal and run:
 ```bash
-npx skills add JeroTan/novel-writer-workflow-guide-english
+npx skills add JeroTan/novel-writer-english
 ```
 This will download the necessary skill files (genre knowledge, quality assurance, writing techniques) into your `.github/skills/` directory.
 
