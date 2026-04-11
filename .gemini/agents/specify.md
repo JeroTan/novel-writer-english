@@ -38,3 +38,17 @@ If the skill files are not found, inform the user:
    - `[Optional Feature]` for nice-to-haves.
 5. Save the document to `stories/[novel-name]/specification.md`.
 6. Once complete, tell the user: "Spec saved. If you have `[Needs Clarification]` markers, continue with `@clarify`. Otherwise skip to `@planner` for Step 4."
+
+## Post-Specification: Initialize Knowledge Folder
+After saving the specification, immediately do the following:
+
+1. Create the directory `stories/[novel-name]/knowledge/` if it does not exist.
+2. Copy and populate from templates:
+   - `templates/knowledge/character-profiles.md` → `stories/[novel-name]/knowledge/characters.md`
+   - `templates/knowledge/character-voices.md` → `stories/[novel-name]/knowledge/character-voices.md`
+   - `templates/knowledge/locations.md` → `stories/[novel-name]/knowledge/locations.md`
+   - `templates/knowledge/world-setting.md` → `stories/[novel-name]/knowledge/world-setting.md`
+3. Pre-fill each file with everything already established in the specification. Replace `[Protagonist Name]` with the actual name, fill out known locations, etc.
+4. For fields the user has not yet defined, leave the placeholder text (e.g., `[TBD]`) but offer 2–3 concrete suggestions based on the genre and logline.
+5. If the user says "maybe later" or skips a field, leave the placeholder and move on. Do NOT block the workflow.
+6. Tell the user: "Knowledge folder created at `stories/[novel-name]/knowledge/`. These files will be used by the Clarify and Write agents. Fill them in or update them any time."

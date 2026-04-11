@@ -11,8 +11,11 @@ Novel Writer English is a comprehensive, modular AI-powered novel writing system
 It's completely free, open-source, and platform-agnostic, designed to work smoothly with any popular AI coding tool or generic chat AI.
 
 ## Features
-- **Seven-Step Methodology:** A structured approach moving from creative principles to chapter execution.
-- **Pre-Write Checklist System:** Automatically gathers necessary story context before drafting to maintain consistency over long word counts.
+- **Eight-Step Methodology:** A structured approach moving from creative principles to chapter execution and metadata generation.
+- **Pre-Write Checklist System:** Automatically gathers necessary story context before drafting to maintain consistency over long word counts. Includes draft detection and special tags.
+- **Automatic knowledge scaffolding:** per-novel knowledge files created from templates at Step 2.
+- **Live tracking system:** tracking JSON files initialized at Step 4 and updated after each chapter.
+- **Novel metadata:** `meta.json` records bibliographic info for publishing or cataloguing.
 - **Auto-Detection Architecture:** Built-in genre, style, and requirement detectors to tailor the AI's output.
 - **Platform Agnostic:** Usable via IDE agents (VS Code, Cursor, Windsurf) or copy-pasting command prompts for ChatGPT/Gemini/Claude web interfaces.
 - **Rich Knowledge Base:** Extensive guidelines covering diverse genres (Sci-Fi, Thriller, Romance, Fantasy, etc.) and writing styles.
@@ -203,7 +206,7 @@ Gemini CLI supports project-level custom commands in TOML format, invoked with a
 
 All three methods use the same methodology. Skills are the lightweight always-on layer. Agents add structured workflow on top. Commands are the portable version for any platform.
 
-## The Seven-Step Methodology
+## The Eight-Step Methodology
 1. **Constitution:** Define your core creative principles and non-negotiables. Captures pacing preference and character depth level.
 2. **Specify:** Build a comprehensive story specification (logline -> premise -> one-page -> full spec).
 3. **Clarify:** The AI reviews your spec and asks targeted questions to resolve ambiguities.
@@ -211,6 +214,7 @@ All three methods use the same methodology. Skills are the lightweight always-on
 5. **Tasks:** Break the plan down into actionable, tracked writing tasks.
 6. **Write:** Execute the chapters using the 12-item pre-write checklist.
 7. **Analyze:** Run periodic quality assurance checks on the written content.
+8. **Meta:** Record novel metadata (title, author, genre, tags, status) to meta.json.
 
 ## Project Structure
 A standard novel project using this system looks like this:
@@ -234,7 +238,7 @@ my-novel/
 ## Available Skills
 | Skill | Description |
 |-------|-------------|
-| `workflow-guide` | Orchestrates the seven-step methodology and coordinates sub-skills. |
+| `workflow-guide` | Orchestrates the eight-step methodology and coordinates sub-skills. |
 | `genre-knowledge/*` | Tropes, expectations, and rules for specific genres (Fantasy, Sci-Fi, Thriller, Romance, Mystery, Horror). |
 | `consistency-checker` | QA tool for verifying plot, character, and worldbuilding consistency. |
 | `pre-write-checklist` | Ensures the AI has all necessary context loaded before drafting a chapter. |
@@ -254,6 +258,7 @@ my-novel/
 | `task-manager` | Breaks the plan into a task list. |
 | `writer` | The actual writing agent utilizing the pre-write checklist. |
 | `reviewer` | Quality analysis and QA agent. |
+| `meta` | Records novel metadata to meta.json. |
 
 ## Knowledge Bases
 - **Genres:** Fantasy, Historical, Horror, Mystery, Power Fantasy/Revenge, Romance, Sci-Fi, Thriller, Wuxia.

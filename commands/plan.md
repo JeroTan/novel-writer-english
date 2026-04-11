@@ -40,4 +40,20 @@ Help the user design the technical implementation of their story by creating a d
 
 ### 3. Output and Save
 Save the document to `stories/[novel-name]/creative-plan.md`.
+
+### 4. Post-Plan: Initialize Tracking Folder
+After saving the creative plan, immediately do the following:
+
+1. Create the directory `stories/[novel-name]/tracking/` if it does not exist.
+2. Initialize these 5 files from their templates — replacing `[Novel Name]` and other top-level placeholders with actual values from the specification and constitution:
+   - `templates/tracking/character-state.json` → `stories/[novel-name]/tracking/character-state.json`
+   - `templates/tracking/plot-tracker.json` → `stories/[novel-name]/tracking/plot-tracker.json`
+   - `templates/tracking/relationships.json` → `stories/[novel-name]/tracking/relationships.json`
+   - `templates/tracking/timeline.json` → `stories/[novel-name]/tracking/timeline.json`
+   - `templates/tracking/validation-rules.json` → `stories/[novel-name]/tracking/validation-rules.json`
+3. In `character-state.json`: populate the protagonist's name and any major supporting characters already defined in `knowledge/characters.md`.
+4. In `plot-tracker.json`: populate the main plot name and first chapter's expected story state from the creative plan.
+5. In `validation-rules.json`: populate the protagonist's name, aliases, and any known forbidden terms for that character.
+6. Tell the user: "Tracking folder initialized at `stories/[novel-name]/tracking/`. These JSON files will be updated by the Write agent after each chapter and cross-checked by the Analyze agent."
+
 Suggest the user run the `tasks` command next.

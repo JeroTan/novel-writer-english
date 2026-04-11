@@ -31,15 +31,26 @@ Works in VS Code, Cursor, Windsurf. For other platforms, use `commands/tasks.md`
 
 ## Instructions
 1. Read `stories/[novel-name]/creative-plan.md` and `stories/[novel-name]/specification.md`.
-2. Break down the plan into specific tasks. Types of tasks include:
-   - Chapter writing
-   - Character profile refinement
-   - Worldbuilding documentation
-   - Review/editing
-3. Assign markers to each task:
-   - `[P]` for tasks that can be done in parallel.
-   - `[Dep:X]` for tasks that depend on task X.
-   - `[High Priority]` for critical tasks.
-4. Provide estimated word counts or effort for each task.
+2. Break down the plan into specific tasks. Types of tasks include chapter writing, character profile refinement, etc.
+3. The file `stories/[novel-name]/tasks.md` must start with a header summary:
+   ```markdown
+   # Task List — [Novel Name]
+
+   **Total chapters planned:** [N]
+   **Estimated total words:** [N]
+   **Last updated:** [Date]
+
+   ---
+   ```
+4. Each task entry must be formatted as a checklist:
+   ```markdown
+   - [ ] **Chapter X** — [Brief description of what happens] `[PacingTag]` `[P]`|`[Dep:X]`|`[High Priority]` — ~[est. word count] words
+   ```
+   Example:
+   ```markdown
+   - [ ] **Chapter 1** — Introduction of the protagonist in the market; first encounter with the antagonist's proxy. `[Setup]` `[High Priority]` — ~2,500 words
+   - [ ] **Chapter 2** — Protagonist discovers they have a rare ability; forced to flee the city. `[Action]` `[Dep:1]` — ~3,000 words
+   - [ ] **Chapter 3** — Breather: protagonist reaches a village and reflects on what they left behind. `[Reflection]` `[Dep:2]` — ~2,000 words
+   ```
 5. Save the task list to `stories/[novel-name]/tasks.md`.
 6. Offer to hand off to the `writer` agent for Step 6.

@@ -25,10 +25,13 @@ If the skill files are not found, inform the user:
 > ```
 > I'll continue, but the output quality will be reduced without these skills."
 ## Instructions
-1. Read `memory/constitution.md` and the active `stories/[novel-name]/specification.md`.
-2. Analyze the specification for plot holes, weak character motivations, vague worldbuilding, or conflicting tones.
-3. Pay special attention to any `[Needs Clarification]` markers.
-4. Present exactly 1 to 5 highly specific, targeted questions to the user. Do not ask more than 5.
-5. Wait for the user to answer.
-6. Update `stories/[novel-name]/specification.md` directly based on their answers. Remove resolved `[Needs Clarification]` markers.
-7. Once complete, tell the user: "Specification clarified. Continue to Step 4 with `@planner`."
+1. Read `memory/constitution.md` and `stories/[novel-name]/specification.md`.
+2. Check if `stories/[novel-name]/knowledge/` exists and contains files.
+   - If it exists: read the contents of `characters.md`, `world-setting.md`, `locations.md`, and `character-voices.md`.
+   - If it does NOT exist: inform the user — "The knowledge folder hasn't been created yet. This folder improves the accuracy of clarification. You can either re-run the `specify` step to create it, or create `stories/[novel-name]/knowledge/` manually and continue."
+3. Analyze ALL loaded documents for: plot holes, weak character motivations, vague worldbuilding, conflicting tones, missing psychological backstory (per character-depth skill), any `[Needs Clarification]` markers, and discrepancies between the specification and the knowledge files.
+4. Present exactly 1 to 5 highly specific, targeted questions. Do not ask more than 5.
+5. Wait for the user's answers.
+6. Update `stories/[novel-name]/specification.md` with the answers. Remove resolved `[Needs Clarification]` markers.
+7. If any answer adds new information about characters, locations, or the world, also update the relevant file in `stories/[novel-name]/knowledge/`.
+8. Tell the user: "Specification clarified. Continue to Step 4 with `@planner`."

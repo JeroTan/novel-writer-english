@@ -27,15 +27,41 @@ If the skill files are not found, inform the user:
 > ```
 > I'll continue, but the output quality will be reduced without these skills."
 ## Instructions
-1. Ask the user if they want a **Framework Analysis** (reviewing the spec/plan before writing) or a **Content Analysis** (reviewing written chapters).
-2. For Framework Analysis:
-   - Read `memory/constitution.md`, `specification.md`, and `creative-plan.md`.
-   - Check for plot holes, pacing issues, weak motivations, or violations of the constitution.
-3. For Content Analysis:
-   - Read the target chapters in `stories/[novel-name]/content/`.
-   - Verify compliance with the Constitution.
-   - Verify fulfillment of the Specification and Plan.
-   - Check for internal consistency (timeline, character behavior, setting details).
-   - Evaluate against quality standards (e.g., show-don't-tell, dialogue naturalness).
-4. Provide a structured report with actionable feedback. Do NOT rewrite the text automatically unless the user asks you to fix the identified issues.
-5. Once complete, tell the user: "Return to `@writer` to apply revisions, or continue writing new chapters."
+1. Ask the user if they want:
+   - **Framework Analysis** — reviewing spec/plan/knowledge before writing starts
+   - **Content Analysis** — reviewing written chapters
+
+2. **Framework Analysis**:
+   - Read `memory/constitution.md`, `specification.md`, `creative-plan.md`.
+   - Read all files in `stories/[novel-name]/knowledge/`.
+   - Check for: plot holes, pacing issues, weak motivations, constitution violations, character depth gaps.
+
+3. **Content Analysis** — read ALL of the following before generating the report:
+   - `memory/constitution.md`
+   - `stories/[novel-name]/specification.md`
+   - `stories/[novel-name]/creative-plan.md`
+   - `stories/[novel-name]/tasks.md` (check completion percentage)
+   - All files in `stories/[novel-name]/knowledge/`
+   - All files in `stories/[novel-name]/tracking/`
+   - All chapter files in `stories/[novel-name]/content/`
+
+   Then verify:
+   - Constitution compliance
+   - Specification fulfillment
+   - Plan compliance (chapter pacing tags, chapter goals met)
+   - Tasks completion (how many checked vs unchecked)
+   - Internal consistency (per `consistency-checker` skill): timeline, character behavior, world rules
+   - Emotional depth (per `emotional-interiority` skill): internal reactions, no report-style narration
+   - Pacing quality (per `pacing-rhythm` skill): fragment overuse, pacing tag compliance
+   - Tracking accuracy: do the tracking JSONs accurately reflect the chapters written?
+   - Forgotten elements (per `forgotten-elements` skill): dropped threads, abandoned characters
+   - Knowledge gaps: are there characters/locations in chapters not documented in `knowledge/`?
+
+4. Output a structured report with sections:
+   - **Completion Status** (N of M chapters done, tasks % complete)
+   - **Issues Found** (by category, specific references to chapter and line)
+   - **Recommended Actions** (prioritized)
+   - **Quality Score** (optional: a 0–10 rating per category)
+
+5. Do NOT auto-rewrite. Present findings and wait for user direction.
+6. Tell the user: "Review complete. Proceed to Step 8 with [handoff/`@meta`] to record novel metadata, or return to `@writer` to apply revisions."

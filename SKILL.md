@@ -18,6 +18,7 @@ This skill contains the core knowledge of a proven seven-step methodology for wr
 | 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` |
 | 6 | Write | Draft chapters using the pre-write checklist | `stories/[name]/content/chapter-XX.md` |
 | 7 | Analyze | Run quality verification on framework or content | Analysis report |
+| 8 | Meta | Record novel metadata (title, author, genre, tags, status) | `stories/[name]/meta.json` |
 
 ## Project File Structure
 
@@ -25,23 +26,32 @@ A novel project using this methodology usually maintains these files:
 
 ```
 project-root/
-├── memory/
-│   ├── constitution.md          ← Step 1 output
-│   └── personal-voice.md        ← optional voice reference
 ├── stories/
 │   └── [novel-name]/
 │       ├── specification.md     ← Step 2 output
 │       ├── creative-plan.md     ← Step 4 output
-│       ├── tasks.md             ← Step 5 output
-│       ├── content/
-│       │   ├── chapter-01.md    ← Step 6 output
-│       │   └── chapter-02.md
-│       └── tracking/            ← optional JSON tracking
-│           ├── character-state.json
-│           ├── plot-tracker.json
-│           ├── relationships.json
-│           ├── timeline.json
-│           └── validation-rules.json
+│       ├── tasks.md             ← Step 5 output (checkbox checklist)
+│       ├── meta.json            ← Step 8 output
+│       ├── knowledge/           ← Created by Step 2
+│       │   ├── characters.md
+│       │   ├── character-voices.md
+│       │   ├── locations.md
+│       │   └── world-setting.md
+│       ├── tracking/            ← Created by Step 4
+│       │   ├── character-state.json
+│       │   ├── plot-tracker.json
+│       │   ├── relationships.json
+│       │   ├── timeline.json
+│       │   └── validation-rules.json
+│       └── content/
+│           ├── chapter_00001.md   ← Step 6 output
+│           └── chapter_00001.notes.md  ← optional draft deviation notes
+├── draft/                       ← optional user-provided drafts
+│   └── chapters/
+│       └── 0001.md
+├── memory/
+│   ├── constitution.md          ← Step 1 output
+│   └── personal-voice.md        ← optional voice reference
 ├── templates/                   ← bundled templates for tracking and knowledge
 └── knowledge-base/              ← genre, style, and requirement references
 ```
@@ -58,26 +68,29 @@ Establishes the creative rules all subsequent work must follow.
 ### Step 2: Specify
 Creates a story specification using progressive detail levels.
 
-**Levels**: Logline (one sentence) → Premise (paragraph: protagonist, goal, conflict, stakes) → One-Page (core conflict, characters, audience, success criteria) → Full Spec (setting, major plot points, themes). *Note: Major characters now require Wound/Ghost and Origin of Motivation.*
+**Levels**: Logline (one sentence) → Premise (paragraph: protagonist, goal, conflict, stakes) → One-Page (core conflict, characters, audience, success criteria) → Full Spec (setting, major plot points, themes). *Note: Major characters now require Wound/Ghost and Origin of Motivation. This step now also initializes `stories/[novel-name]/knowledge/` from templates.*
 
 **Markers**: `[Needs Clarification]` for vague points, `[Core Requirement]` for non-negotiables, `[Optional Feature]` for nice-to-haves.
 
 ### Step 3: Clarify
-Identifies up to 5 ambiguities in the specification and resolves them through targeted questions. Resolved markers are removed from the specification.
+Identifies up to 5 ambiguities in the specification and resolves them through targeted questions. Resolved markers are removed from the specification. *Note: Clarification now reads the `knowledge/` folder for additional context.*
 
 ### Step 4: Plan
-Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy.*
+Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy. This step initializes `stories/[novel-name]/tracking/` from templates.*
 
 ### Step 5: Tasks
-Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Includes estimated word counts or effort. *Note: Tasks are tagged with pacing type.*
+Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Includes estimated word counts or effort. *Note: Tasks are tagged with pacing type, and task output format is now a checkbox checklist.*
 
 ### Step 6: Write
-Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered.
+Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*
 
 ### Step 7: Analyze
 Two modes: **Framework Analysis** (validates planning documents before writing) and **Content Analysis** (validates written chapters against constitution, specification, plan, and internal consistency).
 
 **Run frequency**: After the first 3 chapters, then every 5 chapters, and after completing the full draft.
+
+### Step 8: Meta
+Records the novel's bibliographic metadata. Creates or updates `stories/[novel-name]/meta.json` with title, author, description, genre tags, status (ongoing/completed/hiatus), language, and publication dates.
 
 ## Companion Sub-Skills
 

@@ -1,4 +1,4 @@
-description = "Create or update your novel's creative constitution — defining non-negotiable creative principles."
+description = "Step 1: Creates or updates the novel's creative constitution using the standard template — defining core values, quality baseline, style/content principles, pacing strategy, and character depth approach."
 
 prompt = """
 # Task: Novel Constitution
@@ -11,39 +11,22 @@ User input: {{args}}
 ## Execution Steps
 
 ### 1. Check Existing Document
-Look for `memory/constitution.md`. If it exists, read it and ask whether to update it. If not, create a new one.
+Check if `memory/constitution.md` exists. If it does, read it and ask the user if they want to update it.
 
-### 2. Gather Creative Principles
-If the user hasn't provided full detail, ask targeted questions across these dimensions:
+### 2. Read Template
+If creating fresh: read `templates/memory/constitution.md` to understand the document structure (Metadata, Preface, Chapter 1: Core Values, Chapter 2: Quality Standards, Chapter 3: Creative Style, Chapter 4: Content Norms, Chapter 5: Reader Contract, Chapter 6: Revision Procedures, Appendix: Version History).
 
-**Core Values**
-- What core message or theme should the work convey?
-- What are the absolute non-negotiables?
+### 3. Gather Creative Principles
+Also gather (from the pacing-rhythm and character-depth skills as required):
+- Pacing preference (Relentless Action / Balanced 2:1 / Literary Slow-Burn / Rollercoaster / Custom)
+- Character psychology depth (Surface / Standard / Deep)
 
-**Quality Standards**
-- Requirements for logical consistency.
-- Standards for prose quality.
-- Commitments to pacing and completion.
+Ask structured questions to fill in the template. Save pacing preference under `## Chapter 7: Pacing Strategy` and character depth under `## Chapter 8: Character Depth`.
 
-**Pacing Preference**
-- Ask the user about their preferred pacing style (Relentless Action, Balanced (2:1), Literary Slow-Burn, Rollercoaster, Custom).
+### 4. Synthesize and Save
+Use the template structure and populate all placeholder sections with the user's answers.
+Save to `memory/constitution.md` (create the `memory/` directory if needed).
 
-**Character Psychology Approach**
-- Ask the user about how deep character psychology should go (Surface, Standard, Deep).
-
-**Style Principles**
-- Narrative style (concise / ornate / conversational / poetic).
-- Emotional tone (action-packed / profound / lighthearted / serious).
-
-**Content Principles**
-- Characterization rules (motivation, growth, dialogue).
-- Plot design rules (conflict, twists, foreshadowing).
-- Worldbuilding rules (detail level, internal consistency).
-
-### 3. Synthesize and Save
-Create a clear, markdown-formatted constitution and save it to `memory/constitution.md` (create the directory if needed).
-Ensure you save the pacing preference in `## Chapter 4: Pacing Strategy` and the character psychology approach in `## Chapter 5: Character Depth`.
-
-### 4. Next Step
-Tell the user to run `/novel:specify` next.
+### 5. Next Step
+Tell the user: "Your constitution is saved. Continue to Step 2 with `@specify`."
 """
