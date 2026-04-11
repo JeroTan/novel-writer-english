@@ -54,7 +54,7 @@ Look for the story in this order. Use file search to locate files if you're unsu
 2. **Opening chapters** — find chapter files (often named `chapter-01.md`, `01.md`, `ch01.md`, or sequentially numbered). Read at least the first three chapters in full.
 3. **Later chapters** — if the story has more than 10 chapters, also read the most recent one to understand how the story has evolved since the opening.
 4. **Character design sheets** — search for files with names like `{character-name}-design-sheet.md` or `{character-name}.prompt.md` anywhere in the project. Read the protagonist's first, then 1–2 key secondary characters.
-5. **Prior cover art or illustration prompts** — do a file search for any markdown files with words like `cover`, `illustration`, `prompt`, or `art` in their filename. If found, read them for **visual consistency only** (matching an established style or palette the project has already committed to). Do not treat them as a quality calibration bar — the quality bar is defined in this skill's Reference section.
+5. **Prior cover art or illustration prompts** — search specifically in `stories/[novel-name]/assets/**` for any markdown files with words like `cover`, `illustration`, `prompt`, or `art` in their filename. If found, read them for **visual consistency only** (matching an established style or palette the project has already committed to). Do not treat them as a quality calibration bar — the quality bar is defined in this skill's Reference section.
 
 If you cannot find story files, ask the user where their story content lives before continuing.
 
@@ -170,11 +170,12 @@ Include:
 
 ## Phase 3 — Output: Save as cover_art_prompt.md
 
-The final output is a **file**, not just a chat response. Before writing anything, ask the user one question:
+The final output is a **file**, not just a chat response. By default, save the file to `stories/[novel-name]/assets/cover_art_prompt.md`.
 
-> "Where should I save `cover_art_prompt.md`? For example: `assets/` or a custom path."
+Before writing, inform the user of the intended path:
+> "I'll save `cover_art_prompt.md` to `stories/[novel-name]/assets/`. Let me know if you'd like it stored elsewhere."
 
-Wait for their answer. If they say something vague like "same place as before" or "the assets folder", resolve the actual path from the project structure before proceeding. Then create (or overwrite) the file at that path using the structure below.
+Unless the user explicitly provides a different path, proceed with the default `stories/[novel-name]/assets/` location. Resolve the `[novel-name]` from the project's directory structure (e.g., the folder name within `stories/`). Then create (or overwrite) the file at that path using the structure below.
 
 Do not display the full prompt twice — write the file, then show the user a short confirmation with the file path and a brief summary of which cover concept was chosen and why.
 
