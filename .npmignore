@@ -1,0 +1,25 @@
+# Development files
+.old/
+node_modules/
+.git/
+.gitignore
+
+# Documentation (keep README.md, LICENSE)
+CHANGELOG.md
+ATTRIBUTION.md
+metadata.json
+prompt.md
+SKILL.md
+update_agents.py
+version_history.md
+
+# Config files (not needed in package)
+.eslintrc*
+.prettierrc*
+tsconfig.json
+
+# Test files
+*.test.js
+*.spec.js
+test-*.js
+test-*.toml

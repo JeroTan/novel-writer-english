@@ -1,0 +1,44 @@
+{
+  "name": "novel-writer-english",
+  "version": "1.0.6",
+  "description": "AI-assisted novel writing workflow for Claude Code, Gemini CLI, OpenCode, and Codex CLI",
+  "type": "module",
+  "main": "bin/install.js",
+  "bin": {
+    "novel-writer-english": "bin/install.js"
+  },
+  "scripts": {
+    "start": "node bin/install.js"
+  },
+  "keywords": [
+    "novel",
+    "writing",
+    "ai",
+    "claude",
+    "gemini",
+    "opencode",
+    "codex",
+    "agent",
+    "skills",
+    "workflow"
+  ],
+  "author": "JeroTan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeroTan/novel-writer-english.git"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.0.0",
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
