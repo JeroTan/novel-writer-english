@@ -1,16 +1,29 @@
-# Novel Writer English — AI-Powered Novel Writing System
+# Novel Writer English — Open-Source AI Novel Writing Assistant
 
-> Free, open-source, seven-step methodology for writing novels with any AI assistant.
-> English translation and re-architecture of [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) by [wordflowlab](https://github.com/wordflowlab).
+> A free, open-source AI novel writing system that helps authors plan, draft, review, and complete novels using a structured seven-step workflow.
+>
+> Works with **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, ChatGPT, and any AI chat assistant.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![npm version](https://img.shields.io/npm/v/novel-writer-english.svg)](https://www.npmjs.com/package/novel-writer-english)
 
-## What is this?
+## What is Novel Writer English?
 
-Novel Writer English transforms standard AI chat interfaces into a structured, step-by-step novel writing assistant. Rather than generating a novel in one go, it guides you through a proven seven-step workflow — from establishing core principles to executing chapters with a built-in pre-write checklist that prevents AI context degradation.
+Novel Writer English is an AI-powered novel writing assistant for authors who want more structure than a single prompt can provide. Instead of asking AI to generate an entire book at once, it guides you through a complete fiction-writing workflow: creative principles, story specification, clarification, chapter planning, task management, drafting, and review.
 
-Completely free, open-source, and platform-agnostic. Works with **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, or any AI chat via copy-paste.
+This project is designed for writers using AI tools such as **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, ChatGPT, or any copy-paste AI assistant. It helps maintain story consistency, character depth, pacing, worldbuilding, and prose quality across long-form fiction projects.
+
+Novel Writer English is completely free, open-source, platform-agnostic, and based on a seven-step methodology adapted from the original [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) project by [wordflowlab](https://github.com/wordflowlab).
+
+## Key Features
+
+- **Seven-step AI novel writing workflow** from concept to completed manuscript
+- **AI-assisted chapter drafting** with a 12-item pre-write checklist
+- **Built-in reviewer workflow** for consistency, pacing, prose quality, and constitution compliance
+- **Character, plot, timeline, and relationship tracking**
+- **Genre-specific writing knowledge** for fantasy, horror, mystery, romance, sci-fi, and thriller
+- **Works with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, and any AI chat tool**
+- **Free, open-source, and platform-agnostic**
 
 ## Quick Install
 
@@ -22,7 +35,7 @@ npx novel-writer-english
 
 The interactive installer will ask which AI tools you use and set up commands, skills, and templates automatically.
 
-## The Workflow
+## AI Novel Writing Workflow
 
 ```mermaid
 flowchart TD
@@ -69,53 +82,53 @@ flowchart TD
     style DONE fill:#22c55e,color:#fff
 ```
 
-### Step-by-Step
+### Step-by-Step Workflow
 
 | # | Command | Purpose |
 |---|---------|---------|
 | 0 | `/guide-me` | **Main orchestrator** — start here. Detects your project state and guides you through every step. |
 | 1 | `/constitution` | Define core creative principles, pacing strategy, and character depth approach. |
-| 2 | `/specify` | Build the story specification (logline → premise → one-page → full spec). |
+| 2 | `/specify` | Build the story specification from logline to full spec. |
 | 3 | `/clarify` | Resolve ambiguities in the spec with targeted questions. |
 | 4 | `/planner` | Create chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | 5 | `/task-manager` | Break the plan into prioritized, dependency-tracked writing tasks. |
 | 6 | `/writer` | Write chapters with a 12-item pre-write checklist to maintain consistency. |
-| 7 | `/reviewer` | Quality analysis — checks consistency, constitution compliance, and prose quality. |
+| 7 | `/reviewer` | Analyze quality, consistency, constitution compliance, and prose strength. |
 
-The writing cycle (steps 6–7) repeats for each chapter. You can loop back to `/planner` or `/task-manager` at any time to add new chapters or restructure.
+The writing cycle, steps 6–7, repeats for each chapter. You can loop back to `/planner` or `/task-manager` at any time to add new chapters or restructure your novel.
 
-## All Commands
+## All AI Novel Writing Commands
 
 ### Core Workflow
 
 | Command | Description |
 |---------|-------------|
-| `/guide-me` | Main orchestrator. Walks you through the seven-step methodology from concept to completed manuscript. |
-| `/constitution` | Step 1 — Creates or updates the creative constitution (core values, quality baseline, style principles, pacing, character depth). |
-| `/specify` | Step 2 — Builds the story specification using a progressive 4-level approach. |
-| `/clarify` | Step 3 — Reviews the spec, identifies up to 5 ambiguities, and asks targeted questions. |
+| `/guide-me` | Main orchestrator. Walks you through the seven-step AI novel writing methodology from concept to completed manuscript. |
+| `/constitution` | Step 1 — Creates or updates the creative constitution, including core values, quality baseline, style principles, pacing, and character depth. |
+| `/specify` | Step 2 — Builds the story specification using a progressive four-level approach. |
+| `/clarify` | Step 3 — Reviews the spec, identifies up to five ambiguities, and asks targeted questions. |
 | `/planner` | Step 4 — Creates chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | `/task-manager` | Step 5 — Breaks the creative plan into prioritized, dependency-tracked writing tasks. |
-| `/writer` | Step 6 — AI-assisted writing with Write Mode, Draft Detection, and 12-item pre-write checklist. |
-| `/reviewer` | Step 7 — Quality analysis for framework or content consistency and constitution compliance. |
+| `/writer` | Step 6 — Provides AI-assisted writing with Write Mode, Draft Detection, and a 12-item pre-write checklist. |
+| `/reviewer` | Step 7 — Performs quality analysis for framework consistency, content consistency, and constitution compliance. |
 
 ### Utilities
 
 | Command | Description |
 |---------|-------------|
-| `/meta` | Records novel metadata (title, author, genre, tags, status, publication dates) to `meta.json`. |
-| `/checklist` | Run a quality checklist against the current context or chapter. |
-| `/expert` | Activate expert mode for deep, specialized analysis (editor, sensitivity reader, logic checker, etc.). |
-| `/track-init` | Initialize the JSON tracking system for a new novel. |
-| `/track` | Update or query the comprehensive tracking system. |
-| `/timeline` | Manage the story timeline and verify chronological consistency. |
-| `/relations` | Manage and analyze character relationships. |
-| `/authenticity-audit` | Audit text for AI-generated stylistic patterns and clichés. |
-| `/authentic-voice` | Rewrite a passage to remove AI clichés and enforce authentic human voice. |
+| `/meta` | Records novel metadata, including title, author, genre, tags, status, and publication dates, to `meta.json`. |
+| `/checklist` | Runs a quality checklist against the current context or chapter. |
+| `/expert` | Activates expert mode for deep, specialized analysis, such as editor, sensitivity reader, or logic checker. |
+| `/track-init` | Initializes the JSON tracking system for a new novel. |
+| `/track` | Updates or queries the comprehensive tracking system. |
+| `/timeline` | Manages the story timeline and verifies chronological consistency. |
+| `/relations` | Manages and analyzes character relationships. |
+| `/authenticity-audit` | Audits text for AI-generated stylistic patterns and clichés. |
+| `/authentic-voice` | Rewrites a passage to remove AI clichés and enforce authentic human voice. |
 
-## Skills (Auto-Activating)
+## Auto-Activating AI Writing Skills
 
-Skills are passive knowledge files that the AI loads automatically when your prompt matches their domain. No manual invocation needed.
+Skills are passive knowledge files that the AI loads automatically when your prompt matches their domain. No manual invocation is needed.
 
 ### Writing Techniques
 
@@ -125,7 +138,7 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | `dialogue-techniques` | Makes dialogue subtext-heavy, distinctive, and character-driven. |
 | `emotional-interiority` | Ensures internal reactions, sensory-emotional responses, and prevents report-style narration. |
 | `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
-| `scene-structure` | Ensures scenes follow strong structural principles (Goal, Conflict, Disaster, Reaction, Dilemma, Decision). |
+| `scene-structure` | Ensures scenes follow strong structural principles: Goal, Conflict, Disaster, Reaction, Dilemma, and Decision. |
 
 ### Quality Assurance
 
@@ -135,7 +148,7 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | `forgotten-elements` | Identifies dropped plot threads and forgotten characters or items. |
 | `getting-started` | Helps overcome blank page syndrome by generating prompts and initial hooks. |
 | `pre-write-checklist` | Ensures the AI loads constitution, specification, plan, and context before drafting a chapter. |
-| `requirement-detector` | Detects and enforces specific plot or content requirements (fast-paced, high emotion, etc.). |
+| `requirement-detector` | Detects and enforces specific plot or content requirements, such as fast-paced or high-emotion scenes. |
 | `setting-detector` | Detects the genre setting and loads the appropriate knowledge base. |
 | `workflow-guide` | Orchestrates the seven-step methodology and coordinates sub-skills. |
 
@@ -144,66 +157,66 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | Skill | Description |
 |-------|-------------|
 | `genre-knowledge/fantasy` | Fantasy tropes, magic systems, worldbuilding, and narrative structures. |
-| `genre-knowledge/horror` | Building dread, atmosphere, and psychological tension. |
-| `genre-knowledge/mystery` | Mystery plotting, clue dropping, red herrings, and tension escalation. |
-| `genre-knowledge/romance` | Romance arcs, emotional intimacy, tension, and standard tropes. |
-| `genre-knowledge/scifi` | Science fiction worldbuilding, technology, and speculative themes. |
-| `genre-knowledge/thriller` | High-stakes pacing, suspense, ticking clocks, and tension. |
+| `genre-knowledge/horror` | Dread, atmosphere, psychological tension, fear escalation, and horror pacing. |
+| `genre-knowledge/mystery` | Mystery plotting, clue dropping, red herrings, reveal timing, and tension escalation. |
+| `genre-knowledge/romance` | Romance arcs, emotional intimacy, romantic tension, and genre-standard tropes. |
+| `genre-knowledge/scifi` | Science fiction worldbuilding, technology, speculative themes, and future societies. |
+| `genre-knowledge/thriller` | High-stakes pacing, suspense, ticking clocks, escalation, and tension. |
 
-### Specialized
+### Specialized Skills
 
 | Skill | Description |
 |-------|-------------|
-| `novel-cover-art-creation` | Crafts detailed AI image generation prompts for novel cover art (ChatGPT Image, Midjourney, DALL-E, etc.). |
+| `novel-cover-art-creation` | Crafts detailed AI image generation prompts for novel cover art using ChatGPT Image, Midjourney, DALL-E, or similar tools. |
 | `chapter-illustration-prompter` | Generates chapter illustration prompt files with scene-specific prompts and technical notes. |
-| `novel-uploader-guidelines-r2` | Guidelines for formatting novel content for Cloudflare R2 upload and web novel viewer apps. |
+| `novel-uploader-guidelines-r2` | Provides guidelines for formatting novel content for Cloudflare R2 upload and web novel viewer apps. |
 
-## Knowledge & Tracking Files
+## Knowledge and Tracking Files
 
 These files are created automatically from templates during the workflow and updated as you write.
 
-### Memory (`memory/`)
+### Memory Files
 
 | File | Purpose |
 |------|---------|
-| `constitution.md` | Your creative principles, non-negotiables, and quality baseline. |
-| `personal-voice.md` | Your unique writing voice preferences and stylistic patterns. |
+| `memory/constitution.md` | Stores your creative principles, non-negotiables, and quality baseline. |
+| `memory/personal-voice.md` | Stores your unique writing voice preferences and stylistic patterns. |
 
-### Knowledge (`knowledge/`)
-
-| File | Purpose |
-|------|---------|
-| `character-profiles.md` | Detailed character profiles with psychological depth. |
-| `character-voices.md` | Distinctive speech patterns, vocabulary, and mannerisms per character. |
-| `locations.md` | Setting descriptions, sensory details, and spatial relationships. |
-| `world-setting.md` | Worldbuilding rules, magic systems, technology, and cultural details. |
-
-### Tracking (`tracking/`)
+### Knowledge Files
 
 | File | Purpose |
 |------|---------|
-| `character-state.json` | Tracks character arcs, emotional states, and physical conditions per chapter. |
-| `plot-tracker.json` | Tracks plot threads, subplots, and their resolution status. |
-| `relationships.json` | Character relationship dynamics and how they evolve. |
-| `timeline.json` | Chronological event timeline for consistency checking. |
-| `validation-rules.json` | Custom validation rules derived from your constitution. |
+| `knowledge/character-profiles.md` | Stores detailed character profiles with psychological depth. |
+| `knowledge/character-voices.md` | Tracks distinctive speech patterns, vocabulary, and mannerisms per character. |
+| `knowledge/locations.md` | Stores setting descriptions, sensory details, and spatial relationships. |
+| `knowledge/world-setting.md` | Tracks worldbuilding rules, magic systems, technology, and cultural details. |
+
+### Tracking Files
+
+| File | Purpose |
+|------|---------|
+| `tracking/character-state.json` | Tracks character arcs, emotional states, and physical conditions per chapter. |
+| `tracking/plot-tracker.json` | Tracks plot threads, subplots, and resolution status. |
+| `tracking/relationships.json` | Tracks character relationship dynamics and how they evolve. |
+| `tracking/timeline.json` | Tracks chronological story events for consistency checking. |
+| `tracking/validation-rules.json` | Stores custom validation rules derived from your constitution. |
 
 ## Project File Structure
 
 After running `npx novel-writer-english` and starting your workflow, your project root looks like this:
 
-```
+```text
 my-novel/
-├── .claude/                    # Claude Code commands & skills (if selected)
+├── .claude/                    # Claude Code commands and skills, if selected
 │   ├── commands/
 │   └── skills/
-├── .gemini/                    # Gemini CLI commands & skills (if selected)
+├── .gemini/                    # Gemini CLI commands and skills, if selected
 │   ├── commands/novel/
 │   └── skills/
-├── .opencode/                  # OpenCode commands & skills (if selected)
+├── .opencode/                  # OpenCode commands and skills, if selected
 │   ├── commands/novel/
 │   └── skills/
-├── .agents/                    # Codex CLI skills (if selected)
+├── .agents/                    # Codex CLI skills, if selected
 │   └── skills/
 ├── memory/                     # Created by /constitution
 │   ├── constitution.md
@@ -231,21 +244,49 @@ my-novel/
 └── meta.json                   # Created by /meta
 ```
 
-> **Note:** You only need to create the project folder and run the installer. Everything else (`memory/`, `knowledge/`, `tracking/`, `stories/`, all `.md` and `.json` files) is **generated automatically** by the commands as you work through the seven steps.
+> **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `knowledge/`, `tracking/`, `stories/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the seven-step workflow.
 
-## Platform Support
+## Supported AI Writing Platforms
 
 | Platform | Commands | Skills | Installer Target |
 |----------|----------|--------|-----------------|
 | **Claude Code** | `.claude/commands/*.md` | `.claude/skills/` | `./claude/` |
 | **Gemini CLI** | `.gemini/commands/novel/*.toml` | `.gemini/skills/` | `./gemini/` |
 | **OpenCode** | `.opencode/commands/novel/*.md` | `.opencode/skills/` | `./opencode/` |
-| **Codex CLI** | — (skills only) | `.agents/skills/` | `./agents/` |
-| **Any AI** | Copy-paste from `src/commands/` | — | Manual |
+| **Codex CLI** | — skills only | `.agents/skills/` | `./agents/` |
+| **Any AI Assistant** | Copy-paste from `src/commands/` | — | Manual |
+
+## Who Is This For?
+
+Novel Writer English is built for fiction writers, indie authors, web novel creators, and AI-assisted writing workflows. It is especially useful if you want to:
+
+- Plan a novel before drafting
+- Keep characters, plot threads, and timelines consistent
+- Use AI without losing control of your creative direction
+- Write long-form fiction with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, or another AI assistant
+- Build repeatable workflows for novels, series, or web fiction projects
+
+## Use Cases
+
+Novel Writer English can help with:
+
+- AI-assisted novel planning
+- Chapter-by-chapter fiction drafting
+- Long-form story consistency tracking
+- Character arc management
+- Worldbuilding organization
+- Web novel production workflows
+- AI-assisted editing and review
+- Genre-aware fiction writing
+- Maintaining author voice while using AI
+
+## SEO Keywords
+
+AI novel writing assistant, open-source novel writing tool, AI fiction writing workflow, Claude Code novel writing, Gemini CLI writing assistant, OpenCode writing workflow, Codex CLI writing assistant, AI story planner, AI chapter writer, novel planning tool, fiction writing system, AI-assisted writing, web novel writing tool, long-form fiction AI workflow.
 
 ## Attribution
 
-This project is a translation and re-architecture of the original work by [wordflowlab](https://github.com/wordflowlab/novel-writer-skills). The original repository provided the foundational methodology, skill architecture, and command templates that this project builds upon.
+This project is a translation and re-architecture of the original work by [wordflowlab](https://github.com/wordflowlab). The original [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) repository provided the foundational methodology, skill architecture, and command templates that this project builds upon.
 
 ## License
 
