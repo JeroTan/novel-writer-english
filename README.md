@@ -1,306 +1,252 @@
 # Novel Writer English — AI-Powered Novel Writing System
 
 > Free, open-source, seven-step methodology for writing novels with any AI assistant.
-> English translation and re-architecture of [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) by wordflowlab.
+> English translation and re-architecture of [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) by [wordflowlab](https://github.com/wordflowlab).
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/novel-writer-english.svg)](https://www.npmjs.com/package/novel-writer-english)
 
 ## What is this?
-Novel Writer English is a comprehensive, modular AI-powered novel writing system. It transforms standard AI chat interfaces into a structured, step-by-step novel writing assistant. Rather than generating a novel in one go, it guides you through a proven seven-step workflow—from establishing core principles to executing chapters with a built-in pre-write checklist to avoid AI context degradation.
 
-It's completely free, open-source, and platform-agnostic, designed to work smoothly with any popular AI coding tool or generic chat AI.
+Novel Writer English transforms standard AI chat interfaces into a structured, step-by-step novel writing assistant. Rather than generating a novel in one go, it guides you through a proven seven-step workflow — from establishing core principles to executing chapters with a built-in pre-write checklist that prevents AI context degradation.
 
-## Features
-- **Eight-Step Methodology:** A structured approach moving from creative principles to chapter execution and metadata generation.
-- **Pre-Write Checklist System:** Automatically gathers necessary story context before drafting to maintain consistency over long word counts. Includes draft detection and special tags.
-- **Automatic knowledge scaffolding:** per-novel knowledge files created from templates at Step 2.
-- **Live tracking system:** tracking JSON files initialized at Step 4 and updated after each chapter.
-- **Novel metadata:** `meta.json` records bibliographic info for publishing or cataloguing.
-- **Auto-Detection Architecture:** Built-in genre, style, and requirement detectors to tailor the AI's output.
-- **Platform Agnostic:** Usable via IDE agents (VS Code, Cursor, Windsurf) or copy-pasting command prompts for ChatGPT/Gemini/Claude web interfaces.
-- **Rich Knowledge Base:** Extensive guidelines covering diverse genres (Sci-Fi, Thriller, Romance, Fantasy, etc.) and writing styles.
-- **Modular Skills:** Install only the components you need for your project.
+Completely free, open-source, and platform-agnostic. Works with **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, or any AI chat via copy-paste.
 
-## Quick Start
+## Quick Install
 
-### Option A: Install as a Skill (VS Code / Cursor / Windsurf)
-
-Skills are passive knowledge that the AI loads **automatically** when your prompt matches. No manual invocation needed — just install and chat naturally.
+Run this in your novel project root:
 
 ```bash
-npx skills add JeroTan/novel-writer-english
+npx novel-writer-english
 ```
 
-That's it. Now open your AI chat in Agent mode and try:
+The interactive installer will ask which AI tools you use and set up commands, skills, and templates automatically.
 
-```
-"I want to write a fantasy novel about a thief who accidentally steals a god's power."
-```
+## The Workflow
 
-The AI detects you're starting a novel project, loads the workflow guide skill, and walks you through the seven-step methodology. Genre knowledge (fantasy), writing style, and quality assurance skills activate automatically as needed.
+```mermaid
+flowchart TD
+    subgraph GUIDE["/guide-me — Main Orchestrator"]
+        direction LR
+        GLEFT[" "] ~~~ GTEXT["Detects project state, guides you through every step"] ~~~ GRIGHT[" "]
+    end
 
-**More examples of prompts that trigger the skills:**
+    B["/constitution"] --> C["/specify"]
+    C --> D["/clarify"]
+    D --> E["/planner"]
+    E --> F["/task-manager"]
+    F --> WC
 
-```
-"Help me revise the plot of chapter 12 — the pacing feels off."
-"Check my manuscript for consistency issues across all chapters."
-"I'm stuck on how my two leads should meet. Give me three options."
-"Write chapter 5 following my specification and creative plan."
-```
+    subgraph WC["Writing Cycle"]
+        direction TB
+        W1["/writer"] --> W2["/writer"]
+        W2 --> R1{"/reviewer"}
+        R1 -->|"revise"| W2
+        R1 -->|"approved"| W3["/writer"]
+        W3 --> R2{"/reviewer"}
+        R2 -->|"revise"| W3
+    end
 
-### Option B: Use Custom Agents (VS Code / Cursor / Windsurf)
+    R2 -->|"approved"| DONE(("🎉 Done!"))
 
-Agents are **active workflow controllers** — you select one by name, and it guides you through structured steps with handoff buttons between each phase. They work alongside skills (skills still auto-load in the background).
+    WC -.->|"add new chapters?"| E
 
-**Setup (VS Code / Cursor / Windsurf):**
+    GUIDE ~~~ B
 
-1. Create your novel project folder and set up the structure:
-   ```
-   my-novel/                          ← your project root (open this in VS Code)
-   ├── .github/
-   │   └── agents/                    ← paste the 8 agent files here
-   │       ├── novel-writer.agent.md
-   │       ├── constitution.agent.md
-   │       ├── specify.agent.md
-   │       ├── clarify.agent.md
-   │       ├── planner.agent.md
-   │       ├── task-manager.agent.md
-   │       ├── writer.agent.md
-   │       └── reviewer.agent.md
-   ├── memory/                        ← created by @constitution agent
-   │   ├── constitution.md
-   │   └── personal-voice.md
-   └── stories/                       ← created by @specify agent
-       └── [your-novel-name]/
-           ├── specification.md
-           ├── creative-plan.md
-           ├── tasks.md
-           └── content/
-               ├── chapter-01.md
-               └── chapter-02.md
-   ```
-   > **Note:** You only need to create `my-novel/` and paste in the `.github/agents/` files manually. Everything else (`memory/`, `stories/`, all the `.md` files) is **generated automatically** by the agents as you work through the seven steps.
+    linkStyle 8 stroke:transparent,fill:none
 
-2. Install the skills for enhanced AI knowledge (strongly recommended):
-   ```bash
-   npx skills add JeroTan/novel-writer-english
-   ```
+    style GUIDE fill:#4f46e5,color:#fff,stroke-width:2px
+    style GLEFT fill:#4f46e5,stroke:#4f46e5,color:#4f46e5
+    style GRIGHT fill:#4f46e5,stroke:#4f46e5,color:#4f46e5
+    style GTEXT fill:#4f46e5,stroke:#4f46e5,color:#fff
 
-3. Open `my-novel/` as a workspace in VS Code, then open the AI chat panel and select **`@novel-writer`** from the agent dropdown.
-
-**Setup (Gemini CLI):**
-
-Gemini CLI uses a different agent format and path. Pre-built compatible agents are included in the `.gemini/agents/` folder of this repo.
-
-1. Copy the `.gemini/agents/` folder into your novel project:
-   ```
-   my-novel/
-   └── .gemini/
-       └── agents/              ← copy these 8 files from this repo
-           ├── novel-writer.md
-           ├── constitution.md
-           ├── specify.md
-           ├── clarify.md
-           ├── planner.md
-           ├── task-manager.md
-           ├── writer.md
-           └── reviewer.md
-   ```
-
-2. Install the skills:
-   ```bash
-   gemini skills install https://github.com/JeroTan/novel-writer-english.git
-   ```
-
-3. Open your novel project folder, start Gemini CLI, and type `@novel-writer` to begin.
-
-3. The orchestrator agent will:
-   - Check if novel-writing skills are installed (and recommend `npx skills add` if not)
-   - Detect your project's current state (which steps are already done)
-   - Present **handoff buttons** for each of the seven steps
-
-**Example workflow session:**
-
-```
-You:      "I want to start a new novel."
-@novel-writer: "Great! I see you don't have a creative constitution yet.
-               Let's start with Step 1. Click below to begin:"
-               [Step 1: Constitution]  [Step 2: Specify]  [Step 3: Clarify] ...
-
-You:      (clicks "Step 1: Constitution")
-@constitution: "Let's define your creative principles. First question:
-                What is the core theme or message you want your story to convey?"
-
-You:      "The cost of ambition — how far is too far?"
-@constitution: "Good. Next: What are your absolute non-negotiables for this story?"
-...
-@constitution: "Your constitution is saved to memory/constitution.md.
-                Ready for the next step?"
-               [Step 2: Specify]
+    style B fill:#6366f1,color:#fff
+    style C fill:#6366f1,color:#fff
+    style D fill:#6366f1,color:#fff
+    style E fill:#6366f1,color:#fff
+    style F fill:#6366f1,color:#fff
+    style WC fill:#1e1b4b,color:#fff,stroke:#818cf8
+    style DONE fill:#22c55e,color:#fff
 ```
 
-Each agent hands off to the next when its step is complete. The writer agent enforces the **12-item pre-write checklist** before every chapter to prevent AI context degradation.
+### Step-by-Step
 
-### Option C: Use with Any AI Tool (ChatGPT, Gemini, Claude, etc.)
+| # | Command | Purpose |
+|---|---------|---------|
+| 0 | `/guide-me` | **Main orchestrator** — start here. Detects your project state and guides you through every step. |
+| 1 | `/constitution` | Define core creative principles, pacing strategy, and character depth approach. |
+| 2 | `/specify` | Build the story specification (logline → premise → one-page → full spec). |
+| 3 | `/clarify` | Resolve ambiguities in the spec with targeted questions. |
+| 4 | `/planner` | Create chapter structure, pacing, foreshadowing plan, and character arc mapping. |
+| 5 | `/task-manager` | Break the plan into prioritized, dependency-tracked writing tasks. |
+| 6 | `/writer` | Write chapters with a 12-item pre-write checklist to maintain consistency. |
+| 7 | `/reviewer` | Quality analysis — checks consistency, constitution compliance, and prose quality. |
 
-No IDE required. The `commands/` folder contains platform-agnostic prompt templates you can copy-paste into any AI chat.
+The writing cycle (steps 6–7) repeats for each chapter. You can loop back to `/planner` or `/task-manager` at any time to add new chapters or restructure.
 
-1. Open the command file for the step you need (e.g., [`commands/write.md`](commands/write.md))
-2. Copy the full content
-3. Paste it into ChatGPT, Gemini, Claude, or any AI
-4. The AI follows the structured instructions
+## All Commands
 
-**Example — using the write command in ChatGPT:**
+### Core Workflow
 
-```
-1. Open commands/write.md
-2. Paste the content into ChatGPT
-3. ChatGPT responds: "Before writing, let me run through the pre-write checklist.
-   Please share your constitution, story specification, and creative plan."
-4. You paste your files
-5. ChatGPT writes the chapter following all your specifications
-```
-
-> **Tip:** For long novels, upload your `memory/`, `tracking/`, and `stories/` files at the start of each session so the AI has full context.
-
-### Option C (Gemini CLI): Use Native `/novel:*` Commands
-
-Gemini CLI supports project-level custom commands in TOML format, invoked with a `/` prefix. Pre-built Gemini CLI commands are included in `.gemini/commands/novel/`.
-
-**Setup:**
-1. Copy the `.gemini/commands/` folder into your novel project root.
-2. In Gemini CLI, run `/commands reload` to pick up the new commands.
-
-**Available commands:**
-
-| Command | What it does |
+| Command | Description |
 |---------|-------------|
-| `/novel:constitution` | Step 1 — create or update your creative constitution |
-| `/novel:specify` | Step 2 — build the story specification |
-| `/novel:clarify` | Step 3 — resolve ambiguities in the spec |
-| `/novel:plan` | Step 4 — create chapter structure and creative plan |
-| `/novel:tasks` | Step 5 — break the plan into tracked writing tasks |
-| `/novel:write` | Step 6 — write a chapter with the pre-write checklist |
-| `/novel:analyze` | Step 7 — quality analysis of framework or chapters |
-| `/novel:checklist` | Run a pre/post-write quality checklist |
-| `/novel:expert` | Activate a specialized expert persona |
-| `/novel:track-init` | Initialize JSON consistency tracking for a new novel |
-| `/novel:track` | Update or query the tracking state |
-| `/novel:timeline` | Manage the story's chronological timeline |
-| `/novel:relations` | Manage and analyze character relationships |
-| `/novel:authenticity-audit` | Flag AI-generated patterns in text |
-| `/novel:authentic-voice` | Rewrite a passage to remove AI clichés |
+| `/guide-me` | Main orchestrator. Walks you through the seven-step methodology from concept to completed manuscript. |
+| `/constitution` | Step 1 — Creates or updates the creative constitution (core values, quality baseline, style principles, pacing, character depth). |
+| `/specify` | Step 2 — Builds the story specification using a progressive 4-level approach. |
+| `/clarify` | Step 3 — Reviews the spec, identifies up to 5 ambiguities, and asks targeted questions. |
+| `/planner` | Step 4 — Creates chapter structure, pacing, foreshadowing plan, and character arc mapping. |
+| `/task-manager` | Step 5 — Breaks the creative plan into prioritized, dependency-tracked writing tasks. |
+| `/writer` | Step 6 — AI-assisted writing with Write Mode, Draft Detection, and 12-item pre-write checklist. |
+| `/reviewer` | Step 7 — Quality analysis for framework or content consistency and constitution compliance. |
 
-**Example:**
-```
-/novel:write Chapter 3 — the confrontation between Mara and the High Council
-```
+### Utilities
 
-### Skills vs Agents vs Commands — Which Should I Use?
+| Command | Description |
+|---------|-------------|
+| `/meta` | Records novel metadata (title, author, genre, tags, status, publication dates) to `meta.json`. |
+| `/checklist` | Run a quality checklist against the current context or chapter. |
+| `/expert` | Activate expert mode for deep, specialized analysis (editor, sensitivity reader, logic checker, etc.). |
+| `/track-init` | Initialize the JSON tracking system for a new novel. |
+| `/track` | Update or query the comprehensive tracking system. |
+| `/timeline` | Manage the story timeline and verify chronological consistency. |
+| `/relations` | Manage and analyze character relationships. |
+| `/authenticity-audit` | Audit text for AI-generated stylistic patterns and clichés. |
+| `/authentic-voice` | Rewrite a passage to remove AI clichés and enforce authentic human voice. |
 
-| Method | Best for | How it works |
-|--------|----------|--------------|
-| **Skills** (`npx skills add`) | Quick help, natural chat | Auto-activates — just ask naturally |
-| **Agents** (`.agent.md`) | Full guided workflow — VS Code / Cursor / Windsurf | Select `@novel-writer`, follow handoff steps |
-| **Agents** (`.gemini/agents/`) | Full guided workflow — Gemini CLI | Type `@novel-writer`, follow `@agent-name` prompts || **Commands** (`.gemini/commands/`) | Quick step execution — Gemini CLI | Run `/novel:write`, `/novel:plan`, etc. || **Commands** (copy-paste) | ChatGPT / Gemini / any AI | Copy from `commands/`, paste into chat |
+## Skills (Auto-Activating)
 
-All three methods use the same methodology. Skills are the lightweight always-on layer. Agents add structured workflow on top. Commands are the portable version for any platform.
+Skills are passive knowledge files that the AI loads automatically when your prompt matches their domain. No manual invocation needed.
 
-## The Eight-Step Methodology
-1. **Constitution:** Define your core creative principles and non-negotiables. Captures pacing preference and character depth level.
-2. **Specify:** Build a comprehensive story specification (logline -> premise -> one-page -> full spec).
-3. **Clarify:** The AI reviews your spec and asks targeted questions to resolve ambiguities.
-4. **Plan:** Create the chapter structure, pacing, and character arc mapping.
-5. **Tasks:** Break the plan down into actionable, tracked writing tasks.
-6. **Write:** Execute the chapters using the 12-item pre-write checklist.
-7. **Analyze:** Run periodic quality assurance checks on the written content.
-8. **Meta:** Record novel metadata (title, author, genre, tags, status) to meta.json.
+### Writing Techniques
 
-## Project Structure
-A standard novel project using this system looks like this:
+| Skill | Description |
+|-------|-------------|
+| `character-depth` | Ensures deep psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms, and vulnerability triggers. |
+| `dialogue-techniques` | Makes dialogue subtext-heavy, distinctive, and character-driven. |
+| `emotional-interiority` | Ensures internal reactions, sensory-emotional responses, and prevents report-style narration. |
+| `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
+| `scene-structure` | Ensures scenes follow strong structural principles (Goal, Conflict, Disaster, Reaction, Dilemma, Decision). |
+
+### Quality Assurance
+
+| Skill | Description |
+|-------|-------------|
+| `consistency-checker` | Checks for plot holes, character inconsistencies, timeline errors, and constitution violations. |
+| `forgotten-elements` | Identifies dropped plot threads and forgotten characters or items. |
+| `getting-started` | Helps overcome blank page syndrome by generating prompts and initial hooks. |
+| `pre-write-checklist` | Ensures the AI loads constitution, specification, plan, and context before drafting a chapter. |
+| `requirement-detector` | Detects and enforces specific plot or content requirements (fast-paced, high emotion, etc.). |
+| `setting-detector` | Detects the genre setting and loads the appropriate knowledge base. |
+| `workflow-guide` | Orchestrates the seven-step methodology and coordinates sub-skills. |
+
+### Genre Knowledge
+
+| Skill | Description |
+|-------|-------------|
+| `genre-knowledge/fantasy` | Fantasy tropes, magic systems, worldbuilding, and narrative structures. |
+| `genre-knowledge/horror` | Building dread, atmosphere, and psychological tension. |
+| `genre-knowledge/mystery` | Mystery plotting, clue dropping, red herrings, and tension escalation. |
+| `genre-knowledge/romance` | Romance arcs, emotional intimacy, tension, and standard tropes. |
+| `genre-knowledge/scifi` | Science fiction worldbuilding, technology, and speculative themes. |
+| `genre-knowledge/thriller` | High-stakes pacing, suspense, ticking clocks, and tension. |
+
+### Specialized
+
+| Skill | Description |
+|-------|-------------|
+| `novel-cover-art-creation` | Crafts detailed AI image generation prompts for novel cover art (ChatGPT Image, Midjourney, DALL-E, etc.). |
+| `chapter-illustration-prompter` | Generates chapter illustration prompt files with scene-specific prompts and technical notes. |
+| `novel-uploader-guidelines-r2` | Guidelines for formatting novel content for Cloudflare R2 upload and web novel viewer apps. |
+
+## Knowledge & Tracking Files
+
+These files are created automatically from templates during the workflow and updated as you write.
+
+### Memory (`memory/`)
+
+| File | Purpose |
+|------|---------|
+| `constitution.md` | Your creative principles, non-negotiables, and quality baseline. |
+| `personal-voice.md` | Your unique writing voice preferences and stylistic patterns. |
+
+### Knowledge (`knowledge/`)
+
+| File | Purpose |
+|------|---------|
+| `character-profiles.md` | Detailed character profiles with psychological depth. |
+| `character-voices.md` | Distinctive speech patterns, vocabulary, and mannerisms per character. |
+| `locations.md` | Setting descriptions, sensory details, and spatial relationships. |
+| `world-setting.md` | Worldbuilding rules, magic systems, technology, and cultural details. |
+
+### Tracking (`tracking/`)
+
+| File | Purpose |
+|------|---------|
+| `character-state.json` | Tracks character arcs, emotional states, and physical conditions per chapter. |
+| `plot-tracker.json` | Tracks plot threads, subplots, and their resolution status. |
+| `relationships.json` | Character relationship dynamics and how they evolve. |
+| `timeline.json` | Chronological event timeline for consistency checking. |
+| `validation-rules.json` | Custom validation rules derived from your constitution. |
+
+## Project File Structure
+
+After running `npx novel-writer-english` and starting your workflow, your project root looks like this:
+
 ```
 my-novel/
-├── memory/
+├── .claude/                    # Claude Code commands & skills (if selected)
+│   ├── commands/
+│   └── skills/
+├── .gemini/                    # Gemini CLI commands & skills (if selected)
+│   ├── commands/novel/
+│   └── skills/
+├── .opencode/                  # OpenCode commands & skills (if selected)
+│   ├── commands/novel/
+│   └── skills/
+├── .agents/                    # Codex CLI skills (if selected)
+│   └── skills/
+├── memory/                     # Created by /constitution
 │   ├── constitution.md
 │   └── personal-voice.md
-├── templates/
-├── knowledge/
-├── tracking/
-├── stories/
-│   └── [novel-name]/
+├── knowledge/                  # Created by /specify
+│   ├── character-profiles.md
+│   ├── character-voices.md
+│   ├── locations.md
+│   └── world-setting.md
+├── tracking/                   # Created by /track-init
+│   ├── character-state.json
+│   ├── plot-tracker.json
+│   ├── relationships.json
+│   ├── timeline.json
+│   └── validation-rules.json
+├── stories/                    # Created by /specify
+│   └── [your-novel-name]/
 │       ├── specification.md
 │       ├── creative-plan.md
 │       ├── tasks.md
 │       └── content/
-│           └── chapter-01.md
+│           ├── chapter-01.md
+│           ├── chapter-02.md
+│           └── ...
+└── meta.json                   # Created by /meta
 ```
 
-## Available Skills
-| Skill | Description |
-|-------|-------------|
-| `workflow-guide` | Orchestrates the eight-step methodology and coordinates sub-skills. |
-| `genre-knowledge/*` | Tropes, expectations, and rules for specific genres (Fantasy, Sci-Fi, Thriller, Romance, Mystery, Horror). |
-| `consistency-checker` | QA tool for verifying plot, character, and worldbuilding consistency. |
-| `pre-write-checklist` | Ensures the AI has all necessary context loaded before drafting a chapter. |
-| `style-detector` | Analyzes and enforces specific prose styles (Conversational, Ornate, Minimal, etc.). |
-| `character-depth` | Enforces psychological backstory, Wound/Ghost, internal contradictions. |
-| `emotional-interiority` | Ensures internal reactions, shows emotions physically, flags report-style narration. |
-| `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
+> **Note:** You only need to create the project folder and run the installer. Everything else (`memory/`, `knowledge/`, `tracking/`, `stories/`, all `.md` and `.json` files) is **generated automatically** by the commands as you work through the seven steps.
 
-## Available Agents
-| Agent | Role |
-|-------|------|
-| `novel-writer` | Main orchestrator; guides you through the process and hands off to specialized agents. |
-| `constitution` | Helps establish your creative principles. |
-| `specify` | Assists in creating the story specification document. |
-| `clarify` | Interrogates the spec for ambiguities and helps resolve them. |
-| `planner` | Formulates the creative writing plan. |
-| `task-manager` | Breaks the plan into a task list. |
-| `writer` | The actual writing agent utilizing the pre-write checklist. |
-| `reviewer` | Quality analysis and QA agent. |
-| `meta` | Records novel metadata to meta.json. |
+## Platform Support
 
-## Knowledge Bases
-- **Genres:** Fantasy, Historical, Horror, Mystery, Power Fantasy/Revenge, Romance, Sci-Fi, Thriller, Wuxia.
-- **Requirements:** Authentic Voice, Fast-Paced, Romance-Angst, Romance-Sweet, Serious Literature, Strong Emotion.
-- **Styles:** Conversational, Literary, Minimal, Ornate, Web Serial.
-
-## Platform Compatibility
-| Platform | Support Level | Setup Guide |
-|----------|---------------|-------------|
-| VS Code (Copilot) | Full (Agents & Skills) | `docs/platform-setup/vscode-copilot.md` |
-| Cursor | Full (Agents & Skills) | `docs/platform-setup/cursor.md` |
-| Windsurf | Full (Agents & Skills) | `docs/platform-setup/windsurf.md` |
-| Gemini CLI | Full (Agents & Skills) | `docs/platform-setup/gemini-cli.md` |
-| Claude Code | Full (Commands) | `docs/platform-setup/claude-code.md` |
-| ChatGPT / Gemini / Claude Web | Manual (Prompts) | `docs/platform-setup/generic-ai.md` |
+| Platform | Commands | Skills | Installer Target |
+|----------|----------|--------|-----------------|
+| **Claude Code** | `.claude/commands/*.md` | `.claude/skills/` | `./claude/` |
+| **Gemini CLI** | `.gemini/commands/novel/*.toml` | `.gemini/skills/` | `./gemini/` |
+| **OpenCode** | `.opencode/commands/novel/*.md` | `.opencode/skills/` | `./opencode/` |
+| **Codex CLI** | — (skills only) | `.agents/skills/` | `./agents/` |
+| **Any AI** | Copy-paste from `src/commands/` | — | Manual |
 
 ## Attribution
-This project is a translation and re-architecture of the incredible work done by the [wordflowlab](https://github.com/wordflowlab/novel-writer-skills) team. See `ATTRIBUTION.md` for full details.
+
+This project is a translation and re-architecture of the original work by [wordflowlab](https://github.com/wordflowlab/novel-writer-skills). The original repository provided the foundational methodology, skill architecture, and command templates that this project builds upon.
 
 ## License
+
 MIT
-
----
-
-## Sources & References
-
-Documentation consulted when building and verifying platform-specific setup and agent formats:
-
-### Gemini CLI
-- [Subagents — agent definition files, YAML schema, tool names, file locations](https://geminicli.com/docs/core/subagents/)
-- [Agent Skills — discovery tiers, SKILL.md format, install commands](https://geminicli.com/docs/cli/skills/)
-- [Custom Commands — TOML format, `{{args}}`, `!{...}`, file locations](https://geminicli.com/docs/cli/custom-commands/)
-- [Building Extensions — extension structure, agent skills in extensions, GEMINI.md](https://geminicli.com/docs/extensions/writing-extensions/)
-
-### VS Code Copilot
-- [Custom Instructions](https://code.visualstudio.com/docs/copilot/copilot-customization)
-- [Agent mode and tools](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
-
-### Agent Skills Open Standard
-- [agentskills.io — SKILL.md specification and npx skills tooling](https://agentskills.io)
-ode.visualstudio.com/docs/copilot/copilot-customization)
-- [Agent mode and tools](https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode)
-
-### Agent Skills Open Standard
-- [agentskills.io — SKILL.md specification and npx skills tooling](https://agentskills.io)
