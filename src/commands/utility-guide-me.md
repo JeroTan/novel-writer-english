@@ -1,6 +1,6 @@
 ---
 name: utility-guide-me
-description: "Main orchestrator guide for AI-assisted novel writing. Walks you through the eight-step methodology from concept to completed manuscript."
+description: "Main orchestrator guide for AI-assisted novel writing. Walks you through the seven-step methodology from concept to completed manuscript. Also provides manual drafting guidance when asked."
 tools:
   - "*"
 kind: local
@@ -21,8 +21,9 @@ Check which documents exist and determine where the user is in the workflow:
 1. Does `./memory/constitution.md` exist? If not, recommend **Step 1: Constitution** — tell the user to type `/constitution`.
 2. Does `./stories/[name]/specification.md` exist? If not, recommend **Step 2: Specify** — tell the user to type `/specify`.
 3. Does `./stories/[name]/creative-plan.md` exist? If not, recommend **Step 4: Plan** (after checking if Clarify is needed) — tell the user `/clarify` or `/planner`.
-4. If chapters are being written, guide them to **Step 6: Write** or **Step 7: Review** — tell the user `/writer` or `/reviewer`.
-5. If all chapters from tasks.md are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
+4. **Check for drafts**: Look in `./draft/chapters/`. If drafts exist but `tasks.md` has no tasks, recommend `/task-manager` to generate tasks from the drafts. If tasks exist but no chapters are written, recommend `/writer` — mention that it will detect and expand the drafts.
+5. If chapters are being written, guide them to **Step 6: Write** or **Step 7: Review** — tell the user `/writer` or `/reviewer`.
+6. If all chapters from tasks.md are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
 
 ### 2. Present Workflow Overview
 
@@ -35,7 +36,7 @@ Present the user with a clear overview:
 | 3 | `/clarify` | Resolve ambiguities in the specification |
 | 4 | `/planner` | Create chapter structure and pacing plan |
 | 5 | `/task-manager` | Break the plan into tracked writing tasks |
-| 6 | `/writer` | Write chapters with the pre-write checklist |
+| 6 | `/writer` | Write chapters with the pre-write checklist. Also detects and expands drafts from `./draft/chapters/` |
 | 7 | `/reviewer` | Run quality analysis on written content |
 
 **Utility Commands** — use anytime as needed:
@@ -55,13 +56,42 @@ Present the user with a clear overview:
 
 To move to a step, the user types `/command-name` in the chat. For example: `/constitution Help me set up my novel's principles.`
 
+**Drafting workflow**: If the user has written their own drafts, they can place them in `./draft/chapters/` and the workflow will integrate them:
+- `/planner` reads drafts to build the chapter structure
+- `/task-manager` generates tasks from the draft files
+- `/writer` expands drafts into full prose using the `@#@ FILL @#@`, `@#@ DESCRIBE @#@`, and `@#@ FLASHBACK @#@` tags
+
+### 3. Manual Drafting Guidance
+
+If the user asks how to write drafts manually or where to place them, provide this guidance:
+
+**Where to put drafts:**
+- Place draft files in `./draft/chapters/` (relative to project root)
+- The `/writer` command scans this folder before writing and uses drafts as structural guidance
+- Accepted naming: `chapter_00001.md` (preferred), `0001.md`, `1.md`, `01.md`, `chapter-1.md`, `chapter 1.md`, `ch1.md`, or `[1-5].md` (range files)
+
+**How `/writer` processes drafts:**
+- Drafts are used as outlines — `specification.md`, `creative-plan.md`, `knowledge/`, and `tracking/` take priority
+- If a draft conflicts with core documents, core documents win
+- After saving, `/writer` tells the user which scenes were changed from the draft and why
+
+**Special draft tags you can use in your drafts:**
+- `@#@ FILL @#@ [Description] @#@ END FILL @#@` — `/writer` replaces this with fully written prose
+- `@#@ DESCRIBE @#@ [Description] @#@ END DESCRIBE @#@` — rewrites with light-novel style sensory intensity
+- `@#@ FLASHBACK @#@ [Description] @#@ END FLASHBACK @#@` — writes a full flashback sequence
+
+**Where finished chapters go:**
+- `/writer` saves completed chapters to `./stories/[novel-name]/content/chapter_[N].md` (zero-padded to 5 digits, e.g. `chapter_00001.md`)
+- Chapter format: `# Chapter [N]: [Title]` followed by body, then a mini summary separator
+- Task status is tracked in `./stories/[novel-name]/tasks.md` as `[ ]` → `[FOR_REVIEW]` → `[DONE]`
+
 ## Supplement Skills
 
 These skills enhance this command's output quality. Check if they are available before proceeding:
 
 | Skill | File | Purpose |
 |-------|------|---------|
-| `workflow-guide` | `[user_agent]/skills/quality-assurance/workflow-guide/SKILL.md` | Reference the 8-step methodology. |
+| `workflow-guide` | `[user_agent]/skills/quality-assurance/workflow-guide/SKILL.md` | Reference the 7-step methodology. |
 | `getting-started` | `[user_agent]/skills/quality-assurance/getting-started/SKILL.md` | Help the user if they are stuck. |
 
 If any skill file is not found, inform the user:
