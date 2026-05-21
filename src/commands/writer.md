@@ -94,6 +94,56 @@ Do not rush the pacing; let the scene breathe. Show, don't tell.
 - After every significant event, include the POV character's internal reaction before moving to the next action.
 - Show emotions through physical sensations and behavior, not by naming them directly.
 
+#### Punctuation for Emotional Effect
+
+Use punctuation deliberately to convey emotion, tone, and rhythm. Match punctuation choices to the character's psychological state and the scene's intensity:
+
+**Shouting / Intense Voice:**
+- `ALL CAPS` for shouted dialogue or internal screams. Use sparingly — one or two words per outburst, not entire paragraphs.
+- `!!!` for high intensity, shock, or rage. Max one per sentence. `What are you doing?!` beats `What are you doing!!!` for most cases.
+- `?!` or `!?` for incredulity, disbelief, or panicked questions. `You did WHAT?!`
+
+**Fear / Panic / Shyness:**
+- Jagged, fragmented sentences. Short. Broken. Like this. Each fragment a heartbeat.
+- Stuttering with hyphens: `I-I didn't mean to—` or `W-wait, please—`
+- Trailing off with ellipsis: `I just thought maybe...` (hesitation, uncertainty)
+- Extended ellipsis for longer pauses: `. . .` or `... ...` (shock, processing, dread)
+- Parentheses for whispered asides or internal flinches: `(don't look at me)` or `(please don't)`
+
+**Pause / Hesitation / Thought:**
+- `...` for a standard pause, trailing thought, or hesitation in dialogue.
+- `. . .` (spaced) for a longer, heavier pause — silence that carries weight.
+- Em dash `—` for interruption, sudden shift, or abrupt thought: `I was going to say—` or `Wait—no, that's not right.`
+- Double em dash `——` for a longer break or trailing silence in narration.
+
+**Calm / Reflection / Flow:**
+- Long, flowing sentences with commas and semicolons for peaceful or contemplative scenes.
+- Semicolons `;` for connected thoughts, measured pacing, formal or intellectual voice.
+- Colons `:` for deliberate, structured explanation or revelation.
+
+**Internal Monologue / Emphasis:**
+- *Italics* for internal thoughts, emphasis, or words that carry special weight.
+- **Bold** rarely — only for extreme emphasis or a voice that isn't the character's own (e.g., a system message, a god's voice, a memory that intrudes).
+- Repetition for obsession, fear, or fixation: `No no no no.` or `Again. Again. Again.`
+
+**Silence / Tension:**
+- A line break with no text. Just white space. Let the reader feel the gap.
+- `—` alone on a line for a hard cut or abrupt silence.
+- Single words on their own line for impact: `Dead.`
+
+**Dialogue-Specific:**
+- Interrupted speech: `"But I thought—"` (em dash, no closing quote if cut off mid-sentence)
+- Overlapping speech: Use action beats to show interruption rather than punctuation alone.
+- Whispered dialogue: Lowercase or italics, not just punctuation: *`please`* or `please`
+- Sarcastic or ironic tone: Let the context carry it. Punctuation alone (`?` or `!`) rarely conveys sarcasm without supporting prose.
+
+**Rules of Thumb:**
+- Less is more. One strong punctuation choice beats three weak ones.
+- Match punctuation to character voice. A formal character doesn't use `!!!` — they use measured prose that conveys intensity through word choice.
+- Don't stack punctuation: `?!?!` or `!!!...` looks amateurish. Pick one.
+- Ellipsis is not a crutch for weak writing. Use it for genuine hesitation, trailing thought, or silence — not because you don't know how to end a sentence.
+- In action scenes, short sentences and fragments create urgency. In reflection scenes, longer sentences create calm.
+
 ### 7. Chapter Output Format
 
 Every generated chapter MUST follow this exact structure:
