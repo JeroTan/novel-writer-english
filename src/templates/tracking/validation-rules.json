@@ -119,8 +119,8 @@
   },
 
   "usage_guide": {
-    "write_command": "Automatically load quick level validation during /write",
-    "track_command": "Execute standard level validation using /track --check",
-    "fix_command": "Auto-fix simple level issues using /track --fix"
+    "write_command": "Automatically load quick level validation during /writer",
+    "track_command": "Execute standard level validation using /track",
+    "fix_command": "Auto-fix simple level issues using /track with fix instructions"
   }
 }
