@@ -1,27 +1,28 @@
 ---
 name: task-manager
-description: "Step 5: Breaks the creative plan into prioritized, dependency-tracked writing tasks."
+description: "Step 5: Breaks the creative plan into prioritized, dependency-tracked writing tasks. Supports full, per-arc, or incremental task generation."
 tools:
   - "*"
 kind: local
-argument-hint: "[Optional: specific arc or chapters to focus on]"
+argument-hint: "[Optional: specific arc or chapters to focus on, e.g., 'tasks for Arc 2', 'add tasks for chapters 6-10']"
 ---
 
 # User Input: $ARGUMENTS
 
 ## Objective
 
-Break the creative plan into actionable, tracked tasks to guide the daily writing process.
+Break the creative plan into actionable, tracked tasks to guide the daily writing process. Tasks can be generated for the whole novel, one arc at a time, or incrementally as you plan new batches.
 
 ## Execution Steps
 
 ### 1. Check Existing Tasks
 
 Check if `./stories/[novel-name]/tasks.md` already exists.
-- If it exists, ask the user:
+- If it exists, read it to understand current progress. Then ask the user:
   - **Update** — modify existing task entries while keeping completed ones intact.
   - **Replace** — discard the current task list and regenerate from the creative plan.
   - **Increment** — append new tasks for upcoming chapters/arcs without changing existing ones.
+  - **Add batch** — generate tasks only for a specific range (e.g., "chapters 6–10").
 - If it does not exist, proceed to create a new task list.
 
 ### 2. Read Context
@@ -44,6 +45,13 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
   - **Ignore drafts** — generate tasks purely from the creative plan.
 
 **If no drafts are found**: generate tasks from the creative plan and specification.
+
+### 2c. Check for Existing Chapters
+
+Check `./stories/[novel-name]/content/` for already-written chapters.
+- Cross-reference with the task list to identify which chapters are already done.
+- Show the user a summary: "Chapters 1–[N] are already written. [M] tasks are `[DONE]`, [K] are `[FOR_REVIEW]`, [L] are pending."
+- Default to generating tasks only for unwritten chapters unless the user requests otherwise.
 
 ### 3. Generate Task List
 
@@ -79,10 +87,32 @@ The file should start with a header summary:
 # Task List — [Novel Name]
 
 **Total chapters planned:** [N]
+**Chapters written:** [M]
 **Estimated total words:** [N]
 **Last updated:** [Date]
 
 ---
+```
+
+For saga/arc mode, group tasks under arc headers:
+```markdown
+## Arc 1: The Awakening (Chapters 1–12)
+
+- [ ] **Chapter 1** — ...
+- [ ] **Chapter 2** — ...
+
+## Arc 2: The Journey (Chapters 13–24)
+
+- [ ] **Chapter 13** — ...
+```
+
+For batch/incremental mode, add a clear section:
+```markdown
+---
+
+## Batch: Chapters [X–Y] (added [Date])
+
+- [ ] **Chapter X** — ...
 ```
 
 Each task entry must be formatted as:
@@ -106,6 +136,9 @@ Example:
 ### 6. Output and Save
 
 Save the task list to `./stories/[novel-name]/tasks.md`.
+
+If appending to an existing task list, **preserve all existing entries** and their statuses. Only add new tasks below the existing ones under a new section header.
+
 Suggest the user run the `/writer` command next to begin execution.
 
 ## Supplement Skills
