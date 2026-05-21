@@ -72,17 +72,18 @@ Before writing ANY chapter, silently run through all 12 items:
 4. **Style Guide** — Check `./knowledge-base/styles/` if a specific style is defined
 5. **Characters & Settings** — Read ONLY the character and location entries relevant to THIS chapter. Check `./stories/[novel-name]/knowledge/character-profiles.md`, `./stories/[novel-name]/knowledge/character-voices.md`, and `./stories/[novel-name]/knowledge/locations.md` for characters appearing or locations featured in the chapter. Do not load unrelated entries. If these files do not exist, look for any folder named `knowledge/` in the project. If still not found, ask the user to run the Specify step to generate the knowledge folder, or create it manually. Suggest a standard folder structure for easy future reference.
 6. **World** — Read `./stories/[novel-name]/knowledge/world-setting.md` for world rules, magic/tech systems, and geography.
-7. **Previous Chapter** — Read the immediately preceding chapter in `./stories/[novel-name]/content/` to match tone and continuity.
+7. **Glossary** — Read `./stories/[novel-name]/knowledge/glossary.md` for defined terms, names, jargon, and in-world vocabulary. Use exact terminology from the glossary when referencing established concepts, factions, items, or locations. If you encounter a term in the draft or plan that isn't in the glossary, note it for the user to define later.
+8. **Previous Chapter** — Read the immediately preceding chapter in `./stories/[novel-name]/content/` to match tone and continuity.
    - **Continuation sequences**: If the pacing tag is numbered (e.g., `[Action 2]`, `[Action 3]`), also read the previous chapter in that sequence (e.g., `[Action 1]`) to ensure seamless continuity of action, character state, dialogue threads, and unresolved tension. The writer must pick up exactly where the previous chapter left off.
    - **Arc transitions**: If this is the first chapter of a new arc, read the **last chapter of the previous arc** to understand what was resolved and what carries over.
-8. **Goals** — Identify what MUST be accomplished in THIS chapter per the plan and tasks.
-9. **Risks** — Identify common pitfalls for this scene type based on genre and pacing tag.
-10. **Emotional Goals** — What emotional arc does the POV character travel in this chapter? What emotional state should the reader reach by the end?
-11. **Pacing Type** — Check the chapter's pacing tag in `./stories/[novel-name]/tasks.md` (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
+9. **Goals** — Identify what MUST be accomplished in THIS chapter per the plan and tasks.
+10. **Risks** — Identify common pitfalls for this scene type based on genre and pacing tag.
+11. **Emotional Goals** — What emotional arc does the POV character travel in this chapter? What emotional state should the reader reach by the end?
+12. **Pacing Type** — Check the chapter's pacing tag in `./stories/[novel-name]/tasks.md` (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
     - **Numbered tags** (e.g., `[Action 2]`, `[Climax 3]`): This chapter is part of a multi-chapter sequence. Maintain continuity with the previous chapter(s) in the sequence. Do not resolve the arc unless this is the final number. Keep tension, character state, and scene momentum flowing from the previous chapter.
     - **Single tags** (e.g., `[Action]`, `[Reflection]`): Self-contained chapter. Resolve the scene's core beat within this chapter.
     - **No tag yet**: If the chapter hasn't been assigned a pacing tag, infer it from the plan or ask the user what tone they want for this chapter.
-12. **Internal Reactions** — Plan at least 2–3 moments of character interiority. Do not let the chapter become pure external action.
+13. **Internal Reactions** — Plan at least 2–3 moments of character interiority. Do not let the chapter become pure external action.
 
 ### 6. Draft the Chapter
 

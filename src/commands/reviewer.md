@@ -34,7 +34,7 @@ Read ALL of the following before generating the report:
 - `./stories/[novel-name]/specification.md`
 - `./stories/[novel-name]/creative-plan.md`
 - `./stories/[novel-name]/tasks.md` (identify chapters marked `[FOR_REVIEW]`)
-- All files in `./stories/[novel-name]/knowledge/`
+- All files in `./stories/[novel-name]/knowledge/` (including `glossary.md`)
 - All files in `./stories/[novel-name]/tracking/`
 - All chapter files in `./stories/[novel-name]/content/`
 
@@ -49,6 +49,7 @@ Then verify:
 - Tracking accuracy: do the tracking JSONs accurately reflect the chapters written?
 - Forgotten elements (per `forgotten-elements` skill): dropped threads, abandoned characters
 - Knowledge gaps: are there characters/locations in chapters not documented in `knowledge/`?
+- **Glossary consistency**: Are terms, names, and jargon used consistently with the glossary? Are there new terms introduced in chapters that should be added to the glossary?
 
 ### 4. Update Knowledge Files
 
@@ -56,6 +57,7 @@ For each chapter marked `[FOR_REVIEW]`, scan the chapter content for new informa
 - **Characters**: new traits revealed, voice quirks, backstory details, relationships → update `./stories/[novel-name]/knowledge/character-profiles.md` and `./stories/[novel-name]/knowledge/character-voices.md`
 - **Locations**: new places introduced, physical descriptions, atmosphere → update `./stories/[novel-name]/knowledge/locations.md`
 - **World**: new rules, magic/tech systems, cultural details, history → update `./stories/[novel-name]/knowledge/world-setting.md`
+- **Glossary**: new terms, names, jargon, items, or concepts introduced → add to `./stories/[novel-name]/knowledge/glossary.md` with definition and context
 
 This keeps the knowledge files accurate and up-to-date as the story grows. Process chapters incrementally — if Chapter 1 is `[FOR_REVIEW]`, update knowledge from it. Then when Chapter 2 is `[FOR_REVIEW]`, update knowledge again. Never batch all chapters at once.
 
