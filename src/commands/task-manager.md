@@ -39,9 +39,11 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 - **Conflict detection**: If the draft contradicts any established document (character traits, world rules, plot points, pacing plan), flag the conflict and ask the user:
   - "The draft says [X] but the plan/spec says [Y]. Is this an intentional change, or should I align with the existing documents?"
   - Only proceed once the user clarifies. Never silently override or ignore conflicts.
+- **Draft boundary rule**: Generate tasks only for what the user has drafted. Do NOT add tasks for chapters beyond the draft range unless the user explicitly asks.
+- **If you want to suggest tasks beyond the draft**: Propose it first and ask for approval. Example: "Your draft covers chapters 1–3. I could add tasks for chapters 4–6 to continue the arc, or stop here. Which do you prefer?"
 - Ask the user:
   - **Follow draft** — use the draft chapter count and structure as the basis for the task list.
-  - **Fill gaps** — use the draft as a starting point, but add missing chapters where the creative plan indicates gaps.
+  - **Fill gaps** — use the draft as a starting point, but add tasks for missing chapters **within the drafted range only** (e.g., draft has chapters 1 and 3, add task for chapter 2).
   - **Ignore drafts** — generate tasks purely from the creative plan.
 
 **If no drafts are found**: generate tasks from the creative plan and specification.

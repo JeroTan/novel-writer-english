@@ -39,8 +39,10 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 - **Conflict detection**: If the draft contradicts any established document (character traits, world rules, plot points, tone), flag the conflict and ask the user:
   - "The draft says [X] but the specification says [Y]. Is this an intentional change, or should I align with the existing documents?"
   - Only proceed once the user clarifies. Never silently override or ignore conflicts.
+- **Draft boundary rule**: Plan only what the user has drafted. "Filling gaps" means filling missing pieces **within the drafted range** (e.g., if the user drafted chapters 1, 3, and 5, fill in chapters 2 and 4). Do NOT add chapters, scenes, or plot points beyond where the draft ends unless the user explicitly asks.
+- **If you want to suggest content beyond the draft**: Propose it first and ask for approval. Example: "Your draft ends at chapter 3 with a cliffhanger. I could plan chapters 4–6 to resolve it, or stop here. Which do you prefer?"
 - Ask the user:
-  - **Follow draft** — use the draft structure as the foundation for the creative plan, filling in gaps where needed.
+  - **Follow draft** — use the draft structure as the foundation for the creative plan. Fill gaps only within the drafted range.
   - **Use as reference** — read the drafts for context but build the plan independently from the specification and constitution.
   - **Ignore drafts** — build the plan from scratch without considering the drafts.
 
