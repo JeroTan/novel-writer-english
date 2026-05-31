@@ -1,6 +1,6 @@
 {
   "name": "novel-writer-english",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "AI-assisted novel writing workflow for Claude Code, Gemini CLI, OpenCode, and Codex CLI",
   "type": "module",
   "main": "bin/install.js",

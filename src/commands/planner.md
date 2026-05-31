@@ -154,7 +154,7 @@ After saving the creative plan, immediately do the following:
 3. In `character-state.json`: populate the protagonist's name and any major supporting characters already defined in `knowledge/character-profiles.md`.
 4. In `plot-tracker.json`: populate the main plot name and first chapter's expected story state from the creative plan.
 5. In `validation-rules.json`: populate the protagonist's name, aliases, and any known forbidden terms for that character.
-6. Tell the user: "Tracking folder initialized at `./stories/[novel-name]/tracking/`. These JSON files will be updated by the Write command after each chapter and cross-checked by the Analyze command."
+6. Tell the user: "Tracking folder initialized at `./stories/[novel-name]/tracking/`. These JSON files will be updated as chapters are written and cross-checked by the Reviewer command."
 
 Suggest the user run the `/task-manager` command next.
 

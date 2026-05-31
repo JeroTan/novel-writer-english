@@ -222,3 +222,22 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 **Root `SKILL.md`**: Updated project file structure diagram, step details for Steps 2–6 + new Step 8, seven-step → eight-step.
 
 **README.md**: Updated to eight-step methodology, new agent in table, new feature bullets.
+
+---
+
+## vNext — 2026-05-31
+
+**Editor Workflow Insertion — Chapter Edits Between Writer and Reviewer**
+
+### Added
+
+- New `/editor` command as Step 7 for one-chapter revision.
+- Reference checklist with default project files, nested tracking file selection, typed chapter references, optional writing-technique skills, optional genre skills, and optional consistency checker.
+- Persistent suggestion table with `approve`, `skip`, and `for_discussion` statuses.
+- Approved edits apply only after every row is resolved and the user confirms.
+
+### Changed
+
+- Current core workflow is now: Constitution -> Specify -> Clarify -> Plan -> Tasks -> Write -> Edit -> Review.
+- `/reviewer` is now Step 8 and focuses on broad project QA, cross-chapter consistency, tracking accuracy, knowledge updates, and final readiness.
+- README, root skill reference, workflow-guide skill, guide command, writer handoff, planner handoff, metadata, and agent skill mapping updated for the new flow.

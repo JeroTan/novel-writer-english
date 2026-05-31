@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Added
+- Added `/editor` command for one-chapter revision, approve/skip tracking, and confirmed application of approved edits.
+
+### Changed
+- Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
+- Refocused `/reviewer` on broad project QA, continuity, tracking, knowledge, and final readiness.
+
 ## [1.0.0] - 2026-04-04
 ### Added
 - Complete English translation of all skills, templates, knowledge bases, and commands from the original `novel-writer-skills` repository.

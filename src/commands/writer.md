@@ -161,11 +161,11 @@ Save the chapter file as `./stories/[novel-name]/content/chapter_[N].md` where `
 
 ### 8. Task Status Update
 
-After writing a chapter, update its status in `./stories/[novel-name]/tasks.md` from `[ ]` to `[FOR_REVIEW]`. Do NOT mark it as `[DONE]` — that is the reviewer's responsibility.
+After writing a chapter, update its status in `./stories/[novel-name]/tasks.md` from `[ ]` to `[FOR_REVIEW]`. Do NOT mark it as `[DONE]` — that is the reviewer's responsibility after editing and broad QA.
 
-### 9. Handoff to Reviewer
+### 9. Handoff to Editor
 
-Periodically (e.g., every 3-5 chapters) or when requested, suggest the user run `/reviewer` to review all `[FOR_REVIEW]` chapters, update knowledge files, and mark them `[DONE]`.
+After writing a chapter, suggest the user run `/editor Chapter [N]` to check that chapter, approve or skip suggested fixes, and apply approved edits. Periodically (e.g., every 3-5 chapters) or when requested, suggest `/reviewer` for broad QA, knowledge updates, and `[DONE]` approval.
 
 ## Supplement Skills
 

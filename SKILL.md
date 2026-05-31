@@ -1,13 +1,13 @@
 ---
 name: novel-writer-english
-description: "Use when user starts a novel project, asks how to organize their writing, or wants help with any aspect of fiction writing. Provides the seven-step methodology for systematic novel creation, project file conventions, and knowledge of how the sub-skills, templates, and tracking systems fit together."
+description: "Use when user starts a novel project, asks how to organize their writing, or wants help with any aspect of fiction writing. Provides the eight-step methodology for systematic novel creation, project file conventions, and knowledge of how the sub-skills, templates, and tracking systems fit together."
 ---
 
-# Novel Writer — Seven-Step Methodology Reference
+# Novel Writer — Eight-Step Methodology Reference
 
-This skill contains the core knowledge of a proven seven-step methodology for writing novels with AI assistance. It covers the workflow structure, project file conventions, and how the companion sub-skills relate to each step.
+This skill contains the core knowledge of a proven eight-step methodology for writing novels with AI assistance. It covers the workflow structure, project file conventions, and how the companion sub-skills relate to each step.
 
-## The Seven Steps
+## The Eight Steps
 
 | Step | Name | Purpose | Output File |
 |------|------|---------|-------------|
@@ -17,8 +17,8 @@ This skill contains the core knowledge of a proven seven-step methodology for wr
 | 4 | Plan | Design chapter structure, pacing, foreshadowing, arcs | `stories/[name]/creative-plan.md` |
 | 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` |
 | 6 | Write | Draft chapters using the pre-write checklist | `stories/[name]/content/chapter-XX.md` |
-| 7 | Analyze | Run quality verification on framework or content | Analysis report |
-| 8 | Meta | Record novel metadata (title, author, genre, tags, status) | `stories/[name]/meta.json` |
+| 7 | Edit | Review one chapter, propose line-level fixes, approve/skip items, apply approved edits after confirmation | Updated chapter |
+| 8 | Review | Run broad QA on framework, cross-chapter continuity, tracking, knowledge, and final readiness | Review report |
 
 ## Project File Structure
 
@@ -31,7 +31,7 @@ project-root/
 │       ├── specification.md     ← Step 2 output
 │       ├── creative-plan.md     ← Step 4 output
 │       ├── tasks.md             ← Step 5 output (checkbox checklist)
-│       ├── meta.json            ← Step 8 output
+│       ├── meta.json            ← optional `/utility-meta` output
 │       ├── knowledge/           ← Created by Step 2
 │       │   ├── characters.md
 │       │   ├── character-voices.md
@@ -84,13 +84,18 @@ Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` 
 ### Step 6: Write
 Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*
 
-### Step 7: Analyze
-Two modes: **Framework Analysis** (validates planning documents before writing) and **Content Analysis** (validates written chapters against constitution, specification, plan, and internal consistency).
+### Step 7: Edit
+Runs after `/writer` and before `/reviewer`. The editor checks one chapter at a time, shows a selectable reference checklist, outputs a table of line-specific suggested changes, and tracks each row as `approve`, `skip`, or `for_discussion`. It applies nothing until all rows are resolved and the user confirms.
 
-**Run frequency**: After the first 3 chapters, then every 5 chapters, and after completing the full draft.
+**Run frequency**: After each chapter that needs refinement, or whenever the user wants to double-check a specific chapter.
 
-### Step 8: Meta
-Records the novel's bibliographic metadata. Creates or updates `stories/[novel-name]/meta.json` with title, author, description, genre tags, status (ongoing/completed/hiatus), language, and publication dates.
+### Step 8: Review
+Runs broad project QA after chapter-level edits. Two main modes: **Framework Analysis** (validates planning documents before writing) and **Content/Final Analysis** (validates written chapters against constitution, specification, plan, tracking, knowledge, and internal consistency). It can recommend `/editor Chapter [N]` for line-level fixes, but it does not rewrite prose.
+
+**Run frequency**: After chapter edits, after the first 3 chapters, every 5 chapters, and after completing the full draft.
+
+### Utility: Meta
+Records the novel's bibliographic metadata. `/utility-meta` creates or updates `stories/[novel-name]/meta.json` with title, author, description, genre tags, status (ongoing/completed/hiatus), language, and publication dates.
 
 ## Companion Sub-Skills
 
@@ -123,7 +128,7 @@ These skills activate automatically based on context when installed:
 | `skills/quality-assurance/setting-detector/SKILL.md` | `setting-detector` | Detects the genre setting and loads the appropriate knowledge base |
 | `skills/quality-assurance/requirement-detector/SKILL.md` | `requirement-detector` | Detects and enforces specific plot or content requirements (e.g., fast-paced, high emotion) |
 | `skills/quality-assurance/getting-started/SKILL.md` | `getting-started` | Helps users overcome blank page syndrome with prompts and hooks |
-| `skills/quality-assurance/workflow-guide/SKILL.md` | `workflow-guide` | Provides the seven-step methodology overview and step navigation |
+| `skills/quality-assurance/workflow-guide/SKILL.md` | `workflow-guide` | Provides the eight-step methodology overview and step navigation |
 
 **Genre Knowledge** (`skills/genre-knowledge/`):
 
@@ -166,9 +171,9 @@ These skills activate automatically based on context when installed:
 
 | Project Size | Recommended Flow | Focus |
 |--------------|-----------------|-------|
-| Short Story (10k–30k) | Specify → Clarify → Write → Analyze | Clear core conflict and turning points |
-| Novel (50k–100k) | Full seven steps | Planning and task breakdown |
-| Web Serial (200k+) | Repeat Plan → Tasks → Write → Analyze per arc | Continuous consistency verification |
+| Short Story (10k–30k) | Specify → Clarify → Write → Edit → Review | Clear core conflict and turning points |
+| Novel (50k–100k) | Full eight steps | Planning, editing, and broad QA |
+| Web Serial (200k+) | Repeat Plan → Tasks → Write → Edit → Review per arc | Continuous consistency verification |
 
 ## Minimum Viable Workflow
 

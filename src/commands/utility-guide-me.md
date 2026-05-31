@@ -1,6 +1,6 @@
 ---
 name: utility-guide-me
-description: "Main orchestrator guide for AI-assisted novel writing. Walks you through the seven-step methodology from concept to completed manuscript. Also provides manual drafting guidance when asked."
+description: "Main orchestrator guide for AI-assisted novel writing. Walks you through the eight-step methodology from concept to completed manuscript. Also provides manual drafting guidance when asked."
 tools:
   - "*"
 kind: local
@@ -20,10 +20,11 @@ Assess the user's current project state and guide them to the next appropriate s
 Check which documents exist and determine where the user is in the workflow:
 1. Does `./memory/constitution.md` exist? If not, recommend **Step 1: Constitution** — tell the user to type `/constitution`.
 2. Does `./stories/[name]/specification.md` exist? If not, recommend **Step 2: Specify** — tell the user to type `/specify`.
-3. Does `./stories/[name]/creative-plan.md` exist? If not, recommend **Step 4: Plan** (after checking if Clarify is needed) — tell the user `/clarify` or `/planner`.
+3. Does `./stories/[name]/creative-plan.md` exist? If not, recommend **Step 4: Plan** after checking if Clarify is needed — tell the user `/clarify` or `/planner`.
 4. **Check for drafts**: Look in `./draft/chapters/`. If drafts exist but `tasks.md` has no tasks, recommend `/task-manager` to generate tasks from the drafts. If tasks exist but no chapters are written, recommend `/writer` — mention that it will detect and expand the drafts.
-5. If chapters are being written, guide them to **Step 6: Write** or **Step 7: Review** — tell the user `/writer` or `/reviewer`.
-6. If all chapters from tasks.md are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
+5. If chapters are being written or edited, guide them to **Step 6: Write**, **Step 7: Edit**, or **Step 8: Review** — tell the user `/writer`, `/editor Chapter [N]`, or `/reviewer`.
+6. If chapters are marked `[FOR_REVIEW]`, recommend `/editor` first for one-chapter fixes when needed, then `/reviewer` for broad QA and `[DONE]` approval.
+7. If all chapters from `tasks.md` are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
 
 ### 2. Present Workflow Overview
 
@@ -32,12 +33,13 @@ Present the user with a clear overview:
 | Step | Command | What It Does |
 |------|---------|--------------|
 | 1 | `/constitution` | Define creative principles and non-negotiables |
-| 2 | `/specify` | Build the story specification (logline → full spec) |
+| 2 | `/specify` | Build the story specification (logline -> full spec) |
 | 3 | `/clarify` | Resolve ambiguities in the specification |
 | 4 | `/planner` | Create chapter structure and pacing plan |
 | 5 | `/task-manager` | Break the plan into tracked writing tasks |
 | 6 | `/writer` | Write chapters with the pre-write checklist. Also detects and expands drafts from `./draft/chapters/` |
-| 7 | `/reviewer` | Run quality analysis on written content |
+| 7 | `/editor` | Check one chapter, suggest line-level fixes, track approve/skip statuses, and apply approved edits after confirmation |
+| 8 | `/reviewer` | Run broad QA on written content, tracking, knowledge, and final readiness |
 
 **Utility Commands** — use anytime as needed:
 
@@ -60,6 +62,8 @@ To move to a step, the user types `/command-name` in the chat. For example: `/co
 - `/planner` reads drafts to build the chapter structure
 - `/task-manager` generates tasks from the draft files
 - `/writer` expands drafts into full prose using the `@#@ FILL @#@`, `@#@ DESCRIBE @#@`, and `@#@ FLASHBACK @#@` tags
+- `/editor` checks the finished chapter and applies approved corrections after confirmation
+- `/reviewer` handles broad QA and marks approved chapters `[DONE]`
 
 ### 3. Manual Drafting Guidance
 
@@ -82,8 +86,9 @@ If the user asks how to write drafts manually or where to place them, provide th
 
 **Where finished chapters go:**
 - `/writer` saves completed chapters to `./stories/[novel-name]/content/chapter_[N].md` (zero-padded to 5 digits, e.g. `chapter_00001.md`)
+- `/editor` edits only the target chapter after all suggestions are `approve` or `skip` and the user confirms
 - Chapter format: `# Chapter [N]: [Title]` followed by body, then a mini summary separator
-- Task status is tracked in `./stories/[novel-name]/tasks.md` as `[ ]` → `[FOR_REVIEW]` → `[DONE]`
+- Task status is tracked in `./stories/[novel-name]/tasks.md` as `[ ]` -> `[FOR_REVIEW]` -> `[DONE]`
 
 ## Supplement Skills
 
@@ -91,7 +96,7 @@ These skills enhance this command's output quality. Check if they are available 
 
 | Skill | File | Purpose |
 |-------|------|---------|
-| `workflow-guide` | `[user_agent]/skills/quality-assurance/workflow-guide/SKILL.md` | Reference the 7-step methodology. |
+| `workflow-guide` | `[user_agent]/skills/quality-assurance/workflow-guide/SKILL.md` | Reference the eight-step methodology. |
 | `getting-started` | `[user_agent]/skills/quality-assurance/getting-started/SKILL.md` | Help the user if they are stuck. |
 
 If any skill file is not found, inform the user:

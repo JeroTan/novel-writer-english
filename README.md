@@ -1,6 +1,6 @@
 # Novel Writer English — Open-Source AI Novel Writing Assistant
 
-> A free, open-source AI novel writing system that helps authors plan, draft, review, and complete novels using a structured seven-step workflow.
+> A free, open-source AI novel writing system that helps authors plan, draft, edit, review, and complete novels using a structured eight-step workflow.
 >
 > Works with **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, ChatGPT, and any AI chat assistant.
 
@@ -9,17 +9,18 @@
 
 ## What is Novel Writer English?
 
-Novel Writer English is an AI-powered novel writing assistant for authors who want more structure than a single prompt can provide. Instead of asking AI to generate an entire book at once, it guides you through a complete fiction-writing workflow: creative principles, story specification, clarification, chapter planning, task management, drafting, and review.
+Novel Writer English is an AI-powered novel writing assistant for authors who want more structure than a single prompt can provide. Instead of asking AI to generate an entire book at once, it guides you through a complete fiction-writing workflow: creative principles, story specification, clarification, chapter planning, task management, drafting, chapter editing, and broad review.
 
 This project is designed for writers using AI tools such as **Claude Code**, **Gemini CLI**, **OpenCode**, **Codex CLI**, ChatGPT, or any copy-paste AI assistant. It helps maintain story consistency, character depth, pacing, worldbuilding, and prose quality across long-form fiction projects.
 
-Novel Writer English is completely free, open-source, platform-agnostic, and based on a seven-step methodology adapted from the original [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) project by [wordflowlab](https://github.com/wordflowlab).
+Novel Writer English is completely free, open-source, platform-agnostic, and based on an eight-step methodology adapted from the original [novel-writer-skills](https://github.com/wordflowlab/novel-writer-skills) project by [wordflowlab](https://github.com/wordflowlab).
 
 ## Key Features
 
-- **Seven-step AI novel writing workflow** from concept to completed manuscript
+- **Eight-step AI novel writing workflow** from concept to completed manuscript
 - **AI-assisted chapter drafting** with a 12-item pre-write checklist
-- **Built-in reviewer workflow** for consistency, pacing, prose quality, and constitution compliance
+- **Built-in editor workflow** for one-chapter line fixes, approval tracking, and controlled revisions
+- **Built-in reviewer workflow** for broad consistency, tracking, story health, and final readiness
 - **Character, plot, timeline, and relationship tracking**
 - **Genre-specific writing knowledge** for fantasy, horror, mystery, romance, sci-fi, and thriller
 - **Works with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, and any AI chat tool**
@@ -52,21 +53,18 @@ flowchart TD
 
     subgraph WC["Writing Cycle"]
         direction TB
-        W1["/writer"] --> W2["/writer"]
-        W2 --> R1{"/reviewer"}
-        R1 -->|"revise"| W2
-        R1 -->|"approved"| W3["/writer"]
-        W3 --> R2{"/reviewer"}
-        R2 -->|"revise"| W3
+        W1["/writer"] --> E1{"/editor"}
+        E1 -->|"approved edits applied"| R1{"/reviewer"}
+        R1 -->|"needs chapter fixes"| E1
+        R1 -->|"approved"| W2["/writer"]
+        W2 --> E2{"/editor"}
+        E2 -->|"approved edits applied"| R2{"/reviewer"}
+        R2 -->|"needs chapter fixes"| E2
     end
 
     R2 -->|"approved"| DONE(("🎉 Done!"))
 
     WC -.->|"add new chapters?"| E
-
-    GUIDE ~~~ B
-
-    linkStyle 8 stroke:transparent,fill:none
 
     style GUIDE fill:#4f46e5,color:#fff,stroke-width:2px
     style GLEFT fill:#4f46e5,stroke:#4f46e5,color:#4f46e5
@@ -93,9 +91,10 @@ flowchart TD
 | 4 | `/planner` | Create chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | 5 | `/task-manager` | Break the plan into prioritized, dependency-tracked writing tasks. |
 | 6 | `/writer` | Write chapters with a 12-item pre-write checklist to maintain consistency. |
-| 7 | `/reviewer` | Analyze quality, consistency, constitution compliance, and prose strength. |
+| 7 | `/editor` | Check one chapter, propose line-level fixes, track approvals, and apply approved edits only after confirmation. |
+| 8 | `/reviewer` | Run broad QA for project health, cross-chapter consistency, tracking accuracy, and final readiness. |
 
-The writing cycle, steps 6–7, repeats for each chapter. You can loop back to `/planner` or `/task-manager` at any time to add new chapters or restructure your novel.
+The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You can loop back to `/planner` or `/task-manager` at any time to add new chapters or restructure your novel.
 
 ## All AI Novel Writing Commands
 
@@ -103,14 +102,15 @@ The writing cycle, steps 6–7, repeats for each chapter. You can loop back to `
 
 | Command | Description |
 |---------|-------------|
-| `/guide-me` | Main orchestrator. Walks you through the seven-step AI novel writing methodology from concept to completed manuscript. |
+| `/guide-me` | Main orchestrator. Walks you through the eight-step AI novel writing methodology from concept to completed manuscript. |
 | `/constitution` | Step 1 — Creates or updates the creative constitution, including core values, quality baseline, style principles, pacing, and character depth. |
 | `/specify` | Step 2 — Builds the story specification using a progressive four-level approach. |
 | `/clarify` | Step 3 — Reviews the spec, identifies up to five ambiguities, and asks targeted questions. |
 | `/planner` | Step 4 — Creates chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | `/task-manager` | Step 5 — Breaks the creative plan into prioritized, dependency-tracked writing tasks. |
 | `/writer` | Step 6 — Provides AI-assisted writing with Write Mode, Draft Detection, and a 12-item pre-write checklist. |
-| `/reviewer` | Step 7 — Performs quality analysis for framework consistency, content consistency, and constitution compliance. |
+| `/editor` | Step 7 — Reviews one chapter, proposes line-specific edits, tracks approval status, and applies approved changes only after confirmation. |
+| `/reviewer` | Step 8 — Performs broad QA for framework consistency, cross-chapter continuity, tracking accuracy, and final readiness. |
 
 ### Utilities
 
@@ -150,7 +150,7 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | `pre-write-checklist` | Ensures the AI loads constitution, specification, plan, and context before drafting a chapter. |
 | `requirement-detector` | Detects and enforces specific plot or content requirements, such as fast-paced or high-emotion scenes. |
 | `setting-detector` | Detects the genre setting and loads the appropriate knowledge base. |
-| `workflow-guide` | Orchestrates the seven-step methodology and coordinates sub-skills. |
+| `workflow-guide` | Orchestrates the eight-step methodology and coordinates sub-skills. |
 
 ### Genre Knowledge
 
@@ -244,7 +244,7 @@ my-novel/
 └── meta.json                   # Created by /meta
 ```
 
-> **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `knowledge/`, `tracking/`, `stories/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the seven-step workflow.
+> **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `knowledge/`, `tracking/`, `stories/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the eight-step workflow.
 
 ## Supported AI Writing Platforms
 

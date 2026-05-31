@@ -28,14 +28,20 @@ agent_skills = {
         ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Verify chapter matches its pacing tag."),
         ("character-depth", "skills/writing-techniques/character-depth/SKILL.md", "Verify character voice matches their psychology.")
     ],
+    "editor": [
+        ("consistency-checker", "skills/quality-assurance/consistency-checker/SKILL.md", "Check contradictions, plot logic, timeline, and world rules."),
+        ("emotional-interiority", "skills/writing-techniques/emotional-interiority/SKILL.md", "Suggest chapter-level fixes for internal reactions and report-style narration."),
+        ("dialogue-techniques", "skills/writing-techniques/dialogue-techniques/SKILL.md", "Suggest fixes for subtext, action beats, and voice distinction."),
+        ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Suggest fixes for pacing tag fit, rhythm, and fragment overuse."),
+        ("character-depth", "skills/writing-techniques/character-depth/SKILL.md", "Check psychological continuity and motivation.")
+    ],
     "reviewer": [
         ("consistency-checker", "skills/quality-assurance/consistency-checker/SKILL.md", "MANDATORY content consistency check."),
         ("forgotten-elements", "skills/quality-assurance/forgotten-elements/SKILL.md", "Check for dropped plot threads."),
-        ("emotional-interiority", "skills/writing-techniques/emotional-interiority/SKILL.md", "Flag report-style narration."),
-        ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Flag fragment overuse, flag wrong pacing.")
+        ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Check chapter-level pacing tags and manuscript-level tension flow.")
     ],
     "novel-writer": [
-        ("workflow-guide", "skills/quality-assurance/workflow-guide/SKILL.md", "Reference the 7-step methodology."),
+        ("workflow-guide", "skills/quality-assurance/workflow-guide/SKILL.md", "Reference the 8-step methodology."),
         ("getting-started", "skills/quality-assurance/getting-started/SKILL.md", "Help the user if they are stuck.")
     ]
 }
