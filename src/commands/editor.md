@@ -130,21 +130,35 @@ After the table, ask the user to update statuses, for example:
 
 Keep the table persistent across replies.
 
+Before answering any follow-up after the first suggestion table, update the stored table from the user's latest message and show the full current table first. Then provide any broader details, negotiation notes, revised wording, or explanation below the table.
+
 If the user asks to discuss an item, respond using this format:
 
 ```markdown
+| # | Line(s) | Current Text | Suggested Change | Reason | Status |
+|---|---------|--------------|------------------|--------|--------|
+| ...current full table... |
+
 #3
 
-**Current issue:** [short issue]
+**Title:** [short label for this item]
 
-**New suggestion:** [revised suggested change]
+**Current issue:** [short issue or negotiation point]
+
+**Suggestion:** [current or revised suggested change]
 
 **Reason:** [why this version fits better]
 ```
 
-Then show the updated row and keep its status as `for_discussion` unless the user explicitly approves or skips it.
+For multiple items, show the table first, then one broad detail block per relevant item:
 
-If the user provides their own wording, replace the suggested change with the user's wording and mark the row `approve` only if the user explicitly approves it.
+```markdown
+#23 [Title]
+
+[Body/content of suggestion, negotiation context, tradeoff, or revised wording.]
+```
+
+Keep item detail blocks concise but complete enough for the user to decide. Always let the table status reflect the latest conversation.
 
 ### 7. Apply Approved Edits
 
