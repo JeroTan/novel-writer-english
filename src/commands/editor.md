@@ -111,7 +111,7 @@ Output one persistent table:
 
 | # | Line(s) | Current Text | Suggested Change | Reason | Status |
 |---|---------|--------------|------------------|--------|--------|
-| 1 | `12-14` | Exact current text | Exact replacement or concise action | Why this improves the chapter | `for_discussion` |
+| 1 | `12-14` | Exact current text | Exact replacement | Why this improves the chapter or concise action | `for_discussion` |
 
 Rules:
 - Every new row starts as `for_discussion`.

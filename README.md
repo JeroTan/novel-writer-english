@@ -254,7 +254,7 @@ my-novel/
 | **Claude Code** | `.claude/commands/*.md` | `.claude/skills/` | `./claude/` |
 | **Gemini CLI** | `.gemini/commands/novel/*.toml` | `.gemini/skills/` | `./gemini/` |
 | **OpenCode** | `.opencode/commands/novel/*.md` | `.opencode/skills/` | `./opencode/` |
-| **Codex CLI** | — skills only | `.agents/skills/` | `./agents/` |
+| **Codex CLI** | `.agents/skills/commands/*/SKILL.md` | `.agents/skills/` | `./agents/` |
 | **Any AI Assistant** | Copy-paste from `src/commands/` | — | Manual |
 
 ## Who Is This For?

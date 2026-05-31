@@ -90,6 +90,25 @@ function mdToToml(mdContent, filename) {
   return toml;
 }
 
+function mdCommandToSkill(mdContent, filename) {
+  const parsed = matter(mdContent);
+  const commandName = parsed.data.name || filename.replace('.md', '');
+  const commandDescription = parsed.data.description || `Run the /${commandName} novel workflow command.`;
+  const prompt = parsed.content.trim();
+  const description = `Use when user types /${commandName} or asks for this novel workflow command. ${commandDescription}`;
+  const body = `# /${commandName}
+
+Treat text after \`/${commandName}\` as \`$ARGUMENTS\`.
+
+${prompt}
+`;
+
+  return matter.stringify(body, {
+    name: commandName,
+    description,
+  });
+}
+
 // ─── Conflict Resolution ────────────────────────────────────────────────────
 
 async function resolveConflict(destPath) {
@@ -228,6 +247,58 @@ async function copySkills(toolConfig, overwriteAll, skipAll) {
   return { overwriteAll: newOverwriteAll, skipAll: newSkipAll, copied, skipped };
 }
 
+async function copyCommandSkillsForCodex(toolConfig, overwriteAll, skipAll) {
+  const srcCommands = path.join(SRC_DIR, 'commands');
+  const destDir = path.join(toolConfig.dir, toolConfig.skillsDir, 'commands');
+
+  if (!fs.existsSync(srcCommands)) {
+    log(`  ${toolConfig.name}: No commands to convert`);
+    return { overwriteAll, skipAll, copied: 0, skipped: 0 };
+  }
+
+  fs.ensureDirSync(destDir);
+
+  const files = fs.readdirSync(srcCommands).filter(f => f.endsWith('.md'));
+  let copied = 0;
+  let skipped = 0;
+  let newOverwriteAll = overwriteAll;
+  let newSkipAll = skipAll;
+
+  for (const file of files) {
+    const srcFile = path.join(srcCommands, file);
+    const baseName = file.replace('.md', '');
+    const destSkillDir = path.join(destDir, baseName);
+    const destFile = path.join(destSkillDir, 'SKILL.md');
+
+    if (newSkipAll) {
+      skipped++;
+      continue;
+    }
+
+    if (fs.existsSync(destSkillDir) && !newOverwriteAll) {
+      const action = await resolveConflict(destSkillDir);
+      if (action === 'skip') {
+        skipped++;
+        continue;
+      } else if (action === 'skip-all') {
+        newSkipAll = true;
+        skipped++;
+        continue;
+      } else if (action === 'overwrite-all') {
+        newOverwriteAll = true;
+      }
+    }
+
+    const content = mdCommandToSkill(fs.readFileSync(srcFile, 'utf-8'), file);
+    fs.ensureDirSync(destSkillDir);
+    fs.writeFileSync(destFile, content, 'utf-8');
+    copied++;
+  }
+
+  success(`${toolConfig.name}: ${copied} commands converted to skills${skipped > 0 ? `, ${skipped} skipped` : ''}`);
+  return { overwriteAll: newOverwriteAll, skipAll: newSkipAll, copied, skipped };
+}
+
 async function copyTemplates(toolConfig) {
   const srcTemplates = path.join(SRC_DIR, 'templates');
   const destDir = path.join(toolConfig.dir, toolConfig.templatesDir);
@@ -293,13 +364,21 @@ async function main() {
     const tool = TOOLS[toolKey];
     header(`Installing for ${tool.name}...`);
 
-    const cmdResult = await copyCommands(toolKey, tool, overwriteAll, skipAll);
-    overwriteAll = cmdResult.overwriteAll;
-    skipAll = cmdResult.skipAll;
+    if (tool.commandsDir) {
+      const cmdResult = await copyCommands(toolKey, tool, overwriteAll, skipAll);
+      overwriteAll = cmdResult.overwriteAll;
+      skipAll = cmdResult.skipAll;
+    }
 
     const skillResult = await copySkills(tool, overwriteAll, skipAll);
     overwriteAll = skillResult.overwriteAll;
     skipAll = skillResult.skipAll;
+
+    if (toolKey === 'codex') {
+      const commandSkillResult = await copyCommandSkillsForCodex(tool, overwriteAll, skipAll);
+      overwriteAll = commandSkillResult.overwriteAll;
+      skipAll = commandSkillResult.skipAll;
+    }
 
     await copyTemplates(tool);
 

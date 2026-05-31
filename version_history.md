@@ -236,6 +236,7 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Persistent suggestion table with `approve`, `skip`, and `for_discussion` statuses.
 - Approved edits apply only after every row is resolved and the user confirms.
 - New `punctuation-emotional-effect` skill under `src/skills/writing-techniques/`.
+- Codex installer now converts every command in `src/commands/` into `.agents/skills/commands/[command-name]/SKILL.md`.
 
 ### Changed
 
