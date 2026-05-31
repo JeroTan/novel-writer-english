@@ -69,6 +69,7 @@ Optional unchecked references:
 | `[ ]` | `[user_agent]/skills/writing-techniques/emotional-interiority/SKILL.md` | Deepen internal reactions and sensory-emotional response |
 | `[ ]` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Improve subtext, voice distinction, action beats |
 | `[ ]` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check pacing tag, rhythm, fragment overuse |
+| `[ ]` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation for emotion, rhythm, silence, and intensity |
 | `[ ]` | `[user_agent]/skills/writing-techniques/character-depth/SKILL.md` | Check motivation, contradiction, defense mechanisms |
 | `[ ]` | `[user_agent]/skills/quality-assurance/consistency-checker/SKILL.md` | Check contradictions, logic, continuity |
 | `[ ]` | `[user_agent]/skills/genre-knowledge/[detected-genre]/SKILL.md` | Apply detected genre expectations |

@@ -26,6 +26,7 @@ agent_skills = {
         ("emotional-interiority", "skills/writing-techniques/emotional-interiority/SKILL.md", "Ensure internal reactions."),
         ("dialogue-techniques", "skills/writing-techniques/dialogue-techniques/SKILL.md", "Ensure subtext in dialogue."),
         ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Verify chapter matches its pacing tag."),
+        ("punctuation-emotional-effect", "skills/writing-techniques/punctuation-emotional-effect/SKILL.md", "Use punctuation deliberately for emotion, rhythm, silence, and intensity."),
         ("character-depth", "skills/writing-techniques/character-depth/SKILL.md", "Verify character voice matches their psychology.")
     ],
     "editor": [
@@ -33,12 +34,14 @@ agent_skills = {
         ("emotional-interiority", "skills/writing-techniques/emotional-interiority/SKILL.md", "Suggest chapter-level fixes for internal reactions and report-style narration."),
         ("dialogue-techniques", "skills/writing-techniques/dialogue-techniques/SKILL.md", "Suggest fixes for subtext, action beats, and voice distinction."),
         ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Suggest fixes for pacing tag fit, rhythm, and fragment overuse."),
+        ("punctuation-emotional-effect", "skills/writing-techniques/punctuation-emotional-effect/SKILL.md", "Suggest punctuation fixes for emotion, rhythm, silence, and intensity."),
         ("character-depth", "skills/writing-techniques/character-depth/SKILL.md", "Check psychological continuity and motivation.")
     ],
     "reviewer": [
         ("consistency-checker", "skills/quality-assurance/consistency-checker/SKILL.md", "MANDATORY content consistency check."),
         ("forgotten-elements", "skills/quality-assurance/forgotten-elements/SKILL.md", "Check for dropped plot threads."),
-        ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Check chapter-level pacing tags and manuscript-level tension flow.")
+        ("pacing-rhythm", "skills/writing-techniques/pacing-rhythm/SKILL.md", "Check chapter-level pacing tags and manuscript-level tension flow."),
+        ("punctuation-emotional-effect", "skills/writing-techniques/punctuation-emotional-effect/SKILL.md", "Check punctuation supports emotion, rhythm, silence, and intensity without overuse.")
     ],
     "novel-writer": [
         ("workflow-guide", "skills/quality-assurance/workflow-guide/SKILL.md", "Reference the 8-step methodology."),
@@ -113,4 +116,3 @@ for agent_file in os.listdir(".gemini/agents"):
         agent_name = agent_file.split(".")[0]
         if agent_name in agent_skills:
             update_file(os.path.join(".gemini/agents", agent_file), gemini_template, agent_name)
-

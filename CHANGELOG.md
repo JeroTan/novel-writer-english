@@ -8,10 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Added `/editor` command for one-chapter revision, approve/skip tracking, and confirmed application of approved edits.
+- Added `punctuation-emotional-effect` writing technique skill.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
 - Refocused `/reviewer` on broad project QA, continuity, tracking, knowledge, and final readiness.
+- Moved punctuation-for-emotion guidance out of `/writer` into the new writing technique skill.
 
 ## [1.0.0] - 2026-04-04
 ### Added

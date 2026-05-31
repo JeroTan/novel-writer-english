@@ -235,9 +235,12 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Reference checklist with default project files, nested tracking file selection, typed chapter references, optional writing-technique skills, optional genre skills, and optional consistency checker.
 - Persistent suggestion table with `approve`, `skip`, and `for_discussion` statuses.
 - Approved edits apply only after every row is resolved and the user confirms.
+- New `punctuation-emotional-effect` skill under `src/skills/writing-techniques/`.
 
 ### Changed
 
 - Current core workflow is now: Constitution -> Specify -> Clarify -> Plan -> Tasks -> Write -> Edit -> Review.
 - `/reviewer` is now Step 8 and focuses on broad project QA, cross-chapter consistency, tracking accuracy, knowledge updates, and final readiness.
 - README, root skill reference, workflow-guide skill, guide command, writer handoff, planner handoff, metadata, and agent skill mapping updated for the new flow.
+- `/writer` now references the punctuation skill instead of carrying the full punctuation rules inline.
+- `/reviewer` now includes punctuation-for-emotional-effect as a review checklist item.

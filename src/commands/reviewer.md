@@ -48,6 +48,7 @@ Then verify:
 - Cross-chapter consistency (per `consistency-checker` skill): timeline, character behavior, relationship state, world rules
 - Chapter readiness: any chapter that still needs `/editor` before approval
 - Pacing continuity: pacing tag sequence, tension balance, missing breathers or weak escalation
+- Punctuation for emotional effect (per `punctuation-emotional-effect` skill): punctuation supports emotion, rhythm, silence, and intensity without stacking or voice mismatch
 - Tracking accuracy: do the tracking JSONs accurately reflect the chapters written?
 - Forgotten elements (per `forgotten-elements` skill): dropped threads, abandoned characters
 - Knowledge gaps: are there characters/locations in chapters not documented in `knowledge/`?
@@ -101,6 +102,7 @@ These skills enhance this command's output quality. Check if they are available 
 | `consistency-checker` | `[user_agent]/skills/quality-assurance/consistency-checker/SKILL.md` | MANDATORY content consistency check. |
 | `forgotten-elements` | `[user_agent]/skills/quality-assurance/forgotten-elements/SKILL.md` | Check for dropped plot threads. |
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check chapter-level pacing tags and manuscript-level tension flow. |
+| `punctuation-emotional-effect` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation supports emotion, rhythm, silence, and intensity without overuse. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the novel's genre. Check if the story fulfills genre conventions and reader expectations. |
 
 If any skill file is not found, inform the user:

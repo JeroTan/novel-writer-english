@@ -138,6 +138,7 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | `dialogue-techniques` | Makes dialogue subtext-heavy, distinctive, and character-driven. |
 | `emotional-interiority` | Ensures internal reactions, sensory-emotional responses, and prevents report-style narration. |
 | `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
+| `punctuation-emotional-effect` | Uses punctuation deliberately for emotion, rhythm, hesitation, interruption, silence, and intensity. |
 | `scene-structure` | Ensures scenes follow strong structural principles: Goal, Conflict, Disaster, Reaction, Dilemma, and Decision. |
 
 ### Quality Assurance

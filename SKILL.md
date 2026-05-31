@@ -113,6 +113,7 @@ These skills activate automatically based on context when installed:
 | `workflow-guide` | User asks about the process or which step to do next |
 | `genre-knowledge/*` | User mentions a genre — loads tropes, conventions, pitfalls |
 | `dialogue-techniques` | Writing dialogue — provides subtext, voice, pacing rules |
+| `punctuation-emotional-effect` | Writing, editing, or reviewing emotional punctuation — controls punctuation intensity, silence, hesitation, interruption, and emphasis |
 | `scene-structure` | Writing a scene — provides beat structure and pacing guidance |
 
 ### Sub-Skill Locations
@@ -150,6 +151,7 @@ These skills activate automatically based on context when installed:
 | `skills/writing-techniques/character-depth/SKILL.md` | `character-depth` | Psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms |
 | `skills/writing-techniques/emotional-interiority/SKILL.md` | `emotional-interiority` | Internal reactions, sensory-emotional responses, flags report-style narration |
 | `skills/writing-techniques/pacing-rhythm/SKILL.md` | `pacing-rhythm` | Pacing archetypes, sentence-level pacing, fragment detection, chapter pacing tags |
+| `skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | `punctuation-emotional-effect` | Punctuation for emotion, rhythm, silence, hesitation, interruption, intensity, and emphasis |
 
 ## Specification Markers Reference
 
