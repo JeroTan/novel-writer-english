@@ -281,7 +281,7 @@ Novel Writer English can help with:
 - Genre-aware fiction writing
 - Maintaining author voice while using AI
 
-## SEO Keywords
+## TLDR;
 
 AI novel writing assistant, open-source novel writing tool, AI fiction writing workflow, Claude Code novel writing, Gemini CLI writing assistant, OpenCode writing workflow, Codex CLI writing assistant, AI story planner, AI chapter writer, novel planning tool, fiction writing system, AI-assisted writing, web novel writing tool, long-form fiction AI workflow.
 
