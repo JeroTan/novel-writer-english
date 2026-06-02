@@ -55,6 +55,7 @@ Present the user with a clear overview:
 | `/utility-relations` | Manage and analyze character relationships |
 | `/utility-authentic-voice` | Rewrite a passage to remove AI cliches and enforce authentic voice |
 | `/utility-authenticity-audit` | Audit text for AI-generated stylistic patterns |
+| `/utility-command-cross-check` | Compare a project file created by a command against the current workflow format |
 
 To move to a step, the user types `/command-name` in the chat. For example: `/constitution Help me set up my novel's principles.`
 

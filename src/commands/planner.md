@@ -68,60 +68,148 @@ Ask the user which planning approach they want:
 | **Batch Plan** | You want to plan as you go | Plans only the next N chapters (e.g., "next 5 chapters") |
 | **Light Plan** | You're exploring and want flexibility | Suggests pacing tags and rough beats without rigid structure |
 
-**Important**: The AI is a tool. You control the direction. You can always replan, add arcs, or change course later.
-
 ### 4. Draft the Creative Plan
 
 Help the user design the technical implementation of their story. The plan structure adapts based on the chosen mode:
 
 #### For Full Novel Plan or Arc Plan:
 
-**1. Structural Approach**
-- State the chosen narrative structure (e.g., 3-Act, 7-Point, Hero's Journey).
-- For saga/arc mode: identify which arc this is and its role in the larger story.
+Start the file with project-level metadata:
 
-**2. Arc Overview** (for saga/arc mode)
-- Arc name and chapter range (e.g., "Arc 1: The Awakening — Chapters 1–12")
-- Arc goal: what must be accomplished by the end of this arc
-- How this arc connects to the larger story
+```markdown
+# Creative Plan — [Novel Name]
 
-**3. Chapter Breakdown**
-- A high-level outline of the chapters in this plan.
-- What happens in each chapter?
-- Assign a **pacing tag** to every chapter (see below).
+**Definition:** [What this plan covers: full novel, saga, arc, or chapter batch]
+**Created:** [YYYY-MM-DD]
+**Updated:** [YYYY-MM-DD]
+**Current Position:** [Saga 1/5; Arc 2/5] or [Arc 2/5]
+**Planning Mode:** [Full Novel Plan | Arc Plan]
+```
 
-**4. Pacing & Tension**
-- Where are the high-tension action moments?
-- Where are the quiet, reflective scenes?
-- Read the pacing preference from `./memory/constitution.md` (Chapter 7: Pacing Strategy).
-- Apply that pacing archetype to the chapter breakdown.
+Position rules:
+- If the story has sagas and arcs, use `Saga [current]/[total]; Arc [current]/[total]`.
+- If it has arcs only, use `Arc [current]/[total]`.
+- If total count is unknown, use `[N]` or `[TENTATIVE]`, e.g. `Saga 1/[N]; Arc 2/[TENTATIVE]`.
+- If the user gave total saga or arc count, add placeholder entries for unknown later items, e.g. `Saga 2: [TBD]`, `Saga 3: [TBD]`.
 
-**5. Foreshadowing Plan**
-- What elements need to be set up early for later payoffs?
+Use a nested saga/arc map when applicable:
 
-**6. Character Arc Mapping**
-- How do the characters change over the course of these planned chapters?
+```markdown
+## Saga Map
+
+### Saga 1: [Saga Name or TENTATIVE]
+**Purpose:** [What this saga contains or why it exists]
+
+#### Arc 1: [Arc Name] — Chapters [X-Y]
+**Purpose:** [Arc role]
+
+#### Arc 2: [Arc Name or TENTATIVE] — Chapters [X-Y or TBD]
+**Purpose:** [Arc role]
+
+### Saga 2: [TBD]
+```
+
+If there is no saga, use only an arc map:
+
+```markdown
+## Arc Map
+
+### Arc 1: [Arc Name] — Chapters [X-Y]
+**Purpose:** [Arc role]
+
+### Arc 2: [Arc Name or TENTATIVE] — Chapters [X-Y or TBD]
+**Purpose:** [Arc role]
+```
+
+For each active saga or arc, include:
+
+**Structural Approach**
+- State the chosen narrative structure (e.g., 3-Act, 7-Point, Hero's Journey, dynamic act structure).
+- Explain how this saga/arc uses or bends that structure.
+
+**Pacing & Tension**
+- Assign pacing tags as suggestions, not rigid rules. The user can edit them.
+- Tags can appear in any order: `[Setup]`, `[Action]`, `[Reflection]`, `[Transition]`, `[Climax]`, `[Breather]`, or a custom user tag.
+- If pacing matches a previous arc, use `[Pacing Same With Arc N]` and only explain differences.
+- Show which chapter(s) follow each pacing category. Base the mapping on the user's idea, specification, existing plan, and draft flow when present.
+- Mark the same pacing category in each chapter heading, e.g. `### Chapter 4: Prison Break \`[Action]\``.
+- If a chapter mixes modes, choose the primary pacing tag for the heading and mention the secondary function in the pacing map notes.
+- Read the pacing preference from `./memory/constitution.md` when available.
+
+Use this format:
+
+```markdown
+**Pacing & Tension**
+
+- `[Setup]` — Chapters 1-2. Establishes prison rules and escape stakes. Source: user draft opens with confinement and observation beats.
+- `[Action]` — Chapter 3. Escape sequence and pursuit spike. Source: draft flow shifts from preparation to movement.
+- `[Breather]` — Chapter 4. Recovery, disguise, and regrouping. Reason: needed after action spike.
+```
+
+**Foreshadowing Plan**
+- Note setups, callbacks, reveals, red herrings, and payoff timing.
+
+**Character Arc Mapping**
+- For each important character, mark one of:
+  - `[No Change]` — no meaningful arc shift in this section
+  - `[Minor Change]` — small belief, relationship, emotional, or tactical shift
+  - `[Major Change]` — major worldview, goal, wound, alliance, status, or identity shift
+- Add explanation only when useful.
+
+For each chapter, use this structure:
+
+```markdown
+### Chapter [N]: [Chapter Title or TENTATIVE] `[PacingTag]`
+
+**Summary:** [1-3 sentence chapter summary]
+
+**Flow:** [Beat 1] > [Beat 2] > [Beat 3] > ... > [Final beat]
+
+**Continuity Notes:** [What carries over from prior chapter/arc; character state; location; unresolved tension; important objects]
+```
+
+Put the chapters under appropriate arc/saga if there's any.
+
+Flow rules:
+- Flow is the concrete sequence of chapter beats.
+- Use drafts from `./draft/chapters/` when present; if user already provided flow, preserve it and only suggest improvements.
+- Example: `Sit in jail > Wait for timing > Prepare the key > Follow guard's eye line > Slip out > Find clothes > Use hidden money > Call a taxi`.
+- Let the user revise the flow. It is a planning aid, not locked prose.
 
 #### For Batch Plan or Light Plan:
 
-**1. Next Chapters Overview**
-- List the next N chapters with a 1–2 sentence beat summary each.
-- Assign a **pacing tag** to each chapter:
-  - `[Setup]` — introducing characters, world, or situation
-  - `[Action]` — conflict, chase, fight, confrontation
-  - `[Reflection]` — processing events, character growth, quiet moments
-  - `[Transition]` — moving between locations, time skips, bridging scenes
-  - `[Climax]` — peak tension, major confrontation, turning point
-  - `[Breather]` — cooldown, humor, slice-of-life, recovery
-- You don't need a full 7-point structure for a batch. Just suggest the right tag based on where the story is.
+Use this mode for adding chapters to an existing saga/arc, planning the next small range, or creating chapter-specific structure when the story has no saga/arc system yet.
 
-**2. Continuity Notes**
-- What needs to carry over from the previous chapter(s)?
-- Any unresolved threads, character states, or open questions?
+Start the appended section with:
 
-**3. Open Questions**
-- What might need to be decided before or during writing?
-- Flag anything that could benefit from a `/clarify` session.
+```markdown
+---
+
+## Batch Plan: Chapters [X-Y] (created [YYYY-MM-DD], updated [YYYY-MM-DD])
+
+**Adds To:** [Saga N; Arc N] or [Arc N] or [Standalone]
+**Definition:** [What this batch covers]
+```
+
+For each chapter, use the same chapter structure:
+
+```markdown
+### Chapter [N]: [Chapter Title or TENTATIVE] `[PacingTag]`
+
+**Summary:** [1-3 sentence chapter summary]
+
+**Flow:** [Beat 1] > [Beat 2] > [Beat 3] > ... > [Final beat]
+
+**Continuity Notes:** [What carries over from prior chapter/arc; character state; location; unresolved tension; important objects]
+```
+
+Batch/light plan rules:
+- Pacing tags are suggestions and may be edited by the user.
+- Do not force a fixed pacing order. Suggest what fits the chapter.
+- Include a short pacing list before the chapter list when planning more than one chapter, e.g. ``- `[Action]` — Chapters 3-4. Source: draft chase and confrontation beats.``.
+- Match each chapter heading's pacing tag to that map.
+- If chapter flow exists in drafts, preserve the user's flow first and suggest alternatives only when useful.
+- If unresolved decisions appear, put them inside the relevant chapter or arc as `**Decision Needed:** [question]`. Do not create a separate Open Questions section by default.
 
 ### 5. Output and Save
 

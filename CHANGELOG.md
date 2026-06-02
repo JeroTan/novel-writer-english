@@ -10,11 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `/editor` command for one-chapter revision, approve/skip tracking, and confirmed application of approved edits.
 - Added `punctuation-emotional-effect` writing technique skill.
 - Added Codex command-to-skill conversion during install so `/constitution`, `/writer`, `/editor`, and other commands are available as Codex skills.
+- Added `/utility-command-cross-check` for checking whether a project file created by a workflow command is stale against the current command format.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
 - Refocused `/reviewer` on broad project QA, continuity, tracking, knowledge, and final readiness.
 - Moved punctuation-for-emotion guidance out of `/writer` into the new writing technique skill.
+- Expanded `/planner` creative-plan output with metadata, saga/arc position, nested saga/arc maps, flexible pacing tags mapped to chapter numbers, chapter flow, and continuity notes.
 
 ## [1.0.0] - 2026-04-04
 ### Added

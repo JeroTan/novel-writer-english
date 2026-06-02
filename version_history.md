@@ -237,6 +237,7 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Approved edits apply only after every row is resolved and the user confirms.
 - New `punctuation-emotional-effect` skill under `src/skills/writing-techniques/`.
 - Codex installer now converts every command in `src/commands/` into `.agents/skills/commands/[command-name]/SKILL.md`.
+- New `/utility-command-cross-check` command checks project files created by workflow commands against the current command format and suggests stale-file revisions.
 
 ### Changed
 
@@ -245,3 +246,4 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - README, root skill reference, workflow-guide skill, guide command, writer handoff, planner handoff, metadata, and agent skill mapping updated for the new flow.
 - `/writer` now references the punctuation skill instead of carrying the full punctuation rules inline.
 - `/reviewer` now includes punctuation-for-emotional-effect as a review checklist item.
+- `/planner` creative-plan output now includes definition, created/updated dates, current saga/arc position, nested saga/arc maps, structural approach, pacing/tension notes mapped to chapter numbers, foreshadowing, character arc mapping, chapter flow, and continuity notes.

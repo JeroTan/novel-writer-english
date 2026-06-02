@@ -125,6 +125,7 @@ The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You c
 | `/relations` | Manages and analyzes character relationships. |
 | `/authenticity-audit` | Audits text for AI-generated stylistic patterns and clichés. |
 | `/authentic-voice` | Rewrites a passage to remove AI clichés and enforce authentic human voice. |
+| `/utility-command-cross-check` | Compares a project file created by a command against the current workflow format and suggests revision when stale. |
 
 ## Auto-Activating AI Writing Skills
 
