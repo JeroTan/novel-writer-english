@@ -78,12 +78,13 @@ Do not treat story-specific content differences as stale format. Only flag conte
 
 For `/planner`, specifically check whether `creative-plan.md` uses the current format:
 - Definition, created date, updated date, current saga/arc position, and planning mode
-- Saga/arc map when applicable
+- Nested `Saga -> Arc -> Chapters` hierarchy, or `Arc -> Chapters` when there is no saga
 - Structural Approach
 - Pacing & Tension as compact bullets that list chapter(s)
+- Any required section or field may use `[N/A] — [brief reason]` if truly not applicable
 - Foreshadowing Plan
 - Character Arc Mapping
-- Chapter headings with pacing tag
+- Chapter headings nested under the active arc with pacing tag
 - Chapter Summary, Flow, and Continuity Notes
 - Batch plan sections with Adds To and Definition
 

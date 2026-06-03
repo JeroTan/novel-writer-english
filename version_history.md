@@ -246,4 +246,4 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - README, root skill reference, workflow-guide skill, guide command, writer handoff, planner handoff, metadata, and agent skill mapping updated for the new flow.
 - `/writer` now references the punctuation skill instead of carrying the full punctuation rules inline.
 - `/reviewer` now includes punctuation-for-emotional-effect as a review checklist item.
-- `/planner` creative-plan output now includes definition, created/updated dates, current saga/arc position, nested saga/arc maps, structural approach, pacing/tension notes mapped to chapter numbers, foreshadowing, character arc mapping, chapter flow, and continuity notes.
+- `/planner` creative-plan output now includes definition, created/updated dates, current saga/arc position, nested saga -> arc -> chapter hierarchy, structural approach, pacing/tension notes mapped to chapter numbers, foreshadowing, character arc mapping, chapter flow, continuity notes, and `[N/A]` markers for any truly non-applicable section or field.

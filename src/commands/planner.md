@@ -90,38 +90,55 @@ Position rules:
 - If the story has sagas and arcs, use `Saga [current]/[total]; Arc [current]/[total]`.
 - If it has arcs only, use `Arc [current]/[total]`.
 - If total count is unknown, use `[N]` or `[TENTATIVE]`, e.g. `Saga 1/[N]; Arc 2/[TENTATIVE]`.
-- If the user gave total saga or arc count, add placeholder entries for unknown later items, e.g. `Saga 2: [TBD]`, `Saga 3: [TBD]`.
+- If the user gave total saga or arc count, add placeholder entries for unknown later items in the same nested outline, e.g. `Saga 2: [TBD]`, `Arc 3: [TBD]`.
 
-Use a nested saga/arc map when applicable:
+Use one nested outline:
+- Saga contains arcs.
+- Arc contains its structural approach, pacing/tension, foreshadowing, character arc mapping, chapters, and arc-specific continuity notes.
+- Chapters stay inside their arc.
+- If any section or field truly does not apply, keep it and write `[N/A] — [brief reason]`. Use `[N/A]` only when not applicable, not when the information is merely unknown.
 
 ```markdown
-## Saga Map
-
-### Saga 1: [Saga Name or TENTATIVE]
+## Saga 1: [Saga Name or TENTATIVE] — Chapters [X-Y or TBD]
 **Purpose:** [What this saga contains or why it exists]
-
-#### Arc 1: [Arc Name] — Chapters [X-Y]
-**Purpose:** [Arc role]
-
-#### Arc 2: [Arc Name or TENTATIVE] — Chapters [X-Y or TBD]
-**Purpose:** [Arc role]
-
-### Saga 2: [TBD]
-```
-
-If there is no saga, use only an arc map:
-
-```markdown
-## Arc Map
 
 ### Arc 1: [Arc Name] — Chapters [X-Y]
 **Purpose:** [Arc role]
 
+**External Goal:** [What must be achieved]
+**Internal Goal:** [Character-facing change or pressure]
+**Antagonist Force:** [Opposing force]
+
+#### Structural Approach
+[How this arc is shaped]
+
+#### Pacing & Tension
+- `[Setup]` — Chapters [N-N]. [Reason]
+
+#### Foreshadowing Plan
+[Setups and payoffs]
+
+#### Character Arc Mapping
+[Character changes]
+
+#### Chapters
+
+##### Chapter [N]: [Chapter Title or TENTATIVE] `[PacingTag]`
+**Summary:** [1-3 sentence chapter summary]
+**Flow:** [Beat 1] > [Beat 2] > [Beat 3] > ... > [Final beat]
+**Continuity Notes:** [Carryover notes]
+
 ### Arc 2: [Arc Name or TENTATIVE] — Chapters [X-Y or TBD]
 **Purpose:** [Arc role]
+
+## Saga 2: [TBD]
 ```
 
-For each active saga or arc, include:
+If there is no saga, start directly with `## Arc 1: [Arc Name] — Chapters [X-Y]` and use the same arc sections.
+
+For each active arc, include:
+
+If any required section or field truly does not apply, keep the heading/label and write `[N/A] — [brief reason]`. For unknown-but-needed information, use `[TBD]`, `[TENTATIVE]`, or `[Needs User Input]` instead.
 
 **Structural Approach**
 - State the chosen narrative structure (e.g., 3-Act, 7-Point, Hero's Journey, dynamic act structure).
@@ -132,7 +149,7 @@ For each active saga or arc, include:
 - Tags can appear in any order: `[Setup]`, `[Action]`, `[Reflection]`, `[Transition]`, `[Climax]`, `[Breather]`, or a custom user tag.
 - If pacing matches a previous arc, use `[Pacing Same With Arc N]` and only explain differences.
 - Show which chapter(s) follow each pacing category. Base the mapping on the user's idea, specification, existing plan, and draft flow when present.
-- Mark the same pacing category in each chapter heading, e.g. `### Chapter 4: Prison Break \`[Action]\``.
+- Mark the same pacing category in each chapter heading, e.g. `##### Chapter 4: Prison Break \`[Action]\``.
 - If a chapter mixes modes, choose the primary pacing tag for the heading and mention the secondary function in the pacing map notes.
 - Read the pacing preference from `./memory/constitution.md` when available.
 
@@ -148,6 +165,7 @@ Use this format:
 
 **Foreshadowing Plan**
 - Note setups, callbacks, reveals, red herrings, and payoff timing.
+- If this intentionally has no setup/payoff work, write `[N/A] — no planned foreshadowing here`.
 
 **Character Arc Mapping**
 - For each important character, mark one of:
@@ -155,11 +173,12 @@ Use this format:
   - `[Minor Change]` — small belief, relationship, emotional, or tactical shift
   - `[Major Change]` — major worldview, goal, wound, alliance, status, or identity shift
 - Add explanation only when useful.
+- If no character arc mapping applies, write `[N/A] — no character arc movement tracked for this section`.
 
 For each chapter, use this structure:
 
 ```markdown
-### Chapter [N]: [Chapter Title or TENTATIVE] `[PacingTag]`
+##### Chapter [N]: [Chapter Title or TENTATIVE] `[PacingTag]`
 
 **Summary:** [1-3 sentence chapter summary]
 
@@ -168,7 +187,7 @@ For each chapter, use this structure:
 **Continuity Notes:** [What carries over from prior chapter/arc; character state; location; unresolved tension; important objects]
 ```
 
-Put the chapters under appropriate arc/saga if there's any.
+Put chapters under `#### Chapters` inside the appropriate arc.
 
 Flow rules:
 - Flow is the concrete sequence of chapter beats.
