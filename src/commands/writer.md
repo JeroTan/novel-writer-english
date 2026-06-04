@@ -79,7 +79,7 @@ Before writing ANY chapter, silently run through all 12 items:
 9. **Goals** — Identify what MUST be accomplished in THIS chapter per the plan and tasks.
 10. **Risks** — Identify common pitfalls for this scene type based on genre and pacing tag.
 11. **Emotional Goals** — What emotional arc does the POV character travel in this chapter? What emotional state should the reader reach by the end?
-12. **Pacing Type** — Check the chapter's pacing tag in `./stories/[novel-name]/tasks.md` (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
+12. **Pacing Type** — Check the chapter's pacing tag in `./stories/[novel-name]/creative-plan.md` (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
     - **Numbered tags** (e.g., `[Action 2]`, `[Climax 3]`): This chapter is part of a multi-chapter sequence. Maintain continuity with the previous chapter(s) in the sequence. Do not resolve the arc unless this is the final number. Keep tension, character state, and scene momentum flowing from the previous chapter.
     - **Single tags** (e.g., `[Action]`, `[Reflection]`): Self-contained chapter. Resolve the scene's core beat within this chapter.
     - **No tag yet**: If the chapter hasn't been assigned a pacing tag, infer it from the plan or ask the user what tone they want for this chapter.

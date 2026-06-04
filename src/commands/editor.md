@@ -40,7 +40,7 @@ Default checked references:
 | `[x]` | `./memory/constitution.md` | Creative principles, style rules, non-negotiables |
 | `[x]` | `./stories/[novel-name]/specification.md` | Story facts, promises, genre, characters |
 | `[x]` | `./stories/[novel-name]/creative-plan.md` | Chapter intent, pacing, arc role |
-| `[x]` | `./stories/[novel-name]/tasks.md` | Chapter task, pacing tag, status |
+| `[x]` | `./stories/[novel-name]/tasks.md` | Chapter task and status |
 | `[x]` | `./stories/[novel-name]/tracking/` | Continuity state |
 | `[x]` | `./stories/[novel-name]/content/` | Chapter references selected below |
 
@@ -177,7 +177,17 @@ When applying:
 
 ### 8. Completion Output
 
-After applying edits, report:
+After applying edits:
+1. Append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`.
+2. If the log section does not exist, create it at the bottom of `tasks.md`.
+3. If the placeholder `No editor/reviewer entries yet.` exists, remove it.
+4. Use this format:
+
+```markdown
+- [YYYY-MM-DD] `/editor` Chapter [N] — applied [X] approved edit(s); skipped [Y]; unresolved [Z].
+```
+
+Then report:
 - Chapter edited
 - Approved rows applied
 - Skipped rows ignored

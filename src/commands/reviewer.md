@@ -82,6 +82,15 @@ Do NOT rewrite prose or output replacement text. Present findings and wait for u
 
 ### 6. Mark as Done
 
+After broad review runs, append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`.
+
+If the log section does not exist, create it at the bottom of `tasks.md`. If the placeholder `No editor/reviewer entries yet.` exists, remove it.
+
+Use this format:
+```markdown
+- [YYYY-MM-DD] `/reviewer` Chapter [N or range] — [passed/needs editor/needs knowledge update]; [short result].
+```
+
 After broad review passes for a chapter and knowledge files are updated, change its status in `./stories/[novel-name]/tasks.md` from `[FOR_REVIEW]` to `[DONE]`.
 
 Do not mark a chapter `[DONE]` if:

@@ -79,7 +79,7 @@ Identifies up to 5 ambiguities in the specification and resolves them through ta
 Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy. This step initializes `stories/[novel-name]/tracking/` from templates.*
 
 ### Step 5: Tasks
-Breaks the plan into actionable items with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Includes estimated word counts or effort. *Note: Tasks are tagged with pacing type, and task output format is now a checkbox checklist.*
+Breaks the plan into actionable one-line chapter tasks with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. *Note: Tasks mirror the planner's saga/arc/chapter hierarchy and do not repeat planner details or word-count estimates.*
 
 ### Step 6: Write
 Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*

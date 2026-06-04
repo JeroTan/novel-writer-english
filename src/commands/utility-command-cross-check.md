@@ -88,6 +88,17 @@ For `/planner`, specifically check whether `creative-plan.md` uses the current f
 - Chapter Summary, Flow, and Continuity Notes
 - Batch plan sections with Adds To and Definition
 
+For `/task-manager`, specifically check whether `tasks.md` uses the current format:
+- Header has total chapters planned, chapters written, and last updated
+- No estimated total words, per-chapter word estimates, or effort estimates
+- Tasks preserve the planner's `Saga -> Arc -> Chapter` order, or `Arc -> Chapter` when there is no saga
+- Chapter tasks are one-line task-management entries: `- [ ] **Chapter [N]: [Title]** — brief chapter explanation`
+- Chapter tasks do not duplicate planner Summary, Flow, Pacing & Tension, Foreshadowing, Character Arc Mapping, or Continuity Notes
+- Batch sections include `Adds To`
+- Status markers are `[ ]`, `[FOR_REVIEW]`, and `[DONE]`
+- Contains `## Review & Editing Log`, initially `No editor/reviewer entries yet.` or populated by `/editor` and `/reviewer`
+- Does not create separate character profile, worldbuilding, review, or editing task items
+
 ### 5. Output Report
 
 Output:

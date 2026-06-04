@@ -29,6 +29,12 @@ Check if `./stories/[novel-name]/tasks.md` already exists.
 
 Read `./stories/[novel-name]/creative-plan.md` and `./stories/[novel-name]/specification.md`.
 
+When reading `creative-plan.md`, follow the current planner hierarchy:
+- `Saga -> Arc -> Chapters`, or `Arc -> Chapters` when there is no saga.
+- Each arc may include Structural Approach, Pacing & Tension, Foreshadowing Plan, Character Arc Mapping, Chapters, and continuity notes.
+- Each chapter may include Summary, Flow, and Continuity Notes.
+- If any section or field is marked `[N/A]`, treat it as intentionally not applicable.
+
 ### 2b. Check for Drafts
 
 Look for draft files in `./draft/chapters/` (relative to project root). Accept any naming convention: `chapter_00001.md`, `0001.md`, `1.md`, `chapter-1.md`, `ch1.md`, etc.
@@ -57,11 +63,15 @@ Check `./stories/[novel-name]/content/` for already-written chapters.
 
 ### 3. Generate Task List
 
-Break down the plan into specific tasks. Types of tasks include:
-- Chapter writing
-- Character profile refinement
-- Worldbuilding documentation
-- Review/editing
+Break down the plan into chapter-writing tasks only.
+
+Character/worldbuilding updates stay in knowledge/tracking workflows. Editing/review activity goes in the Review & Editing Log.
+
+Keep task output aligned with the creative plan:
+- Preserve the same saga and arc order from `creative-plan.md`.
+- Put chapter tasks under their matching arc.
+- Use one brief task line per chapter.
+- Do not duplicate the planner's Summary, Flow, Pacing & Tension, Foreshadowing, Character Arc Mapping, or Continuity Notes in `tasks.md`.
 
 ### 4. Assign Markers
 
@@ -69,18 +79,8 @@ Assign markers to each task to manage workflow:
 - `[P]` for tasks that can be done in parallel.
 - `[Dep:X]` for tasks that depend on task X.
 - `[High Priority]` for critical tasks.
-- Include the pacing tag from the plan (e.g., `[Action]`, `[Reflection]`).
 
-**Multi-chapter pacing arcs**: When a scene or arc spans multiple chapters, use a numbered pacing tag:
-- `[Action 1]`, `[Action 2]`, `[Action 3]` — a 3-part action sequence
-- `[Reflection 1]`, `[Reflection 2]` — a 2-part reflective arc
-- `[Climax 1]`, `[Climax 2]` — a 2-part climax
-
-The number tells the writer to read the previous chapter in the sequence for continuity. Use this when a single scene is too long for one chapter and needs to be split.
-
-For character-heavy scenes, include a note on which characters' psychological depth should be showcased.
-
-Provide an estimated word count or effort level for each task.
+Do not include total word counts, per-chapter word estimates, or effort estimates. Chapter length may vary.
 
 ### 5. Output Format
 
@@ -90,23 +90,25 @@ The file should start with a header summary:
 
 **Total chapters planned:** [N]
 **Chapters written:** [M]
-**Estimated total words:** [N]
 **Last updated:** [Date]
 
 ---
 ```
 
-For saga/arc mode, group tasks under arc headers:
+For saga/arc mode, group tasks under the same nested outline as the planner:
 ```markdown
-## Arc 1: The Awakening (Chapters 1–12)
+## Saga 1: [Saga Name] — Chapters [X-Y or TBD]
 
-- [ ] **Chapter 1** — ...
-- [ ] **Chapter 2** — ...
+### Arc 1: [Arc Name] — Chapters [X-Y]
 
-## Arc 2: The Journey (Chapters 13–24)
+- [ ] **Chapter 1: [Title]** `[High Priority]` — [Brief chapter explanation]
 
-- [ ] **Chapter 13** — ...
+### Arc 2: [Arc Name] — Chapters [X-Y or TBD]
+
+- [ ] **Chapter 13: [Title]** `[Dep:12]` — [Brief chapter explanation]
 ```
+
+If there is no saga, start directly with `## Arc [N]: [Arc Name] — Chapters [X-Y]`.
 
 For batch/incremental mode, add a clear section:
 ```markdown
@@ -114,13 +116,17 @@ For batch/incremental mode, add a clear section:
 
 ## Batch: Chapters [X–Y] (added [Date])
 
-- [ ] **Chapter X** — ...
+**Adds To:** [Saga N; Arc N] or [Arc N] or [Standalone]
+
+- [ ] **Chapter X: [Title]** `[Dep:X-1]` — [Brief chapter explanation]
 ```
 
 Each task entry must be formatted as:
 ```markdown
-- [ ] **Chapter X** — [Brief description of what happens] `[PacingTag]` `[P]`|`[Dep:X]`|`[High Priority]` — ~[est. word count] words
+- [ ] **Chapter X: [Title]** — [Brief chapter explanation]
 ```
+
+Use task markers only when they help manage work. If needed, place them after the chapter title, e.g. `[Dep:X]` or `[High Priority]`. Keep the chapter task to one line.
 
 **Status markers:**
 - `[ ]` — not started
@@ -129,17 +135,28 @@ Each task entry must be formatted as:
 
 Example:
 ```markdown
-- [ ] **Chapter 1** — Introduction of the protagonist in the market; first encounter with the antagonist's proxy. `[Setup]` `[High Priority]` — ~2,500 words
-- [ ] **Chapter 2** — Protagonist discovers they have a rare ability; forced to flee the city. `[Action 1]` `[Dep:1]` — ~3,000 words
-- [ ] **Chapter 3** — The chase through the alleys; protagonist corners the pursuer. `[Action 2]` `[Dep:2]` — ~3,000 words
-- [ ] **Chapter 4** — Breather: protagonist reaches a village and reflects on what they left behind. `[Reflection]` `[Dep:3]` — ~2,000 words
+- [ ] **Chapter 1: Market Omen** `[High Priority]` — Introduce the protagonist in the market and stage the first encounter with the antagonist's proxy.
+- [ ] **Chapter 2: Rare Ability** `[Dep:1]` — Reveal the protagonist's rare ability and force the flight from the city.
+- [ ] **Chapter 3: Alley Chase** `[Dep:2]` — Continue the chase through the alleys and corner the pursuer.
+- [ ] **Chapter 4: Village Breather** `[Dep:3]` — Let the protagonist recover, reflect, and process what was lost.
 ```
+
+Add this log section at the bottom of `tasks.md`:
+```markdown
+---
+
+## Review & Editing Log
+
+No editor/reviewer entries yet.
+```
+
+The log starts empty. `/editor` and `/reviewer` append dated entries when they edit or review chapters.
 
 ### 6. Output and Save
 
 Save the task list to `./stories/[novel-name]/tasks.md`.
 
-If appending to an existing task list, **preserve all existing entries** and their statuses. Only add new tasks below the existing ones under a new section header.
+If appending to an existing task list, **preserve all existing entries** and their statuses. Only add new tasks below the existing ones under a new section header. Preserve `## Review & Editing Log`; create it if missing.
 
 Suggest the user run the `/writer` command next to begin execution.
 
@@ -149,7 +166,7 @@ These skills enhance this command's output quality. Check if they are available 
 
 | Skill | File | Purpose |
 |-------|------|---------|
-| `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Tag each task with its pacing type. |
+| `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Reference pacing concepts when ordering chapter work; do not add pacing tags to tasks. |
 
 If any skill file is not found, inform the user:
 > "Supplement skills are available to enhance this command. Download them from:

@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refocused `/reviewer` on broad project QA, continuity, tracking, knowledge, and final readiness.
 - Moved punctuation-for-emotion guidance out of `/writer` into the new writing technique skill.
 - Expanded `/planner` creative-plan output with metadata, saga/arc position, nested saga -> arc -> chapter hierarchy, flexible pacing tags mapped to chapter numbers, chapter flow, continuity notes, and `[N/A]` markers for any truly non-applicable section or field.
+- Updated `/task-manager` output to mirror planner saga/arc/chapter hierarchy with simple one-line chapter tasks, remove planner-detail repetition and word estimates, and add a Review & Editing Log for `/editor` and `/reviewer` entries.
 
 ## [1.0.0] - 2026-04-04
 ### Added
