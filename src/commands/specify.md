@@ -1,6 +1,6 @@
 ---
 name: specify
-description: "Step 2: Creates the story specification document using a progressive 4-level approach (logline → premise → one-page → full spec)."
+description: "Step 2: Creates a lean story specification and initializes knowledge files for detailed characters, worldbuilding, locations, voices, and glossary."
 tools:
   - "*"
 kind: local
@@ -11,7 +11,7 @@ argument-hint: "[Working Title]"
 
 ## Objective
 
-Create a detailed story specification document for the novel, serving as the blueprint for all future planning and writing.
+Create a lean story specification for the novel. The specification captures the core purpose, promise, and direction of the story. Detailed character profiles, voices, locations, worldbuilding, factions, terms, and other reference data belong in `./stories/[novel-name]/knowledge/`.
 
 ## Execution Steps
 
@@ -35,35 +35,87 @@ If the user hasn't provided enough information, ask targeted questions to build 
 **Level 1: Logline**
 - A one-sentence summary of the story.
 
-**Level 2: Premise**
+**Level 2: Core Premise**
 - A short paragraph covering: Protagonist, Goal, Conflict, and Stakes.
 - For each major character, include:
   - **Wound / Ghost**: What past event defines them?
   - **Origin of Motivation**: WHY they want their goal (not just what the goal is).
   - **Internal Contradiction**: What they believe vs. what's true.
 
-**Level 3: One-Page Summary**
+Keep character psychology here as a brief snapshot only. Put the detailed profile in `knowledge/character-profiles.md`.
+
+**Level 3: Story Promise**
 - Core conflict
-- Main characters (Protagonist, Antagonist, Key Allies)
+- Core purpose of the novel
+- Main characters as one-line role snapshots (Protagonist, Antagonist, Key Allies)
+- Primary themes
+- Genre promise and reader expectations
 - Target audience
 - Success criteria for the novel
 
-**Level 4: Full Specification**
-- Detailed setting/worldbuilding overview
-- Major plot points (Beginning, Middle, End)
-- Key thematic elements
-- Deep character profiles for each major character, including:
-  - **Wound / Ghost**: What past event defines them?
-  - **Origin of Motivation**: WHY they want their goal (not just what the goal is).
-  - **Internal Contradiction**: What they believe vs. what's true.
+**Level 4: Knowledge Map**
+- Map detailed information to the correct knowledge file:
+  - `./stories/[novel-name]/knowledge/character-profiles.md`
+  - `./stories/[novel-name]/knowledge/character-voices.md`
+  - `./stories/[novel-name]/knowledge/locations.md`
+  - `./stories/[novel-name]/knowledge/world-setting.md`
+  - `./stories/[novel-name]/knowledge/glossary.md`
+- In `specification.md`, include only short pointers and summaries.
+- Do not duplicate full character profiles, full worldbuilding, location databases, faction databases, magic/technology rules, or glossary entries in the specification.
 
 ### 3. Draft the Specification
 
 Draft the document using the information gathered.
+
+Use this lean structure:
+
+```markdown
+# Specification - [Novel Name]
+
+## Definition
+- **Created:** [YYYY-MM-DD]
+- **Updated:** [YYYY-MM-DD]
+- **Primary Genre:** [Genre]
+- **Subgenres / Tags:** [Tags]
+
+## Logline
+[One sentence.]
+
+## Core Premise
+[One paragraph covering protagonist, goal, conflict, and stakes.]
+
+## Core Purpose
+[Why this novel exists; the emotional, thematic, or entertainment promise.]
+
+## Story Promise
+- **Core Conflict:** [Brief]
+- **Primary Themes:** [Brief]
+- **Target Audience:** [Brief]
+- **Success Criteria:** [Brief]
+
+## Core Cast Snapshot
+- **[Character Name]** — [Role, one-line motivation/conflict]. Full profile: `./knowledge/character-profiles.md`
+
+## World Snapshot
+[One short paragraph only.] Full worldbuilding: `./knowledge/world-setting.md`
+
+## Knowledge Map
+- **Characters:** `./knowledge/character-profiles.md`
+- **Character Voices:** `./knowledge/character-voices.md`
+- **Locations:** `./knowledge/locations.md`
+- **World & Setting:** `./knowledge/world-setting.md`
+- **Glossary:** `./knowledge/glossary.md`
+
+## Open Clarifications
+- [Needs Clarification] [Question or vague item]
+```
+
 Use the following markers for elements that need work:
 - `[Needs Clarification]` for vague points.
 - `[Core Requirement]` for non-negotiables.
 - `[Optional Feature]` for nice-to-haves.
+
+Do not expand the specification into a full encyclopedia. If a section becomes long, move the details into the matching knowledge file and keep a short pointer in the specification.
 
 ### 4. Output and Save
 
@@ -77,10 +129,11 @@ Save the specification to `./stories/[novel-name]/specification.md`.
    - `[user_agent]/templates/knowledge/character-voices.md` → `./stories/[novel-name]/knowledge/character-voices.md`
    - `[user_agent]/templates/knowledge/locations.md` → `./stories/[novel-name]/knowledge/locations.md`
    - `[user_agent]/templates/knowledge/world-setting.md` → `./stories/[novel-name]/knowledge/world-setting.md`
-3. Pre-fill each file with everything already established in the specification. Replace `[Protagonist Name]` with the actual name, fill out known locations, etc.
+   - `[user_agent]/templates/knowledge/glossary.md` → `./stories/[novel-name]/knowledge/glossary.md`
+3. Pre-fill each file with everything already established during specification gathering. Replace `[Protagonist Name]` with the actual name, fill out known locations, add known terms, etc.
 4. For fields the user has not yet defined, leave the placeholder text (e.g., `[TBD]`) but offer 2–3 concrete suggestions based on the genre and logline.
 5. If the user says "maybe later" or skips a field, leave the placeholder and move on. Do NOT block the workflow.
-6. Tell the user: "Knowledge folder created at `./stories/[novel-name]/knowledge/`. These files will be used by the Clarify and Write commands. Fill them in or update them any time."
+6. Tell the user: "Knowledge folder created at `./stories/[novel-name]/knowledge/`. The specification stays lean; detailed canon lives in these knowledge files. They will be used by Clarify, Plan, Write, Edit, and Review."
 
 Inform the user that the specification is ready and suggest they run the `/clarify` command next.
 

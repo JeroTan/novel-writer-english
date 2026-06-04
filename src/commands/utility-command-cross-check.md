@@ -76,6 +76,13 @@ Compare the project file against the current command's required output shape:
 
 Do not treat story-specific content differences as stale format. Only flag content when it conflicts with the command's structural requirements or required workflow state.
 
+For `/specify`, specifically check whether `specification.md` uses the current lean format:
+- Contains Definition, Logline, Core Premise, Core Purpose, Story Promise, Core Cast Snapshot, World Snapshot, Knowledge Map, and Open Clarifications when needed
+- Keeps character, world, location, faction, magic/technology, glossary, and voice details brief in the specification
+- Uses the Knowledge Map to point to `./knowledge/character-profiles.md`, `./knowledge/character-voices.md`, `./knowledge/locations.md`, `./knowledge/world-setting.md`, and `./knowledge/glossary.md`
+- Does not use an old "Full Specification" section as the home for all detailed canon
+- Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, and `glossary.md`
+
 For `/planner`, specifically check whether `creative-plan.md` uses the current format:
 - Definition, created date, updated date, current saga/arc position, and planning mode
 - Nested `Saga -> Arc -> Chapters` hierarchy, or `Arc -> Chapters` when there is no saga

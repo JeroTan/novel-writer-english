@@ -86,7 +86,7 @@ flowchart TD
 |---|---------|---------|
 | 0 | `/guide-me` | **Main orchestrator** — start here. Detects your project state and guides you through every step. |
 | 1 | `/constitution` | Define core creative principles, pacing strategy, and character depth approach. |
-| 2 | `/specify` | Build the story specification from logline to full spec. |
+| 2 | `/specify` | Build a lean story specification and map details into knowledge files. |
 | 3 | `/clarify` | Resolve ambiguities in the spec with targeted questions. |
 | 4 | `/planner` | Create chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | 5 | `/task-manager` | Break the plan into prioritized, dependency-tracked writing tasks. |
@@ -104,7 +104,7 @@ The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You c
 |---------|-------------|
 | `/guide-me` | Main orchestrator. Walks you through the eight-step AI novel writing methodology from concept to completed manuscript. |
 | `/constitution` | Step 1 — Creates or updates the creative constitution, including core values, quality baseline, style principles, pacing, and character depth. |
-| `/specify` | Step 2 — Builds the story specification using a progressive four-level approach. |
+| `/specify` | Step 2 — Builds a lean story specification and initializes detailed knowledge files. |
 | `/clarify` | Step 3 — Reviews the spec, identifies up to five ambiguities, and asks targeted questions. |
 | `/planner` | Step 4 — Creates chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | `/task-manager` | Step 5 — Breaks the creative plan into prioritized, dependency-tracked writing tasks. |
@@ -188,20 +188,21 @@ These files are created automatically from templates during the workflow and upd
 
 | File | Purpose |
 |------|---------|
-| `knowledge/character-profiles.md` | Stores detailed character profiles with psychological depth. |
-| `knowledge/character-voices.md` | Tracks distinctive speech patterns, vocabulary, and mannerisms per character. |
-| `knowledge/locations.md` | Stores setting descriptions, sensory details, and spatial relationships. |
-| `knowledge/world-setting.md` | Tracks worldbuilding rules, magic systems, technology, and cultural details. |
+| `stories/[name]/knowledge/character-profiles.md` | Stores detailed character profiles with psychological depth. |
+| `stories/[name]/knowledge/character-voices.md` | Tracks distinctive speech patterns, vocabulary, and mannerisms per character. |
+| `stories/[name]/knowledge/locations.md` | Stores setting descriptions, sensory details, and spatial relationships. |
+| `stories/[name]/knowledge/world-setting.md` | Tracks worldbuilding rules, magic systems, technology, and cultural details. |
+| `stories/[name]/knowledge/glossary.md` | Stores terms, titles, factions, items, magic/technology names, and in-world vocabulary. |
 
 ### Tracking Files
 
 | File | Purpose |
 |------|---------|
-| `tracking/character-state.json` | Tracks character arcs, emotional states, and physical conditions per chapter. |
-| `tracking/plot-tracker.json` | Tracks plot threads, subplots, and resolution status. |
-| `tracking/relationships.json` | Tracks character relationship dynamics and how they evolve. |
-| `tracking/timeline.json` | Tracks chronological story events for consistency checking. |
-| `tracking/validation-rules.json` | Stores custom validation rules derived from your constitution. |
+| `stories/[name]/tracking/character-state.json` | Tracks character arcs, emotional states, and physical conditions per chapter. |
+| `stories/[name]/tracking/plot-tracker.json` | Tracks plot threads, subplots, and resolution status. |
+| `stories/[name]/tracking/relationships.json` | Tracks character relationship dynamics and how they evolve. |
+| `stories/[name]/tracking/timeline.json` | Tracks chronological story events for consistency checking. |
+| `stories/[name]/tracking/validation-rules.json` | Stores custom validation rules derived from your constitution. |
 
 ## Project File Structure
 
@@ -223,30 +224,31 @@ my-novel/
 ├── memory/                     # Created by /constitution
 │   ├── constitution.md
 │   └── personal-voice.md
-├── knowledge/                  # Created by /specify
-│   ├── character-profiles.md
-│   ├── character-voices.md
-│   ├── locations.md
-│   └── world-setting.md
-├── tracking/                   # Created by /track-init
-│   ├── character-state.json
-│   ├── plot-tracker.json
-│   ├── relationships.json
-│   ├── timeline.json
-│   └── validation-rules.json
 ├── stories/                    # Created by /specify
 │   └── [your-novel-name]/
 │       ├── specification.md
 │       ├── creative-plan.md
 │       ├── tasks.md
+│       ├── meta.json
+│       ├── knowledge/          # Created by /specify
+│       │   ├── character-profiles.md
+│       │   ├── character-voices.md
+│       │   ├── glossary.md
+│       │   ├── locations.md
+│       │   └── world-setting.md
+│       ├── tracking/           # Created by /planner or /track-init
+│       │   ├── character-state.json
+│       │   ├── plot-tracker.json
+│       │   ├── relationships.json
+│       │   ├── timeline.json
+│       │   └── validation-rules.json
 │       └── content/
 │           ├── chapter-01.md
 │           ├── chapter-02.md
 │           └── ...
-└── meta.json                   # Created by /meta
 ```
 
-> **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `knowledge/`, `tracking/`, `stories/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the eight-step workflow.
+> **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `stories/[name]/knowledge/`, `stories/[name]/tracking/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the eight-step workflow.
 
 ## Supported AI Writing Platforms
 

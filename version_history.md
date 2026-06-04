@@ -248,3 +248,5 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - `/reviewer` now includes punctuation-for-emotional-effect as a review checklist item.
 - `/planner` creative-plan output now includes definition, created/updated dates, current saga/arc position, nested saga -> arc -> chapter hierarchy, structural approach, pacing/tension notes mapped to chapter numbers, foreshadowing, character arc mapping, chapter flow, continuity notes, and `[N/A]` markers for any truly non-applicable section or field.
 - `/task-manager` output now mirrors the planner's saga -> arc -> chapter hierarchy with simple one-line chapter tasks, no longer repeats planner details or word estimates, and includes a Review & Editing Log for `/editor` and `/reviewer` entries.
+- `/writer` now treats the matching `creative-plan.md` chapter section as the main writing brief, using drafts as compatible source material instead of replacing planner intent.
+- `/specify` now keeps `specification.md` as a lean core-purpose document with a Knowledge Map, while detailed character, voice, location, world, and glossary data live in `stories/[novel-name]/knowledge/`.

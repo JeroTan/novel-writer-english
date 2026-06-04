@@ -33,7 +33,7 @@ Present the user with a clear overview:
 | Step | Command | What It Does |
 |------|---------|--------------|
 | 1 | `/constitution` | Define creative principles and non-negotiables |
-| 2 | `/specify` | Build the story specification (logline -> full spec) |
+| 2 | `/specify` | Build the lean story specification and knowledge map |
 | 3 | `/clarify` | Resolve ambiguities in the specification |
 | 4 | `/planner` | Create chapter structure and pacing plan |
 | 5 | `/task-manager` | Break the plan into tracked writing tasks |

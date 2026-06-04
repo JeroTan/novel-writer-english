@@ -12,7 +12,7 @@ This skill provides the eight-step systematic workflow for novel creation. It en
 | Step | Name | Purpose | Output |
 |------|------|---------|--------|
 | 1 | **Constitution** | Establish creative principles | `memory/constitution.md` |
-| 2 | **Specify** | Define story specifications | `stories/[name]/specification.md` |
+| 2 | **Specify** | Define lean story specification and knowledge map | `stories/[name]/specification.md` |
 | 3 | **Clarify** | Resolve ambiguities | Updated specification |
 | 4 | **Plan** | Create creative plan | `stories/[name]/creative-plan.md` |
 | 5 | **Tasks** | Break down into tasks | `stories/[name]/tasks.md` |
@@ -43,7 +43,7 @@ If the project is set up and you're writing more chapters, go to Step 6 (`/write
 ## Key Principles
 
 1. **Never skip the Constitution** — it prevents creative drift over long projects
-2. **Specifications prevent scope creep** — treat your story like a product
+2. **Lean specifications prevent scope creep** — keep core purpose in the spec and detailed canon in `knowledge/`
 3. **The pre-write checklist is mandatory** — it solves AI context degradation after 30+ chapters
 4. **Editor handles chapter fixes** — use `/editor` for one chapter, line-specific suggestions, and approved edits
 5. **Reviewer handles broad QA** — run `/reviewer` for project health, cross-chapter continuity, tracking accuracy, and final readiness

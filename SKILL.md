@@ -12,7 +12,7 @@ This skill contains the core knowledge of a proven eight-step methodology for wr
 | Step | Name | Purpose | Output File |
 |------|------|---------|-------------|
 | 1 | Constitution | Define creative principles and non-negotiables | `memory/constitution.md` |
-| 2 | Specify | Build a story specification (logline → full spec) | `stories/[name]/specification.md` |
+| 2 | Specify | Build a lean story specification and knowledge map | `stories/[name]/specification.md` |
 | 3 | Clarify | Resolve ambiguities in the specification | Updated `specification.md` |
 | 4 | Plan | Design chapter structure, pacing, foreshadowing, arcs | `stories/[name]/creative-plan.md` |
 | 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` |
@@ -33,8 +33,9 @@ project-root/
 │       ├── tasks.md             ← Step 5 output (checkbox checklist)
 │       ├── meta.json            ← optional `/utility-meta` output
 │       ├── knowledge/           ← Created by Step 2
-│       │   ├── characters.md
+│       │   ├── character-profiles.md
 │       │   ├── character-voices.md
+│       │   ├── glossary.md
 │       │   ├── locations.md
 │       │   └── world-setting.md
 │       ├── tracking/            ← Created by Step 4
@@ -66,9 +67,9 @@ Establishes the creative rules all subsequent work must follow.
 **Why it matters**: Prevents creative drift over long projects. Every decision references this document.
 
 ### Step 2: Specify
-Creates a story specification using progressive detail levels.
+Creates a lean story specification using progressive detail levels. The specification captures core purpose, premise, story promise, and a knowledge map; detailed canon lives in `stories/[novel-name]/knowledge/`.
 
-**Levels**: Logline (one sentence) → Premise (paragraph: protagonist, goal, conflict, stakes) → One-Page (core conflict, characters, audience, success criteria) → Full Spec (setting, major plot points, themes). *Note: Major characters now require Wound/Ghost and Origin of Motivation. This step now also initializes `stories/[novel-name]/knowledge/` from templates.*
+**Levels**: Logline (one sentence) -> Core Premise (paragraph: protagonist, goal, conflict, stakes) -> Story Promise (core purpose, conflict, themes, audience, success criteria) -> Knowledge Map (pointers to character profiles, voices, locations, world-setting, and glossary). *Note: Major characters keep only snapshots in the specification; full details go in `stories/[novel-name]/knowledge/`.*
 
 **Markers**: `[Needs Clarification]` for vague points, `[Core Requirement]` for non-negotiables, `[Optional Feature]` for nice-to-haves.
 
