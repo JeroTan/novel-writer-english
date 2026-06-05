@@ -28,6 +28,7 @@ Check if `./stories/[novel-name]/creative-plan.md` already exists.
 ### 2. Read Context
 
 Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`.
+Also read relevant files in `./stories/[novel-name]/knowledge/`. If `strategic-reversals.md` exists and the story uses contests, tactics, mind games, negotiations, clever wins, hidden rules, or bluffs, use it while planning.
 
 ### 2b. Check for Drafts
 
@@ -94,7 +95,7 @@ Position rules:
 
 Use one nested outline:
 - Saga contains arcs.
-- Arc contains its structural approach, pacing/tension, foreshadowing, character arc mapping, chapters, and arc-specific continuity notes.
+- Arc contains its structural approach, pacing/tension, optional strategic reversal/contest design, foreshadowing, character arc mapping, chapters, and arc-specific continuity notes.
 - Chapters stay inside their arc.
 - If any section or field truly does not apply, keep it and write `[N/A] — [brief reason]`. Use `[N/A]` only when not applicable, not when the information is merely unknown.
 
@@ -114,6 +115,9 @@ Use one nested outline:
 
 #### Pacing & Tension
 - `[Setup]` — Chapters [N-N]. [Reason]
+
+#### Strategic Reversal / Contest Design
+[N/A] — no strategic contest or reversal focus in this arc
 
 #### Foreshadowing Plan
 [Setups and payoffs]
@@ -163,6 +167,21 @@ Use this format:
 - `[Breather]` — Chapter 4. Recovery, disguise, and regrouping. Reason: needed after action spike.
 ```
 
+**Strategic Reversal / Contest Design**
+- Include this section for each active arc.
+- If the arc has no contest, tactical puzzle, mind game, negotiation trap, clever win, hidden rule, bluff, or strategic reversal, write `[N/A] — no strategic contest or reversal focus in this arc`.
+- If the arc uses strategic reversals, load `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` when available and summarize:
+  - Scene Game / Contest
+  - Visible Rules
+  - Stakes
+  - Opponent Belief
+  - Hidden Lever
+  - Fairness Seed
+  - Reversal
+  - Cost / Aftermath
+- Keep this concise. Put reusable systems, character strategy profiles, and repeated reversal patterns in `./stories/[novel-name]/knowledge/strategic-reversals.md`.
+- For a chapter where the strategic reversal is central, add a short `**Strategic Reversal:** [brief note]` after `**Flow:**`. If not central, omit the chapter-level label.
+
 **Foreshadowing Plan**
 - Note setups, callbacks, reveals, red herrings, and payoff timing.
 - If this intentionally has no setup/payoff work, write `[N/A] — no planned foreshadowing here`.
@@ -188,6 +207,12 @@ For each chapter, use this structure:
 ```
 
 Put chapters under `#### Chapters` inside the appropriate arc.
+
+If strategic reversal is central to a chapter, insert this optional line after `**Flow:**`:
+
+```markdown
+**Strategic Reversal:** [Scene game, hidden lever, reversal, and cost]
+```
 
 Flow rules:
 - Flow is the concrete sequence of chapter beats.
@@ -228,6 +253,7 @@ Batch/light plan rules:
 - Include a short pacing list before the chapter list when planning more than one chapter, e.g. ``- `[Action]` — Chapters 3-4. Source: draft chase and confrontation beats.``.
 - Match each chapter heading's pacing tag to that map.
 - If chapter flow exists in drafts, preserve the user's flow first and suggest alternatives only when useful.
+- If a chapter depends on a contest, tactic, bluff, hidden rule, or clever reversal, add the optional `**Strategic Reversal:** [brief note]` line after `**Flow:**`.
 - If unresolved decisions appear, put them inside the relevant chapter or arc as `**Decision Needed:** [question]`. Do not create a separate Open Questions section by default.
 
 ### 5. Output and Save
@@ -273,6 +299,7 @@ These skills enhance this command's output quality. Check if they are available 
 |-------|------|---------|
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Reference the chosen pacing archetype, assign pacing tags to chapters. |
 | `scene-structure` | `[user_agent]/skills/writing-techniques/scene-structure/SKILL.md` | Ensure Scene/Sequel rhythm. |
+| `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Design contest, tactic, mind-game, bluff, hidden-rule, or clever reversal scenes. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the novel's genre. Apply genre-specific pacing patterns, structural conventions, and trope placement. |
 
 If any skill file is not found, inform the user:

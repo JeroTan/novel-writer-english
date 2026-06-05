@@ -78,10 +78,11 @@ Do not treat story-specific content differences as stale format. Only flag conte
 
 For `/specify`, specifically check whether `specification.md` uses the current lean format:
 - Contains Definition, Logline, Core Premise, Core Purpose, Story Promise, Core Cast Snapshot, World Snapshot, Knowledge Map, and Open Clarifications when needed
-- Keeps character, world, location, faction, magic/technology, glossary, and voice details brief in the specification
-- Uses the Knowledge Map to point to `./knowledge/character-profiles.md`, `./knowledge/character-voices.md`, `./knowledge/locations.md`, `./knowledge/world-setting.md`, and `./knowledge/glossary.md`
+- Keeps character, world, location, faction, magic/technology, glossary, strategic reversal, and voice details brief in the specification
+- Uses the Knowledge Map to point to `./knowledge/character-profiles.md`, `./knowledge/character-voices.md`, `./knowledge/locations.md`, `./knowledge/world-setting.md`, `./knowledge/glossary.md`, and `./knowledge/strategic-reversals.md`
 - Does not use an old "Full Specification" section as the home for all detailed canon
-- Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, and `glossary.md`
+- Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md`
+- `character-voices.md` includes Banter Role, Exposition Role, Humor Style, Pressure Response, and Status Behavior fields
 
 For `/planner`, specifically check whether `creative-plan.md` uses the current format:
 - Definition, created date, updated date, current saga/arc position, and planning mode
@@ -89,6 +90,7 @@ For `/planner`, specifically check whether `creative-plan.md` uses the current f
 - Structural Approach
 - Pacing & Tension as compact bullets that list chapter(s)
 - Any required section or field may use `[N/A] — [brief reason]` if truly not applicable
+- Strategic Reversal / Contest Design as a concise arc section, using `[N/A] — [brief reason]` when not applicable
 - Foreshadowing Plan
 - Character Arc Mapping
 - Chapter headings nested under the active arc with pacing tag

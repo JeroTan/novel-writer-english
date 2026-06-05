@@ -11,7 +11,7 @@ argument-hint: "[Working Title]"
 
 ## Objective
 
-Create a lean story specification for the novel. The specification captures the core purpose, promise, and direction of the story. Detailed character profiles, voices, locations, worldbuilding, factions, terms, and other reference data belong in `./stories/[novel-name]/knowledge/`.
+Create a lean story specification for the novel. The specification captures the core purpose, promise, and direction of the story. Detailed character profiles, voices, locations, worldbuilding, factions, terms, strategic reversals, and other reference data belong in `./stories/[novel-name]/knowledge/`.
 
 ## Execution Steps
 
@@ -60,6 +60,7 @@ Keep character psychology here as a brief snapshot only. Put the detailed profil
   - `./stories/[novel-name]/knowledge/locations.md`
   - `./stories/[novel-name]/knowledge/world-setting.md`
   - `./stories/[novel-name]/knowledge/glossary.md`
+  - `./stories/[novel-name]/knowledge/strategic-reversals.md`
 - In `specification.md`, include only short pointers and summaries.
 - Do not duplicate full character profiles, full worldbuilding, location databases, faction databases, magic/technology rules, or glossary entries in the specification.
 
@@ -105,6 +106,7 @@ Use this lean structure:
 - **Locations:** `./knowledge/locations.md`
 - **World & Setting:** `./knowledge/world-setting.md`
 - **Glossary:** `./knowledge/glossary.md`
+- **Strategic Reversals:** `./knowledge/strategic-reversals.md` or `[N/A] — no strategic contest/reversal focus`
 
 ## Open Clarifications
 - [Needs Clarification] [Question or vague item]
@@ -130,6 +132,7 @@ Save the specification to `./stories/[novel-name]/specification.md`.
    - `[user_agent]/templates/knowledge/locations.md` → `./stories/[novel-name]/knowledge/locations.md`
    - `[user_agent]/templates/knowledge/world-setting.md` → `./stories/[novel-name]/knowledge/world-setting.md`
    - `[user_agent]/templates/knowledge/glossary.md` → `./stories/[novel-name]/knowledge/glossary.md`
+   - `[user_agent]/templates/knowledge/strategic-reversals.md` → `./stories/[novel-name]/knowledge/strategic-reversals.md`
 3. Pre-fill each file with everything already established during specification gathering. Replace `[Protagonist Name]` with the actual name, fill out known locations, add known terms, etc.
 4. For fields the user has not yet defined, leave the placeholder text (e.g., `[TBD]`) but offer 2–3 concrete suggestions based on the genre and logline.
 5. If the user says "maybe later" or skips a field, leave the placeholder and move on. Do NOT block the workflow.
@@ -145,6 +148,7 @@ These skills enhance this command's output quality. Check if they are available 
 |-------|------|---------|
 | `character-depth` | `[user_agent]/skills/writing-techniques/character-depth/SKILL.md` | Require Wound/Ghost and Origin of Motivation for every major character. |
 | `setting-detector` | `[user_agent]/skills/quality-assurance/setting-detector/SKILL.md` | Auto-detect genre and setting elements. |
+| `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Use when the novel relies on contests, tactics, clever wins, hidden rules, bluffs, or strategic reversals. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the user's chosen genre (fantasy, scifi, romance, mystery, thriller, horror). Suggest genre-appropriate tropes, structures, and conventions. |
 
 If any skill file is not found, inform the user:

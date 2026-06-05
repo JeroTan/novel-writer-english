@@ -68,8 +68,10 @@ Optional unchecked references:
 |---------|-----------|---------|
 | `[ ]` | `[user_agent]/skills/writing-techniques/emotional-interiority/SKILL.md` | Deepen internal reactions and sensory-emotional response |
 | `[ ]` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Improve subtext, voice distinction, action beats |
+| `[ ]` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Check witty banter, comedic escalation, and argument-driven exposition |
 | `[ ]` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check pacing tag, rhythm, fragment overuse |
 | `[ ]` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation for emotion, rhythm, silence, and intensity |
+| `[ ]` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Check contests, tactics, bluffs, hidden rules, and clever reversals |
 | `[ ]` | `[user_agent]/skills/writing-techniques/character-depth/SKILL.md` | Check motivation, contradiction, defense mechanisms |
 | `[ ]` | `[user_agent]/skills/quality-assurance/consistency-checker/SKILL.md` | Check contradictions, logic, continuity |
 | `[ ]` | `[user_agent]/skills/genre-knowledge/[detected-genre]/SKILL.md` | Apply detected genre expectations |
@@ -96,11 +98,15 @@ Check the target chapter for:
 - Timeline or logistics issue
 - Character motivation or voice drift
 - Dialogue too direct, flat, or same-voice
+- Dialogue exposition that could become disagreement, teasing, challenge, panic, or argument
+- Banter that does not change status, emotion, information, tactics, affection, or pressure
+- Joke that interrupts tension without revealing character or increasing pressure
 - Report-style narration
 - Missing internal reaction after major beats
 - Weak sensory-emotional response
 - Fragment overuse or monotonous rhythm
 - Repetition, unclear phrasing, awkward line flow
+- Strategic reversal weakness when the strategic-reversal skill is selected or the plan marks the chapter as a contest/reversal scene: unclear visible rules, unseeded hidden lever, unbelievable opponent behavior, unearned win, or no cost/aftermath
 - Genre expectation miss when genre skill is selected
 
 Do not rewrite the whole chapter. Suggest local edits only unless a larger structural issue blocks chapter quality.

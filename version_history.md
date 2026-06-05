@@ -250,3 +250,7 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - `/task-manager` output now mirrors the planner's saga -> arc -> chapter hierarchy with simple one-line chapter tasks, no longer repeats planner details or word estimates, and includes a Review & Editing Log for `/editor` and `/reviewer` entries.
 - `/writer` now treats the matching `creative-plan.md` chapter section as the main writing brief, using drafts as compatible source material instead of replacing planner intent.
 - `/specify` now keeps `specification.md` as a lean core-purpose document with a Knowledge Map, while detailed character, voice, location, world, and glossary data live in `stories/[novel-name]/knowledge/`.
+- Added `strategic-reversal` writing technique skill and `strategic-reversals.md` knowledge template for contest systems, character strategy profiles, hidden levers, fairness seeds, clever wins, and reversal consequences.
+- `/planner`, `/writer`, `/editor`, and `/reviewer` can now use strategic reversal guidance when relevant; planner marks the arc section `[N/A]` when not applicable.
+- Added `comedic-banter-rhythm` writing technique skill for witty banter, comedic escalation, argument-driven exposition, straight-man/chaos-speaker dynamics, and humor under pressure.
+- Expanded `dialogue-techniques` and `character-voices.md` with banter roles, exposition roles, humor style, pressure response, status behavior, affection through friction, and status-flip dialogue checks.

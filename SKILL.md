@@ -37,6 +37,7 @@ project-root/
 │       │   ├── character-voices.md
 │       │   ├── glossary.md
 │       │   ├── locations.md
+│       │   ├── strategic-reversals.md
 │       │   └── world-setting.md
 │       ├── tracking/            ← Created by Step 4
 │       │   ├── character-state.json
@@ -69,7 +70,7 @@ Establishes the creative rules all subsequent work must follow.
 ### Step 2: Specify
 Creates a lean story specification using progressive detail levels. The specification captures core purpose, premise, story promise, and a knowledge map; detailed canon lives in `stories/[novel-name]/knowledge/`.
 
-**Levels**: Logline (one sentence) -> Core Premise (paragraph: protagonist, goal, conflict, stakes) -> Story Promise (core purpose, conflict, themes, audience, success criteria) -> Knowledge Map (pointers to character profiles, voices, locations, world-setting, and glossary). *Note: Major characters keep only snapshots in the specification; full details go in `stories/[novel-name]/knowledge/`.*
+**Levels**: Logline (one sentence) -> Core Premise (paragraph: protagonist, goal, conflict, stakes) -> Story Promise (core purpose, conflict, themes, audience, success criteria) -> Knowledge Map (pointers to character profiles, voices, locations, world-setting, glossary, and strategic reversals). *Note: Major characters keep only snapshots in the specification; full details go in `stories/[novel-name]/knowledge/`.*
 
 **Markers**: `[Needs Clarification]` for vague points, `[Core Requirement]` for non-negotiables, `[Optional Feature]` for nice-to-haves.
 
@@ -83,7 +84,7 @@ Turns the specification into a concrete implementation plan: chapter breakdown, 
 Breaks the plan into actionable one-line chapter tasks with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. *Note: Tasks mirror the planner's saga/arc/chapter hierarchy and do not repeat planner details or word-count estimates.*
 
 ### Step 6: Write
-Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 12-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*
+Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 13-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*
 
 ### Step 7: Edit
 Runs after `/writer` and before `/reviewer`. The editor checks one chapter at a time, shows a selectable reference checklist, outputs a table of line-specific suggested changes, and tracks each row as `approve`, `skip`, or `for_discussion`. It applies nothing until all rows are resolved and the user confirms.
@@ -114,8 +115,10 @@ These skills activate automatically based on context when installed:
 | `workflow-guide` | User asks about the process or which step to do next |
 | `genre-knowledge/*` | User mentions a genre — loads tropes, conventions, pitfalls |
 | `dialogue-techniques` | Writing dialogue — provides subtext, voice, pacing rules |
+| `comedic-banter-rhythm` | Writing, editing, or reviewing witty banter, comedic escalation, argument exposition, or humor under pressure |
 | `punctuation-emotional-effect` | Writing, editing, or reviewing emotional punctuation — controls punctuation intensity, silence, hesitation, interruption, and emphasis |
 | `scene-structure` | Writing a scene — provides beat structure and pacing guidance |
+| `strategic-reversal` | Planning, writing, editing, or reviewing contests, tactics, bluffs, hidden rules, clever wins, or fair reversals |
 
 ### Sub-Skill Locations
 
@@ -148,11 +151,13 @@ These skills activate automatically based on context when installed:
 | File | Skill Name | Description |
 |------|-----------|-------------|
 | `skills/writing-techniques/dialogue-techniques/SKILL.md` | `dialogue-techniques` | Subtext-heavy, distinctive, character-driven dialogue |
+| `skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | `comedic-banter-rhythm` | Witty banter, comedic escalation, argument-driven exposition, and humor under pressure |
 | `skills/writing-techniques/scene-structure/SKILL.md` | `scene-structure` | Scene/sequel framework (Goal, Conflict, Disaster, Reaction, Dilemma, Decision) |
 | `skills/writing-techniques/character-depth/SKILL.md` | `character-depth` | Psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms |
 | `skills/writing-techniques/emotional-interiority/SKILL.md` | `emotional-interiority` | Internal reactions, sensory-emotional responses, flags report-style narration |
 | `skills/writing-techniques/pacing-rhythm/SKILL.md` | `pacing-rhythm` | Pacing archetypes, sentence-level pacing, fragment detection, chapter pacing tags |
 | `skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | `punctuation-emotional-effect` | Punctuation for emotion, rhythm, silence, hesitation, interruption, intensity, and emphasis |
+| `skills/writing-techniques/strategic-reversal/SKILL.md` | `strategic-reversal` | Contest, tactic, bluff, hidden-rule, clever-win, and strategic reversal scene design |
 
 ## Specification Markers Reference
 

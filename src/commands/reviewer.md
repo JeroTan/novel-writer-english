@@ -49,6 +49,8 @@ Then verify:
 - Chapter readiness: any chapter that still needs `/editor` before approval
 - Pacing continuity: pacing tag sequence, tension balance, missing breathers or weak escalation
 - Punctuation for emotional effect (per `punctuation-emotional-effect` skill): punctuation supports emotion, rhythm, silence, and intensity without stacking or voice mismatch
+- Dialogue and banter health: character voices stay distinct, exposition is carried by conflict or pressure, and humor changes status, emotion, information, tactics, affection, or stakes
+- Strategic reversal quality when the story uses contests, tactics, bluffs, hidden rules, or clever wins: visible rules are clear, hidden levers are seeded, opponents act believably, wins have cost/aftermath, and reversals match `strategic-reversals.md`
 - Tracking accuracy: do the tracking JSONs accurately reflect the chapters written?
 - Forgotten elements (per `forgotten-elements` skill): dropped threads, abandoned characters
 - Knowledge gaps: are there characters/locations in chapters not documented in `knowledge/`?
@@ -64,6 +66,7 @@ For each chapter marked `[FOR_REVIEW]`, scan the chapter content for new informa
 - **Locations**: new places introduced, physical descriptions, atmosphere -> update `./stories/[novel-name]/knowledge/locations.md`
 - **World**: new rules, magic/tech systems, cultural details, history -> update `./stories/[novel-name]/knowledge/world-setting.md`
 - **Glossary**: new terms, names, jargon, items, or concepts introduced -> add to `./stories/[novel-name]/knowledge/glossary.md` with definition and context
+- **Strategic Reversals**: new contest rules, tactics, opponent assumptions, hidden levers, fairness seeds, clever wins, or reversal consequences -> update `./stories/[novel-name]/knowledge/strategic-reversals.md`
 
 This keeps the knowledge files accurate and up-to-date as the story grows. Process chapters incrementally. If Chapter 1 is `[FOR_REVIEW]`, update knowledge from it. Then when Chapter 2 is `[FOR_REVIEW]`, update knowledge again. Never batch all chapters at once.
 
@@ -110,8 +113,11 @@ These skills enhance this command's output quality. Check if they are available 
 |-------|------|---------|
 | `consistency-checker` | `[user_agent]/skills/quality-assurance/consistency-checker/SKILL.md` | MANDATORY content consistency check. |
 | `forgotten-elements` | `[user_agent]/skills/quality-assurance/forgotten-elements/SKILL.md` | Check for dropped plot threads. |
+| `dialogue-techniques` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Check subtext, voice distinction, and exposition through conflict. |
+| `comedic-banter-rhythm` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Check witty banter, comedic escalation, and humor under pressure. |
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check chapter-level pacing tags and manuscript-level tension flow. |
 | `punctuation-emotional-effect` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation supports emotion, rhythm, silence, and intensity without overuse. |
+| `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Check contest, tactic, bluff, hidden-rule, and clever-reversal scenes for fair setup and payoff. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the novel's genre. Check if the story fulfills genre conventions and reader expectations. |
 
 If any skill file is not found, inform the user:

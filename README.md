@@ -18,7 +18,7 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 ## Key Features
 
 - **Eight-step AI novel writing workflow** from concept to completed manuscript
-- **AI-assisted chapter drafting** with a 12-item pre-write checklist
+- **AI-assisted chapter drafting** with a 13-item pre-write checklist
 - **Built-in editor workflow** for one-chapter line fixes, approval tracking, and controlled revisions
 - **Built-in reviewer workflow** for broad consistency, tracking, story health, and final readiness
 - **Character, plot, timeline, and relationship tracking**
@@ -90,7 +90,7 @@ flowchart TD
 | 3 | `/clarify` | Resolve ambiguities in the spec with targeted questions. |
 | 4 | `/planner` | Create chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | 5 | `/task-manager` | Break the plan into prioritized, dependency-tracked writing tasks. |
-| 6 | `/writer` | Write chapters with a 12-item pre-write checklist to maintain consistency. |
+| 6 | `/writer` | Write chapters with a 13-item pre-write checklist to maintain consistency. |
 | 7 | `/editor` | Check one chapter, propose line-level fixes, track approvals, and apply approved edits only after confirmation. |
 | 8 | `/reviewer` | Run broad QA for project health, cross-chapter consistency, tracking accuracy, and final readiness. |
 
@@ -108,7 +108,7 @@ The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You c
 | `/clarify` | Step 3 — Reviews the spec, identifies up to five ambiguities, and asks targeted questions. |
 | `/planner` | Step 4 — Creates chapter structure, pacing, foreshadowing plan, and character arc mapping. |
 | `/task-manager` | Step 5 — Breaks the creative plan into prioritized, dependency-tracked writing tasks. |
-| `/writer` | Step 6 — Provides AI-assisted writing with Write Mode, Draft Detection, and a 12-item pre-write checklist. |
+| `/writer` | Step 6 — Provides AI-assisted writing with Write Mode, Draft Detection, and a 13-item pre-write checklist. |
 | `/editor` | Step 7 — Reviews one chapter, proposes line-specific edits, tracks approval status, and applies approved changes only after confirmation. |
 | `/reviewer` | Step 8 — Performs broad QA for framework consistency, cross-chapter continuity, tracking accuracy, and final readiness. |
 
@@ -136,11 +136,13 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 | Skill | Description |
 |-------|-------------|
 | `character-depth` | Ensures deep psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms, and vulnerability triggers. |
+| `comedic-banter-rhythm` | Shapes witty banter, comedic escalation, argument-driven exposition, and humor under pressure. |
 | `dialogue-techniques` | Makes dialogue subtext-heavy, distinctive, and character-driven. |
 | `emotional-interiority` | Ensures internal reactions, sensory-emotional responses, and prevents report-style narration. |
 | `pacing-rhythm` | Enforces chosen pacing archetypes, manages sentence-level rhythm, and detects fragment overuse. |
 | `punctuation-emotional-effect` | Uses punctuation deliberately for emotion, rhythm, hesitation, interruption, silence, and intensity. |
 | `scene-structure` | Ensures scenes follow strong structural principles: Goal, Conflict, Disaster, Reaction, Dilemma, and Decision. |
+| `strategic-reversal` | Designs contests, tactics, bluffs, hidden rules, clever wins, and fair-but-surprising reversals. |
 
 ### Quality Assurance
 
@@ -189,10 +191,11 @@ These files are created automatically from templates during the workflow and upd
 | File | Purpose |
 |------|---------|
 | `stories/[name]/knowledge/character-profiles.md` | Stores detailed character profiles with psychological depth. |
-| `stories/[name]/knowledge/character-voices.md` | Tracks distinctive speech patterns, vocabulary, and mannerisms per character. |
+| `stories/[name]/knowledge/character-voices.md` | Tracks speech patterns, banter roles, exposition roles, humor style, pressure response, and status behavior. |
 | `stories/[name]/knowledge/locations.md` | Stores setting descriptions, sensory details, and spatial relationships. |
 | `stories/[name]/knowledge/world-setting.md` | Tracks worldbuilding rules, magic systems, technology, and cultural details. |
 | `stories/[name]/knowledge/glossary.md` | Stores terms, titles, factions, items, magic/technology names, and in-world vocabulary. |
+| `stories/[name]/knowledge/strategic-reversals.md` | Tracks contest rules, tactics, opponent assumptions, hidden levers, and clever reversal setups. |
 
 ### Tracking Files
 
@@ -235,6 +238,7 @@ my-novel/
 │       │   ├── character-voices.md
 │       │   ├── glossary.md
 │       │   ├── locations.md
+│       │   ├── strategic-reversals.md
 │       │   └── world-setting.md
 │       ├── tracking/           # Created by /planner or /track-init
 │       │   ├── character-state.json

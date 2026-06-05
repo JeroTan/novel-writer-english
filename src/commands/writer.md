@@ -1,6 +1,6 @@
 ---
 name: writer
-description: "Step 6: AI-assisted writing command. Implements Write Mode, Draft Detection, and a 12-item pre-write checklist to maintain consistency and context. Supports full-novel, per-arc, or batch writing."
+description: "Step 6: AI-assisted writing command. Implements Write Mode, Draft Detection, and a 13-item pre-write checklist to maintain consistency and context. Supports full-novel, per-arc, or batch writing."
 tools:
   - "*"
 kind: local
@@ -38,6 +38,7 @@ For the target chapter, extract from `creative-plan.md` when available:
 - Continuity Notes
 - pacing tag
 - parent saga/arc goal and constraints
+- any Strategic Reversal / Contest Design note
 
 Use the task line only to choose what to write next and update status. Use the planner chapter section as the main idea source for what the chapter should contain.
 
@@ -71,15 +72,16 @@ Before writing any chapter, check for draft files:
 
 ### 5. CRITICAL: Pre-Write Checklist
 
-Before writing ANY chapter, silently run through all 12 items:
+Before writing ANY chapter, silently run through all 13 items:
 
 1. **Constitution** — Read `./memory/constitution.md`
 2. **Specification** — Read `./stories/[novel-name]/specification.md`
-3. **Plan** — Read the exact target chapter section in `./stories/[novel-name]/creative-plan.md`, including its parent saga/arc or batch. Use its Summary, Flow, Continuity Notes, pacing tag, and arc constraints as the main writing brief.
+3. **Plan** — Read the exact target chapter section in `./stories/[novel-name]/creative-plan.md`, including its parent saga/arc or batch. Use its Summary, Flow, Continuity Notes, pacing tag, Strategic Reversal note if present, and arc constraints as the main writing brief.
 4. **Style Guide** — Check `./knowledge-base/styles/` if a specific style is defined
 5. **Characters & Settings** — Read ONLY the character and location entries relevant to THIS chapter. Check `./stories/[novel-name]/knowledge/character-profiles.md`, `./stories/[novel-name]/knowledge/character-voices.md`, and `./stories/[novel-name]/knowledge/locations.md` for characters appearing or locations featured in the chapter. Do not load unrelated entries. If these files do not exist, look for any folder named `knowledge/` in the project. If still not found, ask the user to run the Specify step to generate the knowledge folder, or create it manually. Suggest a standard folder structure for easy future reference.
 6. **World** — Read `./stories/[novel-name]/knowledge/world-setting.md` for world rules, magic/tech systems, and geography.
 7. **Glossary** — Read `./stories/[novel-name]/knowledge/glossary.md` for defined terms, names, jargon, and in-world vocabulary. Use exact terminology from the glossary when referencing established concepts, factions, items, or locations. If you encounter a term in the draft or plan that isn't in the glossary, note it for the user to define later.
+   - **Strategic Reference**: If the target chapter involves a contest, tactic, mind game, negotiation trap, clever win, hidden rule, bluff, or strategic reversal, read `./stories/[novel-name]/knowledge/strategic-reversals.md` if it exists. Skip this file when the plan marks strategic reversal as `[N/A]` or the chapter does not use that scene type.
 8. **Previous Chapter** — Read the immediately preceding chapter in `./stories/[novel-name]/content/` to match tone and continuity.
    - **Continuation sequences**: If the pacing tag is numbered (e.g., `[Action 2]`, `[Action 3]`), also read the previous chapter in that sequence (e.g., `[Action 1]`) to ensure seamless continuity of action, character state, dialogue threads, and unresolved tension. The writer must pick up exactly where the previous chapter left off.
    - **Arc transitions**: If this is the first chapter of a new arc, read the **last chapter of the previous arc** to understand what was resolved and what carries over.
@@ -102,6 +104,10 @@ Do not rush the pacing; let the scene breathe. Show, don't tell.
 - Show emotions through physical sensations and behavior, not by naming them directly.
 
 Use punctuation for emotional effect deliberately. If available, load `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` and follow its rules for shouting, hesitation, interruption, silence, emphasis, and dialogue punctuation.
+
+If the chapter depends on witty banter, comedic escalation, teasing, straight-man/chaos-speaker dynamics, or exposition through argument, load `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` when available. Make humor reveal character, shift status, or increase pressure.
+
+If the chapter uses a Strategic Reversal / Contest Design note, load `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` when available. Make the visible rules clear, seed the hidden lever before payoff, let the opponent have a believable plan, and make the win change the story state with a cost or consequence.
 
 ### 7. Chapter Output Format
 
@@ -135,8 +141,10 @@ These skills enhance this command's output quality. Check if they are available 
 | `pre-write-checklist` | `[user_agent]/skills/quality-assurance/pre-write-checklist/SKILL.md` | MANDATORY pre-flight check before writing. |
 | `emotional-interiority` | `[user_agent]/skills/writing-techniques/emotional-interiority/SKILL.md` | Ensure internal reactions. |
 | `dialogue-techniques` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Ensure subtext in dialogue. |
+| `comedic-banter-rhythm` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Use when drafting witty banter, comedic escalation, or exposition through argument. |
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Verify chapter matches its pacing tag. |
 | `punctuation-emotional-effect` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Use punctuation deliberately for emotion, rhythm, silence, and intensity. |
+| `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Write contest, tactic, mind-game, bluff, hidden-rule, or clever reversal scenes that feel surprising and fair. |
 | `character-depth` | `[user_agent]/skills/writing-techniques/character-depth/SKILL.md` | Verify character voice matches their psychology. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the novel's genre. Ensure prose, pacing, and scene construction match genre expectations. |
 

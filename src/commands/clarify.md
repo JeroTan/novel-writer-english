@@ -19,7 +19,7 @@ Eliminate vagueness from the story specification by identifying and resolving am
 
 1. Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`.
 2. Check if `./stories/[novel-name]/knowledge/` exists and contains files.
-   - If it exists: read the contents of `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, and `glossary.md`.
+   - If it exists: read the contents of `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md` when present.
    - If it does NOT exist: inform the user — "The knowledge folder hasn't been created yet. This folder improves the accuracy of clarification. You can either re-run the `/specify` step to create it, or create `./stories/[novel-name]/knowledge/` manually and continue."
 
 ### 2. Identify Ambiguities
@@ -42,7 +42,7 @@ Wait for the user's answers.
 
 Once the user answers:
 - Update `./stories/[novel-name]/specification.md` with the answers. Remove resolved `[Needs Clarification]` markers.
-- If any answer adds new information about characters, character voices, locations, worldbuilding, or terminology, also update the relevant file in `./stories/[novel-name]/knowledge/`.
+- If any answer adds new information about characters, character voices, locations, worldbuilding, terminology, contests, tactics, or strategic reversals, also update the relevant file in `./stories/[novel-name]/knowledge/`.
 
 ### 5. Next Steps
 
