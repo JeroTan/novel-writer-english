@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `/planner`, `/writer`, `/editor`, and `/reviewer` to optionally use strategic reversal guidance only when relevant, with `[N/A]` allowed in plans.
 - Expanded `dialogue-techniques` and `character-voices.md` with banter roles, exposition roles, humor style, pressure response, status behavior, and status-flip dialogue checks.
 - Updated `/specify`, `/planner`, `/writer`, `/editor`, and `/reviewer` to use naming guidance when important proper nouns are missing, generic, or off-pattern.
+- Updated `/utility-command-cross-check` to preserve rich knowledge-file detail when revising stale formats.
 
 ## [1.0.0] - 2026-04-04
 ### Added

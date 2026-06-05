@@ -141,6 +141,7 @@ Do not overwrite automatically unless the user explicitly asks.
 
 If the user asks to revise:
 - Preserve the user's story facts, prose, decisions, and custom notes.
+- Knowledge files are the canonical rich-detail store. When updating format, preserve existing detail and only restructure, relabel, or add missing fields.
 - Only restructure, relabel, or add missing required sections.
 - Mark unknown values as `[TBD]`, `[TENTATIVE]`, or `[Needs User Input]`.
 - For JSON files, preserve existing IDs and values unless a key is required by the current template.

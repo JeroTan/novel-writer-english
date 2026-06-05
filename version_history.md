@@ -256,3 +256,4 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Expanded `dialogue-techniques` and `character-voices.md` with banter roles, exposition roles, humor style, pressure response, status behavior, affection through friction, and status-flip dialogue checks.
 - Added `namecraft` writing technique skill with research links and a naming brief for genre, sector, faction, humor, symbolism, personification, materialization, and sound-family fit.
 - `/specify`, `/planner`, `/writer`, `/editor`, and `/reviewer` can now suggest or check names when important proper nouns are missing, generic, hard to pronounce, or inconsistent with faction/world naming patterns.
+- `/utility-command-cross-check` now explicitly preserves knowledge files as the canonical rich-detail store during format updates.
