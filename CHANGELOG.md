@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `strategic-reversal` writing technique skill for contests, tactics, bluffs, hidden rules, clever wins, and fair reversals.
 - Added `strategic-reversals.md` knowledge template for contest systems, character strategy profiles, and reversal ledgers.
 - Added `comedic-banter-rhythm` writing technique skill for witty banter, comedic escalation, argument-driven exposition, and humor under pressure.
+- Added `namecraft` writing technique skill with naming sources and a naming brief for characters, factions, places, titles, abilities, systems, artifacts, arcs, and concepts.
 - Added Codex command-to-skill conversion during install so `/constitution`, `/writer`, `/editor`, and other commands are available as Codex skills.
 - Added `/utility-command-cross-check` for checking whether a project file created by a workflow command is stale against the current command format.
 
@@ -25,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `/specify` to keep `specification.md` lean and move detailed canon into `stories/[novel-name]/knowledge/`, with a Knowledge Map and glossary file initialization.
 - Updated `/planner`, `/writer`, `/editor`, and `/reviewer` to optionally use strategic reversal guidance only when relevant, with `[N/A]` allowed in plans.
 - Expanded `dialogue-techniques` and `character-voices.md` with banter roles, exposition roles, humor style, pressure response, status behavior, and status-flip dialogue checks.
+- Updated `/specify`, `/planner`, `/writer`, `/editor`, and `/reviewer` to use naming guidance when important proper nouns are missing, generic, or off-pattern.
 
 ## [1.0.0] - 2026-04-04
 ### Added

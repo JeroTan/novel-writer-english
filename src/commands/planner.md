@@ -29,6 +29,7 @@ Check if `./stories/[novel-name]/creative-plan.md` already exists.
 
 Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`.
 Also read relevant files in `./stories/[novel-name]/knowledge/`. If `strategic-reversals.md` exists and the story uses contests, tactics, mind games, negotiations, clever wins, hidden rules, or bluffs, use it while planning.
+If important arcs, factions, locations, titles, systems, abilities, artifacts, or concepts are unnamed and the missing name blocks clarity, load `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` when available. Suggest options, but allow `[TBD]` or `[TENTATIVE]` when the user is not ready.
 
 ### 2b. Check for Drafts
 
@@ -299,6 +300,7 @@ These skills enhance this command's output quality. Check if they are available 
 |-------|------|---------|
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Reference the chosen pacing archetype, assign pacing tags to chapters. |
 | `scene-structure` | `[user_agent]/skills/writing-techniques/scene-structure/SKILL.md` | Ensure Scene/Sequel rhythm. |
+| `namecraft` | `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` | Suggest names for unnamed arcs, factions, places, titles, abilities, systems, artifacts, and concepts. |
 | `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Design contest, tactic, mind-game, bluff, hidden-rule, or clever reversal scenes. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the novel's genre. Apply genre-specific pacing patterns, structural conventions, and trope placement. |
 

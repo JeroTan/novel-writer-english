@@ -69,6 +69,7 @@ Optional unchecked references:
 | `[ ]` | `[user_agent]/skills/writing-techniques/emotional-interiority/SKILL.md` | Deepen internal reactions and sensory-emotional response |
 | `[ ]` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Improve subtext, voice distinction, action beats |
 | `[ ]` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Check witty banter, comedic escalation, and argument-driven exposition |
+| `[ ]` | `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` | Check names for genre, faction, symbolism, pronunciation, and canon fit |
 | `[ ]` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check pacing tag, rhythm, fragment overuse |
 | `[ ]` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation for emotion, rhythm, silence, and intensity |
 | `[ ]` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Check contests, tactics, bluffs, hidden rules, and clever reversals |
@@ -101,6 +102,7 @@ Check the target chapter for:
 - Dialogue exposition that could become disagreement, teasing, challenge, panic, or argument
 - Banter that does not change status, emotion, information, tactics, affection, or pressure
 - Joke that interrupts tension without revealing character or increasing pressure
+- Placeholder, generic, confusing, hard-to-pronounce, same-sounding, or off-faction names when namecraft is selected
 - Report-style narration
 - Missing internal reaction after major beats
 - Weak sensory-emotional response

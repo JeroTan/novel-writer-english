@@ -83,6 +83,7 @@ For `/specify`, specifically check whether `specification.md` uses the current l
 - Does not use an old "Full Specification" section as the home for all detailed canon
 - Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md`
 - `character-voices.md` includes Banter Role, Exposition Role, Humor Style, Pressure Response, and Status Behavior fields
+- Important names still marked `[TBD]`, `[TENTATIVE]`, unnamed, or generic are documented as unresolved rather than silently invented
 
 For `/planner`, specifically check whether `creative-plan.md` uses the current format:
 - Definition, created date, updated date, current saga/arc position, and planning mode
@@ -95,6 +96,7 @@ For `/planner`, specifically check whether `creative-plan.md` uses the current f
 - Character Arc Mapping
 - Chapter headings nested under the active arc with pacing tag
 - Chapter Summary, Flow, and Continuity Notes
+- Unnamed important arcs, factions, places, systems, abilities, artifacts, and concepts use `[TBD]` or `[TENTATIVE]`, or include name options when the user asked for naming help
 - Batch plan sections with Adds To and Definition
 
 For `/task-manager`, specifically check whether `tasks.md` uses the current format:

@@ -27,6 +27,7 @@ Ask the user for:
 - **Subgenres or tags** — e.g., "urban fantasy", "space opera", "enemies to lovers".
 
 If the user is unsure of the genre, use the `setting-detector` skill to auto-detect it from their description.
+If the user does not have a novel title, character name, faction name, place name, system name, or important concept name yet, load `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` when available and offer 3-6 options based on genre, sector, faction, tone, symbolism, humor role, and sound profile. Do not force a final choice; `[TBD]` is acceptable.
 
 ### 2. Information Gathering
 
@@ -147,6 +148,7 @@ These skills enhance this command's output quality. Check if they are available 
 | Skill | File | Purpose |
 |-------|------|---------|
 | `character-depth` | `[user_agent]/skills/writing-techniques/character-depth/SKILL.md` | Require Wound/Ghost and Origin of Motivation for every major character. |
+| `namecraft` | `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` | Suggest names for unnamed characters, factions, places, titles, systems, abilities, artifacts, arcs, and concepts. |
 | `setting-detector` | `[user_agent]/skills/quality-assurance/setting-detector/SKILL.md` | Auto-detect genre and setting elements. |
 | `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Use when the novel relies on contests, tactics, clever wins, hidden rules, bluffs, or strategic reversals. |
 | `genre-knowledge` | `[user_agent]/skills/genre-knowledge/[genre]/SKILL.md` | Load the genre-specific skill matching the user's chosen genre (fantasy, scifi, romance, mystery, thriller, horror). Suggest genre-appropriate tropes, structures, and conventions. |

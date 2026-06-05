@@ -116,6 +116,7 @@ These skills activate automatically based on context when installed:
 | `genre-knowledge/*` | User mentions a genre — loads tropes, conventions, pitfalls |
 | `dialogue-techniques` | Writing dialogue — provides subtext, voice, pacing rules |
 | `comedic-banter-rhythm` | Writing, editing, or reviewing witty banter, comedic escalation, argument exposition, or humor under pressure |
+| `namecraft` | Naming characters, factions, places, titles, abilities, systems, artifacts, arcs, concepts, or unresolved TBD proper nouns |
 | `punctuation-emotional-effect` | Writing, editing, or reviewing emotional punctuation — controls punctuation intensity, silence, hesitation, interruption, and emphasis |
 | `scene-structure` | Writing a scene — provides beat structure and pacing guidance |
 | `strategic-reversal` | Planning, writing, editing, or reviewing contests, tactics, bluffs, hidden rules, clever wins, or fair reversals |
@@ -152,6 +153,7 @@ These skills activate automatically based on context when installed:
 |------|-----------|-------------|
 | `skills/writing-techniques/dialogue-techniques/SKILL.md` | `dialogue-techniques` | Subtext-heavy, distinctive, character-driven dialogue |
 | `skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | `comedic-banter-rhythm` | Witty banter, comedic escalation, argument-driven exposition, and humor under pressure |
+| `skills/writing-techniques/namecraft/SKILL.md` | `namecraft` | Names for characters, factions, places, titles, abilities, systems, artifacts, arcs, and concepts |
 | `skills/writing-techniques/scene-structure/SKILL.md` | `scene-structure` | Scene/sequel framework (Goal, Conflict, Disaster, Reaction, Dilemma, Decision) |
 | `skills/writing-techniques/character-depth/SKILL.md` | `character-depth` | Psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms |
 | `skills/writing-techniques/emotional-interiority/SKILL.md` | `emotional-interiority` | Internal reactions, sensory-emotional responses, flags report-style narration |

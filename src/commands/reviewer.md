@@ -50,6 +50,7 @@ Then verify:
 - Pacing continuity: pacing tag sequence, tension balance, missing breathers or weak escalation
 - Punctuation for emotional effect (per `punctuation-emotional-effect` skill): punctuation supports emotion, rhythm, silence, and intensity without stacking or voice mismatch
 - Dialogue and banter health: character voices stay distinct, exposition is carried by conflict or pressure, and humor changes status, emotion, information, tactics, affection, or stakes
+- Naming health: major names fit genre, faction, sector, symbolism, pronunciation, glossary records, and existing sound families; important `[TBD]` names are flagged
 - Strategic reversal quality when the story uses contests, tactics, bluffs, hidden rules, or clever wins: visible rules are clear, hidden levers are seeded, opponents act believably, wins have cost/aftermath, and reversals match `strategic-reversals.md`
 - Tracking accuracy: do the tracking JSONs accurately reflect the chapters written?
 - Forgotten elements (per `forgotten-elements` skill): dropped threads, abandoned characters
@@ -115,6 +116,7 @@ These skills enhance this command's output quality. Check if they are available 
 | `forgotten-elements` | `[user_agent]/skills/quality-assurance/forgotten-elements/SKILL.md` | Check for dropped plot threads. |
 | `dialogue-techniques` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Check subtext, voice distinction, and exposition through conflict. |
 | `comedic-banter-rhythm` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Check witty banter, comedic escalation, and humor under pressure. |
+| `namecraft` | `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` | Check names for genre, faction, symbolism, pronunciation, glossary records, and sound-family consistency. |
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Check chapter-level pacing tags and manuscript-level tension flow. |
 | `punctuation-emotional-effect` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Check punctuation supports emotion, rhythm, silence, and intensity without overuse. |
 | `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Check contest, tactic, bluff, hidden-rule, and clever-reversal scenes for fair setup and payoff. |

@@ -107,6 +107,8 @@ Use punctuation for emotional effect deliberately. If available, load `[user_age
 
 If the chapter depends on witty banter, comedic escalation, teasing, straight-man/chaos-speaker dynamics, or exposition through argument, load `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` when available. Make humor reveal character, shift status, or increase pressure.
 
+If the chapter must introduce a proper noun that is still `[TBD]`, `[TENTATIVE]`, unnamed, or generic, load `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` when available. For major characters, factions, systems, artifacts, and locations, propose options and ask before locking the name. For minor throwaway characters, choose a genre-fit name and record it in the relevant knowledge file.
+
 If the chapter uses a Strategic Reversal / Contest Design note, load `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` when available. Make the visible rules clear, seed the hidden lever before payoff, let the opponent have a believable plan, and make the win change the story state with a cost or consequence.
 
 ### 7. Chapter Output Format
@@ -142,6 +144,7 @@ These skills enhance this command's output quality. Check if they are available 
 | `emotional-interiority` | `[user_agent]/skills/writing-techniques/emotional-interiority/SKILL.md` | Ensure internal reactions. |
 | `dialogue-techniques` | `[user_agent]/skills/writing-techniques/dialogue-techniques/SKILL.md` | Ensure subtext in dialogue. |
 | `comedic-banter-rhythm` | `[user_agent]/skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | Use when drafting witty banter, comedic escalation, or exposition through argument. |
+| `namecraft` | `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` | Suggest or validate names for characters, factions, places, titles, systems, abilities, artifacts, and concepts. |
 | `pacing-rhythm` | `[user_agent]/skills/writing-techniques/pacing-rhythm/SKILL.md` | Verify chapter matches its pacing tag. |
 | `punctuation-emotional-effect` | `[user_agent]/skills/writing-techniques/punctuation-emotional-effect/SKILL.md` | Use punctuation deliberately for emotion, rhythm, silence, and intensity. |
 | `strategic-reversal` | `[user_agent]/skills/writing-techniques/strategic-reversal/SKILL.md` | Write contest, tactic, mind-game, bluff, hidden-rule, or clever reversal scenes that feel surprising and fair. |
