@@ -25,6 +25,7 @@ Check which documents exist and determine where the user is in the workflow:
 5. If chapters are being written or edited, guide them to **Step 6: Write**, **Step 7: Edit**, or **Step 8: Review** — tell the user `/writer`, `/editor Chapter [N]`, or `/reviewer`.
 6. If chapters are marked `[FOR_REVIEW]`, recommend `/editor` first for one-chapter fixes when needed, then `/reviewer` for broad QA and `[DONE]` approval.
 7. If all chapters from `tasks.md` are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
+8. If written chapters exist and the user wants manga, manhwa, manhua, webtoon, comic pages, image prompts, or visual reference sheets, recommend the bonus comics prompt workflow starting with `/comics-planner`.
 
 ### 2. Present Workflow Overview
 
@@ -40,6 +41,19 @@ Present the user with a clear overview:
 | 6 | `/writer` | Write chapters with the pre-write checklist. Also detects and expands drafts from `./draft/chapters/` |
 | 7 | `/editor` | Check one chapter, suggest line-level fixes, track approve/skip statuses, and apply approved edits after confirmation |
 | 8 | `/reviewer` | Run broad QA on written content, tracking, knowledge, and final readiness |
+
+**Bonus Comics Prompt Workflow** — use after novel chapters exist or when adapting prose into comic/image prompts:
+
+| Command | What It Does |
+|---------|--------------|
+| `/comics-planner` | Adapt novel chapters into comic chapters and page-level visual beats |
+| `/comics-task` | Create comic page and sheet checklist tasks |
+| `/comics-chapter-pages-prompt` | Generate clean AI image prompt files for chapter pages |
+| `/comics-revise-prompt` | Revise page or sheet prompts after feedback |
+| `/utility-character-sheets-prompt` | Generate character reference sheet prompts |
+| `/utility-settings-sheets-prompt` | Generate setting/place reference sheet prompts |
+| `/utility-object-sheets-prompt` | Generate object/prop/weapon/artifact reference sheet prompts |
+| `/utility-npc-sheets-prompt` | Generate NPC/race/monster/bestiary/general archetype reference sheet prompts |
 
 **Utility Commands** — use anytime as needed:
 

@@ -21,6 +21,7 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 - **AI-assisted chapter drafting** with a 13-item pre-write checklist
 - **Built-in editor workflow** for one-chapter line fixes, approval tracking, and controlled revisions
 - **Built-in reviewer workflow** for broad consistency, tracking, story health, and final readiness
+- **Bonus comics prompt workflow** for manga, manhwa, manhua, webtoon page plans, page prompts, and visual reference sheets
 - **Character, plot, timeline, and relationship tracking**
 - **Genre-specific writing knowledge** for fantasy, horror, mystery, romance, sci-fi, and thriller
 - **Works with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, and any AI chat tool**
@@ -65,6 +66,10 @@ flowchart TD
     R2 -->|"approved"| DONE(("🎉 Done!"))
 
     WC -.->|"add new chapters?"| E
+    DONE -.->|"comic adaptation bonus"| CP["/comics-planner"]
+    CP --> CT["/comics-task"]
+    CT --> CPP["/comics-chapter-pages-prompt"]
+    CPP --> CRP["/comics-revise-prompt"]
 
     style GUIDE fill:#4f46e5,color:#fff,stroke-width:2px
     style GLEFT fill:#4f46e5,stroke:#4f46e5,color:#4f46e5
@@ -112,6 +117,19 @@ The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You c
 | `/editor` | Step 7 — Reviews one chapter, proposes line-specific edits, tracks approval status, and applies approved changes only after confirmation. |
 | `/reviewer` | Step 8 — Performs broad QA for framework consistency, cross-chapter continuity, tracking accuracy, and final readiness. |
 
+### Bonus Comics Prompt Workflow
+
+| Command | Description |
+|---------|-------------|
+| `/comics-planner` | Adapts written novel chapters into manga, manhwa, manhua, or webtoon chapter/page plans saved to `comics-plan.md`. |
+| `/comics-task` | Converts `comics-plan.md` into short page and sheet checklist tasks saved to `comics-task.md`. |
+| `/comics-chapter-pages-prompt` | Generates clean AI image prompt files for comic pages under `comic/chapter_0001/`. |
+| `/comics-revise-prompt` | Revises comic page or sheet prompt files after feedback or generated image review. |
+| `/utility-character-sheets-prompt` | Generates character model sheet prompts under `sheets/characters/`. |
+| `/utility-settings-sheets-prompt` | Generates setting/place reference sheet prompts under `sheets/place/`. |
+| `/utility-object-sheets-prompt` | Generates object, prop, weapon, artifact, tool, or vehicle sheet prompts under `sheets/object/`. |
+| `/utility-npc-sheets-prompt` | Generates NPC, race, monster, bestiary, crowd, guard, or general archetype sheet prompts under `sheets/npc/`. |
+
 ### Utilities
 
 | Command | Description |
@@ -137,6 +155,7 @@ Skills are passive knowledge files that the AI loads automatically when your pro
 |-------|-------------|
 | `character-depth` | Ensures deep psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms, and vulnerability triggers. |
 | `comedic-banter-rhythm` | Shapes witty banter, comedic escalation, argument-driven exposition, and humor under pressure. |
+| `comics-prompting` | Converts novel chapters into comic plans, page prompts, revision prompts, and visual reference sheet prompts for manga, manhwa, manhua, and webtoon workflows. |
 | `dialogue-techniques` | Makes dialogue subtext-heavy, distinctive, and character-driven. |
 | `emotional-interiority` | Ensures internal reactions, sensory-emotional responses, and prevents report-style narration. |
 | `namecraft` | Suggests names for characters, factions, places, titles, abilities, systems, artifacts, arcs, and concepts using genre, faction, symbolism, humor, and source links. |
@@ -233,6 +252,8 @@ my-novel/
 │       ├── specification.md
 │       ├── creative-plan.md
 │       ├── tasks.md
+│       ├── comics-plan.md
+│       ├── comics-task.md
 │       ├── meta.json
 │       ├── knowledge/          # Created by /specify
 │       │   ├── character-profiles.md
@@ -247,10 +268,19 @@ my-novel/
 │       │   ├── relationships.json
 │       │   ├── timeline.json
 │       │   └── validation-rules.json
-│       └── content/
-│           ├── chapter-01.md
-│           ├── chapter-02.md
-│           └── ...
+│       ├── content/
+│       │   ├── chapter-01.md
+│       │   ├── chapter-02.md
+│       │   └── ...
+│       ├── comic/              # Created by bonus comics prompt workflow
+│       │   └── chapter_0001/
+│       │       ├── ch_0001_page_001.md
+│       │       └── ch_0001_page_002.md
+│       └── sheets/             # Created by visual reference sheet utilities
+│           ├── characters/
+│           ├── place/
+│           ├── object/
+│           └── npc/
 ```
 
 > **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `stories/[name]/knowledge/`, `stories/[name]/tracking/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the eight-step workflow.

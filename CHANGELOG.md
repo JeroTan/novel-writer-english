@@ -15,6 +15,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `namecraft` writing technique skill with naming sources and a naming brief for characters, factions, places, titles, abilities, systems, artifacts, arcs, and concepts.
 - Added Codex command-to-skill conversion during install so `/constitution`, `/writer`, `/editor`, and other commands are available as Codex skills.
 - Added `/utility-command-cross-check` for checking whether a project file created by a workflow command is stale against the current command format.
+- Added bonus comics prompt workflow commands: `/comics-planner`, `/comics-task`, `/comics-chapter-pages-prompt`, and `/comics-revise-prompt`.
+- Added visual reference sheet prompt utility commands for characters, settings/places, objects/props, and NPC/general designs.
+- Added `comics-prompting` writing technique skill for manga, manhwa, manhua, webtoon, comic page prompts, revision prompts, and visual reference sheet prompts.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
@@ -28,6 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Expanded `dialogue-techniques` and `character-voices.md` with banter roles, exposition roles, humor style, pressure response, status behavior, and status-flip dialogue checks.
 - Updated `/specify`, `/planner`, `/writer`, `/editor`, and `/reviewer` to use naming guidance when important proper nouns are missing, generic, or off-pattern.
 - Updated `/utility-command-cross-check` to preserve rich knowledge-file detail when revising stale formats.
+- Updated README, root skill reference, guide command, and command cross-check to include comics adaptation outputs and sheet prompt formats.
 
 ## [1.0.0] - 2026-04-04
 ### Added

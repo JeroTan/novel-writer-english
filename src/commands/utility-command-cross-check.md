@@ -23,6 +23,8 @@ Accept command names with or without leading slash:
 - `planner`
 - `/planner`
 - `writer chapter 3`
+- `comics-planner`
+- `/utility-character-sheets-prompt`
 - `/utility-meta`
 
 Normalize the command name by removing the leading slash.
@@ -60,6 +62,14 @@ Use this target map:
 - `/utility-track-init` and `/utility-track` -> files in `./stories/[novel-name]/tracking/`
 - `/utility-timeline` -> `./stories/[novel-name]/tracking/timeline.json`
 - `/utility-relations` -> `./stories/[novel-name]/tracking/relationships.json`
+- `/comics-planner` -> `./stories/[novel-name]/comics-plan.md`
+- `/comics-task` -> `./stories/[novel-name]/comics-task.md`
+- `/comics-chapter-pages-prompt` -> selected page prompt file(s) in `./stories/[novel-name]/comic/`
+- `/comics-revise-prompt` -> selected revised prompt file(s) in `./stories/[novel-name]/comic/` or `./stories/[novel-name]/sheets/`
+- `/utility-character-sheets-prompt` -> selected file(s) in `./stories/[novel-name]/sheets/characters/`
+- `/utility-settings-sheets-prompt` -> selected file(s) in `./stories/[novel-name]/sheets/place/`
+- `/utility-object-sheets-prompt` -> selected file(s) in `./stories/[novel-name]/sheets/object/`
+- `/utility-npc-sheets-prompt` -> selected file(s) in `./stories/[novel-name]/sheets/npc/`
 
 For utilities that do not create a persistent file by default, explain that there is no standard project file to cross-check and ask the user for a specific file if needed.
 
@@ -109,6 +119,34 @@ For `/task-manager`, specifically check whether `tasks.md` uses the current form
 - Status markers are `[ ]`, `[FOR_REVIEW]`, and `[DONE]`
 - Contains `## Review & Editing Log`, initially `No editor/reviewer entries yet.` or populated by `/editor` and `/reviewer`
 - Does not create separate character profile, worldbuilding, review, or editing task items
+
+For `/comics-planner`, specifically check whether `comics-plan.md` uses the current format:
+- Header has Definition, Created, Updated, Comic Format, Source Chapters, and Layout Guidance Source
+- Contains Adaptation Principles
+- Comic chapters identify Source, Adaptation Decision, Target Pages, Visual Promise, and Required Sheets
+- Each page has Purpose, Content, Panels / Scroll Beats, Dialogue / Captions, Layout Notes, and References
+- Source novel chapters are visible for every comic chapter/page
+
+For `/comics-task`, specifically check whether `comics-task.md` uses the current format:
+- Header has Created, Updated, and Source Plan
+- Uses chapter sections with page checklist entries
+- Page status markers are `[ ]`, `[PROMPTED]`, `[REVISED]`, and `[DONE]`
+- Contains Sheet Tasks and Revision Log
+
+For `/comics-chapter-pages-prompt`, specifically check whether page prompt files use the current format:
+- Frontmatter includes novel, comic_chapter, page, source_chapters, created, updated, and prompt_type
+- Headline follows `# Chapter [N] Page [N] — [Prompt Headline]`
+- Body is clean prompt text, not a table
+- Prompt includes sheet references, page/panel or scroll beats, dialogue/caption text, bubble placement, camera/framing, mood, and continuity details
+
+For sheet prompt utilities, specifically check whether files use the current format:
+- Frontmatter includes novel, sheet_type, subject, created, updated, and prompt_type
+- One headline identifies sheet type and subject
+- Body is clean prompt text, not a table
+- Character sheets include labeled front/side/back views, expressions, and detail callouts
+- Setting sheets include key angles, landmarks, scale, lighting, mood, materials, and continuity notes
+- Object sheets include multiple views, functional details, materials, scale, variants, and continuity notes
+- NPC/general sheets include front/side/back views, variants, anatomy/silhouette, outfit/equipment, behavior, palette, and continuity notes
 
 ### 5. Output Report
 

@@ -31,6 +31,8 @@ project-root/
 │       ├── specification.md     ← Step 2 output
 │       ├── creative-plan.md     ← Step 4 output
 │       ├── tasks.md             ← Step 5 output (checkbox checklist)
+│       ├── comics-plan.md       ← optional comics adaptation plan
+│       ├── comics-task.md       ← optional comics prompt checklist
 │       ├── meta.json            ← optional `/utility-meta` output
 │       ├── knowledge/           ← Created by Step 2
 │       │   ├── character-profiles.md
@@ -45,9 +47,17 @@ project-root/
 │       │   ├── relationships.json
 │       │   ├── timeline.json
 │       │   └── validation-rules.json
-│       └── content/
-│           ├── chapter_00001.md   ← Step 6 output
-│           └── chapter_00001.notes.md  ← optional draft deviation notes
+│       ├── content/
+│       │   ├── chapter_00001.md   ← Step 6 output
+│       │   └── chapter_00001.notes.md  ← optional draft deviation notes
+│       ├── comic/               ← optional comics page prompts
+│       │   └── chapter_0001/
+│       │       └── ch_0001_page_001.md
+│       └── sheets/              ← optional visual reference sheet prompts
+│           ├── characters/
+│           ├── place/
+│           ├── object/
+│           └── npc/
 ├── draft/                       ← optional user-provided drafts
 │   └── chapters/
 │       └── 0001.md
@@ -99,6 +109,9 @@ Runs broad project QA after chapter-level edits. Two main modes: **Framework Ana
 ### Utility: Meta
 Records the novel's bibliographic metadata. `/utility-meta` creates or updates `stories/[novel-name]/meta.json` with title, author, description, genre tags, status (ongoing/completed/hiatus), language, and publication dates.
 
+### Bonus: Comics Prompt Workflow
+After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.
+
 ## Companion Sub-Skills
 
 These skills activate automatically based on context when installed:
@@ -116,6 +129,7 @@ These skills activate automatically based on context when installed:
 | `genre-knowledge/*` | User mentions a genre — loads tropes, conventions, pitfalls |
 | `dialogue-techniques` | Writing dialogue — provides subtext, voice, pacing rules |
 | `comedic-banter-rhythm` | Writing, editing, or reviewing witty banter, comedic escalation, argument exposition, or humor under pressure |
+| `comics-prompting` | Adapting novel chapters into manga, manhwa, manhua, webtoon, comic page prompts, revision prompts, or visual reference sheets |
 | `namecraft` | Naming characters, factions, places, titles, abilities, systems, artifacts, arcs, concepts, or unresolved TBD proper nouns |
 | `punctuation-emotional-effect` | Writing, editing, or reviewing emotional punctuation — controls punctuation intensity, silence, hesitation, interruption, and emphasis |
 | `scene-structure` | Writing a scene — provides beat structure and pacing guidance |
@@ -153,6 +167,7 @@ These skills activate automatically based on context when installed:
 |------|-----------|-------------|
 | `skills/writing-techniques/dialogue-techniques/SKILL.md` | `dialogue-techniques` | Subtext-heavy, distinctive, character-driven dialogue |
 | `skills/writing-techniques/comedic-banter-rhythm/SKILL.md` | `comedic-banter-rhythm` | Witty banter, comedic escalation, argument-driven exposition, and humor under pressure |
+| `skills/writing-techniques/comics-prompting/SKILL.md` | `comics-prompting` | Manga, manhwa, manhua, webtoon, comic page, revision, and visual reference sheet prompting |
 | `skills/writing-techniques/namecraft/SKILL.md` | `namecraft` | Names for characters, factions, places, titles, abilities, systems, artifacts, arcs, and concepts |
 | `skills/writing-techniques/scene-structure/SKILL.md` | `scene-structure` | Scene/sequel framework (Goal, Conflict, Disaster, Reaction, Dilemma, Decision) |
 | `skills/writing-techniques/character-depth/SKILL.md` | `character-depth` | Psychological backstory, Wound/Ghost, internal contradictions, defense mechanisms |

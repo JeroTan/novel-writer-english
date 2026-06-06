@@ -257,3 +257,27 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Added `namecraft` writing technique skill with research links and a naming brief for genre, sector, faction, humor, symbolism, personification, materialization, and sound-family fit.
 - `/specify`, `/planner`, `/writer`, `/editor`, and `/reviewer` can now suggest or check names when important proper nouns are missing, generic, hard to pronounce, or inconsistent with faction/world naming patterns.
 - `/utility-command-cross-check` now explicitly preserves knowledge files as the canonical rich-detail store during format updates.
+
+---
+
+## v1.3.0 — 2026-06-06
+
+**Bonus Comics Prompt Workflow — Manga, Manhwa, Manhua, Webtoon Adaptation**
+
+### Added
+
+- Added `/comics-planner` to adapt existing novel chapters from `stories/[novel-name]/content/` into comic chapters and page-level visual plans saved to `stories/[novel-name]/comics-plan.md`.
+- Added `/comics-task` to convert comic plans into short page and sheet checklist tasks saved to `stories/[novel-name]/comics-task.md`.
+- Added `/comics-chapter-pages-prompt` to generate clean AI image prompt files under `stories/[novel-name]/comic/chapter_0001/ch_0001_page_001.md`.
+- Added `/comics-revise-prompt` to revise comic page or sheet prompt files while preserving frontmatter, sheet references, dialogue, and canon.
+- Added visual reference sheet utilities:
+  - `/utility-character-sheets-prompt` -> `stories/[novel-name]/sheets/characters/`
+  - `/utility-settings-sheets-prompt` -> `stories/[novel-name]/sheets/place/`
+  - `/utility-object-sheets-prompt` -> `stories/[novel-name]/sheets/object/`
+  - `/utility-npc-sheets-prompt` -> `stories/[novel-name]/sheets/npc/`
+- Added `comics-prompting` writing technique skill with comic adaptation rules, page prompt standards, and reference sheet standards.
+
+### Changed
+
+- Updated README, root skill reference, `/utility-guide-me`, and `/utility-command-cross-check` to include bonus comics workflow commands and generated file formats.
+- Comics planning now references vertical-scroll/webtoon guidance from Clip Studio Paint Art Rocket: https://www.clipstudio.net/how-to-draw/archives/157055
