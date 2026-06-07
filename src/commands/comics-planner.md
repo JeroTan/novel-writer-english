@@ -57,6 +57,10 @@ Rules:
 - Plan bubble rhythm: short bubbles, one idea per bubble, meaningful pauses, reaction interruptions, and no large text blocks.
 - If one character does not hear a line, keep important dialogue readable and show the missed line through scene staging: distance, no reaction, blocked view, crowd noise, separate panel, or wrong reaction. Do not add meta-notes explaining who hears what.
 - Keep source chapter(s) visible for every comic chapter and page.
+- Treat pages as a connected chapter flow. Every page must inherit state from the previous page and hand off state to the next page.
+- If a scene continues, start the next page from the previous final beat with matching location, time, character positions, clothing state, injuries, props, lighting, mood, and unresolved action/dialogue.
+- If a scene jumps in time/place/POV, add a clear transition indicator such as "Next day," "Few years later," "Elsewhere," "Meanwhile," "Same night," a location caption, or an establishing transition panel.
+- If continuity would break because the adaptation is too compressed, add more pages or scroll beats. Page count is flexible when scene consistency needs room.
 - Use vertical spacing, panel rhythm, and dialogue placement deliberately for webtoon/manhwa.
 - For manga/manhua, keep page-turn rhythm, panel flow, and bubble readability clear.
 - Identify needed sheet references: characters, settings, objects, NPCs, monsters, race sheets.
@@ -84,6 +88,7 @@ Use this structure:
 - [Dialogue and sheet reference rule]
 - [Dialogue voice/rhythm rule]
 - [Unheard dialogue staging rule]
+- [Page continuity and transition rule]
 
 ## Chapter 1: [Comic Chapter Title]
 
@@ -91,6 +96,7 @@ Use this structure:
 **Adaptation Decision:** [same chapter | split from source | merged from sources]
 **Target Pages:** [N or flexible]
 **Visual Promise:** [Main visual mood and hook]
+**Continuity Spine:** [How pages flow from opening state to final state; major scene breaks and transitions]
 **Required Sheets:** Characters: [...]; Settings: [...]; Objects: [...]; NPCs: [...]
 
 ### Pages
@@ -99,9 +105,12 @@ Use this structure:
 
 **Purpose:** [Page function]
 **Content:** [Detailed explanation of what appears on the page]
+**Continuity In:** [State inherited from previous page: place, time, positions, props, clothing/injury state, mood, unresolved beat]
 **Panels / Scroll Beats:** [Beat 1] > [Beat 2] > [Beat 3]
 **Dialogue Layer:** [Speaker lines, captions, thoughts, subtext, why each line belongs, and any missed/whispered/interrupted line]
 **Bubble Rhythm / Placement:** [Bubble splits, pauses, reaction interruptions, positions, and scene staging that shows who misses or reacts to a line]
+**Transition Indicator:** [N/A if continuous; otherwise exact caption/establishing beat such as "Next day" or "Elsewhere"]
+**Continuity Out:** [State handed to next page: ending position, props moved, emotional state, unresolved line/action]
 **Layout Notes:** [Panel flow, spacing, phone readability, page turn, or dramatic gap]
 **References:** [Source chapter line/scene, sheet names, knowledge files]
 
@@ -109,9 +118,12 @@ Use this structure:
 
 **Purpose:** [...]
 **Content:** [...]
+**Continuity In:** [...]
 **Panels / Scroll Beats:** [...]
 **Dialogue Layer:** [...]
 **Bubble Rhythm / Placement:** [...]
+**Transition Indicator:** [...]
+**Continuity Out:** [...]
 **Layout Notes:** [...]
 **References:** [...]
 ```

@@ -24,6 +24,9 @@ Read:
 - `./stories/[novel-name]/comics-plan.md`
 - `./stories/[novel-name]/comics-task.md`
 - source novel chapter files listed in the comics plan
+- previous page plan and next page plan for the selected comic chapter
+- previous generated page prompt file if it exists
+- next generated page prompt file if revising or continuing an already prompted range
 - relevant `./stories/[novel-name]/knowledge/`
 - relevant `./stories/[novel-name]/tracking/`
 - `./stories/[novel-name]/knowledge/character-voices.md` for every speaking character
@@ -48,6 +51,11 @@ If no range is given, ask which comic chapter and pages to generate.
 - Prompt body must be clean text only: one paragraph or multiple paragraphs.
 - Do not output tables in prompt files.
 - Include page layout, panel or vertical-scroll beats, camera, composition, lighting, mood, color/BW choice, action, character expressions, continuity details, and sheet references.
+- Page prompts must form a connected scene chain. Before writing a page, check the previous page's Continuity Out and the current page's Continuity In. If they conflict, fix the prompt or add a transition beat.
+- For continuous scenes, begin from the previous page's final state: same location, time, character positions, gaze direction, clothing/injury state, held objects, lighting, weather, mood, and unresolved action/dialogue.
+- For discontinuous scenes, include a visible transition indicator inside the scene: caption, establishing shot, location card, time card, color/lighting shift, or opening environment beat. Use labels like "Next day," "Few years later," "Elsewhere," "Meanwhile," "Same night," or a story-fit equivalent.
+- If a page becomes too crowded or skips necessary movement/reaction, create another page file and add it to `comics-plan.md` and `comics-task.md` rather than breaking continuity.
+- End every prompt with a clear handoff state for the next page: where characters are, what object moved, what reaction lands, what line/action remains unresolved.
 - Include dialogue and captions. State bubble placement and bubble rhythm.
 - Dialogue is required unless the page is deliberately silent. If silent, say why silence is stronger.
 - If the source light novel gives little or no dialogue, create faithful comic-native dialogue that respects source meaning, character voice, relationship state, and scene facts. Do not add new canon facts.
@@ -89,7 +97,7 @@ prompt_type: comic_page_image
 
 # Chapter [N] Page [N] — [Prompt Headline]
 
-[Clean prompt paragraph(s). Include sheet references, layout, action, dialogue/captions, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera, mood, continuity details, and image style.]
+[Clean prompt paragraph(s). Include sheet references, layout, action, dialogue/captions, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera, mood, continuity in/out, transition indicator only when needed, and image style.]
 ```
 
 ### 5. Task Update

@@ -123,15 +123,18 @@ For `/task-manager`, specifically check whether `tasks.md` uses the current form
 For `/comics-planner`, specifically check whether `comics-plan.md` uses the current format:
 - Header has Definition, Created, Updated, Comic Format, Source Chapters, and Layout Guidance Source
 - Contains Adaptation Principles
-- Comic chapters identify Source, Adaptation Decision, Target Pages, Visual Promise, and Required Sheets
-- Each page has Purpose, Content, Panels / Scroll Beats, Dialogue Layer, Bubble Rhythm / Placement, Layout Notes, and References
+- Comic chapters identify Source, Adaptation Decision, Target Pages, Visual Promise, Continuity Spine, and Required Sheets
+- Each page has Purpose, Content, Continuity In, Panels / Scroll Beats, Dialogue Layer, Bubble Rhythm / Placement, Transition Indicator, Continuity Out, Layout Notes, and References
 - Source novel chapters are visible for every comic chapter/page
+- Continuous pages inherit previous page state: location, time, character positions, clothing/injury state, props, lighting, mood, and unresolved action/dialogue
+- Discontinuous pages include a visible transition indicator, such as "Next day," "Few years later," "Elsewhere," "Meanwhile," a location caption, or an establishing beat
 - Dialogue Layer shows speaker lines, captions/thoughts, subtext, and line purpose; sparse source prose may add faithful comic-native dialogue without new canon facts
 - Bubble Rhythm / Placement uses scene staging to show missed, whispered, interrupted, or off-panel lines without explicit meta-notes about who hears what
 
 For `/comics-task`, specifically check whether `comics-task.md` uses the current format:
 - Header has Created, Updated, and Source Plan
 - Uses chapter sections with page checklist entries
+- Each page task has a compact Continuity note: opening state, continues from Page N, transition label, or handoff
 - Page status markers are `[ ]`, `[PROMPTED]`, `[REVISED]`, and `[DONE]`
 - Contains Sheet Tasks and Revision Log
 
@@ -139,7 +142,9 @@ For `/comics-chapter-pages-prompt`, specifically check whether page prompt files
 - Frontmatter includes novel, comic_chapter, page, source_chapters, created, updated, and prompt_type
 - Headline follows `# Chapter [N] Page [N] — [Prompt Headline]`
 - Body is clean prompt text, not a table
-- Prompt includes sheet references, page/panel or scroll beats, dialogue/caption text, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera/framing, mood, and continuity details
+- Prompt includes sheet references, page/panel or scroll beats, dialogue/caption text, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera/framing, mood, continuity in/out, and transition indicator only when needed
+- Prompt matches previous page Continuity Out and next page Continuity In when those exist
+- Prompt adds or recommends a bridging page when compression would break scene flow
 - Prompt uses dialogue unless deliberate silence is stronger and explained
 - Prompt does not use blank/tiny/muffled/indistinct bubbles for important dialogue unless the words are intentionally hidden for mystery or background texture
 - Prompt does not include explicit meta-notes such as "Reader sees/hears," "Heard by," or "Not heard by"

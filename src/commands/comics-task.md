@@ -15,6 +15,8 @@ Create or update `./stories/[novel-name]/comics-task.md` from `./stories/[novel-
 
 This task file is for comic production tracking only. Keep it short.
 
+Comic page tasks must still track continuity. Each page line should carry a compact continuity note so page prompts are not treated as disconnected images.
+
 ## Execution Steps
 
 ### 1. Read Context
@@ -24,6 +26,8 @@ Read:
 - existing `./stories/[novel-name]/comics-task.md` if present
 - relevant `./stories/[novel-name]/comic/` prompt files if present
 - relevant `./stories/[novel-name]/sheets/` prompt files if present
+
+When reading `comics-plan.md`, capture each page's Continuity In, Transition Indicator, and Continuity Out.
 
 If `comics-plan.md` does not exist, tell user to run `/comics-planner` first.
 
@@ -53,15 +57,15 @@ Use this structure:
 
 ### Pages
 
-- [ ] **Page 1** — [Brief page purpose]
-- [ ] **Page 2** — [Brief page purpose]
+- [ ] **Page 1** — [Brief page purpose] — Continuity: [opening state: place/time, or transition from previous chapter/scene]
+- [ ] **Page 2** — [Brief page purpose] — Continuity: [continues from Page 1 | transition: Next day | transition: Elsewhere]
 
 ## Chapter 2: [Title]
 
 ### Pages
 
-- [ ] **Page 1** — [Brief page purpose]
-- [ ] **Page 2** — [Brief page purpose]
+- [ ] **Page 1** — [Brief page purpose] — Continuity: [transition from previous chapter/scene if needed, otherwise opening state]
+- [ ] **Page 2** — [Brief page purpose] — Continuity: [continues from Page 1 | transition label]
 
 ---
 
@@ -84,6 +88,12 @@ Status markers:
 - `[PROMPTED]` — page or sheet prompt generated
 - `[REVISED]` — prompt revised after feedback
 - `[DONE]` — final prompt accepted
+
+Continuity text stays brief. Use:
+- `continues from Page [N]`
+- `opening state: [place/time]`
+- `transition: [Next day | Few years later | Elsewhere | Same night, rooftop | etc.]`
+- `handoff: [unresolved action/emotion/prop for next page]`
 
 ### 4. Handoff
 

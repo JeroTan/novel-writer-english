@@ -38,7 +38,22 @@ Apply these ideas:
 - Keep dialogue exact when canon matters; otherwise compress lightly for bubble readability.
 - Specify bubble placement: top-left, top-right, center, lower panel, beside character, off-panel, caption box, thought bubble.
 - Keep continuity: character position, eye-line, object location, injuries, clothing state, lighting, and scene geography.
+- Treat pages as one connected scene chain, not disconnected prompt cards. Each page must inherit state from the previous page and hand off state to the next page.
+- If continuity needs more pages, add pages instead of compressing or skipping important movement.
+- If the scene jumps in time/place/POV, add a visible transition: "Next day," "Three years later," "Elsewhere," "Same night, rooftop," "Meanwhile," or a similar story-fit caption/establishing beat.
 - Always mention relevant sheets in prompts: "Use the provided character sheet for [Name]" and similar for settings, objects, NPCs, monsters, races, or props.
+
+## Page Continuity
+
+Every comics plan and page prompt needs continuity logic:
+- **Continuity In:** exact state inherited from previous page: location, time, characters present, positions, gaze direction, clothing, injuries, props, mood, unresolved action, and last dialogue beat.
+- **Continuity Out:** state created for next page: where characters end, what object moved, who reacts, what line/action remains unresolved.
+- **Transition Indicator:** only when a break occurs. Use a caption, establishing shot, time/place card, color/lighting shift, or clear change in environment.
+- **Continuous Flow:** when no break occurs, the next page starts from the previous final beat. Do not relaunch the scene as if new.
+- **Scene Geography:** keep entrances, exits, left/right position, distance, height, crowd placement, and object locations consistent.
+- **Visual Carryover:** maintain clothing state, damage, sweat/tears/blood, lighting, weather, held items, and background layout.
+- **Emotional Carryover:** preserve the emotional state and reaction caused by previous page events.
+- **Expansion Rule:** if a transition, reaction, movement, or setup would be unclear, add another page or scroll beat rather than skipping it.
 
 ## Dialogue Layer
 
@@ -92,6 +107,7 @@ Include:
 - format: manga, manhwa/webtoon, manhua, or hybrid
 - page purpose and source chapter
 - panel or vertical scroll beats
+- continuity in, continuity out, and transition indicator when needed
 - characters, setting, objects, NPCs, and sheet references
 - camera angle, shot scale, composition, lighting, mood, color or black-and-white treatment
 - action, expressions, poses, continuity details
