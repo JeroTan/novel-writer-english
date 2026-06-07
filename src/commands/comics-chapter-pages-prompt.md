@@ -26,6 +26,7 @@ Read:
 - source novel chapter files listed in the comics plan
 - relevant `./stories/[novel-name]/knowledge/`
 - relevant `./stories/[novel-name]/tracking/`
+- `./stories/[novel-name]/knowledge/character-voices.md` for every speaking character
 - relevant sheet prompt files in `./stories/[novel-name]/sheets/characters/`
 - relevant sheet prompt files in `./stories/[novel-name]/sheets/place/`
 - relevant sheet prompt files in `./stories/[novel-name]/sheets/object/`
@@ -34,6 +35,7 @@ Read:
 Load `[user_agent]/skills/writing-techniques/comics-prompting/SKILL.md` when available.
 
 Use this public guide as layout reference: https://www.clipstudio.net/how-to-draw/archives/157055
+Use this dialogue advice reference: https://www.reddit.com/r/WebtoonCanvas/comments/1k8r83q/can_anyone_give_me_some_advice_on_writing/
 
 ### 2. Select Pages
 
@@ -46,7 +48,17 @@ If no range is given, ask which comic chapter and pages to generate.
 - Prompt body must be clean text only: one paragraph or multiple paragraphs.
 - Do not output tables in prompt files.
 - Include page layout, panel or vertical-scroll beats, camera, composition, lighting, mood, color/BW choice, action, character expressions, continuity details, and sheet references.
-- Include dialogue and captions. State bubble placement.
+- Include dialogue and captions. State bubble placement and bubble rhythm.
+- Dialogue is required unless the page is deliberately silent. If silent, say why silence is stronger.
+- If the source light novel gives little or no dialogue, create faithful comic-native dialogue that respects source meaning, character voice, relationship state, and scene facts. Do not add new canon facts.
+- Do not ask the user to write ordinary dialogue when source intent, character voice, and scene facts are enough. Generate strong candidate dialogue. Ask only if the line would decide new canon, reveal unknown facts, or change character intent.
+- Every dialogue line should serve at least one function: reveal character, move plot, create suspense, shift relationship/status, deliver needed exposition, create humor, or sharpen emotional pressure.
+- Keep bubbles short and readable. Use one idea per bubble. Split lines at emotional turns, pauses, interruptions, or reaction beats.
+- Avoid dialogue that only describes what the image already shows.
+- Use captions/thought bubbles sparingly for interiority that cannot be shown through pose, expression, framing, or object detail.
+- If one character cannot hear a line, keep important dialogue readable and let the scene show it: distance, blocked sightline, crowd noise, no reaction, wrong reaction, delayed reaction, or separate panel.
+- Use blank, tiny, blurred, muffled, or indistinct bubbles only for mystery, background chatter, or words intentionally hidden from the page.
+- Do not add meta-notes such as "Reader sees/hears," "Heard by," or "Not heard by" in generated prompt text.
 - Always include sheet reference language when applicable:
   - "Use the provided character sheet for [Name]."
   - "Use the provided setting sheet for [Place]."
@@ -77,7 +89,7 @@ prompt_type: comic_page_image
 
 # Chapter [N] Page [N] — [Prompt Headline]
 
-[Clean prompt paragraph(s). Include sheet references, layout, action, dialogue/captions, bubble placement, camera, mood, continuity details, and image style.]
+[Clean prompt paragraph(s). Include sheet references, layout, action, dialogue/captions, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera, mood, continuity details, and image style.]
 ```
 
 ### 5. Task Update

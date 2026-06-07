@@ -31,8 +31,10 @@ Read:
 If `$ARGUMENTS` names chapter(s), use those. Otherwise, ask which chapter(s) to adapt.
 
 Load `[user_agent]/skills/writing-techniques/comics-prompting/SKILL.md` when available.
+Read `./stories/[novel-name]/knowledge/character-voices.md` for every speaking character.
 
 Use this public guide as layout reference: https://www.clipstudio.net/how-to-draw/archives/157055
+Use this dialogue advice reference: https://www.reddit.com/r/WebtoonCanvas/comments/1k8r83q/can_anyone_give_me_some_advice_on_writing/
 
 ### 2. Confirm Format
 
@@ -48,6 +50,12 @@ Rules:
 - Preserve novel canon.
 - Do not rewrite prose into final page prompts yet. This command creates the page plan only.
 - Convert narration into visible beats: action, expression, pose, framing, object detail, setting detail, caption, or dialogue bubble.
+- Treat dialogue as the heart of the comic adaptation. Every page should include a dialogue layer unless deliberate silence works better.
+- If the light novel source has little dialogue, add comic-native dialogue that respects the source idea, character voice, relationship state, and scene facts. Do not add new canon facts.
+- Do not ask the user to write ordinary dialogue when source intent, character voice, and scene facts are enough. Infer strong candidate lines. Ask only if the line would decide new canon, reveal unknown facts, or change character intent.
+- Every dialogue line must reveal character, move plot, create suspense, shift relationship/status, deliver needed exposition, or sharpen emotional pressure.
+- Plan bubble rhythm: short bubbles, one idea per bubble, meaningful pauses, reaction interruptions, and no large text blocks.
+- If one character does not hear a line, keep important dialogue readable and show the missed line through scene staging: distance, no reaction, blocked view, crowd noise, separate panel, or wrong reaction. Do not add meta-notes explaining who hears what.
 - Keep source chapter(s) visible for every comic chapter and page.
 - Use vertical spacing, panel rhythm, and dialogue placement deliberately for webtoon/manhwa.
 - For manga/manhua, keep page-turn rhythm, panel flow, and bubble readability clear.
@@ -74,6 +82,8 @@ Use this structure:
 - [Canon preservation rule]
 - [Panel/page rhythm rule]
 - [Dialogue and sheet reference rule]
+- [Dialogue voice/rhythm rule]
+- [Unheard dialogue staging rule]
 
 ## Chapter 1: [Comic Chapter Title]
 
@@ -90,7 +100,8 @@ Use this structure:
 **Purpose:** [Page function]
 **Content:** [Detailed explanation of what appears on the page]
 **Panels / Scroll Beats:** [Beat 1] > [Beat 2] > [Beat 3]
-**Dialogue / Captions:** [Speaker/bubble/caption notes]
+**Dialogue Layer:** [Speaker lines, captions, thoughts, subtext, why each line belongs, and any missed/whispered/interrupted line]
+**Bubble Rhythm / Placement:** [Bubble splits, pauses, reaction interruptions, positions, and scene staging that shows who misses or reacts to a line]
 **Layout Notes:** [Panel flow, spacing, phone readability, page turn, or dramatic gap]
 **References:** [Source chapter line/scene, sheet names, knowledge files]
 
@@ -99,7 +110,8 @@ Use this structure:
 **Purpose:** [...]
 **Content:** [...]
 **Panels / Scroll Beats:** [...]
-**Dialogue / Captions:** [...]
+**Dialogue Layer:** [...]
+**Bubble Rhythm / Placement:** [...]
 **Layout Notes:** [...]
 **References:** [...]
 ```

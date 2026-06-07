@@ -281,3 +281,16 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 
 - Updated README, root skill reference, `/utility-guide-me`, and `/utility-command-cross-check` to include bonus comics workflow commands and generated file formats.
 - Comics planning now references vertical-scroll/webtoon guidance from Clip Studio Paint Art Rocket: https://www.clipstudio.net/how-to-draw/archives/157055
+
+---
+
+## v1.3.1 — 2026-06-07
+
+**Comic Dialogue Prompt Patch**
+
+### Changed
+
+- Updated comics planning and page prompting to treat dialogue as required comic structure instead of optional leftover prose.
+- Added guidance for faithful comic-native dialogue when source light novel prose is sparse.
+- Replaced explicit audibility notes with visual staging rules for missed, whispered, interrupted, or off-panel dialogue.
+- Updated `/comics-revise-prompt` and `/utility-command-cross-check` to fix or flag important dialogue hidden by blank, tiny, muffled, or indistinct bubbles unless the words are intentionally hidden.

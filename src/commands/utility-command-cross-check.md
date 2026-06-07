@@ -124,8 +124,10 @@ For `/comics-planner`, specifically check whether `comics-plan.md` uses the curr
 - Header has Definition, Created, Updated, Comic Format, Source Chapters, and Layout Guidance Source
 - Contains Adaptation Principles
 - Comic chapters identify Source, Adaptation Decision, Target Pages, Visual Promise, and Required Sheets
-- Each page has Purpose, Content, Panels / Scroll Beats, Dialogue / Captions, Layout Notes, and References
+- Each page has Purpose, Content, Panels / Scroll Beats, Dialogue Layer, Bubble Rhythm / Placement, Layout Notes, and References
 - Source novel chapters are visible for every comic chapter/page
+- Dialogue Layer shows speaker lines, captions/thoughts, subtext, and line purpose; sparse source prose may add faithful comic-native dialogue without new canon facts
+- Bubble Rhythm / Placement uses scene staging to show missed, whispered, interrupted, or off-panel lines without explicit meta-notes about who hears what
 
 For `/comics-task`, specifically check whether `comics-task.md` uses the current format:
 - Header has Created, Updated, and Source Plan
@@ -137,7 +139,10 @@ For `/comics-chapter-pages-prompt`, specifically check whether page prompt files
 - Frontmatter includes novel, comic_chapter, page, source_chapters, created, updated, and prompt_type
 - Headline follows `# Chapter [N] Page [N] — [Prompt Headline]`
 - Body is clean prompt text, not a table
-- Prompt includes sheet references, page/panel or scroll beats, dialogue/caption text, bubble placement, camera/framing, mood, and continuity details
+- Prompt includes sheet references, page/panel or scroll beats, dialogue/caption text, bubble rhythm and placement, scene staging for missed/whispered/interrupted lines, camera/framing, mood, and continuity details
+- Prompt uses dialogue unless deliberate silence is stronger and explained
+- Prompt does not use blank/tiny/muffled/indistinct bubbles for important dialogue unless the words are intentionally hidden for mystery or background texture
+- Prompt does not include explicit meta-notes such as "Reader sees/hears," "Heard by," or "Not heard by"
 
 For sheet prompt utilities, specifically check whether files use the current format:
 - Frontmatter includes novel, sheet_type, subject, created, updated, and prompt_type

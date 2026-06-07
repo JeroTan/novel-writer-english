@@ -46,6 +46,8 @@ Rules:
 - Keep prompt body clean: one paragraph or multiple paragraphs, no tables.
 - Keep sheet references explicit.
 - Keep dialogue/caption text and bubble placement unless user asks to change it.
+- If important dialogue is blank, muffled, tiny, or indistinct, replace it with readable dialogue text unless the words are intentionally hidden for mystery or background texture.
+- If one character misses a line, show it through scene staging: distance, blocked sightline, crowd noise, no reaction, wrong reaction, delayed reaction, or separate panel. Do not add meta-notes explaining who hears what.
 - Address user feedback directly: pose, expression, framing, lighting, costume, setting, object detail, NPC design, panel flow, or style.
 - Do not change canon unless user explicitly approves.
 
