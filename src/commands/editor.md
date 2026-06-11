@@ -113,22 +113,32 @@ Check the target chapter for:
 
 Do not rewrite the whole chapter. Suggest local edits only unless a larger structural issue blocks chapter quality.
 
-### 5. Output Suggestion Table
+### 5. Output Suggestion List
 
-Output one persistent table:
+Output one persistent numbered list:
 
-| # | Line(s) | Current Text | Suggested Change | Reason | Status |
-|---|---------|--------------|------------------|--------|--------|
-| 1 | `12-14` | Exact current text | Exact replacement | Why this improves the chapter or concise action | `for_discussion` |
+```markdown
+1. Line 12-14
+Current: Exact current text.
+Suggest: Exact replacement.
+Reason: Why this improves the chapter or concise action.
+Status: for_discussion
+
+2. Line 18
+Current: Exact current text.
+Suggest: Exact replacement.
+Reason: Why this improves the chapter or concise action.
+Status: for_discussion
+```
 
 Rules:
-- Every new row starts as `for_discussion`.
+- Every new item starts as `for_discussion`.
 - Status must be exactly one of `approve`, `skip`, or `for_discussion`.
 - Keep current text short but exact. Use ellipses only when quoting a long multi-line passage would be unwieldy.
 - If an issue spans a long passage, cite the line range and give a targeted replacement instruction.
 - Do not apply edits yet.
 
-After the table, ask the user to update statuses, for example:
+After the list, ask the user to update statuses, for example:
 - `approve 1,2`
 - `skip 4`
 - `discuss 3`
@@ -136,16 +146,24 @@ After the table, ask the user to update statuses, for example:
 
 ### 6. Discussion Loop
 
-Keep the table persistent across replies.
+Keep the numbered list persistent across replies.
 
-Before answering any follow-up after the first suggestion table, update the stored table from the user's latest message and show the full current table first. Then provide any broader details, negotiation notes, revised wording, or explanation below the table.
+Before answering any follow-up after the first suggestion list, update the stored list from the user's latest message and show the full current list first. Then provide any broader details, negotiation notes, revised wording, or explanation below the list.
 
 If the user asks to discuss an item, respond using this format:
 
 ```markdown
-| # | Line(s) | Current Text | Suggested Change | Reason | Status |
-|---|---------|--------------|------------------|--------|--------|
-| ...current full table... |
+1. Line 12-14
+Current: [current text]
+Suggest: [current suggestion]
+Reason: [reason]
+Status: for_discussion
+
+2. Line 18
+Current: [current text]
+Suggest: [current suggestion]
+Reason: [reason]
+Status: approve
 
 #3
 
@@ -158,7 +176,7 @@ If the user asks to discuss an item, respond using this format:
 **Reason:** [why this version fits better]
 ```
 
-For multiple items, show the table first, then one broad detail block per relevant item:
+For multiple items, show the full numbered list first, then one broad detail block per relevant item:
 
 ```markdown
 #23 [Title]
@@ -166,11 +184,11 @@ For multiple items, show the table first, then one broad detail block per releva
 [Body/content of suggestion, negotiation context, tradeoff, or revised wording.]
 ```
 
-Keep item detail blocks concise but complete enough for the user to decide. Always let the table status reflect the latest conversation.
+Keep item detail blocks concise but complete enough for the user to decide. Always let the list status reflect the latest conversation.
 
 ### 7. Apply Approved Edits
 
-When every row is either `approve` or `skip`, tell the user:
+When every item is either `approve` or `skip`, tell the user:
 
 > All editor items are resolved. Ready to edit `./stories/[novel-name]/content/[chapter-file]` with approved changes only. Confirm and I will apply them.
 
@@ -178,9 +196,9 @@ Apply changes only after the user confirms.
 
 When applying:
 - Edit only the target chapter file.
-- Apply `approve` rows only.
-- Do not apply `skip` rows.
-- Preserve markdown structure, chapter title, separators, and mini summary unless an approved row targets them.
+- Apply `approve` items only.
+- Do not apply `skip` items.
+- Preserve markdown structure, chapter title, separators, and mini summary unless an approved item targets them.
 - If line numbers shifted during editing, match against exact current text before replacing. If exact text cannot be found, stop and ask before guessing.
 
 ### 8. Completion Output
@@ -197,8 +215,8 @@ After applying edits:
 
 Then report:
 - Chapter edited
-- Approved rows applied
-- Skipped rows ignored
-- Any rows that could not be applied exactly
+- Approved items applied
+- Skipped items ignored
+- Any items that could not be applied exactly
 
 Suggest `/reviewer` when the user wants broad project QA or final approval.

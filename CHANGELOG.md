@@ -34,6 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated README, root skill reference, guide command, and command cross-check to include comics adaptation outputs and sheet prompt formats.
 - Updated comics planning and page prompting to treat dialogue as required comic structure, infer faithful dialogue from sparse prose, and stage missed/whispered/interrupted lines visually instead of adding meta-notes.
 - Updated comics planning, task tracking, page prompting, revise prompting, and cross-check to enforce page-to-page continuity, carryover state, transition indicators, and extra pages when scene flow would otherwise break.
+- Updated `/editor` suggestion output from a wide table to a numbered line-item list with Current, Suggest, Reason, and Status fields.
 
 ## [1.0.0] - 2026-04-04
 ### Added

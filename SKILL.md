@@ -97,7 +97,7 @@ Breaks the plan into actionable one-line chapter tasks with markers: `[P]` (para
 Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 13-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*
 
 ### Step 7: Edit
-Runs after `/writer` and before `/reviewer`. The editor checks one chapter at a time, shows a selectable reference checklist, outputs a table of line-specific suggested changes, and tracks each row as `approve`, `skip`, or `for_discussion`. It applies nothing until all rows are resolved and the user confirms.
+Runs after `/writer` and before `/reviewer`. The editor checks one chapter at a time, shows a selectable reference checklist, outputs a numbered list of line-specific suggested changes, and tracks each item as `approve`, `skip`, or `for_discussion`. It applies nothing until all items are resolved and the user confirms.
 
 **Run frequency**: After each chapter that needs refinement, or whenever the user wants to double-check a specific chapter.
 

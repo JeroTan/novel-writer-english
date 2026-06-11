@@ -308,3 +308,15 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Updated comic tasks to carry compact continuity notes per page.
 - Updated page prompt generation and revision to check previous/next page state before writing.
 - Added rule to add pages or scroll beats when compression would break scene flow.
+
+---
+
+## v1.3.3 — 2026-06-11
+
+**Editor Suggestion List Patch**
+
+### Changed
+
+- Updated `/editor` suggestions from a wide table to a numbered line-item list.
+- Each editor item now shows `Line`, `Current`, `Suggest`, `Reason`, and `Status`.
+- Approval flow still uses `approve`, `skip`, and `for_discussion`.
