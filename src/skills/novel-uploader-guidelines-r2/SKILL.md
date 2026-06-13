@@ -53,8 +53,9 @@ Each novel MUST have a `meta.json` file at `novels/{novel-slug}/meta.json` with 
   "author": "Author Name",
   "description": "A captivating story of cultivation and adventure. This description appears on novel cards and the detail page. Keep it concise but compelling (2-3 sentences recommended).",
   "status": "ongoing",
-  "genre": ["fantasy", "cultivation"],
-  "tags": ["reincarnation", "magic-system", "weak-to-strong"],
+  "genre": ["Fantasy", "Adventure"],
+  "tags": ["Cultivation", "Reincarnation", "Progression"],
+  "work-type": ["Original Work", "AI Assisted"],
   "language": "en",
   "publishedAt": "2024-01-15",
   "updatedAt": "2024-12-01"
@@ -69,11 +70,16 @@ Each novel MUST have a `meta.json` file at `novels/{novel-slug}/meta.json` with 
 | `author` | `string` | ✅ Required | Author's name or pen name |
 | `description` | `string` | ✅ Required | Brief synopsis shown in novel cards and detail page. 2-3 sentences recommended. |
 | `status` | `enum` | ✅ Required | Must be one of: `"ongoing"`, `"completed"`, `"hiatus"` |
-| `genre` | `string[]` | ✅ Required | Array of genre tags (lowercase, kebab-case). Examples: `"fantasy"`, `"sci-fi"`, `"romance"`, `"mystery"`, `"slice-of-life"` |
-| `tags` | `string[]` | ⚠️ Optional | Additional descriptive tags (lowercase, kebab-case). Examples: `"reincarnation"`, `"time-travel"`, `"magic-system"`, `"weak-to-strong"` |
+| `genre` | `string[]` | ✅ Required | Array selected from the supported genre list. Examples: `"Fantasy"`, `"Sci-fi"`, `"Romance"`, `"Mystery"` |
+| `tags` | `string[]` | ⚠️ Optional | Array selected from the supported Royal Road-style tag list. Examples: `"Reincarnation"`, `"Time Travel"`, `"Magic"`, `"Progression"` |
+| `work-type` | `string[]` | ⚠️ Optional | Array selected from: `"Original Ideas"`, `"Original Work"`, `"Doujin"`, `"AI Assisted"`, `"AI-generated"` |
 | `language` | `string` | ✅ Required | ISO 639-1 language code. Examples: `"en"`, `"es"`, `"zh"`, `"ja"` |
 | `publishedAt` | `string` | ✅ Required | ISO 8601 date when the novel was first published. Format: `YYYY-MM-DD` |
 | `updatedAt` | `string` | ✅ Required | ISO 8601 date of the last chapter update. Format: `YYYY-MM-DD` |
+
+Supported genres: `Action`, `Adventure`, `Comedy`, `Contemporary`, `Drama`, `Fantasy`, `Historical`, `Horror`, `Mystery`, `Psychological`, `Romance`, `Satire`, `Sci-fi`, `Short Story`, `Thriller`, `Tragedy`.
+
+Supported tags: `Anti-Hero Lead`, `Anti-Villain Lead`, `Apocalypse`, `Artificial Intelligence`, `Attractive Lead`, `Chivalry`, `Competing Love Interest`, `Cozy`, `Crafting`, `Cultivation`, `Cyberpunk`, `Deck Building`, `Dungeon Core`, `Dungeon Crawler`, `Dystopia`, `Female Lead`, `First Contact`, `GameLit`, `Gender Bender`, `Genetically Engineered`, `Grimdark`, `Hard Sci-fi`, `High Fantasy`, `Kingdom Building`, `Lesbian Romance`, `LitRPG`, `Local Protagonist`, `Low Fantasy`, `Magic`, `Magical Girl`, `Magitech`, `Male Gay Romance`, `Male Lead`, `Martial Arts`, `Mecha`, `Modern Knowledge`, `Monster Evolution`, `Multiple Lead Characters`, `Multiple Lovers`, `Mythos`, `Non-Human Lead`, `Non-Humanoid Lead`, `Otome`, `Portal Fantasy / Isekai`, `Post Apocalyptic`, `Progression`, `Reader Interactive`, `Reincarnation`, `Romance Subplot`, `Ruling Class`, `School Life`, `Secret Identity`, `Slice of Life`, `Soft Sci-fi`, `Space Opera`, `Sports`, `Steampunk`, `Strategy`, `Strong Lead`, `Super Heroes`, `Supernatural`, `Survival`, `System Invasion`, `Technologically Engineered`, `Time Loop`, `Time Travel`, `Tower`, `Urban Fantasy`, `Villainous Lead`, `Virtual Reality`, `War and Military`, `Wuxia`.
 
 ### Example `meta.json` Files
 
@@ -280,6 +286,9 @@ Structure:
 
 meta.json required fields:
   title, author, description, status, genre, language, publishedAt, updatedAt
+
+meta.json optional arrays:
+  tags, work-type
 
 Chapter frontmatter (optional):
   ---

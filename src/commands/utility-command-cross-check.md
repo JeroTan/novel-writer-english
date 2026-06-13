@@ -120,6 +120,15 @@ For `/task-manager`, specifically check whether `tasks.md` uses the current form
 - Contains `## Review & Editing Log`, initially `No editor/reviewer entries yet.` or populated by `/editor` and `/reviewer`
 - Does not create separate character profile, worldbuilding, review, or editing task items
 
+For `/utility-meta`, specifically check whether `meta.json` uses the current format:
+- Required keys exist: `title`, `author`, `description`, `status`, `genre`, `tags`, `work-type`, `language`, `publishedAt`, and `updatedAt`
+- `status` is one of `ongoing`, `completed`, or `hiatus`
+- `genre`, `tags`, and `work-type` are arrays even when they contain one value
+- `genre` values use the allowed display spelling: `Action`, `Adventure`, `Comedy`, `Contemporary`, `Drama`, `Fantasy`, `Historical`, `Horror`, `Mystery`, `Psychological`, `Romance`, `Satire`, `Sci-fi`, `Short Story`, `Thriller`, `Tragedy`
+- `work-type` values use the allowed display spelling: `Original Ideas`, `Original Work`, `Doujin`, `AI Assisted`, `AI-generated`
+- `tags` values use the allowed Royal Road-style display spelling from `/utility-meta`
+- Dates use `YYYY-MM-DD`
+
 For `/comics-planner`, specifically check whether `comics-plan.md` uses the current format:
 - Header has Definition, Created, Updated, Comic Format, Source Chapters, and Layout Guidance Source
 - Contains Adaptation Principles

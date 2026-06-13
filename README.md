@@ -134,7 +134,7 @@ The writing cycle, steps 6–8, repeats for each chapter or chapter batch. You c
 
 | Command | Description |
 |---------|-------------|
-| `/meta` | Records novel metadata, including title, author, genre, tags, status, and publication dates, to `meta.json`. |
+| `/meta` | Records novel metadata, including title, author, genre, Royal Road-style tags, work type, status, and publication dates, to `meta.json`. |
 | `/checklist` | Runs a quality checklist against the current context or chapter. |
 | `/expert` | Activates expert mode for deep, specialized analysis, such as editor, sensitivity reader, or logic checker. |
 | `/track-init` | Initializes the JSON tracking system for a new novel. |

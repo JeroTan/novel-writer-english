@@ -107,7 +107,7 @@ Runs broad project QA after chapter-level edits. Two main modes: **Framework Ana
 **Run frequency**: After chapter edits, after the first 3 chapters, every 5 chapters, and after completing the full draft.
 
 ### Utility: Meta
-Records the novel's bibliographic metadata. `/utility-meta` creates or updates `stories/[novel-name]/meta.json` with title, author, description, genre tags, status (ongoing/completed/hiatus), language, and publication dates.
+Records the novel's bibliographic metadata. `/utility-meta` creates or updates `stories/[novel-name]/meta.json` with title, author, description, allowed genre values, Royal Road-style tags, `work-type`, status (ongoing/completed/hiatus), language, and publication dates.
 
 ### Bonus: Comics Prompt Workflow
 After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.

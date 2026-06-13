@@ -332,3 +332,16 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Updated `/editor` suggestions to show full exact `Current` text for cited line(s).
 - Updated `/editor` suggestions to show full exact `Suggest` replacement text.
 - Removed fragment, summary, ellipsis, and partial-replacement shortcuts from editor suggestion output.
+
+---
+
+## v1.3.5 — 2026-06-13
+
+**Meta Taxonomy Patch**
+
+### Changed
+
+- Updated `/utility-meta` with allowed genre values based on Royal Road-style categories.
+- Updated `/utility-meta` with allowed tag values based on Royal Road-style tags.
+- Added `work-type` as an array with `Original Ideas`, `Original Work`, `Doujin`, `AI Assisted`, and `AI-generated`.
+- Updated meta cross-check and uploader guidance to match the new metadata schema.
