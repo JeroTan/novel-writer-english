@@ -320,3 +320,15 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Updated `/editor` suggestions from a wide table to a numbered line-item list.
 - Each editor item now shows `Line`, `Current`, `Suggest`, `Reason`, and `Status`.
 - Approval flow still uses `approve`, `skip`, and `for_discussion`.
+
+---
+
+## v1.3.4 — 2026-06-13
+
+**Editor Full Text Patch**
+
+### Changed
+
+- Updated `/editor` suggestions to show full exact `Current` text for cited line(s).
+- Updated `/editor` suggestions to show full exact `Suggest` replacement text.
+- Removed fragment, summary, ellipsis, and partial-replacement shortcuts from editor suggestion output.

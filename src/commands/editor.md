@@ -119,14 +119,14 @@ Output one persistent numbered list:
 
 ```markdown
 1. Line 12-14
-Current: Exact current text.
-Suggest: Exact replacement.
+Current: Full exact current text from the cited line(s).
+Suggest: Full exact replacement text.
 Reason: Why this improves the chapter or concise action.
 Status: for_discussion
 
 2. Line 18
-Current: Exact current text.
-Suggest: Exact replacement.
+Current: Full exact current text from the cited line(s).
+Suggest: Full exact replacement text.
 Reason: Why this improves the chapter or concise action.
 Status: for_discussion
 ```
@@ -134,8 +134,9 @@ Status: for_discussion
 Rules:
 - Every new item starts as `for_discussion`.
 - Status must be exactly one of `approve`, `skip`, or `for_discussion`.
-- Keep current text short but exact. Use ellipses only when quoting a long multi-line passage would be unwieldy.
-- If an issue spans a long passage, cite the line range and give a targeted replacement instruction.
+- Always show the full current text for the cited line(s). Do not use fragments, summaries, or ellipses to save tokens.
+- Always show the full suggested replacement text. Do not use partial replacements, vague instructions, or "change this part" wording.
+- If an issue spans a long passage, cite the full line range and include the complete current passage plus the complete replacement passage.
 - Do not apply edits yet.
 
 After the list, ask the user to update statuses, for example:
@@ -154,14 +155,14 @@ If the user asks to discuss an item, respond using this format:
 
 ```markdown
 1. Line 12-14
-Current: [current text]
-Suggest: [current suggestion]
+Current: [full exact current text]
+Suggest: [full exact suggested replacement]
 Reason: [reason]
 Status: for_discussion
 
 2. Line 18
-Current: [current text]
-Suggest: [current suggestion]
+Current: [full exact current text]
+Suggest: [full exact suggested replacement]
 Reason: [reason]
 Status: approve
 
