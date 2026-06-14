@@ -37,6 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `/editor` suggestion output from a wide table to a numbered line-item list with Current, Suggest, Reason, and Status fields.
 - Updated `/editor` suggestions to require full exact Current text and full exact Suggest replacement text, with no fragments, summaries, or ellipses.
 - Updated `/utility-meta` with allowed Royal Road-style genre/tag lists and a new `work-type` array.
+- Added Anti-God-File split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files over about 1,000 lines, with `_main.md` maps and focused shards.
 
 ## [1.0.0] - 2026-04-04
 ### Added

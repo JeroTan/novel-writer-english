@@ -50,7 +50,7 @@ Before writing a single word of the prompt, gather story knowledge. Do this meth
 
 Look for the story in this order. Use file search to locate files if you're unsure of the exact paths — do not assume a fixed folder structure, as different projects organize content differently.
 
-1. **Story spec** — search for a file named `specification.md`, `spec.md`, or similar. This contains the logline, premise, and arc structure.
+1. **Story spec** - search for `specification.md`, `specification/_main.md` plus relevant shard(s), `spec.md`, or similar. This contains the logline, premise, and arc structure.
 2. **Opening chapters** — find chapter files (often named `chapter-01.md`, `01.md`, `ch01.md`, or sequentially numbered). Read at least the first three chapters in full.
 3. **Later chapters** — if the story has more than 10 chapters, also read the most recent one to understand how the story has evolved since the opening.
 4. **Character design sheets** — search for files with names like `{character-name}-design-sheet.md` or `{character-name}.prompt.md` anywhere in the project. Read the protagonist's first, then 1–2 key secondary characters.

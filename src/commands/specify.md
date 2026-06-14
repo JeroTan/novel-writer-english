@@ -120,9 +120,62 @@ Use the following markers for elements that need work:
 
 Do not expand the specification into a full encyclopedia. If a section becomes long, move the details into the matching knowledge file and keep a short pointer in the specification.
 
+### 3b. Anti-God-File Split Mode
+
+Before saving or updating, check projected file size.
+
+If `specification.md` would exceed about 1,000 lines, or if future updates would make it hard to edit safely:
+- Create `./stories/[novel-name]/specification/`.
+- Keep `./stories/[novel-name]/specification.md` as a short index/redirect, not a giant document.
+- Create `./stories/[novel-name]/specification/_main.md` as the real table of contents.
+- Put only high-level project metadata, core premise, story promise, current status, and links to detail shards in `_main.md`.
+- Move detailed or long sections into shard files inside `specification/`.
+
+Recommended shard names:
+- `core.md` — logline, premise, purpose, story promise
+- `cast.md` — core cast snapshot and links to knowledge files
+- `world.md` — world snapshot and links to world knowledge
+- `plot.md` — major story direction, themes, and requirements
+- `open-clarifications.md` — unresolved questions
+- Custom shard names are allowed when clearer.
+
+Use this index shape:
+
+```markdown
+# Specification Index — [Novel Name]
+
+**Created:** [YYYY-MM-DD]
+**Updated:** [YYYY-MM-DD]
+**Canonical Folder:** `./specification/`
+
+## Read Order
+1. `./specification/_main.md`
+2. `./specification/core.md`
+3. `./specification/cast.md`
+4. `./specification/world.md`
+5. `./specification/plot.md`
+6. `./specification/open-clarifications.md`
+
+## Shard Map
+- **Core:** `./specification/core.md`
+- **Cast:** `./specification/cast.md`
+- **World:** `./specification/world.md`
+- **Plot:** `./specification/plot.md`
+- **Open Clarifications:** `./specification/open-clarifications.md`
+```
+
+Split-mode rules:
+- Keep every active file or shard below about 1,000 lines.
+- `specification.md` should act only as a map/redirect once split mode exists.
+- `_main.md` should act as a table of contents plus current status, not a second full specification.
+- Read `_main.md` first, then only the shard(s) relevant to the current task.
+- Update only affected shards and `_main.md`.
+- Do not duplicate rich detail from `knowledge/`; link to it.
+- If an existing single-file `specification.md` is already over 1,000 lines, suggest converting it to split mode before making major updates.
+
 ### 4. Output and Save
 
-Save the specification to `./stories/[novel-name]/specification.md`.
+Save compact specifications to `./stories/[novel-name]/specification.md`. In split mode, save the short index to `specification.md`, the table of contents to `./stories/[novel-name]/specification/_main.md`, and details to the relevant shard file(s).
 
 ### 5. Post-Specification: Initialize Knowledge Folder
 

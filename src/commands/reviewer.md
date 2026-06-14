@@ -25,6 +25,7 @@ Ask the user if they want:
 ### 2. Framework Analysis
 
 - Read `./memory/constitution.md`, `./stories/[novel-name]/specification.md`, and `./stories/[novel-name]/creative-plan.md`.
+- If `specification/` or `creative-plan/` split folders exist, read `_main.md` first, then the shard(s) needed for the requested framework area. For full framework review, use `_main.md` as the map and read all listed shards in order.
 - Read all files in `./stories/[novel-name]/knowledge/`.
 - Read all files in `./stories/[novel-name]/tracking/` if they exist.
 - Check for: plot holes, pacing plan gaps, weak motivations, constitution violations, character depth gaps, missing setup/payoff logic, and unresolved planning contradictions.
@@ -33,9 +34,9 @@ Ask the user if they want:
 
 Read ALL of the following before generating the report:
 - `./memory/constitution.md`
-- `./stories/[novel-name]/specification.md`
-- `./stories/[novel-name]/creative-plan.md`
-- `./stories/[novel-name]/tasks.md` (identify chapters marked `[FOR_REVIEW]`)
+- `./stories/[novel-name]/specification.md` or `specification/_main.md` plus relevant/all listed shards
+- `./stories/[novel-name]/creative-plan.md` or `creative-plan/_main.md` plus relevant/all listed shards
+- `./stories/[novel-name]/tasks.md` or `tasks/_main.md` plus task shards (identify chapters marked `[FOR_REVIEW]`)
 - All files in `./stories/[novel-name]/knowledge/` (including `glossary.md`)
 - All files in `./stories/[novel-name]/tracking/`
 - All chapter files in `./stories/[novel-name]/content/`
@@ -86,16 +87,16 @@ Do NOT rewrite prose or output replacement text. Present findings and wait for u
 
 ### 6. Mark as Done
 
-After broad review runs, append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`.
+After broad review runs, append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`, or to `./stories/[novel-name]/tasks/review-editing-log.md` when split task mode exists.
 
-If the log section does not exist, create it at the bottom of `tasks.md`. If the placeholder `No editor/reviewer entries yet.` exists, remove it.
+If the log section or log file does not exist, create it. If the placeholder `No editor/reviewer entries yet.` exists, remove it.
 
 Use this format:
 ```markdown
 - [YYYY-MM-DD] `/reviewer` Chapter [N or range] — [passed/needs editor/needs knowledge update]; [short result].
 ```
 
-After broad review passes for a chapter and knowledge files are updated, change its status in `./stories/[novel-name]/tasks.md` from `[FOR_REVIEW]` to `[DONE]`.
+After broad review passes for a chapter and knowledge files are updated, change its status from `[FOR_REVIEW]` to `[DONE]` in `./stories/[novel-name]/tasks.md`, or in the relevant `tasks/` shard when split task mode exists. Update `tasks/_main.md` progress totals if present.
 
 Do not mark a chapter `[DONE]` if:
 - It has unresolved continuity issues.

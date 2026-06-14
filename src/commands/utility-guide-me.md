@@ -19,12 +19,12 @@ Assess the user's current project state and guide them to the next appropriate s
 
 Check which documents exist and determine where the user is in the workflow:
 1. Does `./memory/constitution.md` exist? If not, recommend **Step 1: Constitution** — tell the user to type `/constitution`.
-2. Does `./stories/[name]/specification.md` exist? If not, recommend **Step 2: Specify** — tell the user to type `/specify`.
-3. Does `./stories/[name]/creative-plan.md` exist? If not, recommend **Step 4: Plan** after checking if Clarify is needed — tell the user `/clarify` or `/planner`.
-4. **Check for drafts**: Look in `./draft/chapters/`. If drafts exist but `tasks.md` has no tasks, recommend `/task-manager` to generate tasks from the drafts. If tasks exist but no chapters are written, recommend `/writer` — mention that it will detect and expand the drafts.
+2. Does `./stories/[name]/specification.md` or `./stories/[name]/specification/` exist? If not, recommend **Step 2: Specify** — tell the user to type `/specify`.
+3. Does `./stories/[name]/creative-plan.md` or `./stories/[name]/creative-plan/` exist? If not, recommend **Step 4: Plan** after checking if Clarify is needed — tell the user `/clarify` or `/planner`.
+4. **Check for drafts**: Look in `./draft/chapters/`. If drafts exist but `tasks.md` and `tasks/` have no tasks, recommend `/task-manager` to generate tasks from the drafts. If tasks exist but no chapters are written, recommend `/writer` — mention that it will detect and expand the drafts.
 5. If chapters are being written or edited, guide them to **Step 6: Write**, **Step 7: Edit**, or **Step 8: Review** — tell the user `/writer`, `/editor Chapter [N]`, or `/reviewer`.
 6. If chapters are marked `[FOR_REVIEW]`, recommend `/editor` first for one-chapter fixes when needed, then `/reviewer` for broad QA and `[DONE]` approval.
-7. If all chapters from `tasks.md` are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
+7. If all chapters from `tasks.md` or `tasks/` shards are marked `[DONE]` and the novel is complete (or user says so), guide them to `/reviewer` for final analysis, then optionally `/utility-meta` for metadata.
 8. If written chapters exist and the user wants manga, manhwa, manhua, webtoon, comic pages, image prompts, or visual reference sheets, recommend the bonus comics prompt workflow starting with `/comics-planner`.
 
 ### 2. Present Workflow Overview
@@ -90,7 +90,7 @@ If the user asks how to write drafts manually or where to place them, provide th
 - Accepted naming: `chapter_00001.md` (preferred), `0001.md`, `1.md`, `01.md`, `chapter-1.md`, `chapter 1.md`, `ch1.md`, or `[1-5].md` (range files)
 
 **How `/writer` processes drafts:**
-- Drafts are used as outlines — `specification.md`, `creative-plan.md`, `knowledge/`, and `tracking/` take priority
+- Drafts are used as outlines — `specification.md` or `specification/`, `creative-plan.md` or `creative-plan/`, `knowledge/`, and `tracking/` take priority
 - If a draft conflicts with core documents, core documents win
 - After saving, `/writer` tells the user which scenes were changed from the draft and why
 
@@ -103,7 +103,7 @@ If the user asks how to write drafts manually or where to place them, provide th
 - `/writer` saves completed chapters to `./stories/[novel-name]/content/chapter_[N].md` (zero-padded to 5 digits, e.g. `chapter_00001.md`)
 - `/editor` edits only the target chapter after all suggestions are `approve` or `skip` and the user confirms
 - Chapter format: `# Chapter [N]: [Title]` followed by body, then a mini summary separator
-- Task status is tracked in `./stories/[novel-name]/tasks.md` as `[ ]` -> `[FOR_REVIEW]` -> `[DONE]`
+- Task status is tracked in `./stories/[novel-name]/tasks.md` or `./stories/[novel-name]/tasks/` shards as `[ ]` -> `[FOR_REVIEW]` -> `[DONE]`
 
 ## Supplement Skills
 

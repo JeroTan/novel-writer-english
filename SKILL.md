@@ -12,10 +12,10 @@ This skill contains the core knowledge of a proven eight-step methodology for wr
 | Step | Name | Purpose | Output File |
 |------|------|---------|-------------|
 | 1 | Constitution | Define creative principles and non-negotiables | `memory/constitution.md` |
-| 2 | Specify | Build a lean story specification and knowledge map | `stories/[name]/specification.md` |
-| 3 | Clarify | Resolve ambiguities in the specification | Updated `specification.md` |
-| 4 | Plan | Design chapter structure, pacing, foreshadowing, arcs | `stories/[name]/creative-plan.md` |
-| 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` |
+| 2 | Specify | Build a lean story specification and knowledge map | `stories/[name]/specification.md` or split `specification/` |
+| 3 | Clarify | Resolve ambiguities in the specification | Updated spec file or shard |
+| 4 | Plan | Design chapter structure, pacing, foreshadowing, arcs | `stories/[name]/creative-plan.md` or split `creative-plan/` |
+| 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` or split `tasks/` |
 | 6 | Write | Draft chapters using the pre-write checklist | `stories/[name]/content/chapter-XX.md` |
 | 7 | Edit | Review one chapter, propose line-level fixes, approve/skip items, apply approved edits after confirmation | Updated chapter |
 | 8 | Review | Run broad QA on framework, cross-chapter continuity, tracking, knowledge, and final readiness | Review report |
@@ -68,6 +68,16 @@ project-root/
 └── knowledge-base/              ← genre, style, and requirement references
 ```
 
+## Large Document Split Mode
+
+When `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 1,000 lines, keep the root `.md` as a short index and move details into a matching folder:
+
+- `specification.md` -> `specification/_main.md` plus shards such as `core.md`, `cast.md`, `world.md`, and `plot.md`.
+- `creative-plan.md` -> `creative-plan/_main.md` plus shards such as `saga_0001.md`, `saga_0001_arc_0001.md`, and `ch_00001-00005.md`.
+- `tasks.md` -> `tasks/_main.md` plus task shards and optional `tasks/review-editing-log.md`.
+
+Read `_main.md` first, then only relevant shard(s). Keep every active file or shard below about 1,000 lines; split again by saga, arc, batch, or chapter range when needed.
+
 ## Step Details
 
 ### Step 1: Constitution
@@ -78,7 +88,7 @@ Establishes the creative rules all subsequent work must follow.
 **Why it matters**: Prevents creative drift over long projects. Every decision references this document.
 
 ### Step 2: Specify
-Creates a lean story specification using progressive detail levels. The specification captures core purpose, premise, story promise, and a knowledge map; detailed canon lives in `stories/[novel-name]/knowledge/`.
+Creates a lean story specification using progressive detail levels. The specification captures core purpose, premise, story promise, and a knowledge map; detailed canon lives in `stories/[novel-name]/knowledge/`. If the specification grows too large, use split mode: `specification.md` stays a short index, `specification/_main.md` maps shards, and details live in focused shard files.
 
 **Levels**: Logline (one sentence) -> Core Premise (paragraph: protagonist, goal, conflict, stakes) -> Story Promise (core purpose, conflict, themes, audience, success criteria) -> Knowledge Map (pointers to character profiles, voices, locations, world-setting, glossary, and strategic reversals). *Note: Major characters keep only snapshots in the specification; full details go in `stories/[novel-name]/knowledge/`.*
 
@@ -88,10 +98,10 @@ Creates a lean story specification using progressive detail levels. The specific
 Identifies up to 5 ambiguities in the specification and resolves them through targeted questions. Resolved markers are removed from the specification. *Note: Clarification now reads the `knowledge/` folder for additional context.*
 
 ### Step 4: Plan
-Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy. This step initializes `stories/[novel-name]/tracking/` from templates.*
+Turns the specification into a concrete implementation plan: chapter breakdown, pacing/tension distribution, foreshadowing setup, and character arc mapping. Large plans use split mode: `creative-plan.md` stays a short index, `creative-plan/_main.md` maps saga/arc/batch shards, and chapter details live in focused files. *Note: Every chapter gets a pacing tag based on the constitution's pacing strategy. This step initializes `stories/[novel-name]/tracking/` from templates.*
 
 ### Step 5: Tasks
-Breaks the plan into actionable one-line chapter tasks with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. *Note: Tasks mirror the planner's saga/arc/chapter hierarchy and do not repeat planner details or word-count estimates.*
+Breaks the plan into actionable one-line chapter tasks with markers: `[P]` (parallel), `[Dep:X]` (depends on task X), `[High Priority]`. Large task ledgers use split mode: `tasks.md` stays a short dashboard, `tasks/_main.md` tracks progress and shard map, and chapter tasks live in saga/arc/batch shards. *Note: Tasks mirror the planner's saga/arc/chapter hierarchy and do not repeat planner details or word-count estimates.*
 
 ### Step 6: Write
 Drafts chapters one at a time. **The pre-write checklist must be followed before every chapter** — this is the key mechanism that prevents AI context degradation over long manuscripts. The expanded 13-item checklist reloads the constitution, specification, plan, character context, and previous chapter before generating new text, ensuring emotional goals, pacing verification, and internal reactions are covered. *Note: Features write mode selection, draft detection, draft tags, and chapter output format with a mini summary.*

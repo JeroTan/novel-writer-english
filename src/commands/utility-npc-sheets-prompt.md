@@ -28,6 +28,8 @@ Read only relevant context:
 - relevant source chapters in `./stories/[novel-name]/content/`
 - user-provided visual references or description
 
+If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` plus only the NPC/world/cast-relevant shard(s) instead of every spec shard.
+
 Load `[user_agent]/skills/writing-techniques/comics-prompting/SKILL.md` when available.
 
 If subject is ambiguous, ask which NPC, race, monster, bestiary entry, crowd role, guard type, civilian type, or archetype.

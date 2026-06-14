@@ -345,3 +345,15 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Updated `/utility-meta` with allowed tag values based on Royal Road-style tags.
 - Added `work-type` as an array with `Original Ideas`, `Original Work`, `Doujin`, `AI Assisted`, and `AI-generated`.
 - Updated meta cross-check and uploader guidance to match the new metadata schema.
+
+---
+
+## v1.3.7 — 2026-06-14
+
+**Anti-God-File Split Mode Patch**
+
+### Changed
+
+- Added split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files when they would exceed about 1,000 lines.
+- Split mode keeps the root `.md` as an index/dashboard, uses `_main.md` as the table of contents/current map, and stores detailed content in focused shards.
+- Updated writer, editor, reviewer, clarify, comics planner, guide, cross-check, and QA skills to read `_main.md` first and then only relevant shard(s).

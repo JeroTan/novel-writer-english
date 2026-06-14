@@ -17,7 +17,7 @@ Track, update, or analyze the evolving relationships between characters in the s
 
 ### 1. Read Context
 
-Read `./stories/[novel-name]/tracking/relationships.json` (if initialized) and `./stories/[novel-name]/specification.md`.
+Read `./stories/[novel-name]/tracking/relationships.json` (if initialized) and `./stories/[novel-name]/specification.md`. If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` plus relationship/cast-relevant shard(s).
 
 ### 2. Perform Requested Action
 

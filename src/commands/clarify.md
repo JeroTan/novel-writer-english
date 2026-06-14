@@ -17,7 +17,7 @@ Eliminate vagueness from the story specification by identifying and resolving am
 
 ### 1. Read Context
 
-1. Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`.
+1. Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`. If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` first, then only the shard(s) relevant to `$ARGUMENTS` or the ambiguity area.
 2. Check if `./stories/[novel-name]/knowledge/` exists and contains files.
    - If it exists: read the contents of `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md` when present.
    - If it does NOT exist: inform the user — "The knowledge folder hasn't been created yet. This folder improves the accuracy of clarification. You can either re-run the `/specify` step to create it, or create `./stories/[novel-name]/knowledge/` manually and continue."
@@ -41,7 +41,7 @@ Wait for the user's answers.
 ### 4. Update Documents
 
 Once the user answers:
-- Update `./stories/[novel-name]/specification.md` with the answers. Remove resolved `[Needs Clarification]` markers.
+- Update `./stories/[novel-name]/specification.md` with the answers. If split specification mode exists, update the relevant `specification/` shard instead and update `specification/_main.md` only when its map, status, or open-clarification summary changes. Remove resolved `[Needs Clarification]` markers.
 - If any answer adds new information about characters, character voices, locations, worldbuilding, terminology, contests, tactics, or strategic reversals, also update the relevant file in `./stories/[novel-name]/knowledge/`.
 
 ### 5. Next Steps

@@ -27,11 +27,11 @@ Check if the target chapter already exists in `./stories/[novel-name]/content/`.
 ### 2. Determine Current Story Position
 
 Check the creative plan, task list, and existing chapters to understand where the story is:
-- Read `./stories/[novel-name]/tasks.md` to find the next pending chapter task.
+- Read `./stories/[novel-name]/tasks.md`, or if `./stories/[novel-name]/tasks/` exists read `tasks/_main.md` plus the relevant saga/arc/batch/chapter shard, to find the next pending chapter task.
 - Check `./stories/[novel-name]/content/` for the last written chapter.
-- Check `./stories/[novel-name]/creative-plan.md` to find the exact target chapter section under its saga/arc or batch.
+- Check `./stories/[novel-name]/creative-plan.md`, or if `./stories/[novel-name]/creative-plan/` exists read `creative-plan/_main.md` plus the target saga/arc/batch/chapter shard, to find the exact target chapter section under its saga/arc or batch.
 
-For the target chapter, extract from `creative-plan.md` when available:
+For the target chapter, extract from the creative plan when available:
 - chapter title
 - chapter summary
 - chapter Flow
@@ -43,6 +43,8 @@ For the target chapter, extract from `creative-plan.md` when available:
 Use the task line only to choose what to write next and update status. Use the planner chapter section as the main idea source for what the chapter should contain.
 
 If the plan only covers a few chapters (batch mode), that's fine — work with what's available. You can always replan later.
+
+If `specification/`, `creative-plan/`, or `tasks/` split folders exist, do not load every shard. Read `_main.md` first, then the shard(s) named for the target chapter's saga, arc, batch, or chapter range. If the needed shard is unclear, use `_main.md` to locate it or ask one short question.
 
 ### 3. Write Mode Selection
 
@@ -63,7 +65,7 @@ Store the chosen mode and follow it strictly.
 Before writing any chapter, check for draft files:
 1. Look for a folder at `./draft/chapters/` (relative to project root).
 2. Accept any of these naming conventions for chapter files: `chapter_00001.md` (preferred), `0001.md`, `1.md`, `01.md`, `chapter-1.md`, `chapter 1.md`, `ch1.md`, `[1-5].md` (range files cover multiple chapters), or any file whose name starts with a chapter number.
-3. **If drafts are found**: inform the user — "I found draft files in `./draft/chapters/`. I'll use the draft together with the matching chapter section in `creative-plan.md`. The planner's chapter Summary, Flow, Continuity Notes, pacing, and arc constraints are the main guide; the draft supplies user-written scene material and wording direction. If the draft conflicts with core documents, core documents win."
+3. **If drafts are found**: inform the user — "I found draft files in `./draft/chapters/`. I'll use the draft together with the matching chapter section from `creative-plan.md` or `creative-plan/`. The planner's chapter Summary, Flow, Continuity Notes, pacing, and arc constraints are the main guide; the draft supplies user-written scene material and wording direction. If the draft conflicts with core documents, core documents win."
 4. **Draft Priority Rule**: Use the draft as an outline and prose/source-material guide, then align it to the matching planner chapter section. Verify every scene against core documents. If a draft contradicts the planner, specification, knowledge, or tracking, follow the core documents unless the user explicitly approves changing canon. After saving, tell the user directly which scenes were changed from the draft and why. Optionally, save these notes to `./stories/[novel-name]/content/chapter_[N].notes.md` if there are multiple deviations.
 5. **Special Draft Tags**: Detect and process these tags in drafts:
    - `@#@ FILL @#@ [Description] @#@ END FILL @#@`: Replace with fully written prose based on the description.
@@ -75,8 +77,8 @@ Before writing any chapter, check for draft files:
 Before writing ANY chapter, silently run through all 13 items:
 
 1. **Constitution** — Read `./memory/constitution.md`
-2. **Specification** — Read `./stories/[novel-name]/specification.md`
-3. **Plan** — Read the exact target chapter section in `./stories/[novel-name]/creative-plan.md`, including its parent saga/arc or batch. Use its Summary, Flow, Continuity Notes, pacing tag, Strategic Reversal note if present, and arc constraints as the main writing brief.
+2. **Specification** - Read `./stories/[novel-name]/specification.md`, or if `./stories/[novel-name]/specification/` exists read `specification/_main.md` plus only relevant shard(s).
+3. **Plan** - Read the exact target chapter section in `./stories/[novel-name]/creative-plan.md`, or if split mode exists read `creative-plan/_main.md` plus the relevant shard. Include its parent saga/arc or batch. Use its Summary, Flow, Continuity Notes, pacing tag, Strategic Reversal note if present, and arc constraints as the main writing brief.
 4. **Style Guide** — Check `./knowledge-base/styles/` if a specific style is defined
 5. **Characters & Settings** — Read ONLY the character and location entries relevant to THIS chapter. Check `./stories/[novel-name]/knowledge/character-profiles.md`, `./stories/[novel-name]/knowledge/character-voices.md`, and `./stories/[novel-name]/knowledge/locations.md` for characters appearing or locations featured in the chapter. Do not load unrelated entries. If these files do not exist, look for any folder named `knowledge/` in the project. If still not found, ask the user to run the Specify step to generate the knowledge folder, or create it manually. Suggest a standard folder structure for easy future reference.
 6. **World** — Read `./stories/[novel-name]/knowledge/world-setting.md` for world rules, magic/tech systems, and geography.
@@ -88,7 +90,7 @@ Before writing ANY chapter, silently run through all 13 items:
 9. **Goals** — Identify what MUST be accomplished in THIS chapter from the planner chapter section first, then confirm the task line matches it.
 10. **Risks** — Identify common pitfalls for this scene type based on genre and pacing tag.
 11. **Emotional Goals** — What emotional arc does the POV character travel in this chapter? What emotional state should the reader reach by the end?
-12. **Pacing Type** — Check the chapter's pacing tag in `./stories/[novel-name]/creative-plan.md` (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
+12. **Pacing Type** - Check the chapter's pacing tag in `./stories/[novel-name]/creative-plan.md` or the relevant `creative-plan/` shard (`[Action]`, `[Reflection]`, `[Climax]`, `[Setup]`, etc.). Write accordingly.
     - **Numbered tags** (e.g., `[Action 2]`, `[Climax 3]`): This chapter is part of a multi-chapter sequence. Maintain continuity with the previous chapter(s) in the sequence. Do not resolve the arc unless this is the final number. Keep tension, character state, and scene momentum flowing from the previous chapter.
     - **Single tags** (e.g., `[Action]`, `[Reflection]`): Self-contained chapter. Resolve the scene's core beat within this chapter.
     - **No tag yet**: If the chapter hasn't been assigned a pacing tag, infer it from the plan or ask the user what tone they want for this chapter.
@@ -128,7 +130,7 @@ Save the chapter file as `./stories/[novel-name]/content/chapter_[N].md` where `
 
 ### 8. Task Status Update
 
-After writing a chapter, update its status in `./stories/[novel-name]/tasks.md` from `[ ]` to `[FOR_REVIEW]`. Do NOT mark it as `[DONE]` — that is the reviewer's responsibility after editing and broad QA.
+After writing a chapter, update its status from `[ ]` to `[FOR_REVIEW]` in `./stories/[novel-name]/tasks.md`, or in the relevant `./stories/[novel-name]/tasks/` shard when split mode exists. Also update `tasks/_main.md` progress totals if present. Do NOT mark it as `[DONE]` — that is the reviewer's responsibility after editing and broad QA.
 
 ### 9. Handoff to Editor
 

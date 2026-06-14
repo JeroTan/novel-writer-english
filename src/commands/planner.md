@@ -17,17 +17,20 @@ Create a detailed technical and creative plan based on the clarified specificati
 
 ### 1. Check Existing Plan
 
-Check if `./stories/[novel-name]/creative-plan.md` already exists.
-- If it exists, ask the user:
+Check if `./stories/[novel-name]/creative-plan.md` or `./stories/[novel-name]/creative-plan/` already exists.
+- If `creative-plan/` exists, read `./stories/[novel-name]/creative-plan/_main.md` first, then only the shard(s) relevant to the requested saga, arc, batch, or chapter range.
+- If only `creative-plan.md` exists, read it and check whether it is becoming a god file.
+- If a plan exists, ask the user:
   - **Update** — modify existing sections while keeping the rest intact.
   - **Replace** — discard the current plan and start fresh.
   - **Increment** — append new chapters/arcs to the end without changing existing content.
   - **Plan next batch** — plan only the next N chapters (user specifies how many).
+  - **Split existing plan** — convert a large single file into `creative-plan/` shards before continuing.
 - If it does not exist, proceed to create a new plan.
 
 ### 2. Read Context
 
-Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`.
+Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`. If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` first, then only the shard(s) relevant to the requested saga, arc, batch, or chapter range.
 Also read relevant files in `./stories/[novel-name]/knowledge/`. If `strategic-reversals.md` exists and the story uses contests, tactics, mind games, negotiations, clever wins, hidden rules, or bluffs, use it while planning.
 If important arcs, factions, locations, titles, systems, abilities, artifacts, or concepts are unnamed and the missing name blocks clarity, load `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` when available. Suggest options, but allow `[TBD]` or `[TENTATIVE]` when the user is not ready.
 
@@ -37,7 +40,7 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 
 **If drafts are found**:
 - Read all draft files to understand the user's intended chapter structure, scene beats, and story flow.
-- Compare the draft against `./stories/[novel-name]/specification.md`, `./memory/constitution.md`, and `./stories/[novel-name]/knowledge/`.
+- Compare the draft against `./stories/[novel-name]/specification.md` or split specification shard(s), `./memory/constitution.md`, and `./stories/[novel-name]/knowledge/`.
 - **Conflict detection**: If the draft contradicts any established document (character traits, world rules, plot points, tone), flag the conflict and ask the user:
   - "The draft says [X] but the specification says [Y]. Is this an intentional change, or should I align with the existing documents?"
   - Only proceed once the user clarifies. Never silently override or ignore conflicts.
@@ -257,9 +260,71 @@ Batch/light plan rules:
 - If a chapter depends on a contest, tactic, bluff, hidden rule, or clever reversal, add the optional `**Strategic Reversal:** [brief note]` line after `**Flow:**`.
 - If unresolved decisions appear, put them inside the relevant chapter or arc as `**Decision Needed:** [question]`. Do not create a separate Open Questions section by default.
 
+### 4b. Anti-God-File Split Mode
+
+Before saving or updating, check projected file size.
+
+If `creative-plan.md` would exceed about 1,000 lines, or if planning a saga/arc/batch would make future updates risky:
+- Create `./stories/[novel-name]/creative-plan/`.
+- Keep `./stories/[novel-name]/creative-plan.md` as a short index/redirect, not the full plan.
+- Create `./stories/[novel-name]/creative-plan/_main.md` as the table of contents and current status map.
+- Store each large saga, arc, or chapter range in its own shard file.
+
+Recommended shard names:
+- `saga_0001.md` — full saga when it is compact enough
+- `saga_0001_arc_0001.md` — one arc inside a saga
+- `arc_0001.md` — one arc when there is no saga layer
+- `ch_00001-00005.md` — chapter-range plan
+- `batch_0001_ch_00006-00010.md` — incremental batch plan
+
+`creative-plan.md` should look like:
+
+```markdown
+# Creative Plan Index — [Novel Name]
+
+**Created:** [YYYY-MM-DD]
+**Updated:** [YYYY-MM-DD]
+**Canonical Folder:** `./creative-plan/`
+
+This plan is split to avoid a god file.
+
+Read first: `./creative-plan/_main.md`
+
+## Current Position
+- Saga: [N/N or N/A]
+- Arc: [N/N or N/A]
+- Chapter range: [X-Y]
+
+## Shards
+- `./creative-plan/_main.md` — table of contents and global planning notes
+- `./creative-plan/saga_0001_arc_0001.md` — [purpose / chapter range]
+- `./creative-plan/ch_00001-00005.md` — [purpose / chapter range]
+```
+
+`creative-plan/_main.md` must include:
+- definition
+- created/updated dates
+- planning mode
+- current saga/arc/chapter position
+- read order
+- shard map
+- global pacing/tension map
+- global continuity notes
+- update log
+
+Split-mode rules:
+- Keep every active file or shard below about 1,000 lines.
+- `creative-plan.md` should act only as a map/redirect once split mode exists.
+- `_main.md` should act as table of contents, current status, and global planning map, not a second full plan.
+- Keep shard files focused; prefer one saga, one arc, or one chapter range per shard.
+- When updating, edit only `_main.md` plus affected shard(s).
+- When creating tasks or writing a chapter, read `_main.md` plus the exact shard containing that chapter.
+- If a shard exceeds about 1,000 lines, split it again by arc or chapter range and update `_main.md`.
+- Existing one-file plans over 1,000 lines should be offered conversion to split mode before major edits.
+
 ### 5. Output and Save
 
-Save the document to `./stories/[novel-name]/creative-plan.md`.
+Save the document to `./stories/[novel-name]/creative-plan.md` for compact plans. In split mode, save the index to `creative-plan.md`, the table of contents to `./stories/[novel-name]/creative-plan/_main.md`, and the detailed plan to the relevant shard file(s).
 
 If appending to an existing plan, add a clear section header:
 ```markdown

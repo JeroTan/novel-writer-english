@@ -44,6 +44,8 @@ Default checked references:
 | `[x]` | `./stories/[novel-name]/tracking/` | Continuity state |
 | `[x]` | `./stories/[novel-name]/content/` | Chapter references selected below |
 
+If `specification/`, `creative-plan/`, or `tasks/` split folders exist beside the selected `.md` files, treat the `.md` file as an index. Read `_main.md` first, then only the shard(s) relevant to the target chapter's saga, arc, batch, or chapter range.
+
 For `tracking/`, show a nested checklist if files exist:
 - `[x] character-state.json`
 - `[x] plot-tracker.json`
@@ -78,11 +80,17 @@ Optional unchecked references:
 | `[ ]` | `[user_agent]/skills/genre-knowledge/[detected-genre]/SKILL.md` | Apply detected genre expectations |
 | `[ ]` | `[user_agent]/skills/genre-knowledge/*/SKILL.md` | Manually chosen genre references |
 
-Detect the likely genre from `specification.md`, `creative-plan.md`, and metadata if available. Pre-fill `[detected-genre]` only when one matching folder exists under `[user_agent]/skills/genre-knowledge/`.
+Detect the likely genre from `specification.md` or `specification/_main.md`, `creative-plan.md` or `creative-plan/_main.md`, and metadata if available. Pre-fill `[detected-genre]` only when one matching folder exists under `[user_agent]/skills/genre-knowledge/`.
 
 ### 3. Load Selected References
 
 Read only selected references. If a selected file is missing, report it and continue without it unless it is the target chapter.
+
+When a selected reference has split mode:
+- For `specification/`, read `specification/_main.md` and only relevant shard(s).
+- For `creative-plan/`, read `creative-plan/_main.md` and the target chapter shard plus parent saga/arc shard when separate.
+- For `tasks/`, read `tasks/_main.md` and the shard containing the target chapter task.
+- Do not load every shard unless the user explicitly selected `all` or broad continuity needs it.
 
 When reading chapter files:
 - Use line numbers.
@@ -205,8 +213,8 @@ When applying:
 ### 8. Completion Output
 
 After applying edits:
-1. Append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`.
-2. If the log section does not exist, create it at the bottom of `tasks.md`.
+1. Append a dated entry to `./stories/[novel-name]/tasks.md` under `## Review & Editing Log`, or to `./stories/[novel-name]/tasks/review-editing-log.md` when split task mode exists.
+2. If the log section or log file does not exist, create it.
 3. If the placeholder `No editor/reviewer entries yet.` exists, remove it.
 4. Use this format:
 

@@ -21,12 +21,14 @@ This command processes existing novel content only. It may split one novel chapt
 
 Read:
 - `./memory/constitution.md`
-- `./stories/[novel-name]/specification.md`
-- `./stories/[novel-name]/creative-plan.md`
-- `./stories/[novel-name]/tasks.md`
+- `./stories/[novel-name]/specification.md`, or `specification/_main.md` plus relevant shard(s) when split mode exists
+- `./stories/[novel-name]/creative-plan.md`, or `creative-plan/_main.md` plus source chapter shard(s) when split mode exists
+- `./stories/[novel-name]/tasks.md`, or `tasks/_main.md` plus source chapter task shard(s) when split mode exists
 - relevant files in `./stories/[novel-name]/knowledge/`
 - relevant files in `./stories/[novel-name]/tracking/`
 - selected source chapters in `./stories/[novel-name]/content/`
+
+If `specification/`, `creative-plan/`, or `tasks/` split folders exist, read `_main.md` first, then only shard(s) relevant to the selected source chapters, saga, arc, batch, or chapter range.
 
 If `$ARGUMENTS` names chapter(s), use those. Otherwise, ask which chapter(s) to adapt.
 

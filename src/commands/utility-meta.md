@@ -23,7 +23,7 @@ Check if `./stories/[novel-name]/meta.json` exists.
 
 ### 2. Collect or Confirm Fields
 
-Read `./stories/[novel-name]/specification.md` and `./memory/constitution.md` to pre-fill where possible:
+Read `./stories/[novel-name]/specification.md` and `./memory/constitution.md` to pre-fill where possible. If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` plus relevant shard(s) instead of loading every shard:
 - **title** — full novel title
 - **author** — author's name or pen name
 - **description** — 2–3 sentence summary for novel cards (compelling, not a spoiler dump). Pre-fill from the logline/premise in specification.md.

@@ -26,7 +26,7 @@ Based on the user's input, adopt the requested expert persona. Examples:
 
 ### 2. Analyze Text
 
-Read the provided text or the relevant story documents (`./stories/[novel-name]/specification.md`, `./stories/[novel-name]/creative-plan.md`, or specific chapters) through the lens of this persona.
+Read the provided text or the relevant story documents (`./stories/[novel-name]/specification.md`, `./stories/[novel-name]/creative-plan.md`, split `_main.md` plus relevant shard(s), or specific chapters) through the lens of this persona.
 
 ### 3. Provide Feedback
 

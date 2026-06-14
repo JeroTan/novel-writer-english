@@ -17,17 +17,20 @@ Break the creative plan into actionable, tracked tasks to guide the daily writin
 
 ### 1. Check Existing Tasks
 
-Check if `./stories/[novel-name]/tasks.md` already exists.
-- If it exists, read it to understand current progress. Then ask the user:
+Check if `./stories/[novel-name]/tasks.md` or `./stories/[novel-name]/tasks/` already exists.
+- If `tasks/` exists, read `./stories/[novel-name]/tasks/_main.md` first, then only the shard(s) relevant to the requested saga, arc, batch, or chapter range.
+- If only `tasks.md` exists, read it and check whether it is becoming a god file.
+- If tasks exist, ask the user:
   - **Update** — modify existing task entries while keeping completed ones intact.
   - **Replace** — discard the current task list and regenerate from the creative plan.
   - **Increment** — append new tasks for upcoming chapters/arcs without changing existing ones.
   - **Add batch** — generate tasks only for a specific range (e.g., "chapters 6–10").
+  - **Split existing tasks** — convert a large single file into `tasks/` shards before continuing.
 - If it does not exist, proceed to create a new task list.
 
 ### 2. Read Context
 
-Read `./stories/[novel-name]/creative-plan.md` and `./stories/[novel-name]/specification.md`.
+Read `./stories/[novel-name]/creative-plan.md` and `./stories/[novel-name]/specification.md`. If `creative-plan/` or `specification/` exists, read `_main.md` first and then only the shard(s) relevant to the requested saga, arc, batch, or chapter range.
 
 When reading `creative-plan.md`, follow the current planner hierarchy:
 - `Saga -> Arc -> Chapters`, or `Arc -> Chapters` when there is no saga.
@@ -41,7 +44,7 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 
 **If drafts are found**:
 - Read all draft files to understand the user's intended chapter structure, scene beats, and story flow.
-- Compare the draft against `./stories/[novel-name]/creative-plan.md`, `./stories/[novel-name]/specification.md`, and `./stories/[novel-name]/knowledge/`.
+- Compare the draft against `./stories/[novel-name]/creative-plan.md` or split plan shard(s), `./stories/[novel-name]/specification.md` or split specification shard(s), and `./stories/[novel-name]/knowledge/`.
 - **Conflict detection**: If the draft contradicts any established document (character traits, world rules, plot points, pacing plan), flag the conflict and ask the user:
   - "The draft says [X] but the plan/spec says [Y]. Is this an intentional change, or should I align with the existing documents?"
   - Only proceed once the user clarifies. Never silently override or ignore conflicts.
@@ -152,9 +155,59 @@ No editor/reviewer entries yet.
 
 The log starts empty. `/editor` and `/reviewer` append dated entries when they edit or review chapters.
 
+### 5b. Anti-God-File Split Mode
+
+Before saving or updating, check projected file size.
+
+If `tasks.md` would exceed about 1,000 lines, or if the task list is too large to update safely:
+- Create `./stories/[novel-name]/tasks/`.
+- Keep `./stories/[novel-name]/tasks.md` as a short index/dashboard, not the full task ledger.
+- Create `./stories/[novel-name]/tasks/_main.md` as the task table of contents and current progress summary.
+- Store saga, arc, batch, or chapter-range tasks in focused shard files.
+- Store long review/editing history in `./stories/[novel-name]/tasks/review-editing-log.md` when needed.
+
+Recommended shard names:
+- `saga_0001.md`
+- `saga_0001_arc_0001.md`
+- `arc_0001.md`
+- `ch_00001-00005.md`
+- `batch_0001_ch_00006-00010.md`
+- `review-editing-log.md`
+
+`tasks.md` should look like:
+
+```markdown
+# Task Dashboard — [Novel Name]
+
+**Updated:** [YYYY-MM-DD]
+
+This task list is split to avoid a god file.
+
+Read first: `./tasks/_main.md`
+
+## Current Progress
+- Total chapters planned: [N]
+- Chapters written: [M]
+- Last updated: [Date]
+
+## Shards
+- `./tasks/_main.md` — progress summary and shard map
+- `./tasks/saga_0001_arc_0001.md` — [chapter range]
+- `./tasks/review-editing-log.md` — editor/reviewer history
+```
+
+Split-mode rules:
+- Keep every active file or shard below about 1,000 lines.
+- `tasks.md` should act only as a map/dashboard once split mode exists.
+- `_main.md` should act as progress summary and shard map, not a second full task ledger.
+- Keep shard files focused; prefer one saga, one arc, one batch, or one chapter range per shard.
+- When updating task status, edit only `_main.md` plus the shard containing that chapter.
+- `/writer`, `/editor`, and `/reviewer` must update the relevant task shard, not only `tasks.md`.
+- If a shard exceeds about 1,000 lines, split it again and update `_main.md`.
+
 ### 6. Output and Save
 
-Save the task list to `./stories/[novel-name]/tasks.md`.
+Save the task list to `./stories/[novel-name]/tasks.md` for compact lists. In split mode, save the index to `tasks.md`, the progress map to `./stories/[novel-name]/tasks/_main.md`, and detailed task entries to the relevant shard file(s).
 
 If appending to an existing task list, **preserve all existing entries** and their statuses. Only add new tasks below the existing ones under a new section header. Preserve `## Review & Editing Log`; create it if missing.
 

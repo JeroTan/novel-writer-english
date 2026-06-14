@@ -8,7 +8,7 @@ description: "Identifies dropped plot threads and forgotten characters or items.
 You are the safety net for long-term narrative threads.
 
 ## Execution
-1. Read `stories/[story-name]/creative-plan.md` (specifically the Foreshadowing Matrix) and `tracking/plot-tracker.json`.
+1. Read `stories/[story-name]/creative-plan.md`, or `creative-plan/_main.md` plus relevant shards when split mode exists, and `tracking/plot-tracker.json`. Focus on foreshadowing and unresolved setup/payoff threads.
 2. Analyze the recent chapters.
 3. Identify:
    - Characters introduced but never mentioned again.

@@ -12,10 +12,10 @@ This skill provides the eight-step systematic workflow for novel creation. It en
 | Step | Name | Purpose | Output |
 |------|------|---------|--------|
 | 1 | **Constitution** | Establish creative principles | `memory/constitution.md` |
-| 2 | **Specify** | Define lean story specification and knowledge map | `stories/[name]/specification.md` |
+| 2 | **Specify** | Define lean story specification and knowledge map | `stories/[name]/specification.md` or `specification/` split mode |
 | 3 | **Clarify** | Resolve ambiguities | Updated specification |
-| 4 | **Plan** | Create creative plan | `stories/[name]/creative-plan.md` |
-| 5 | **Tasks** | Break down into tasks | `stories/[name]/tasks.md` |
+| 4 | **Plan** | Create creative plan | `stories/[name]/creative-plan.md` or `creative-plan/` split mode |
+| 5 | **Tasks** | Break down into tasks | `stories/[name]/tasks.md` or `tasks/` split mode |
 | 6 | **Write** | AI-assisted chapter writing | `stories/[name]/content/chapter-XX.md` |
 | 7 | **Edit** | One-chapter correction pass with approve/skip tracking | Updated chapter |
 | 8 | **Review** | Broad QA for continuity, tracking, and final readiness | Review report |
@@ -28,9 +28,9 @@ Begin at Step 1 (Constitution) and proceed sequentially. Do not skip steps — e
 ### Resuming an Existing Project
 Check which files already exist:
 - `memory/constitution.md` exists -> Step 1 complete
-- `stories/[name]/specification.md` exists -> Step 2 complete
-- `stories/[name]/creative-plan.md` exists -> Step 4 complete
-- `stories/[name]/tasks.md` exists -> Step 5 complete
+- `stories/[name]/specification.md` or `stories/[name]/specification/` exists -> Step 2 complete
+- `stories/[name]/creative-plan.md` or `stories/[name]/creative-plan/` exists -> Step 4 complete
+- `stories/[name]/tasks.md` or `stories/[name]/tasks/` exists -> Step 5 complete
 - `stories/[name]/content/` has chapters -> Step 6 in progress
 - chapters need revision -> Step 7 (`/editor`)
 - chapters are edited or ready for broad QA -> Step 8 (`/reviewer`)
@@ -44,6 +44,7 @@ If the project is set up and you're writing more chapters, go to Step 6 (`/write
 
 1. **Never skip the Constitution** — it prevents creative drift over long projects
 2. **Lean specifications prevent scope creep** — keep core purpose in the spec and detailed canon in `knowledge/`
+3. **Avoid god files** — when `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 1,000 lines, use a folder with `_main.md` plus focused shards
 3. **The pre-write checklist is mandatory** — it solves AI context degradation after 30+ chapters
 4. **Editor handles chapter fixes** — use `/editor` for one chapter, line-specific suggestions, and approved edits
 5. **Reviewer handles broad QA** — run `/reviewer` for project health, cross-chapter continuity, tracking accuracy, and final readiness
