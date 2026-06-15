@@ -124,7 +124,7 @@ Do not expand the specification into a full encyclopedia. If a section becomes l
 
 Before saving or updating, check projected file size.
 
-If `specification.md` would exceed about 1,000 lines, or if future updates would make it hard to edit safely:
+If `specification.md` would exceed about 500 lines, or if future updates would make it hard to edit safely:
 - Create `./stories/[novel-name]/specification/`.
 - Keep `./stories/[novel-name]/specification.md` as a short index/redirect, not a giant document.
 - Create `./stories/[novel-name]/specification/_main.md` as the real table of contents.
@@ -165,13 +165,13 @@ Use this index shape:
 ```
 
 Split-mode rules:
-- Keep every active file or shard below about 1,000 lines.
+- Keep every active file or shard below about 500 lines.
 - `specification.md` should act only as a map/redirect once split mode exists.
 - `_main.md` should act as a table of contents plus current status, not a second full specification.
 - Read `_main.md` first, then only the shard(s) relevant to the current task.
 - Update only affected shards and `_main.md`.
 - Do not duplicate rich detail from `knowledge/`; link to it.
-- If an existing single-file `specification.md` is already over 1,000 lines, suggest converting it to split mode before making major updates.
+- If an existing single-file `specification.md` is already over 500 lines, suggest converting it to split mode before making major updates.
 
 ### 4. Output and Save
 

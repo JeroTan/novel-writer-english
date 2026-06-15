@@ -22,7 +22,7 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 - **Built-in editor workflow** for one-chapter line fixes, approval tracking, and controlled revisions
 - **Built-in reviewer workflow** for broad consistency, tracking, story health, and final readiness
 - **Bonus comics prompt workflow** for manga, manhwa, manhua, webtoon page plans, page prompts, and visual reference sheets
-- **Anti-God-File split mode** for specification, creative plan, and task files that would exceed about 1,000 lines
+- **Anti-God-File split mode** for specification, creative plan, and task files that would exceed about 500 lines
 - **Character, plot, timeline, and relationship tracking**
 - **Genre-specific writing knowledge** for fantasy, horror, mystery, romance, sci-fi, and thriller
 - **Works with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, and any AI chat tool**
@@ -288,7 +288,7 @@ my-novel/
 
 ### Large Document Split Mode
 
-When `specification.md`, `creative-plan.md`, or `tasks.md` would grow beyond about 1,000 lines, the workflow may split it into a folder instead of making one huge file.
+When `specification.md`, `creative-plan.md`, or `tasks.md` would grow beyond about 500 lines, the workflow may split it into a folder instead of making one huge file.
 
 | Compact File | Split Folder | Main Map | Example Shards |
 |--------------|--------------|----------|----------------|
@@ -296,7 +296,7 @@ When `specification.md`, `creative-plan.md`, or `tasks.md` would grow beyond abo
 | `creative-plan.md` | `creative-plan/` | `creative-plan/_main.md` | `saga_0001.md`, `saga_0001_arc_0001.md`, `ch_00001-00005.md` |
 | `tasks.md` | `tasks/` | `tasks/_main.md` | `saga_0001_arc_0001.md`, `ch_00001-00005.md`, `review-editing-log.md` |
 
-Root `.md` files become index/dashboard files in split mode. Read `_main.md` first, then only relevant shard(s). Keep every active file or shard below about 1,000 lines; split again by saga, arc, batch, or chapter range when needed.
+Root `.md` files become index/dashboard files in split mode. Read `_main.md` first, then only relevant shard(s). Keep every active file or shard below about 500 lines; split again by saga, arc, batch, or chapter range when needed.
 
 > **Note:** You only need to create the project folder and run the installer. Everything else, including `memory/`, `stories/[name]/knowledge/`, `stories/[name]/tracking/`, and all generated `.md` and `.json` files, is created automatically by the commands as you work through the eight-step workflow.
 

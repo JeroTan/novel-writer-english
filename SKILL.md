@@ -70,13 +70,13 @@ project-root/
 
 ## Large Document Split Mode
 
-When `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 1,000 lines, keep the root `.md` as a short index and move details into a matching folder:
+When `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 500 lines, keep the root `.md` as a short index and move details into a matching folder:
 
 - `specification.md` -> `specification/_main.md` plus shards such as `core.md`, `cast.md`, `world.md`, and `plot.md`.
 - `creative-plan.md` -> `creative-plan/_main.md` plus shards such as `saga_0001.md`, `saga_0001_arc_0001.md`, and `ch_00001-00005.md`.
 - `tasks.md` -> `tasks/_main.md` plus task shards and optional `tasks/review-editing-log.md`.
 
-Read `_main.md` first, then only relevant shard(s). Keep every active file or shard below about 1,000 lines; split again by saga, arc, batch, or chapter range when needed.
+Read `_main.md` first, then only relevant shard(s). Keep every active file or shard below about 500 lines; split again by saga, arc, batch, or chapter range when needed.
 
 ## Step Details
 

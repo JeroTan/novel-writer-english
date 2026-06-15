@@ -159,7 +159,7 @@ The log starts empty. `/editor` and `/reviewer` append dated entries when they e
 
 Before saving or updating, check projected file size.
 
-If `tasks.md` would exceed about 1,000 lines, or if the task list is too large to update safely:
+If `tasks.md` would exceed about 500 lines, or if the task list is too large to update safely:
 - Create `./stories/[novel-name]/tasks/`.
 - Keep `./stories/[novel-name]/tasks.md` as a short index/dashboard, not the full task ledger.
 - Create `./stories/[novel-name]/tasks/_main.md` as the task table of contents and current progress summary.
@@ -197,13 +197,13 @@ Read first: `./tasks/_main.md`
 ```
 
 Split-mode rules:
-- Keep every active file or shard below about 1,000 lines.
+- Keep every active file or shard below about 500 lines.
 - `tasks.md` should act only as a map/dashboard once split mode exists.
 - `_main.md` should act as progress summary and shard map, not a second full task ledger.
 - Keep shard files focused; prefer one saga, one arc, one batch, or one chapter range per shard.
 - When updating task status, edit only `_main.md` plus the shard containing that chapter.
 - `/writer`, `/editor`, and `/reviewer` must update the relevant task shard, not only `tasks.md`.
-- If a shard exceeds about 1,000 lines, split it again and update `_main.md`.
+- If a shard exceeds about 500 lines, split it again and update `_main.md`.
 
 ### 6. Output and Save
 

@@ -357,3 +357,14 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Added split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files when they would exceed about 1,000 lines.
 - Split mode keeps the root `.md` as an index/dashboard, uses `_main.md` as the table of contents/current map, and stores detailed content in focused shards.
 - Updated writer, editor, reviewer, clarify, comics planner, guide, cross-check, and QA skills to read `_main.md` first and then only relevant shard(s).
+
+---
+
+## v1.3.8 — 2026-06-14
+
+**Anti-God-File Threshold Patch**
+
+### Changed
+
+- Lowered split-mode threshold for `specification.md`, `creative-plan.md`, and `tasks.md` from about 1,000 lines to about 500 lines.
+- Updated command instructions, cross-check guidance, README, root skill reference, and workflow-guide skill to use the 500-line threshold.

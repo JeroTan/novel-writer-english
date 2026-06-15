@@ -44,7 +44,7 @@ If the project is set up and you're writing more chapters, go to Step 6 (`/write
 
 1. **Never skip the Constitution** — it prevents creative drift over long projects
 2. **Lean specifications prevent scope creep** — keep core purpose in the spec and detailed canon in `knowledge/`
-3. **Avoid god files** — when `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 1,000 lines, use a folder with `_main.md` plus focused shards
+3. **Avoid god files** — when `specification.md`, `creative-plan.md`, or `tasks.md` grows past about 500 lines, use a folder with `_main.md` plus focused shards
 3. **The pre-write checklist is mandatory** — it solves AI context degradation after 30+ chapters
 4. **Editor handles chapter fixes** — use `/editor` for one chapter, line-specific suggestions, and approved edits
 5. **Reviewer handles broad QA** — run `/reviewer` for project health, cross-chapter continuity, tracking accuracy, and final readiness

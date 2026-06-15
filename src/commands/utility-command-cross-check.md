@@ -83,7 +83,7 @@ Compare the project file against the current command's required output shape:
 - File naming conventions
 - Required side-effect files, such as `knowledge/` or `tracking/`
 - Newer workflow additions that older files may miss
-- Anti-God-File split mode for `specification/`, `creative-plan/`, or `tasks/` when any active file would exceed about 1,000 lines
+- Anti-God-File split mode for `specification/`, `creative-plan/`, or `tasks/` when any active file would exceed about 500 lines
 
 Do not treat story-specific content differences as stale format. Only flag content when it conflicts with the command's structural requirements or required workflow state.
 
@@ -95,7 +95,7 @@ For `/specify`, specifically check whether `specification.md` uses the current l
 - Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md`
 - `character-voices.md` includes Banter Role, Exposition Role, Humor Style, Pressure Response, and Status Behavior fields
 - Important names still marked `[TBD]`, `[TENTATIVE]`, unnamed, or generic are documented as unresolved rather than silently invented
-- If `specification.md` is over about 1,000 lines or split mode exists, `specification.md` is only a short index, `specification/_main.md` exists, shards are listed in read order, and no shard is becoming a new god file
+- If `specification.md` is over about 500 lines or split mode exists, `specification.md` is only a short index, `specification/_main.md` exists, shards are listed in read order, and no shard is becoming a new god file
 
 For `/planner`, specifically check whether `creative-plan.md` uses the current format:
 - Definition, created date, updated date, current saga/arc position, and planning mode
@@ -110,7 +110,7 @@ For `/planner`, specifically check whether `creative-plan.md` uses the current f
 - Chapter Summary, Flow, and Continuity Notes
 - Unnamed important arcs, factions, places, systems, abilities, artifacts, and concepts use `[TBD]` or `[TENTATIVE]`, or include name options when the user asked for naming help
 - Batch plan sections with Adds To and Definition
-- If `creative-plan.md` is over about 1,000 lines or split mode exists, `creative-plan.md` is only a short index, `creative-plan/_main.md` exists, saga/arc/batch/chapter shards are listed in read order, and no shard is becoming a new god file
+- If `creative-plan.md` is over about 500 lines or split mode exists, `creative-plan.md` is only a short index, `creative-plan/_main.md` exists, saga/arc/batch/chapter shards are listed in read order, and no shard is becoming a new god file
 
 For `/task-manager`, specifically check whether `tasks.md` uses the current format:
 - Header has total chapters planned, chapters written, and last updated
@@ -122,7 +122,7 @@ For `/task-manager`, specifically check whether `tasks.md` uses the current form
 - Status markers are `[ ]`, `[FOR_REVIEW]`, and `[DONE]`
 - Contains `## Review & Editing Log`, initially `No editor/reviewer entries yet.` or populated by `/editor` and `/reviewer`
 - Does not create separate character profile, worldbuilding, review, or editing task items
-- If `tasks.md` is over about 1,000 lines or split mode exists, `tasks.md` is only a short dashboard, `tasks/_main.md` exists, task shards are listed in read order, review/editing history can live in `tasks/review-editing-log.md`, and no shard is becoming a new god file
+- If `tasks.md` is over about 500 lines or split mode exists, `tasks.md` is only a short dashboard, `tasks/_main.md` exists, task shards are listed in read order, review/editing history can live in `tasks/review-editing-log.md`, and no shard is becoming a new god file
 
 For `/utility-meta`, specifically check whether `meta.json` uses the current format:
 - Required keys exist: `title`, `author`, `description`, `status`, `genre`, `tags`, `work-type`, `language`, `publishedAt`, and `updatedAt`

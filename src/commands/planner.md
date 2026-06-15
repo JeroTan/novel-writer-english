@@ -264,7 +264,7 @@ Batch/light plan rules:
 
 Before saving or updating, check projected file size.
 
-If `creative-plan.md` would exceed about 1,000 lines, or if planning a saga/arc/batch would make future updates risky:
+If `creative-plan.md` would exceed about 500 lines, or if planning a saga/arc/batch would make future updates risky:
 - Create `./stories/[novel-name]/creative-plan/`.
 - Keep `./stories/[novel-name]/creative-plan.md` as a short index/redirect, not the full plan.
 - Create `./stories/[novel-name]/creative-plan/_main.md` as the table of contents and current status map.
@@ -313,14 +313,14 @@ Read first: `./creative-plan/_main.md`
 - update log
 
 Split-mode rules:
-- Keep every active file or shard below about 1,000 lines.
+- Keep every active file or shard below about 500 lines.
 - `creative-plan.md` should act only as a map/redirect once split mode exists.
 - `_main.md` should act as table of contents, current status, and global planning map, not a second full plan.
 - Keep shard files focused; prefer one saga, one arc, or one chapter range per shard.
 - When updating, edit only `_main.md` plus affected shard(s).
 - When creating tasks or writing a chapter, read `_main.md` plus the exact shard containing that chapter.
-- If a shard exceeds about 1,000 lines, split it again by arc or chapter range and update `_main.md`.
-- Existing one-file plans over 1,000 lines should be offered conversion to split mode before major edits.
+- If a shard exceeds about 500 lines, split it again by arc or chapter range and update `_main.md`.
+- Existing one-file plans over 500 lines should be offered conversion to split mode before major edits.
 
 ### 5. Output and Save
 
