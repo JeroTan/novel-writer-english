@@ -36,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated comics planning, task tracking, page prompting, revise prompting, and cross-check to enforce page-to-page continuity, carryover state, transition indicators, and extra pages when scene flow would otherwise break.
 - Updated `/editor` suggestion output from a wide table to a numbered line-item list with Current, Suggest, Reason, and Status fields.
 - Updated `/editor` suggestions to require full exact Current text and full exact Suggest replacement text, with no fragments, summaries, or ellipses.
+- Updated `/editor` follow-up replies to shrink approved and skipped items while keeping unresolved items full.
 - Updated `/utility-meta` with allowed Royal Road-style genre/tag lists and a new `work-type` array.
 - Added Anti-God-File split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files over about 500 lines, with `_main.md` maps and focused shards.
 

@@ -157,7 +157,13 @@ After the list, ask the user to update statuses, for example:
 
 Keep the numbered list persistent across replies.
 
-Before answering any follow-up after the first suggestion list, update the stored list from the user's latest message and show the full current list first. Then provide any broader details, negotiation notes, revised wording, or explanation below the list.
+Before answering any follow-up after the first suggestion list, update the stored list from the user's latest message and show the current list first. Then provide any broader details, negotiation notes, revised wording, or explanation below the list.
+
+To keep follow-up replies readable:
+- Keep full exact `Current` and `Suggest` text for items still marked `for_discussion`.
+- Shrink approved items to one compact line, such as `1. Line 12-14 — approved`.
+- Shrink skipped items to one compact line, such as `4. Line 30 — skipped`.
+- Keep the full exact current/suggestion text stored internally for every item so approved edits can still be applied exactly after confirmation.
 
 If the user asks to discuss an item, respond using this format:
 
@@ -169,9 +175,6 @@ Reason: [reason]
 Status: for_discussion
 
 2. Line 18
-Current: [full exact current text]
-Suggest: [full exact suggested replacement]
-Reason: [reason]
 Status: approve
 
 #3

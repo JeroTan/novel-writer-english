@@ -368,3 +368,14 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 
 - Lowered split-mode threshold for `specification.md`, `creative-plan.md`, and `tasks.md` from about 1,000 lines to about 500 lines.
 - Updated command instructions, cross-check guidance, README, root skill reference, and workflow-guide skill to use the 500-line threshold.
+
+---
+
+## v1.3.9 — 2026-06-18
+
+**Editor Follow-Up Compression Patch**
+
+### Changed
+
+- Updated `/editor` follow-up replies to shrink approved and skipped items to compact status lines while keeping unresolved `for_discussion` items full.
+- Preserved the requirement to keep full current/suggestion text internally so approved edits can still apply exactly after confirmation.
