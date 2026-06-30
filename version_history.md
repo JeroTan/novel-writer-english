@@ -379,3 +379,14 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 
 - Updated `/editor` follow-up replies to shrink approved and skipped items to compact status lines while keeping unresolved `for_discussion` items full.
 - Preserved the requirement to keep full current/suggestion text internally so approved edits can still apply exactly after confirmation.
+
+---
+
+## v1.3.10 — 2026-06-28
+
+**Editor Exact-Line Patch**
+
+### Changed
+
+- Updated `/editor` suggestions to cite the smallest exact affected line, sentence, or thought instead of whole paragraphs.
+- Kept full exact current and suggested replacement text for that affected unit so approved edits can still apply exactly.

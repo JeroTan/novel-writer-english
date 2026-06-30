@@ -142,9 +142,12 @@ Status: for_discussion
 Rules:
 - Every new item starts as `for_discussion`.
 - Status must be exactly one of `approve`, `skip`, or `for_discussion`.
-- Always show the full current text for the cited line(s). Do not use fragments, summaries, or ellipses to save tokens.
-- Always show the full suggested replacement text. Do not use partial replacements, vague instructions, or "change this part" wording.
-- If an issue spans a long passage, cite the full line range and include the complete current passage plus the complete replacement passage.
+- Cite the smallest exact affected line(s), sentence, or thought that needs changing. Do not cite the whole paragraph when only one sentence or line needs work.
+- Always show the full current text for that exact affected line/sentence/thought. Do not use fragments, summaries, or ellipses to save tokens.
+- Always show the full suggested replacement for that exact affected line/sentence/thought. Do not use partial replacements, vague instructions, or "change this part" wording.
+- If a sentence wraps across multiple file lines, cite only those wrapped sentence lines.
+- If a larger paragraph has multiple issues, split them into separate numbered items per affected sentence/thought whenever possible.
+- Use a paragraph-range replacement only when the paragraph structure itself must change and a smaller sentence-level edit would be misleading.
 - Do not apply edits yet.
 
 After the list, ask the user to update statuses, for example:
