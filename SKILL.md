@@ -119,6 +119,9 @@ Runs broad project QA after chapter-level edits. Two main modes: **Framework Ana
 ### Utility: Meta
 Records the novel's bibliographic metadata. `/utility-meta` creates or updates `stories/[novel-name]/meta.json` with title, author, description, allowed genre values, Royal Road-style tags, `work-type`, status (ongoing/completed/hiatus), language, and publication dates.
 
+### Utility: Drafter
+Creates, extends, redoes, or lightly revises loose draft material under `draft/` from a user's idea. Drafts are editable idea dumps, not canon. Use `/utility-drafter` before `/planner`, `/task-manager`, or `/writer` when the user wants to explore intent first.
+
 ### Bonus: Comics Prompt Workflow
 After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.
 

@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added bonus comics prompt workflow commands: `/comics-planner`, `/comics-task`, `/comics-chapter-pages-prompt`, and `/comics-revise-prompt`.
 - Added visual reference sheet prompt utility commands for characters, settings/places, objects/props, and NPC/general designs.
 - Added `comics-prompting` writing technique skill for manga, manhwa, manhua, webtoon, comic page prompts, revision prompts, and visual reference sheet prompts.
+- Added `/utility-drafter` for loose draft creation, redo/update/more workflows, and draft change suggestions.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
@@ -40,6 +41,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `/editor` suggestions to cite the smallest exact affected line, sentence, or thought instead of whole paragraphs.
 - Updated `/utility-meta` with allowed Royal Road-style genre/tag lists and a new `work-type` array.
 - Added Anti-God-File split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files over about 500 lines, with `_main.md` maps and focused shards.
+- Updated `/utility-drafter` to default to plain drafted story text without forced output sections.
 
 ## [1.0.0] - 2026-04-04
 ### Added

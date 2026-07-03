@@ -58,6 +58,7 @@ Use this target map:
 - `/writer` -> selected chapter file(s) in `./stories/[novel-name]/content/`
 - `/editor` -> selected chapter file(s) in `./stories/[novel-name]/content/`
 - `/reviewer` -> `./stories/[novel-name]/tasks.md`, optional `./stories/[novel-name]/tasks/`, `./stories/[novel-name]/knowledge/`, `./stories/[novel-name]/tracking/`, and reviewed chapter files when relevant
+- `/utility-drafter` -> selected draft file(s) under `./draft/`, `./draft/chapters/`, `./draft/contents/`, or the user-defined draft output path
 - `/utility-meta` -> `./stories/[novel-name]/meta.json`
 - `/utility-track-init` and `/utility-track` -> files in `./stories/[novel-name]/tracking/`
 - `/utility-timeline` -> `./stories/[novel-name]/tracking/timeline.json`

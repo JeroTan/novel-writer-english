@@ -60,6 +60,7 @@ Present the user with a clear overview:
 | Command | What It Does |
 |---------|--------------|
 | `/utility-guide-me` | Return to this guide and assess your current progress |
+| `/utility-drafter` | Create, extend, redo, or lightly revise loose draft files from user ideas |
 | `/utility-meta` | Record novel metadata for platform upload (bucket, database, web novel viewer) |
 | `/utility-checklist` | Quick QA checklist (Pre-Write, Post-Write, General Story modes) |
 | `/utility-expert` | Activate expert persona (Editor, Sensitivity Reader, Logic Checker, etc.) |
@@ -74,6 +75,7 @@ Present the user with a clear overview:
 To move to a step, the user types `/command-name` in the chat. For example: `/constitution Help me set up my novel's principles.`
 
 **Drafting workflow**: If the user has written their own drafts, they can place them in `./draft/chapters/` and the workflow will integrate them:
+- `/utility-drafter` can jumpstart loose draft chapters, arcs, idea dumps, or draft revisions from the user's idea
 - `/planner` reads drafts to build the chapter structure
 - `/task-manager` generates tasks from the draft files
 - `/writer` expands drafts into full prose using the `@#@ FILL @#@`, `@#@ DESCRIBE @#@`, and `@#@ FLASHBACK @#@` tags
@@ -86,8 +88,14 @@ If the user asks how to write drafts manually or where to place them, provide th
 
 **Where to put drafts:**
 - Place draft files in `./draft/chapters/` (relative to project root)
+- For arc or saga idea dumps, use the existing project draft structure such as `./draft/contents/` when present
 - The `/writer` command scans this folder before writing and uses drafts as structural guidance
 - Accepted naming: `chapter_00001.md` (preferred), `0001.md`, `1.md`, `01.md`, `chapter-1.md`, `chapter 1.md`, `ch1.md`, or `[1-5].md` (range files)
+
+**How `/utility-drafter` helps:**
+- Turns a raw user idea into loose draft material without treating it as canon
+- Can redo a draft, update a part, generate more, or suggest changes to a line/phrase
+- Uses only related draft, knowledge, and chapter context so the draft stays light and flexible
 
 **How `/writer` processes drafts:**
 - Drafts are used as outlines — `specification.md` or `specification/`, `creative-plan.md` or `creative-plan/`, `knowledge/`, and `tracking/` take priority

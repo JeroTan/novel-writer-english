@@ -390,3 +390,18 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 
 - Updated `/editor` suggestions to cite the smallest exact affected line, sentence, or thought instead of whole paragraphs.
 - Kept full exact current and suggested replacement text for that affected unit so approved edits can still apply exactly.
+
+---
+
+## v1.3.11 — 2026-07-03
+
+**Utility Drafter Patch**
+
+### Added
+
+- Added `/utility-drafter` for loose draft creation, redo/update/more workflows, and draft change suggestions.
+
+### Changed
+
+- Updated `/utility-guide-me`, README, root skill reference, and command cross-check to include the drafter utility.
+- Made drafter output default to plain drafted story text without required headings, frontmatter, tables, or sections.
