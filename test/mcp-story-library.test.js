@@ -116,6 +116,16 @@ test('installer merges MCP configs and keeps unrelated settings', t => {
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
   fs.mkdirSync(path.join(root, '.gemini'), { recursive: true });
   fs.writeFileSync(path.join(root, '.gemini', 'settings.json'), '{\n  // keep this\n  "ui": { "theme": "GitHub" }\n}\n');
+  fs.writeFileSync(path.join(root, 'opencode.json'), JSON.stringify({
+    $schema: 'https://opencode.ai/config.json',
+    theme: 'system',
+    mcp: {
+      servers: {
+        'novel-writer': { type: 'local', command: ['old-command'] },
+      },
+      'keep-me': { type: 'local', command: ['keep-command'], enabled: true },
+    },
+  }, null, 2));
   fs.mkdirSync(path.join(root, '.codex'), { recursive: true });
   fs.writeFileSync(path.join(root, '.codex', 'config.toml'), `model = "gpt-test"
 
@@ -140,7 +150,11 @@ command = "keep-command"
   assert.match(gemini, /"theme": "GitHub"/);
   assert.match(gemini, /novel-writer/);
   const opencode = JSON.parse(fs.readFileSync(path.join(root, 'opencode.json'), 'utf8'));
-  assert.deepEqual(opencode.mcp.servers['novel-writer'].command.slice(0, 2), ['npx', '--yes']);
+  assert.deepEqual(opencode.mcp['novel-writer'].command.slice(0, 2), ['npx', '--yes']);
+  assert.equal(opencode.mcp['novel-writer'].enabled, true);
+  assert.equal(opencode.mcp.servers, undefined);
+  assert.deepEqual(opencode.mcp['keep-me'].command, ['keep-command']);
+  assert.equal(opencode.theme, 'system');
   const codex = fs.readFileSync(path.join(root, '.codex', 'config.toml'), 'utf8');
   assert.equal((codex.match(/\[mcp_servers\.novel-writer\]/g) || []).length, 1);
   assert.match(codex, /model = "gpt-test"/);

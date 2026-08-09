@@ -33,6 +33,30 @@ function updateJsoncFile(filePath, propertyPath, value) {
   fs.writeFileSync(filePath, applyEdits(source, edits), 'utf8');
 }
 
+function updateOpenCodeConfig(filePath, command) {
+  const source = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '{}\n';
+  const errors = [];
+  const config = parse(source, errors, { allowTrailingComma: true, disallowComments: false });
+  if (errors.length > 0) {
+    throw new Error(`Cannot configure MCP because ${filePath} is not valid JSON/JSONC.`);
+  }
+
+  const legacyServers = config?.mcp?.servers;
+  if (legacyServers && Object.hasOwn(legacyServers, SERVER_NAME)) {
+    const legacyPath = Object.keys(legacyServers).length === 1
+      ? ['mcp', 'servers']
+      : ['mcp', 'servers', SERVER_NAME];
+    updateJsoncFile(filePath, legacyPath, undefined);
+  }
+
+  updateJsoncFile(filePath, ['mcp', SERVER_NAME], {
+    type: 'local',
+    command: [command.command, ...command.args],
+    cwd: '.',
+    enabled: true,
+  });
+}
+
 function quoteToml(value) {
   return JSON.stringify(value);
 }
@@ -103,12 +127,7 @@ export function installMcpConfig(toolKey, projectRoot, version, platform = proce
 
   if (toolKey === 'opencode') {
     const filePath = path.join(projectRoot, 'opencode.json');
-    updateJsoncFile(filePath, ['mcp', 'servers', SERVER_NAME], {
-      type: 'local',
-      command: [command.command, ...command.args],
-      cwd: '.',
-      codemode: false,
-    });
+    updateOpenCodeConfig(filePath, command);
     return filePath;
   }
 
