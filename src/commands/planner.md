@@ -32,6 +32,8 @@ Check if `./stories/[novel-name]/creative-plan.md` or `./stories/[novel-name]/cr
 
 Read `./memory/constitution.md` and `./stories/[novel-name]/specification.md`. If `./stories/[novel-name]/specification/` exists, read `specification/_main.md` first, then only the shard(s) relevant to the requested saga, arc, batch, or chapter range.
 Also read relevant files in `./stories/[novel-name]/knowledge/`. If `strategic-reversals.md` exists and the story uses contests, tactics, mind games, negotiations, clever wins, hidden rules, or bluffs, use it while planning.
+
+When `novel-writer` MCP tools are available, use `search_character`, `search_settings`, `list_of_glossary`, and `character_states` to retrieve focused canonical context. Read source files directly when broader context or edits are required.
 If important arcs, factions, locations, titles, systems, abilities, artifacts, or concepts are unnamed and the missing name blocks clarity, load `[user_agent]/skills/writing-techniques/namecraft/SKILL.md` when available. Suggest options, but allow `[TBD]` or `[TENTATIVE]` when the user is not ready.
 
 ### 2b. Check for Drafts

@@ -1,5 +1,7 @@
 # Character Profiles
 
+> Format contract: Keep this exact H1. Store every character under one unique `## Character Name` heading. Keep `- **Role**: value` in every real entry. Add rich fields and prose freely inside that character's section; do not replace character headings with tables or lower heading levels.
+
 ## [Protagonist Name]
 - **Role**: Protagonist
 - **Age/Appearance**: [Description]

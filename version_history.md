@@ -405,3 +405,22 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 
 - Updated `/utility-guide-me`, README, root skill reference, and command cross-check to include the drafter utility.
 - Made drafter output default to plain drafted story text without required headings, frontmatter, tables, or sections.
+
+---
+
+## v1.4.0 — 2026-08-09
+
+**Story Lookup MCP Release**
+
+### Added
+
+- Added read-only `novel-writer` MCP tools for listing novels, characters, settings, and glossary entries; searching characters and settings; reading character states; and validating story files.
+- Added automatic project MCP configuration for Claude Code, Gemini CLI, OpenCode, and Codex CLI.
+- Added installed `NOVEL_WORKFLOW.md` with concise command guidance, automatic MCP startup behavior, manual diagnostic command, and error recovery.
+- Added `/utility-scene-maker` for focused scene drafts.
+
+### Changed
+
+- Standardized MCP-readable character profile, location, glossary, and character-state formats while preserving rich detail inside canonical entries.
+- Updated planner, writer, reviewer, tracker, guide, and command cross-check instructions to use focused lookup and preserve deterministic file structures.
+- Added test coverage for lookup, format errors, config merging, and live MCP calls.

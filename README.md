@@ -26,6 +26,7 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 - **Bonus comics prompt workflow** for manga, manhwa, manhua, webtoon page plans, page prompts, and visual reference sheets
 - **Anti-God-File split mode** for specification, creative plan, and task files that would exceed about 500 lines
 - **Character, plot, timeline, and relationship tracking**
+- **Read-only story lookup MCP** for character, setting, glossary, and current-state search
 - **Genre-specific writing knowledge** for fantasy, horror, mystery, romance, sci-fi, and thriller
 - **Works with Claude Code, Gemini CLI, OpenCode, Codex CLI, ChatGPT, and any AI chat tool**
 - **Free, open-source, and platform-agnostic**
@@ -38,7 +39,24 @@ Run this in your novel project root:
 npx novel-writer-english
 ```
 
-The interactive installer will ask which AI tools you use and set up commands, skills, and templates automatically.
+The interactive installer asks which AI tools you use, then sets up commands, skills, templates, project MCP configuration, and a concise `NOVEL_WORKFLOW.md` guide automatically. Restart the selected AI tool after installation; it starts the read-only MCP server automatically from project configuration.
+
+## Story Lookup MCP
+
+Installed server `novel-writer` gives supported agents deterministic, read-only access to canonical story data:
+
+| Tool | Purpose |
+|------|---------|
+| `list_novels` | Lists novel folders under `stories/`. |
+| `list_of_characters` | Lists canonical characters and tracked-state availability. |
+| `search_character` | Searches character names, aliases, roles, traits, and profile text. |
+| `list_of_settings` | Lists canonical locations with type and significance. |
+| `search_settings` | Searches location names and setting details. |
+| `list_of_glossary` | Lists or filters glossary terms and categories. |
+| `character_states` | Finds current character location, condition, possessions, knowledge, or arc state. |
+| `validate_story_files` | Checks MCP-readable knowledge and state file formats. |
+
+Pass `novel` when a project contains multiple story folders. Search tools accept partial spelling and context terms. Tool results include source paths and lines when available. See `NOVEL_WORKFLOW.md` for connection checks and error recovery.
 
 ## AI Novel Writing Workflow
 
@@ -224,6 +242,8 @@ These files are created automatically from templates during the workflow and upd
 | `stories/[name]/knowledge/glossary.md` | Stores terms, titles, factions, items, magic/technology names, and in-world vocabulary. |
 | `stories/[name]/knowledge/strategic-reversals.md` | Tracks contest rules, tactics, opponent assumptions, hidden levers, and clever reversal setups. |
 
+MCP-readable files keep stable structure: characters and locations use unique level-2 headings with required bold fields; glossary terms use level-3 headings beneath level-2 categories. Rich detail stays inside each matching entry. `character-state.json` keeps installed canonical keys and `"schemaVersion": "1.0"`.
+
 ### Tracking Files
 
 | File | Purpose |
@@ -240,10 +260,15 @@ After running `npx novel-writer-english` and starting your workflow, your projec
 
 ```text
 my-novel/
+├── .mcp.json                   # Claude Code MCP config, if selected
+├── .codex/config.toml          # Codex project MCP config, if selected
+├── opencode.json               # OpenCode MCP config, if selected
+├── NOVEL_WORKFLOW.md           # Concise command and MCP guide
 ├── .claude/                    # Claude Code commands and skills, if selected
 │   ├── commands/
 │   └── skills/
 ├── .gemini/                    # Gemini CLI commands and skills, if selected
+│   ├── settings.json           # Gemini MCP config
 │   ├── commands/novel/
 │   └── skills/
 ├── .opencode/                  # OpenCode commands and skills, if selected
@@ -306,13 +331,13 @@ Root `.md` files become index/dashboard files in split mode. Read `_main.md` fir
 
 ## Supported AI Writing Platforms
 
-| Platform | Commands | Skills | Installer Target |
-|----------|----------|--------|-----------------|
-| **Claude Code** | `.claude/commands/*.md` | `.claude/skills/` | `./claude/` |
-| **Gemini CLI** | `.gemini/commands/novel/*.toml` | `.gemini/skills/` | `./gemini/` |
-| **OpenCode** | `.opencode/commands/novel/*.md` | `.opencode/skills/` | `./opencode/` |
-| **Codex CLI** | `.agents/skills/commands/*/SKILL.md` | `.agents/skills/` | `./agents/` |
-| **Any AI Assistant** | Copy-paste from `src/commands/` | — | Manual |
+| Platform | Commands | Skills | Project MCP Config |
+|----------|----------|--------|--------------------|
+| **Claude Code** | `.claude/commands/*.md` | `.claude/skills/` | `.mcp.json` |
+| **Gemini CLI** | `.gemini/commands/novel/*.toml` | `.gemini/skills/` | `.gemini/settings.json` |
+| **OpenCode** | `.opencode/commands/novel/*.md` | `.opencode/skills/` | `opencode.json` |
+| **Codex CLI** | `.agents/skills/commands/*/SKILL.md` | `.agents/skills/` | `.codex/config.toml` |
+| **Any AI Assistant** | Copy-paste from `src/commands/` | — | Manual MCP setup |
 
 ## Who Is This For?
 

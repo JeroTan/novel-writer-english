@@ -9,6 +9,8 @@ argument-hint: "[describe where you are or what you need help with]"
 
 # User Input: $ARGUMENTS
 
+When `novel-writer` MCP tools are available, use them for focused character, setting, glossary, and character-state lookup. Use `list_novels` first when multiple novels exist. MCP tools are read-only; commands still own all project-file updates.
+
 ## Objective
 
 Assess the user's current project state and guide them to the next appropriate step in the novel writing workflow.

@@ -6,6 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
+import { installMcpConfig } from '../src/installer/mcp-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -48,6 +49,7 @@ const TOOLS = {
 };
 
 const SRC_DIR = path.join(__dirname, '..', 'src');
+const PACKAGE_JSON = fs.readJsonSync(path.join(__dirname, '..', 'package.json'));
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -314,6 +316,28 @@ async function copyTemplates(toolConfig) {
   success(`${toolConfig.name}: templates copied`);
 }
 
+async function copyProjectGuide(overwriteAll, skipAll) {
+  const srcFile = path.join(SRC_DIR, 'NOVEL_WORKFLOW.md');
+  const destFile = path.join(process.cwd(), 'NOVEL_WORKFLOW.md');
+
+  if (!fs.existsSync(srcFile)) return { overwriteAll, skipAll, copied: false };
+  if (skipAll) return { overwriteAll, skipAll, copied: false };
+
+  let newOverwriteAll = overwriteAll;
+  let newSkipAll = skipAll;
+  if (fs.existsSync(destFile) && !newOverwriteAll) {
+    const action = await resolveConflict(destFile);
+    if (action === 'skip') return { overwriteAll: newOverwriteAll, skipAll: newSkipAll, copied: false };
+    if (action === 'skip-all') return { overwriteAll: newOverwriteAll, skipAll: true, copied: false };
+    if (action === 'overwrite-all') newOverwriteAll = true;
+  }
+
+  const content = fs.readFileSync(srcFile, 'utf8').replaceAll('__PACKAGE_VERSION__', PACKAGE_JSON.version);
+  fs.writeFileSync(destFile, content, 'utf8');
+  success('NOVEL_WORKFLOW.md copied');
+  return { overwriteAll: newOverwriteAll, skipAll: newSkipAll, copied: true };
+}
+
 // ─── Main Installer ──────────────────────────────────────────────────────────
 
 async function main() {
@@ -323,16 +347,25 @@ async function main() {
   log('Select which AI tools you want to configure:');
   log('');
 
-  const selectedTools = await checkbox({
-    message: 'Which AI tools do you want to install the workflow for?',
-    choices: [
-      { name: 'Claude Code (.claude/)', value: 'claude', checked: true },
-      { name: 'Gemini CLI (.gemini/)', value: 'gemini', checked: true },
-      { name: 'OpenCode (.opencode/)', value: 'opencode', checked: true },
-      { name: 'Codex CLI (.agents/)', value: 'codex', checked: true },
-    ],
-    required: true,
-  });
+  const requestedTools = process.env.NOVEL_WRITER_TOOLS
+    ?.split(',')
+    .map(value => value.trim().toLowerCase())
+    .filter(Boolean);
+  const invalidTools = requestedTools?.filter(tool => !TOOLS[tool]) || [];
+  if (invalidTools.length > 0) throw new Error(`Unknown NOVEL_WRITER_TOOLS value(s): ${invalidTools.join(', ')}`);
+
+  const selectedTools = requestedTools?.length
+    ? [...new Set(requestedTools)]
+    : await checkbox({
+      message: 'Which AI tools do you want to install the workflow for?',
+      choices: [
+        { name: 'Claude Code (.claude/)', value: 'claude', checked: true },
+        { name: 'Gemini CLI (.gemini/)', value: 'gemini', checked: true },
+        { name: 'OpenCode (.opencode/)', value: 'opencode', checked: true },
+        { name: 'Codex CLI (.agents/)', value: 'codex', checked: true },
+      ],
+      required: true,
+    });
 
   if (selectedTools.length === 0) {
     log(chalk.yellow('\nNo tools selected. Exiting.'));
@@ -382,8 +415,15 @@ async function main() {
 
     await copyTemplates(tool);
 
+    const mcpConfigPath = installMcpConfig(toolKey, process.cwd(), PACKAGE_JSON.version);
+    success(`${tool.name}: novel-writer MCP configured in ${path.relative(process.cwd(), mcpConfigPath)}`);
+
     log('');
   }
+
+  const guideResult = await copyProjectGuide(overwriteAll, skipAll);
+  overwriteAll = guideResult.overwriteAll;
+  skipAll = guideResult.skipAll;
 
   header('✅ Installation complete!');
   log('');
@@ -395,14 +435,27 @@ async function main() {
   log('');
   log('Next steps:');
   log('  1. Open your project in the selected AI tool');
-  log('  2. The commands and skills will be automatically discovered');
-  log('  3. Start with /constitution to set up your novel');
+  log('  2. Restart the tool so commands, skills, and MCP tools are discovered');
+  log('  3. Start with /constitution; see NOVEL_WORKFLOW.md for tool help');
   log('');
   log('For more info: https://github.com/JeroTan/novel-writer-english');
   log('');
 }
 
-main().catch(err => {
+async function run() {
+  if (process.argv[2] === 'mcp') {
+    const rootIndex = process.argv.indexOf('--project-root');
+    if (rootIndex >= 0 && !process.argv[rootIndex + 1]) throw new Error('--project-root requires a path.');
+    const projectRoot = rootIndex >= 0 ? path.resolve(process.argv[rootIndex + 1]) : process.cwd();
+    const { runMcpServer } = await import('./mcp-server.js');
+    await runMcpServer({ projectRoot, version: PACKAGE_JSON.version });
+    return;
+  }
+
+  await main();
+}
+
+run().catch(err => {
   error(err.message);
   process.exit(1);
 });

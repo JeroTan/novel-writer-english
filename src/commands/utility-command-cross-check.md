@@ -97,6 +97,10 @@ For `/specify`, specifically check whether `specification.md` uses the current l
 - Does not use an old "Full Specification" section as the home for all detailed canon
 - Has `./stories/[novel-name]/knowledge/` with `character-profiles.md`, `character-voices.md`, `locations.md`, `world-setting.md`, `glossary.md`, and `strategic-reversals.md`
 - `character-voices.md` includes Banter Role, Exposition Role, Humor Style, Pressure Response, and Status Behavior fields
+- `character-profiles.md` keeps exact `# Character Profiles`, unique `## Character Name` entries, and `- **Role**: value` for every real character
+- `locations.md` keeps exact `# Location Database`, unique `## Location Name` entries, and Type and Significance fields for every real setting
+- `glossary.md` keeps exact `# Glossary`, level-2 categories, level-3 term entries, and a Definition, Meaning, Description, or Full Name field per term
+- MCP-readable field lines use `- **Field**: value`; rich detail remains inside the matching heading section rather than replacing canonical headings with tables
 - Important names still marked `[TBD]`, `[TENTATIVE]`, unnamed, or generic are documented as unresolved rather than silently invented
 - If `specification.md` is over about 500 lines or split mode exists, `specification.md` is only a short index, `specification/_main.md` exists, shards are listed in read order, and no shard is becoming a new god file
 
@@ -126,6 +130,11 @@ For `/task-manager`, specifically check whether `tasks.md` uses the current form
 - Contains `## Review & Editing Log`, initially `No editor/reviewer entries yet.` or populated by `/editor` and `/reviewer`
 - Does not create separate character profile, worldbuilding, review, or editing task items
 - If `tasks.md` is over about 500 lines or split mode exists, `tasks.md` is only a short dashboard, `tasks/_main.md` exists, task shards are listed in read order, review/editing history can live in `tasks/review-editing-log.md`, and no shard is becoming a new god file
+
+For `/utility-track-init` and `/utility-track`, specifically check whether tracking JSON uses the current installed templates:
+- Every tracking file parses as valid JSON and keeps canonical top-level keys
+- `character-state.json` has `"schemaVersion": "1.0"`, string `novel` and `lastUpdated`, object `protagonist` with string `name` and object `currentStatus`, and object `supportingCharacters`
+- Character data is added inside canonical structures instead of renaming required keys
 
 For `/utility-meta`, specifically check whether `meta.json` uses the current format:
 - Required keys exist: `title`, `author`, `description`, `status`, `genre`, `tags`, `work-type`, `language`, `publishedAt`, and `updatedAt`

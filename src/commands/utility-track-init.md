@@ -30,6 +30,8 @@ Initialize the following files using the templates in `[user_agent]/templates/tr
 
 Replace placeholder values (like `[Novel Name]`) with the actual project name provided by the user.
 
+Keep each template's keys and nesting unchanged. `character-state.json` must retain `"schemaVersion": "1.0"`, string `novel` and `lastUpdated`, `protagonist.name`, `protagonist.currentStatus`, and object `supportingCharacters`. Add story data inside these structures instead of renaming canonical keys.
+
 ### 3. Output
 
 Confirm that the tracking system has been initialized. Explain briefly that these files will be used by the `/utility-track` command to maintain consistency as the story grows.

@@ -20,6 +20,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `comics-prompting` writing technique skill for manga, manhwa, manhua, webtoon, comic page prompts, revision prompts, and visual reference sheet prompts.
 - Added `/utility-drafter` for loose draft creation, redo/update/more workflows, and draft change suggestions.
 - Added `/utility-scene-maker` for focused scene drafts such as flashbacks, fights, traps, dramatic tension, consequence scenes, explanations, and impromptu moments.
+- Added read-only `novel-writer` MCP server with deterministic character, setting, glossary, character-state, novel-listing, and file-validation tools.
+- Added automatic project MCP configuration for Claude Code, Gemini CLI, OpenCode, and Codex CLI during installation.
+- Added installed `NOVEL_WORKFLOW.md` with concise command, MCP startup, and recovery guidance.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
@@ -43,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `/utility-meta` with allowed Royal Road-style genre/tag lists and a new `work-type` array.
 - Added Anti-God-File split mode for large `specification.md`, `creative-plan.md`, and `tasks.md` files over about 500 lines, with `_main.md` maps and focused shards.
 - Updated `/utility-drafter` to default to plain drafted story text without forced output sections.
+- Standardized MCP-readable character profile, location, glossary, and character-state formats while preserving rich detail inside canonical entries.
 
 ## [1.0.0] - 2026-04-04
 ### Added

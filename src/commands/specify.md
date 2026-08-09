@@ -188,9 +188,14 @@ Save compact specifications to `./stories/[novel-name]/specification.md`. In spl
    - `[user_agent]/templates/knowledge/glossary.md` → `./stories/[novel-name]/knowledge/glossary.md`
    - `[user_agent]/templates/knowledge/strategic-reversals.md` → `./stories/[novel-name]/knowledge/strategic-reversals.md`
 3. Pre-fill each file with everything already established during specification gathering. Replace `[Protagonist Name]` with the actual name, fill out known locations, add known terms, etc.
-4. For fields the user has not yet defined, leave the placeholder text (e.g., `[TBD]`) but offer 2–3 concrete suggestions based on the genre and logline.
-5. If the user says "maybe later" or skips a field, leave the placeholder and move on. Do NOT block the workflow.
-6. Tell the user: "Knowledge folder created at `./stories/[novel-name]/knowledge/`. The specification stays lean; detailed canon lives in these knowledge files. They will be used by Clarify, Plan, Write, Edit, and Review."
+4. Preserve MCP-readable format contracts while adding rich detail:
+   - `character-profiles.md`: exact `# Character Profiles`; one unique `## Character Name` per character; every real entry keeps `- **Role**: value`.
+   - `locations.md`: exact `# Location Database`; one unique `## Location Name` per setting; every real entry keeps `- **Type**: value` and `- **Significance**: value`.
+   - `glossary.md`: exact `# Glossary`; `## Category` then `### Term Name`; every real term keeps a Definition, Meaning, Description, or Full Name field.
+   - Keep field labels in `- **Field**: value` form. Rich paragraphs, lists, and extra fields may remain inside the matching entry section.
+5. For fields the user has not yet defined, leave the placeholder text (e.g., `[TBD]`) but offer 2–3 concrete suggestions based on the genre and logline.
+6. If the user says "maybe later" or skips a field, leave the placeholder and move on. Do NOT block the workflow.
+7. Tell the user: "Knowledge folder created at `./stories/[novel-name]/knowledge/`. The specification stays lean; detailed canon lives in these knowledge files. They will be used by Clarify, Plan, Write, Edit, and Review."
 
 Inform the user that the specification is ready and suggest they run the `/clarify` command next.
 

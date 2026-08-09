@@ -7,6 +7,8 @@ description: "Use when user asks about the novel writing process, workflow steps
 
 This skill provides the eight-step systematic workflow for novel creation. It ensures you follow a proven methodology from initial concept to completed manuscript.
 
+When installed, read-only `novel-writer` MCP tools can retrieve focused character, setting, glossary, and character-state context. Use them to avoid loading unrelated knowledge. Commands remain responsible for all file updates.
+
 ## The Eight-Step Methodology
 
 | Step | Name | Purpose | Output |

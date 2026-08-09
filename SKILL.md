@@ -125,6 +125,9 @@ Creates, extends, redoes, or lightly revises loose draft material under `draft/`
 ### Utility: Scene Maker
 Creates focused scene drafts under `draft/` for a chapter, arc, or impromptu idea. Use `/utility-scene-maker` for flashbacks, fights, traps, dramatic tension, consequence scenes, explanations, or one-off moments that need only relevant constitution, knowledge, draft, and chapter context.
 
+### Story Lookup MCP
+Installer configures read-only `novel-writer` MCP tools for supported local agents. Use `list_novels`, `list_of_characters`, `search_character`, `list_of_settings`, `search_settings`, `list_of_glossary`, `character_states`, and `validate_story_files` to retrieve canonical knowledge without loading whole project files. Pass novel name when multiple novels exist. On `FORMAT_ERROR`, use `/utility-command-cross-check specify` or `/utility-command-cross-check utility-track`; on `TOOL_ERROR`, reinstall workflow and check `NOVEL_WORKFLOW.md`.
+
 ### Bonus: Comics Prompt Workflow
 After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.
 

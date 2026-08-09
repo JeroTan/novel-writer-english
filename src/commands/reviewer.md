@@ -72,6 +72,8 @@ For each chapter marked `[FOR_REVIEW]`, scan the chapter content for new informa
 
 This keeps the knowledge files accurate and up-to-date as the story grows. Process chapters incrementally. If Chapter 1 is `[FOR_REVIEW]`, update knowledge from it. Then when Chapter 2 is `[FOR_REVIEW]`, update knowledge again. Never batch all chapters at once.
 
+Preserve installed knowledge format contracts while updating: character and location entries remain unique level-2 headings with required bold field lines; glossary terms remain level-3 headings beneath level-2 categories. Preserve rich existing detail inside each entry.
+
 ### 5. Output Report
 
 Output a structured report with sections:

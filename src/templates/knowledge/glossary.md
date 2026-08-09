@@ -1,6 +1,8 @@
 # Glossary
 
 > A living reference of terms, names, concepts, and jargon used in this novel. Add entries as they appear in your story.
+>
+> Format contract: Keep this exact H1. Use `## Category` headings and nest every term under one `### Term Name` heading. Every term needs `- **Definition**:`, `- **Meaning**:`, `- **Description**:`, or `- **Full Name**:`. Add other fields freely inside that term's section; do not store glossary entries only in tables.
 
 ## World & Setting Terms
 
