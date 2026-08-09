@@ -424,3 +424,22 @@ Version 3 adds structural depth to every step of the workflow. Agents now use pr
 - Standardized MCP-readable character profile, location, glossary, and character-state formats while preserving rich detail inside canonical entries.
 - Updated planner, writer, reviewer, tracker, guide, and command cross-check instructions to use focused lookup and preserve deterministic file structures.
 - Added test coverage for lookup, format errors, config merging, and live MCP calls.
+
+---
+
+## v1.5.0 — 2026-08-09
+
+**Recursive Chapter Inventory**
+
+### Added
+
+- Added `list_chapters` for deterministic written-chapter counts and recursive chapter discovery under `content/`.
+- Added chapter title, relative path, hierarchy, latest-number, gap, and duplicate metadata.
+- Added tests for flat and nested saga/arc layouts, ignored auxiliary files, empty content, limits, and live MCP calls.
+
+### Changed
+
+- Bound generated MCP commands to exact installation project root so lookup cannot drift with agent launch directory.
+- Shell-proofed bound Windows project paths through base64url transport and strict absolute-path decoding.
+- Made core writing commands preserve existing flat, saga, arc, or custom chapter grouping instead of assuming direct `content/chapter_*.md` paths.
+- Clarified that `list_novels` selects story folders and `validate_story_files` checks knowledge/tracking formats; neither reports chapter inventory.

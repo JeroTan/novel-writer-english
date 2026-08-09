@@ -7,15 +7,36 @@ const SERVER_NAME = 'novel-writer';
 const TOML_START = '# >>> novel-writer-english MCP >>>';
 const TOML_END = '# <<< novel-writer-english MCP <<<';
 
-export function buildMcpCommand(version, platform = process.platform) {
-  const packageSpec = `novel-writer-english@${version}`;
-  const args = ['--yes', '--quiet', packageSpec, 'mcp', '--project-root', '.'];
+export function encodeProjectRoot(projectRoot) {
+  return Buffer.from(path.resolve(projectRoot), 'utf8').toString('base64url');
+}
 
-  if (platform === 'win32') {
-    return { command: 'cmd', args: ['/c', 'npx', ...args] };
+export function decodeProjectRoot(encodedRoot) {
+  if (typeof encodedRoot !== 'string' || !/^[A-Za-z0-9_-]+$/.test(encodedRoot)) {
+    throw new Error('--project-root-base64 is invalid.');
   }
 
-  return { command: 'npx', args };
+  const decodedRoot = Buffer.from(encodedRoot, 'base64url').toString('utf8');
+  if (!decodedRoot
+    || Buffer.from(decodedRoot, 'utf8').toString('base64url') !== encodedRoot
+    || !path.isAbsolute(decodedRoot)) {
+    throw new Error('--project-root-base64 must encode an absolute project path.');
+  }
+
+  return path.resolve(decodedRoot);
+}
+
+export function buildMcpCommand(version, platform = process.platform, projectRoot = process.cwd()) {
+  const packageSpec = `novel-writer-english@${version}`;
+  const boundProjectRoot = path.resolve(projectRoot);
+  const encodedProjectRoot = encodeProjectRoot(boundProjectRoot);
+  const args = ['--yes', '--quiet', packageSpec, 'mcp', '--project-root-base64', encodedProjectRoot];
+
+  if (platform === 'win32') {
+    return { command: 'cmd', args: ['/c', 'npx', ...args], cwd: boundProjectRoot };
+  }
+
+  return { command: 'npx', args, cwd: boundProjectRoot };
 }
 
 function updateJsoncFile(filePath, propertyPath, value) {
@@ -52,7 +73,7 @@ function updateOpenCodeConfig(filePath, command) {
   updateJsoncFile(filePath, ['mcp', SERVER_NAME], {
     type: 'local',
     command: [command.command, ...command.args],
-    cwd: '.',
+    cwd: command.cwd,
     enabled: true,
   });
 }
@@ -67,7 +88,7 @@ function buildCodexBlock(command) {
 [mcp_servers.${SERVER_NAME}]
 command = ${quoteToml(command.command)}
 args = [${args}]
-cwd = "."
+cwd = ${quoteToml(command.cwd)}
 enabled = true
 ${TOML_END}`;
 }
@@ -111,28 +132,32 @@ function updateCodexConfig(filePath, command) {
 }
 
 export function installMcpConfig(toolKey, projectRoot, version, platform = process.platform) {
-  const command = buildMcpCommand(version, platform);
+  const boundProjectRoot = path.resolve(projectRoot);
+  const command = buildMcpCommand(version, platform, boundProjectRoot);
 
   if (toolKey === 'claude') {
-    const filePath = path.join(projectRoot, '.mcp.json');
-    updateJsoncFile(filePath, ['mcpServers', SERVER_NAME], command);
+    const filePath = path.join(boundProjectRoot, '.mcp.json');
+    updateJsoncFile(filePath, ['mcpServers', SERVER_NAME], {
+      command: command.command,
+      args: command.args,
+    });
     return filePath;
   }
 
   if (toolKey === 'gemini') {
-    const filePath = path.join(projectRoot, '.gemini', 'settings.json');
-    updateJsoncFile(filePath, ['mcpServers', SERVER_NAME], { ...command, cwd: '.', timeout: 30000, trust: false });
+    const filePath = path.join(boundProjectRoot, '.gemini', 'settings.json');
+    updateJsoncFile(filePath, ['mcpServers', SERVER_NAME], { ...command, timeout: 30000, trust: false });
     return filePath;
   }
 
   if (toolKey === 'opencode') {
-    const filePath = path.join(projectRoot, 'opencode.json');
+    const filePath = path.join(boundProjectRoot, 'opencode.json');
     updateOpenCodeConfig(filePath, command);
     return filePath;
   }
 
   if (toolKey === 'codex') {
-    const filePath = path.join(projectRoot, '.codex', 'config.toml');
+    const filePath = path.join(boundProjectRoot, '.codex', 'config.toml');
     updateCodexConfig(filePath, command);
     return filePath;
   }

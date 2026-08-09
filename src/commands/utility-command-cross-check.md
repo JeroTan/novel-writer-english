@@ -56,8 +56,8 @@ Use this target map:
 - `/clarify` -> `./stories/[novel-name]/specification.md`, optional `./stories/[novel-name]/specification/`, and any updated files in `./stories/[novel-name]/knowledge/`
 - `/planner` -> `./stories/[novel-name]/creative-plan.md`, optional `./stories/[novel-name]/creative-plan/`, and `./stories/[novel-name]/tracking/`
 - `/task-manager` -> `./stories/[novel-name]/tasks.md` and optional `./stories/[novel-name]/tasks/`
-- `/writer` -> selected chapter file(s) in `./stories/[novel-name]/content/`
-- `/editor` -> selected chapter file(s) in `./stories/[novel-name]/content/`
+- `/writer` -> selected chapter file(s) found recursively in `./stories/[novel-name]/content/`
+- `/editor` -> selected chapter file(s) found recursively in `./stories/[novel-name]/content/`
 - `/reviewer` -> `./stories/[novel-name]/tasks.md`, optional `./stories/[novel-name]/tasks/`, `./stories/[novel-name]/knowledge/`, `./stories/[novel-name]/tracking/`, and reviewed chapter files when relevant
 - `/utility-drafter` -> selected draft file(s) under `./draft/`, `./draft/chapters/`, `./draft/contents/`, or the user-defined draft output path
 - `/utility-scene-maker` -> selected scene draft file(s) under `./draft/`, related chapter/arc draft folders, `./draft/scenes/`, or the user-defined draft output path

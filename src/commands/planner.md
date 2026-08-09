@@ -57,7 +57,7 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 
 ### 2c. Check for Existing Chapters
 
-Check `./stories/[novel-name]/content/` for already-written chapters.
+Search `./stories/[novel-name]/content/` recursively for already-written chapters; preserve saga, arc, and custom grouping paths.
 - If chapters exist, read the **last written chapter** to understand where the story currently is.
 - Ask the user: "I see chapters 1–[N] are already written. Do you want to:
   - **Plan from where we left off** — continue the story from chapter [N+1]

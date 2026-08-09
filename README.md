@@ -43,11 +43,12 @@ The interactive installer asks which AI tools you use, then sets up commands, sk
 
 ## Story Lookup MCP
 
-Installed server `novel-writer` gives supported agents deterministic, read-only access to canonical story data:
+Installed server `novel-writer` gives supported agents deterministic, read-only access to canonical story data. Installer binds server to exact project directory where installation runs, so agent launch directory cannot redirect lookup into another workspace. Rerun installer after moving or renaming project folder.
 
 | Tool | Purpose |
 |------|---------|
-| `list_novels` | Lists novel folders under `stories/`. |
+| `list_novels` | Lists novel folders under `stories/` for story selection; does not inspect chapters. |
+| `list_chapters` | Recursively counts and lists written chapters under `content/`, including saga, arc, and custom nested folders. |
 | `list_of_characters` | Lists canonical characters and tracked-state availability. |
 | `search_character` | Searches character names, aliases, roles, traits, and profile text. |
 | `list_of_settings` | Lists canonical locations with type and significance. |
@@ -56,7 +57,7 @@ Installed server `novel-writer` gives supported agents deterministic, read-only 
 | `character_states` | Finds current character location, condition, possessions, knowledge, or arc state. |
 | `validate_story_files` | Checks MCP-readable knowledge and state file formats. |
 
-Pass `novel` when a project contains multiple story folders. Search tools accept partial spelling and context terms. Tool results include source paths and lines when available. See `NOVEL_WORKFLOW.md` for connection checks and error recovery.
+Pass `novel` when a project contains multiple story folders. Use `list_chapters` for current, existing, written, latest, or chapter-count questions; it reports total count independently of result limit. Use `offset` for later pages or `order: "descending"` for latest chapter records first. Search tools accept partial spelling and context terms. Tool results include source paths and lines when available. See `NOVEL_WORKFLOW.md` for connection checks and error recovery.
 
 ## AI Novel Writing Workflow
 
@@ -300,10 +301,11 @@ my-novel/
 │       │   ├── relationships.json
 │       │   ├── timeline.json
 │       │   └── validation-rules.json
-│       ├── content/
-│       │   ├── chapter-01.md
-│       │   ├── chapter-02.md
-│       │   └── ...
+│       ├── content/                 # Flat or recursively grouped; preserve established layout
+│       │   ├── chapter_00001.md
+│       │   └── saga_0001/
+│       │       └── arc_0001/
+│       │           └── chapter_00002.md
 │       ├── comic/              # Created by bonus comics prompt workflow
 │       │   └── chapter_0001/
 │       │       ├── ch_0001_page_001.md

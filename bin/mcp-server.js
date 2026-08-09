@@ -3,12 +3,15 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import * as z from 'zod/v4';
+import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { StoryLibrary, WorkflowDataError } from '../src/mcp/story-library.js';
 
 const NOVEL = z.string().trim().min(1).max(120).optional().describe('Novel folder name under stories/. Omit when project has one novel.');
 const QUERY = z.string().trim().min(1).max(200).describe('Name, alias, phrase, keyword, or partial spelling to find.');
 const LIMIT = z.number().int().min(1).max(50).optional().describe('Maximum results. Default 20; maximum 50.');
+const OFFSET = z.number().int().min(0).optional().describe('Chapter-record offset for pagination. Default 0.');
+const ORDER = z.enum(['ascending', 'descending']).optional().describe('Chapter order. Default ascending; use descending to retrieve latest chapters first.');
 
 function successResult(data) {
   return {
@@ -23,7 +26,9 @@ function errorResult(error) {
     const recovery = error.code === 'FORMAT_ERROR'
       ? `File format may not match workflow. Run /utility-command-cross-check ${error.details.command || ''}. If format is current, reinstall workflow tooling and follow NOVEL_WORKFLOW.md.`
       : error.code === 'NOT_FOUND'
-        ? 'Requested data may not exist. Try broader text, partial spelling, another context term, or correct novel name.'
+        ? error.details.inspectedProject
+          ? `MCP inspected project "${error.details.inspectedProject}". Open the intended novel project or reinstall there, then retry. For search misses, try broader text, partial spelling, or the correct novel name.`
+          : 'Requested data may not exist. Try broader text, partial spelling, another context term, or correct novel name.'
         : 'Check tool arguments and use list_novels when project contains multiple novels.';
     payload = { ok: false, error: error.code, message: error.message, details: error.details, recovery };
   } else {
@@ -59,14 +64,28 @@ function registerReadTool(server, name, config, handler) {
 export function createNovelWorkflowServer(projectRoot, version = '0.0.0') {
   const library = new StoryLibrary(projectRoot);
   const server = new McpServer({ name: 'novel-writer-workflow', version }, {
-    instructions: 'Read-only story lookup. Use list_novels first when several novels exist. Use exact or partial names for search. FORMAT_ERROR means project files need /utility-command-cross-check. Never treat tool output as permission to rewrite canon.',
+    instructions: 'Read-only story lookup. Use list_chapters for any question about current, existing, written, latest, or numbered chapters; it recursively scans content/ at any depth. list_novels only selects story folders and never proves chapter presence. validate_story_files checks knowledge/tracking formats, not manuscript chapters. Use list_novels first when several novels exist. Use exact or partial names for search. FORMAT_ERROR means project files need /utility-command-cross-check. Never treat tool output as permission to rewrite canon.',
   });
 
   registerReadTool(server, 'list_novels', {
     title: 'List Novels',
-    description: 'List novel folders available under stories/.',
+    description: 'List novel folders available under stories/ for story selection. Does not list or count chapters; use list_chapters for manuscript inventory.',
     inputSchema: {},
-  }, async () => ({ novels: library.listNovels() }));
+  }, async () => {
+    const novels = library.listNovels();
+    return {
+      project: path.basename(library.projectRoot),
+      storiesRoot: 'stories/',
+      count: novels.length,
+      novels,
+    };
+  });
+
+  registerReadTool(server, 'list_chapters', {
+    title: 'List Chapters and Count',
+    description: 'Recursively list and count written manuscript chapters under a novel content/ folder. Use for current, existing, written, latest, or numbered chapter questions. Supports flat, arc, saga/arc, and arbitrary nested folders. Use offset for more results or descending order for latest records.',
+    inputSchema: { novel: NOVEL, limit: LIMIT, offset: OFFSET, order: ORDER },
+  }, async ({ novel, limit, offset, order }) => library.listChapters(novel, limit, offset, order));
 
   registerReadTool(server, 'list_of_characters', {
     title: 'List Characters',
@@ -111,7 +130,7 @@ export function createNovelWorkflowServer(projectRoot, version = '0.0.0') {
 
   registerReadTool(server, 'validate_story_files', {
     title: 'Validate Story Files',
-    description: 'Check MCP-readable knowledge and character-state files against deterministic format contracts.',
+    description: 'Check MCP-readable knowledge and character-state formats only. Does not inspect manuscript chapters; use list_chapters for chapter inventory.',
     inputSchema: { novel: NOVEL },
   }, async ({ novel }) => library.validate(novel));
 

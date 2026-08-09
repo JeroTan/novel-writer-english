@@ -9,7 +9,7 @@ argument-hint: "[describe where you are or what you need help with]"
 
 # User Input: $ARGUMENTS
 
-When `novel-writer` MCP tools are available, use them for focused character, setting, glossary, and character-state lookup. Use `list_novels` first when multiple novels exist. MCP tools are read-only; commands still own all project-file updates.
+When `novel-writer` MCP tools are available, use them for focused chapter, character, setting, glossary, and character-state lookup. Use `list_chapters` for written chapter inventory; it scans `content/` recursively through saga, arc, or custom folders. Use `list_novels` only to select among multiple novels. MCP tools are read-only; commands still own all project-file updates.
 
 ## Objective
 
@@ -117,7 +117,7 @@ If the user asks how to write drafts manually or where to place them, provide th
 - `@#@ FLASHBACK @#@ [Description] @#@ END FLASHBACK @#@` — writes a full flashback sequence
 
 **Where finished chapters go:**
-- `/writer` saves completed chapters to `./stories/[novel-name]/content/chapter_[N].md` (zero-padded to 5 digits, e.g. `chapter_00001.md`)
+- `/writer` saves completed chapters as zero-padded `chapter_[N].md` files under `./stories/[novel-name]/content/`, preserving any established saga/arc/custom grouping path
 - `/editor` edits only the target chapter after all suggestions are `approve` or `skip` and the user confirms
 - Chapter format: `# Chapter [N]: [Title]` followed by body, then a mini summary separator
 - Task status is tracked in `./stories/[novel-name]/tasks.md` or `./stories/[novel-name]/tasks/` shards as `[ ]` -> `[FOR_REVIEW]` -> `[DONE]`

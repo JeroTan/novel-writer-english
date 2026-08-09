@@ -19,13 +19,13 @@ Edit one finished chapter after `/writer` and before `/reviewer`. The editor is 
 
 Determine the target chapter from `$ARGUMENTS` or ask which chapter to edit.
 
-Use `./stories/[novel-name]/content/` as the source folder. Accept these chapter references:
+Search `./stories/[novel-name]/content/` recursively; chapters may be direct or nested under saga, arc, or custom folders. Accept these chapter references:
 - `chapter_00001.md`
 - `chapter-01.md`
 - `chapter 1`
 - `ch1`
 - `1`
-- any exact chapter filename in the content folder
+- any exact chapter filename or relative path in the content tree
 
 If multiple novels exist under `./stories/`, ask which novel to use.
 
@@ -205,7 +205,7 @@ Keep item detail blocks concise but complete enough for the user to decide. Alwa
 
 When every item is either `approve` or `skip`, tell the user:
 
-> All editor items are resolved. Ready to edit `./stories/[novel-name]/content/[chapter-file]` with approved changes only. Confirm and I will apply them.
+> All editor items are resolved. Ready to edit `./stories/[novel-name]/content/[relative-chapter-path]` with approved changes only. Confirm and I will apply them.
 
 Apply changes only after the user confirms.
 

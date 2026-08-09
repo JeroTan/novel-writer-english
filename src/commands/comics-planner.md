@@ -11,7 +11,7 @@ argument-hint: "[Optional: source chapter range, comic format, target pages, e.g
 
 ## Objective
 
-Create `./stories/[novel-name]/comics-plan.md` by adapting novel chapters from `./stories/[novel-name]/content/` into comic chapters and page-level visual beats.
+Create `./stories/[novel-name]/comics-plan.md` by adapting novel chapters found recursively under `./stories/[novel-name]/content/` into comic chapters and page-level visual beats.
 
 This command processes existing novel content only. It may split one novel chapter into multiple comic chapters, merge multiple novel chapters into one comic chapter, or adjust page count when visual pacing demands it.
 
@@ -26,7 +26,7 @@ Read:
 - `./stories/[novel-name]/tasks.md`, or `tasks/_main.md` plus source chapter task shard(s) when split mode exists
 - relevant files in `./stories/[novel-name]/knowledge/`
 - relevant files in `./stories/[novel-name]/tracking/`
-- selected source chapters in `./stories/[novel-name]/content/`
+- selected source chapters found recursively in `./stories/[novel-name]/content/`
 
 If `specification/`, `creative-plan/`, or `tasks/` split folders exist, read `_main.md` first, then only shard(s) relevant to the selected source chapters, saga, arc, batch, or chapter range.
 

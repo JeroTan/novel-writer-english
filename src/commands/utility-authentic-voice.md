@@ -18,7 +18,7 @@ Rewrite a passage to remove AI tells and enforce authentic, human-sounding prose
 ### 1. Identify Target
 
 Determine what text the user wants to rewrite:
-- **Full chapter** — e.g., "Chapter 3" → read `./stories/[novel-name]/content/chapter_[N].md`
+- **Full chapter** — e.g., "Chapter 3" → locate the matching file recursively under `./stories/[novel-name]/content/`
 - **Line range** — e.g., "Chapter 3, lines 15–30" → read that section
 - **Pasted text** — use the text provided directly in the command input
 

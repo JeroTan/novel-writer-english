@@ -17,7 +17,7 @@ Draft a chapter of the novel while strictly maintaining consistency with the pla
 
 ### 1. Check Existing Chapter
 
-Check if the target chapter already exists in `./stories/[novel-name]/content/`.
+Search `./stories/[novel-name]/content/` recursively for the target chapter. Chapters may be stored directly in `content/` or under saga, arc, or custom grouping folders. Never assume a fixed depth.
 - If it exists, ask the user:
   - **Update** — modify the existing chapter while keeping the core structure intact.
   - **Replace** — discard the current chapter and rewrite from scratch.
@@ -28,7 +28,7 @@ Check if the target chapter already exists in `./stories/[novel-name]/content/`.
 
 Check the creative plan, task list, and existing chapters to understand where the story is:
 - Read `./stories/[novel-name]/tasks.md`, or if `./stories/[novel-name]/tasks/` exists read `tasks/_main.md` plus the relevant saga/arc/batch/chapter shard, to find the next pending chapter task.
-- Check `./stories/[novel-name]/content/` for the last written chapter.
+- Search `./stories/[novel-name]/content/` recursively for the last written chapter. When `list_chapters` is available, use it instead of inferring chapter state from `list_novels` or `validate_story_files`.
 - Check `./stories/[novel-name]/creative-plan.md`, or if `./stories/[novel-name]/creative-plan/` exists read `creative-plan/_main.md` plus the target saga/arc/batch/chapter shard, to find the exact target chapter section under its saga/arc or batch.
 
 For the target chapter, extract from the creative plan when available:
@@ -66,7 +66,7 @@ Before writing any chapter, check for draft files:
 1. Look for a folder at `./draft/chapters/` (relative to project root).
 2. Accept any of these naming conventions for chapter files: `chapter_00001.md` (preferred), `0001.md`, `1.md`, `01.md`, `chapter-1.md`, `chapter 1.md`, `ch1.md`, `[1-5].md` (range files cover multiple chapters), or any file whose name starts with a chapter number.
 3. **If drafts are found**: inform the user — "I found draft files in `./draft/chapters/`. I'll use the draft together with the matching chapter section from `creative-plan.md` or `creative-plan/`. The planner's chapter Summary, Flow, Continuity Notes, pacing, and arc constraints are the main guide; the draft supplies user-written scene material and wording direction. If the draft conflicts with core documents, core documents win."
-4. **Draft Priority Rule**: Use the draft as an outline and prose/source-material guide, then align it to the matching planner chapter section. Verify every scene against core documents. If a draft contradicts the planner, specification, knowledge, or tracking, follow the core documents unless the user explicitly approves changing canon. After saving, tell the user directly which scenes were changed from the draft and why. Optionally, save these notes to `./stories/[novel-name]/content/chapter_[N].notes.md` if there are multiple deviations.
+4. **Draft Priority Rule**: Use the draft as an outline and prose/source-material guide, then align it to the matching planner chapter section. Verify every scene against core documents. If a draft contradicts the planner, specification, knowledge, or tracking, follow the core documents unless the user explicitly approves changing canon. After saving, tell the user directly which scenes were changed from the draft and why. Optionally, save these notes beside the chapter as `chapter_[N].notes.md` if there are multiple deviations.
 5. **Special Draft Tags**: Detect and process these tags in drafts:
    - `@#@ FILL @#@ [Description] @#@ END FILL @#@`: Replace with fully written prose based on the description.
    - `@#@ DESCRIBE @#@ [Description] @#@ END DESCRIBE @#@`: Rewrite with light-novel style sensory intensity. Do not change the core action.
@@ -84,7 +84,7 @@ Before writing ANY chapter, silently run through all 13 items:
 6. **World** — Read `./stories/[novel-name]/knowledge/world-setting.md` for world rules, magic/tech systems, and geography.
 7. **Glossary** — Use `list_of_glossary` for focused lookup when the `novel-writer` MCP is available; otherwise read `./stories/[novel-name]/knowledge/glossary.md`. Use exact terminology for established concepts, factions, items, or locations. If you encounter a term in the draft or plan that is not in the glossary, note it for the user to define later.
    - **Strategic Reference**: If the target chapter involves a contest, tactic, mind game, negotiation trap, clever win, hidden rule, bluff, or strategic reversal, read `./stories/[novel-name]/knowledge/strategic-reversals.md` if it exists. Skip this file when the plan marks strategic reversal as `[N/A]` or the chapter does not use that scene type.
-8. **Previous Chapter** — Read the immediately preceding chapter in `./stories/[novel-name]/content/` to match tone and continuity.
+8. **Previous Chapter** — Find the immediately preceding chapter recursively under `./stories/[novel-name]/content/` and read it to match tone and continuity.
    - **Continuation sequences**: If the pacing tag is numbered (e.g., `[Action 2]`, `[Action 3]`), also read the previous chapter in that sequence (e.g., `[Action 1]`) to ensure seamless continuity of action, character state, dialogue threads, and unresolved tension. The writer must pick up exactly where the previous chapter left off.
    - **Arc transitions**: If this is the first chapter of a new arc, read the **last chapter of the previous arc** to understand what was resolved and what carries over.
 9. **Goals** — Identify what MUST be accomplished in THIS chapter from the planner chapter section first, then confirm the task line matches it.
@@ -116,7 +116,7 @@ If the chapter uses a Strategic Reversal / Contest Design note, load `[user_agen
 ### 7. Chapter Output Format
 
 Every generated chapter MUST follow this exact structure:
-Save the chapter file as `./stories/[novel-name]/content/chapter_[N].md` where `[N]` is zero-padded to 5 digits (e.g. `chapter_00001.md`, `chapter_00012.md`, `chapter_00100.md`).
+Save as `chapter_[N].md`, with `[N]` zero-padded to 5 digits (for example `chapter_00001.md`). Preserve the novel's established content layout: use the matching saga/arc/custom folder when one exists or the plan maps the chapter there; otherwise save directly under `./stories/[novel-name]/content/`. Never flatten or relocate existing chapters implicitly.
 
 ```markdown
 # Chapter [N]: [Chapter Title — if no title, use a thematic phrase from the chapter content]

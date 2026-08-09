@@ -39,7 +39,7 @@ Read ALL of the following before generating the report:
 - `./stories/[novel-name]/tasks.md` or `tasks/_main.md` plus task shards (identify chapters marked `[FOR_REVIEW]`)
 - All files in `./stories/[novel-name]/knowledge/` (including `glossary.md`)
 - All files in `./stories/[novel-name]/tracking/`
-- All chapter files in `./stories/[novel-name]/content/`
+- All chapter files found recursively in `./stories/[novel-name]/content/`, including saga, arc, and custom grouping folders
 
 Then verify:
 - Constitution compliance

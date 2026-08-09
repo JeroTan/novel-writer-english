@@ -18,7 +18,7 @@ When installed, read-only `novel-writer` MCP tools can retrieve focused characte
 | 3 | **Clarify** | Resolve ambiguities | Updated specification |
 | 4 | **Plan** | Create creative plan | `stories/[name]/creative-plan.md` or `creative-plan/` split mode |
 | 5 | **Tasks** | Break down into tasks | `stories/[name]/tasks.md` or `tasks/` split mode |
-| 6 | **Write** | AI-assisted chapter writing | `stories/[name]/content/chapter-XX.md` |
+| 6 | **Write** | AI-assisted chapter writing | `stories/[name]/content/**/chapter_*.md` |
 | 7 | **Edit** | One-chapter correction pass with approve/skip tracking | Updated chapter |
 | 8 | **Review** | Broad QA for continuity, tracking, and final readiness | Review report |
 
@@ -33,7 +33,7 @@ Check which files already exist:
 - `stories/[name]/specification.md` or `stories/[name]/specification/` exists -> Step 2 complete
 - `stories/[name]/creative-plan.md` or `stories/[name]/creative-plan/` exists -> Step 4 complete
 - `stories/[name]/tasks.md` or `stories/[name]/tasks/` exists -> Step 5 complete
-- `stories/[name]/content/` has chapters -> Step 6 in progress
+- `stories/[name]/content/` has chapters at any recursive depth -> Step 6 in progress
 - chapters need revision -> Step 7 (`/editor`)
 - chapters are edited or ready for broad QA -> Step 8 (`/reviewer`)
 

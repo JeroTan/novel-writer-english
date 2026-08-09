@@ -59,7 +59,7 @@ Look for draft files in `./draft/chapters/` (relative to project root). Accept a
 
 ### 2c. Check for Existing Chapters
 
-Check `./stories/[novel-name]/content/` for already-written chapters.
+Search `./stories/[novel-name]/content/` recursively for already-written chapters; preserve saga, arc, and custom grouping paths.
 - Cross-reference with the task list to identify which chapters are already done.
 - Show the user a summary: "Chapters 1–[N] are already written. [M] tasks are `[DONE]`, [K] are `[FOR_REVIEW]`, [L] are pending."
 - Default to generating tasks only for unwritten chapters unless the user requests otherwise.

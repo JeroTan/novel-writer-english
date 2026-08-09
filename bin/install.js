@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
-import { installMcpConfig } from '../src/installer/mcp-config.js';
+import { decodeProjectRoot, installMcpConfig } from '../src/installer/mcp-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -445,8 +445,17 @@ async function main() {
 async function run() {
   if (process.argv[2] === 'mcp') {
     const rootIndex = process.argv.indexOf('--project-root');
+    const encodedRootIndex = process.argv.indexOf('--project-root-base64');
     if (rootIndex >= 0 && !process.argv[rootIndex + 1]) throw new Error('--project-root requires a path.');
-    const projectRoot = rootIndex >= 0 ? path.resolve(process.argv[rootIndex + 1]) : process.cwd();
+    if (encodedRootIndex >= 0 && !process.argv[encodedRootIndex + 1]) throw new Error('--project-root-base64 requires a value.');
+
+    let projectRoot;
+    if (encodedRootIndex >= 0) {
+      projectRoot = decodeProjectRoot(process.argv[encodedRootIndex + 1]);
+    } else {
+      projectRoot = rootIndex >= 0 ? path.resolve(process.argv[rootIndex + 1]) : process.cwd();
+    }
+
     const { runMcpServer } = await import('./mcp-server.js');
     await runMcpServer({ projectRoot, version: PACKAGE_JSON.version });
     return;

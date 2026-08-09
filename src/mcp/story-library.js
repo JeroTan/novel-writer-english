@@ -4,6 +4,10 @@ import path from 'node:path';
 const PLACEHOLDER_NAME = /^\[[^\]]+\]$/;
 const DEFAULT_LIMIT = 20;
 const MAX_LIMIT = 50;
+const CHAPTER_HEADING_READ_BYTES = 64 * 1024;
+const MAX_CHAPTER_NUMBER = 9_999_999;
+const MAX_REPORTED_GAPS = 100;
+const MAX_REPORTED_RANGES = 100;
 
 export class WorkflowDataError extends Error {
   constructor(code, message, details = {}) {
@@ -328,6 +332,225 @@ function boundedLimit(limit) {
   return Math.max(1, Math.min(MAX_LIMIT, Math.floor(numeric)));
 }
 
+function readFileBeginning(filePath) {
+  const descriptor = fs.openSync(filePath, 'r');
+  try {
+    const buffer = Buffer.alloc(CHAPTER_HEADING_READ_BYTES);
+    const bytesRead = fs.readSync(descriptor, buffer, 0, buffer.length, 0);
+    return buffer.subarray(0, bytesRead).toString('utf8').replace(/^\uFEFF/, '');
+  } finally {
+    fs.closeSync(descriptor);
+  }
+}
+
+function isAuxiliaryChapterFile(fileName) {
+  return fileName.startsWith('.')
+    || /\.notes\.md$/i.test(fileName)
+    || /^(?:_main|readme|index)\.md$/i.test(fileName);
+}
+
+function parseChapterNumber(value) {
+  const number = Number(value);
+  return Number.isSafeInteger(number) && number >= 0 && number <= MAX_CHAPTER_NUMBER ? number : null;
+}
+
+function parseChapterFileName(fileName) {
+  if (!/\.md$/i.test(fileName) || isAuxiliaryChapterFile(fileName)) return null;
+  const stem = fileName.replace(/\.md$/i, '').trim();
+
+  const prefixedRange = stem.match(/^(?:chapter|ch)[\s_-]*(\d+)\s*(?:-|–|—|to)\s*(\d+)(?:$|[\s_-].*)/i);
+  if (prefixedRange) {
+    const number = parseChapterNumber(prefixedRange[1]);
+    const endNumber = parseChapterNumber(prefixedRange[2]);
+    if (number !== null && endNumber !== null && endNumber >= number) return { number, endNumber };
+  }
+
+  const bracketedRange = stem.match(/^\[(\d+)\s*(?:-|–|—|to)\s*(\d+)\](?:$|[\s_-].*)/i);
+  if (bracketedRange) {
+    const number = parseChapterNumber(bracketedRange[1]);
+    const endNumber = parseChapterNumber(bracketedRange[2]);
+    if (number !== null && endNumber !== null && endNumber >= number) return { number, endNumber };
+  }
+
+  const prefixed = stem.match(/^(?:chapter|ch)[\s_-]*(\d+)(?:$|[\s_-].*)/i);
+  if (prefixed) {
+    const number = parseChapterNumber(prefixed[1]);
+    if (number !== null) return { number, endNumber: null };
+  }
+
+  const numeric = stem.match(/^(\d+)(?:$|[\s_-].*)/);
+  if (numeric) {
+    const number = parseChapterNumber(numeric[1]);
+    if (number !== null) return { number, endNumber: null };
+  }
+
+  return null;
+}
+
+function parseChapterHeading(filePath) {
+  const headingLine = readFileBeginning(filePath)
+    .split(/\r?\n/)
+    .find(line => /^#\s+(?!#)/.test(line));
+  if (!headingLine) return { number: null, title: null };
+
+  const heading = headingLine.replace(/^#\s+/, '').trim();
+  const chapterMatch = heading.match(/^(?:chapter|ch)\s*(\d+)(?:\s*[:\-–—]\s*(.+))?$/i);
+  if (!chapterMatch) return { number: null, title: heading || null };
+
+  return {
+    number: parseChapterNumber(chapterMatch[1]),
+    title: chapterMatch[2]?.trim() || null,
+  };
+}
+
+function collectMarkdownFiles(root) {
+  if (!fs.existsSync(root)) return [];
+
+  const files = [];
+  const visit = directory => {
+    const entries = fs.readdirSync(directory, { withFileTypes: true })
+      .sort((left, right) => left.name.localeCompare(right.name, undefined, { numeric: true }));
+
+    for (const entry of entries) {
+      if (entry.name.startsWith('.')) continue;
+      const entryPath = path.join(directory, entry.name);
+      if (entry.isDirectory()) visit(entryPath);
+      else if (entry.isFile() && /\.md$/i.test(entry.name)) files.push(entryPath);
+    }
+  };
+
+  visit(root);
+  return files;
+}
+
+function classifyHierarchy(segments) {
+  return segments.map(name => ({
+    type: /^sagas?(?:[\s_-]|$)/i.test(name)
+      ? 'saga'
+      : /^arcs?(?:[\s_-]|$)/i.test(name)
+        ? 'arc'
+        : 'group',
+    name,
+  }));
+}
+
+function chapterRecord(projectRoot, contentRoot, filePath) {
+  const fileName = path.basename(filePath);
+  if (isAuxiliaryChapterFile(fileName)) return null;
+
+  const fileNameData = parseChapterFileName(fileName);
+  const headingData = parseChapterHeading(filePath);
+  if (!fileNameData && headingData.number === null) return null;
+
+  const number = fileNameData?.number ?? headingData.number;
+  const relativeContentPath = toPortablePath(contentRoot, filePath);
+  const groupSegments = relativeContentPath.split('/').slice(0, -1);
+  const record = {
+    number,
+    title: headingData.title,
+    path: toPortablePath(projectRoot, filePath),
+    relativeContentPath,
+    groupPath: groupSegments.join('/'),
+    hierarchy: classifyHierarchy(groupSegments),
+  };
+
+  if (fileNameData?.endNumber !== null && fileNameData?.endNumber !== undefined) {
+    record.endNumber = fileNameData.endNumber;
+  }
+  if (fileNameData && headingData.number !== null && fileNameData.number !== headingData.number) {
+    record.headingNumber = headingData.number;
+    record.numberMismatch = true;
+  }
+
+  return record;
+}
+
+export function discoverChapters(projectRoot, storyRoot) {
+  const contentRoot = path.join(storyRoot, 'content');
+  const chapters = collectMarkdownFiles(contentRoot)
+    .map(filePath => chapterRecord(projectRoot, contentRoot, filePath))
+    .filter(Boolean)
+    .sort((left, right) => left.number - right.number
+      || left.relativeContentPath.localeCompare(right.relativeContentPath, undefined, { numeric: true }));
+
+  return { contentRoot, chapters };
+}
+
+function summarizeChapterNumbers(chapters) {
+  const intervals = chapters
+    .map(chapter => ({
+      start: chapter.number,
+      end: chapter.endNumber !== undefined && chapter.endNumber >= chapter.number
+        ? chapter.endNumber
+        : chapter.number,
+      path: chapter.path,
+    }))
+    .sort((left, right) => left.start - right.start || left.end - right.end || left.path.localeCompare(right.path));
+
+  const merged = [];
+  for (const interval of intervals) {
+    const previous = merged.at(-1);
+    if (!previous || interval.start - previous.end > 1) {
+      merged.push({ start: interval.start, end: interval.end });
+    } else {
+      previous.end = Math.max(previous.end, interval.end);
+    }
+  }
+
+  const gaps = [];
+  const gapRanges = [];
+  let gapCount = 0;
+  for (let index = 1; index < merged.length; index++) {
+    const start = merged[index - 1].end + 1;
+    const end = merged[index].start - 1;
+    const count = end - start + 1;
+    gapCount += count;
+    if (gapRanges.length < MAX_REPORTED_RANGES) gapRanges.push({ start, end, count });
+    for (let number = start; number <= end && gaps.length < MAX_REPORTED_GAPS; number++) gaps.push(number);
+  }
+
+  const events = new Map();
+  const eventAt = point => {
+    if (!events.has(point)) events.set(point, { add: [], remove: [] });
+    return events.get(point);
+  };
+  for (const interval of intervals) {
+    eventAt(interval.start).add.push(interval.path);
+    eventAt(interval.end + 1).remove.push(interval.path);
+  }
+
+  const duplicateRanges = [];
+  let duplicateRangeCount = 0;
+  const activePaths = new Set();
+  const eventPoints = [...events.keys()].sort((left, right) => left - right);
+  for (let index = 0; index < eventPoints.length - 1; index++) {
+    const point = eventPoints[index];
+    const event = events.get(point);
+    for (const filePath of event.remove) activePaths.delete(filePath);
+    for (const filePath of event.add) activePaths.add(filePath);
+
+    const end = eventPoints[index + 1] - 1;
+    if (activePaths.size < 2 || end < point) continue;
+    duplicateRangeCount++;
+    if (duplicateRanges.length < MAX_REPORTED_RANGES) {
+      duplicateRanges.push({ start: point, end, paths: [...activePaths].sort() });
+    }
+  }
+
+  return {
+    uniqueChapterCount: merged.reduce((count, interval) => count + interval.end - interval.start + 1, 0),
+    latestChapterNumber: merged.at(-1)?.end ?? null,
+    gapCount,
+    gaps,
+    gapsTruncated: gapCount > gaps.length,
+    gapRanges,
+    gapRangesTruncated: merged.length - 1 > gapRanges.length,
+    duplicates: duplicateRanges,
+    duplicateRangeCount,
+    duplicatesTruncated: duplicateRangeCount > duplicateRanges.length,
+  };
+}
+
 function searchEntries(entries, query, limit) {
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
@@ -356,7 +579,10 @@ export function resolveStory(projectRoot, requestedNovel) {
   const resolvedRoot = path.resolve(projectRoot);
   const novels = listNovels(resolvedRoot);
   if (novels.length === 0) {
-    throw new WorkflowDataError('NOT_FOUND', 'No novels found under stories/.');
+    throw new WorkflowDataError('NOT_FOUND', 'No novels found under stories/.', {
+      inspectedProject: path.basename(resolvedRoot),
+      expectedStoriesRoot: 'stories/',
+    });
   }
 
   let novel;
@@ -364,7 +590,10 @@ export function resolveStory(projectRoot, requestedNovel) {
     const normalized = normalizeText(requestedNovel);
     const matches = novels.filter(candidate => normalizeText(candidate) === normalized);
     if (matches.length !== 1) {
-      throw new WorkflowDataError('NOT_FOUND', `Novel "${requestedNovel}" not found.`, { availableNovels: novels });
+      throw new WorkflowDataError('NOT_FOUND', `Novel "${requestedNovel}" not found.`, {
+        inspectedProject: path.basename(resolvedRoot),
+        availableNovels: novels,
+      });
     }
     [novel] = matches;
   } else if (novels.length === 1) {
@@ -385,6 +614,38 @@ export class StoryLibrary {
 
   listNovels() {
     return listNovels(this.projectRoot);
+  }
+
+  listChapters(novel, limit, offset = 0, order = 'ascending') {
+    const story = resolveStory(this.projectRoot, novel);
+    const { contentRoot, chapters } = discoverChapters(this.projectRoot, story.storyRoot);
+    const chapterFileCount = chapters.length;
+    const summary = summarizeChapterNumbers(chapters);
+    const numericOffset = Number(offset);
+    const boundedOffset = Number.isFinite(numericOffset) && numericOffset >= 0 ? Math.floor(numericOffset) : 0;
+    const normalizedOrder = order === 'descending' ? 'descending' : 'ascending';
+    const orderedChapters = normalizedOrder === 'descending'
+      ? [...chapters].sort((left, right) => (right.endNumber ?? right.number) - (left.endNumber ?? left.number)
+        || right.number - left.number
+        || right.relativeContentPath.localeCompare(left.relativeContentPath, undefined, { numeric: true }))
+      : chapters;
+    const selectedChapters = orderedChapters.slice(boundedOffset, boundedOffset + boundedLimit(limit));
+    const nextOffset = boundedOffset + selectedChapters.length;
+
+    return {
+      novel: story.novel,
+      contentRoot: toPortablePath(this.projectRoot, contentRoot),
+      count: summary.uniqueChapterCount,
+      chapterFileCount,
+      ...summary,
+      offset: boundedOffset,
+      order: normalizedOrder,
+      returned: selectedChapters.length,
+      truncated: selectedChapters.length < chapterFileCount,
+      hasMore: nextOffset < chapterFileCount,
+      nextOffset: nextOffset < chapterFileCount ? nextOffset : null,
+      chapters: selectedChapters,
+    };
   }
 
   listCharacters(novel, limit) {

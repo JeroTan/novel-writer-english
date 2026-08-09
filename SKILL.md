@@ -16,7 +16,7 @@ This skill contains the core knowledge of a proven eight-step methodology for wr
 | 3 | Clarify | Resolve ambiguities in the specification | Updated spec file or shard |
 | 4 | Plan | Design chapter structure, pacing, foreshadowing, arcs | `stories/[name]/creative-plan.md` or split `creative-plan/` |
 | 5 | Tasks | Break the plan into prioritized, dependency-tracked tasks | `stories/[name]/tasks.md` or split `tasks/` |
-| 6 | Write | Draft chapters using the pre-write checklist | `stories/[name]/content/chapter-XX.md` |
+| 6 | Write | Draft chapters using the pre-write checklist | `stories/[name]/content/**/chapter_*.md` |
 | 7 | Edit | Review one chapter, propose line-level fixes, approve/skip items, apply approved edits after confirmation | Updated chapter |
 | 8 | Review | Run broad QA on framework, cross-chapter continuity, tracking, knowledge, and final readiness | Review report |
 
@@ -47,9 +47,10 @@ project-root/
 │       │   ├── relationships.json
 │       │   ├── timeline.json
 │       │   └── validation-rules.json
-│       ├── content/
+│       ├── content/               ← flat or grouped recursively by saga/arc/custom folders
 │       │   ├── chapter_00001.md   ← Step 6 output
-│       │   └── chapter_00001.notes.md  ← optional draft deviation notes
+│       │   ├── chapter_00001.notes.md  ← optional draft deviation notes
+│       │   └── saga_0001/arc_0001/chapter_00002.md
 │       ├── comic/               ← optional comics page prompts
 │       │   └── chapter_0001/
 │       │       └── ch_0001_page_001.md
@@ -126,7 +127,7 @@ Creates, extends, redoes, or lightly revises loose draft material under `draft/`
 Creates focused scene drafts under `draft/` for a chapter, arc, or impromptu idea. Use `/utility-scene-maker` for flashbacks, fights, traps, dramatic tension, consequence scenes, explanations, or one-off moments that need only relevant constitution, knowledge, draft, and chapter context.
 
 ### Story Lookup MCP
-Installer configures read-only `novel-writer` MCP tools for supported local agents. Use `list_novels`, `list_of_characters`, `search_character`, `list_of_settings`, `search_settings`, `list_of_glossary`, `character_states`, and `validate_story_files` to retrieve canonical knowledge without loading whole project files. Pass novel name when multiple novels exist. On `FORMAT_ERROR`, use `/utility-command-cross-check specify` or `/utility-command-cross-check utility-track`; on `TOOL_ERROR`, reinstall workflow and check `NOVEL_WORKFLOW.md`.
+Installer configures read-only `novel-writer` MCP tools for supported local agents. Use `list_chapters` for written chapter inventory; it recursively discovers direct chapters and chapters grouped under saga, arc, or custom folders. Use `list_novels` only to select a story folder. Use `list_of_characters`, `search_character`, `list_of_settings`, `search_settings`, `list_of_glossary`, `character_states`, and `validate_story_files` for canonical knowledge and tracking lookup. Pass novel name when multiple novels exist. On `FORMAT_ERROR`, use `/utility-command-cross-check specify` or `/utility-command-cross-check utility-track`; on `TOOL_ERROR`, reinstall workflow and check `NOVEL_WORKFLOW.md`.
 
 ### Bonus: Comics Prompt Workflow
 After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.

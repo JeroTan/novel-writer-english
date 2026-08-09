@@ -43,6 +43,7 @@ Use `/utility-guide-me` for command selection. Use `/utility-command-cross-check
 Installed MCP server name: `novel-writer`.
 
 - `list_novels`
+- `list_chapters` - Recursively counts/lists chapters under `content/`, including saga/arc/custom nesting.
 - `list_of_characters`
 - `search_character`
 - `list_of_settings`
@@ -51,11 +52,11 @@ Installed MCP server name: `novel-writer`.
 - `character_states`
 - `validate_story_files`
 
-Tools are read-only. Pass `novel` when `stories/` contains multiple novels. Search accepts exact names, partial names, aliases, and context terms. Results include source paths and lines when available.
+Tools are read-only. Use `list_chapters` for current, existing, written, latest, or chapter-count questions; use `offset` for later pages or descending order for latest records first. `list_novels` only selects a story folder. Pass `novel` when `stories/` contains multiple novels. Search accepts exact names, partial names, aliases, and context terms. Results include source paths and lines when available.
 
 ## Starting MCP Server
 
-No separate server terminal is needed during normal use. Installer adds project MCP configuration, and selected agent starts `novel-writer` automatically when project opens. Restart agent after installation.
+No separate server terminal is needed during normal use. Installer adds project MCP configuration bound to exact installation project root, and selected agent starts `novel-writer` automatically when project opens. Restart agent after installation. Rerun installer if project folder moves or is renamed.
 
 Check automatic connection with agent MCP screen or command:
 

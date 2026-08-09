@@ -6,7 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.5.0] - 2026-08-09
 ### Added
+- Added recursive `list_chapters` MCP inventory with chapter totals, titles, hierarchy paths, latest number, gaps, and duplicate detection.
 - Added `/editor` command for one-chapter revision, approve/skip tracking, and confirmed application of approved edits.
 - Added `punctuation-emotional-effect` writing technique skill.
 - Added `strategic-reversal` writing technique skill for contests, tactics, bluffs, hidden rules, clever wins, and fair reversals.
@@ -25,6 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added installed `NOVEL_WORKFLOW.md` with concise command, MCP startup, and recovery guidance.
 
 ### Changed
+- Bound generated MCP commands to exact installation project root, preventing client launch directory from redirecting story lookup into another workspace.
+- Encoded bound project-root arguments so Windows shell metacharacters in folder names cannot alter MCP launch commands.
+- Clarified MCP tool routing so chapter questions use `list_chapters`, while `list_novels` only selects story folders and validation only checks knowledge/tracking formats.
+- Made chapter discovery layout-aware across flat `content/`, arc folders, saga/arc folders, and arbitrary nested groups.
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.
 - Refocused `/reviewer` on broad project QA, continuity, tracking, knowledge, and final readiness.
 - Moved punctuation-for-emotion guidance out of `/writer` into the new writing technique skill.
