@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added visual reference sheet prompt utility commands for characters, settings/places, objects/props, and NPC/general designs.
 - Added `comics-prompting` writing technique skill for manga, manhwa, manhua, webtoon, comic page prompts, revision prompts, and visual reference sheet prompts.
 - Added `/utility-drafter` for loose draft creation, redo/update/more workflows, and draft change suggestions.
+- Added `/utility-scene-maker` for focused scene drafts such as flashbacks, fights, traps, dramatic tension, consequence scenes, explanations, and impromptu moments.
 
 ### Changed
 - Updated workflow docs from seven core steps to eight core steps: `/writer` -> `/editor` -> `/reviewer`.

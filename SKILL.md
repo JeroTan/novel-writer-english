@@ -122,6 +122,9 @@ Records the novel's bibliographic metadata. `/utility-meta` creates or updates `
 ### Utility: Drafter
 Creates, extends, redoes, or lightly revises loose draft material under `draft/` from a user's idea. Drafts are editable idea dumps, not canon. Use `/utility-drafter` before `/planner`, `/task-manager`, or `/writer` when the user wants to explore intent first.
 
+### Utility: Scene Maker
+Creates focused scene drafts under `draft/` for a chapter, arc, or impromptu idea. Use `/utility-scene-maker` for flashbacks, fights, traps, dramatic tension, consequence scenes, explanations, or one-off moments that need only relevant constitution, knowledge, draft, and chapter context.
+
 ### Bonus: Comics Prompt Workflow
 After novel chapters exist, `/comics-planner` can adapt them into manga, manhwa, manhua, or webtoon chapter/page plans. `/comics-task` creates page checklist tracking. `/comics-chapter-pages-prompt` creates clean page prompt files. `/comics-revise-prompt` revises page or sheet prompts. Sheet utilities create character, setting/place, object, and NPC/general reference sheet prompts.
 

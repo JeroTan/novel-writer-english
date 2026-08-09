@@ -20,6 +20,7 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 - **Eight-step AI novel writing workflow** from concept to completed manuscript
 - **AI-assisted chapter drafting** with a 13-item pre-write checklist
 - **Loose draft jumpstart utility** for chapter ideas, arcs, idea dumps, and draft revisions
+- **Focused scene draft utility** for flashbacks, fights, traps, tension beats, explanations, and impromptu moments
 - **Built-in editor workflow** for one-chapter line fixes, approval tracking, and controlled revisions
 - **Built-in reviewer workflow** for broad consistency, tracking, story health, and final readiness
 - **Bonus comics prompt workflow** for manga, manhwa, manhua, webtoon page plans, page prompts, and visual reference sheets
@@ -139,6 +140,7 @@ For long projects, `/specify`, `/planner`, and `/task-manager` can switch large 
 | Command | Description |
 |---------|-------------|
 | `/utility-drafter` | Creates, extends, redoes, or lightly revises loose draft files from user ideas. |
+| `/utility-scene-maker` | Creates focused scene drafts under `draft/` for chapter, arc, or impromptu scene ideas. |
 | `/meta` | Records novel metadata, including title, author, genre, Royal Road-style tags, work type, status, and publication dates, to `meta.json`. |
 | `/checklist` | Runs a quality checklist against the current context or chapter. |
 | `/expert` | Activates expert mode for deep, specialized analysis, such as editor, sensitivity reader, or logic checker. |

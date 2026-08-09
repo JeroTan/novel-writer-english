@@ -61,6 +61,7 @@ Present the user with a clear overview:
 |---------|--------------|
 | `/utility-guide-me` | Return to this guide and assess your current progress |
 | `/utility-drafter` | Create, extend, redo, or lightly revise loose draft files from user ideas |
+| `/utility-scene-maker` | Create focused scene drafts for flashbacks, fights, traps, tension, explanations, or impromptu moments |
 | `/utility-meta` | Record novel metadata for platform upload (bucket, database, web novel viewer) |
 | `/utility-checklist` | Quick QA checklist (Pre-Write, Post-Write, General Story modes) |
 | `/utility-expert` | Activate expert persona (Editor, Sensitivity Reader, Logic Checker, etc.) |
@@ -76,6 +77,7 @@ To move to a step, the user types `/command-name` in the chat. For example: `/co
 
 **Drafting workflow**: If the user has written their own drafts, they can place them in `./draft/chapters/` and the workflow will integrate them:
 - `/utility-drafter` can jumpstart loose draft chapters, arcs, idea dumps, or draft revisions from the user's idea
+- `/utility-scene-maker` can draft one focused scene and save it near the related chapter, arc, or `draft/scenes/`
 - `/planner` reads drafts to build the chapter structure
 - `/task-manager` generates tasks from the draft files
 - `/writer` expands drafts into full prose using the `@#@ FILL @#@`, `@#@ DESCRIBE @#@`, and `@#@ FLASHBACK @#@` tags
@@ -96,6 +98,11 @@ If the user asks how to write drafts manually or where to place them, provide th
 - Turns a raw user idea into loose draft material without treating it as canon
 - Can redo a draft, update a part, generate more, or suggest changes to a line/phrase
 - Uses only related draft, knowledge, and chapter context so the draft stays light and flexible
+
+**How `/utility-scene-maker` helps:**
+- Drafts one focused scene such as a flashback, fight, trap, dramatic tension beat, consequence, or explanation
+- Saves scene drafts as `[DraftName]_scene_draft.md` or numbered `000n_[DraftName]_scene_draft.md`
+- Uses only context relevant to that scene: constitution, nearby drafts/chapters, and named characters, places, glossary, or rules
 
 **How `/writer` processes drafts:**
 - Drafts are used as outlines — `specification.md` or `specification/`, `creative-plan.md` or `creative-plan/`, `knowledge/`, and `tracking/` take priority
