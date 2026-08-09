@@ -56,7 +56,7 @@ Tools are read-only. Use `list_chapters` for current, existing, written, latest,
 
 ## Starting MCP Server
 
-No separate server terminal is needed during normal use. Installer adds project MCP configuration bound to exact installation project root, and selected agent starts `novel-writer` automatically when project opens. Restart agent after installation. Rerun installer if project folder moves or is renamed.
+No separate server terminal is needed during normal use. Installer adds project MCP configuration bound to exact installation project root, and selected agent starts `novel-writer` automatically when project opens. MCP uses an isolated project-bound npm cache; rerunning installer replaces old managed bindings and rebuilds that cache. Restart agent after installation. Rerun installer if project folder moves or is renamed.
 
 Check automatic connection with agent MCP screen or command:
 

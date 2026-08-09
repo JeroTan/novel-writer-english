@@ -6,7 +6,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
-import { decodeProjectRoot, installMcpConfig } from '../src/installer/mcp-config.js';
+import { decodeProjectRoot, installMcpConfig, resetMcpCache } from '../src/installer/mcp-config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -392,6 +392,8 @@ async function main() {
   }
 
   header('📦 Installing workflow...');
+
+  resetMcpCache(process.cwd());
 
   for (const toolKey of selectedTools) {
     const tool = TOOLS[toolKey];

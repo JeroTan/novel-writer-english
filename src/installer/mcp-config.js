@@ -1,4 +1,6 @@
 import fs from 'fs-extra';
+import { createHash } from 'node:crypto';
+import os from 'node:os';
 import path from 'node:path';
 import { applyEdits, modify, parse } from 'jsonc-parser';
 import { parse as parseToml } from 'smol-toml';
@@ -6,6 +8,7 @@ import { parse as parseToml } from 'smol-toml';
 const SERVER_NAME = 'novel-writer';
 const TOML_START = '# >>> novel-writer-english MCP >>>';
 const TOML_END = '# <<< novel-writer-english MCP <<<';
+const CACHE_NAMESPACE = 'novel-writer-english-mcp';
 
 export function encodeProjectRoot(projectRoot) {
   return Buffer.from(path.resolve(projectRoot), 'utf8').toString('base64url');
@@ -26,11 +29,43 @@ export function decodeProjectRoot(encodedRoot) {
   return path.resolve(decodedRoot);
 }
 
+export function getMcpCachePath(projectRoot, platform = process.platform) {
+  const boundProjectRoot = path.resolve(projectRoot);
+  const cacheKeySource = platform === 'win32' ? boundProjectRoot.toLowerCase() : boundProjectRoot;
+  const cacheKey = createHash('sha256').update(cacheKeySource).digest('hex').slice(0, 16);
+  return path.join(os.tmpdir(), CACHE_NAMESPACE, cacheKey);
+}
+
+export function resetMcpCache(projectRoot, platform = process.platform) {
+  const namespaceRoot = path.resolve(os.tmpdir(), CACHE_NAMESPACE);
+  const cachePath = path.resolve(getMcpCachePath(projectRoot, platform));
+  const relative = path.relative(namespaceRoot, cachePath);
+
+  if (!relative || relative === '..' || relative.startsWith(`..${path.sep}`) || path.isAbsolute(relative)) {
+    throw new Error(`Refusing to reset MCP cache outside ${namespaceRoot}.`);
+  }
+
+  fs.removeSync(cachePath);
+  fs.ensureDirSync(cachePath);
+  return cachePath;
+}
+
 export function buildMcpCommand(version, platform = process.platform, projectRoot = process.cwd()) {
   const packageSpec = `novel-writer-english@${version}`;
   const boundProjectRoot = path.resolve(projectRoot);
   const encodedProjectRoot = encodeProjectRoot(boundProjectRoot);
-  const args = ['--yes', '--quiet', packageSpec, 'mcp', '--project-root-base64', encodedProjectRoot];
+  const cachePath = getMcpCachePath(boundProjectRoot, platform);
+  const args = [
+    '--yes',
+    '--quiet',
+    '--prefer-online',
+    '--cache',
+    cachePath,
+    packageSpec,
+    'mcp',
+    '--project-root-base64',
+    encodedProjectRoot,
+  ];
 
   if (platform === 'win32') {
     return { command: 'cmd', args: ['/c', 'npx', ...args], cwd: boundProjectRoot };

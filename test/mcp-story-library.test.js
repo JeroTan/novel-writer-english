@@ -8,7 +8,13 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { parse as parseJsonc } from 'jsonc-parser';
 import { parse as parseToml } from 'smol-toml';
 import { createNovelWorkflowServer } from '../bin/mcp-server.js';
-import { buildMcpCommand, decodeProjectRoot, installMcpConfig } from '../src/installer/mcp-config.js';
+import {
+  buildMcpCommand,
+  decodeProjectRoot,
+  getMcpCachePath,
+  installMcpConfig,
+  resetMcpCache,
+} from '../src/installer/mcp-config.js';
 import { StoryLibrary, WorkflowDataError } from '../src/mcp/story-library.js';
 
 function makeProject() {
@@ -297,8 +303,22 @@ test('story library reports deterministic format errors', t => {
 test('installer merges MCP configs, keeps settings, and binds the installation root', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novel &^%! writer config '));
   t.after(() => fs.rmSync(root, { recursive: true, force: true }));
+  fs.writeFileSync(path.join(root, '.mcp.json'), JSON.stringify({
+    mcpServers: {
+      'novel-writer': { command: 'old-command' },
+      'keep-me': { command: 'keep-command' },
+    },
+  }, null, 2));
   fs.mkdirSync(path.join(root, '.gemini'), { recursive: true });
-  fs.writeFileSync(path.join(root, '.gemini', 'settings.json'), '{\n  // keep this\n  "ui": { "theme": "GitHub" }\n}\n');
+  fs.writeFileSync(path.join(root, '.gemini', 'settings.json'), `{
+  // keep this
+  "ui": { "theme": "GitHub" },
+  "mcpServers": {
+    "novel-writer": { "command": "old-command" },
+    "keep-me": { "command": "keep-command" }
+  }
+}
+`);
   fs.writeFileSync(path.join(root, 'opencode.json'), JSON.stringify({
     $schema: 'https://opencode.ai/config.json',
     theme: 'system',
@@ -333,11 +353,17 @@ command = "keep-command"
     assert.match(args[rootIndex + 1], /^[A-Za-z0-9_-]+$/);
     assert.equal(Buffer.from(args[rootIndex + 1], 'base64url').toString('utf8'), root);
     assert.equal(args.includes('--project-root'), false);
+    assert.equal(args.includes('--prefer-online'), true);
+    const cacheIndex = args.indexOf('--cache');
+    assert.notEqual(cacheIndex, -1);
+    assert.equal(args[cacheIndex + 1], getMcpCachePath(root, 'linux'));
   };
 
   const claude = JSON.parse(fs.readFileSync(path.join(root, '.mcp.json'), 'utf8'));
   assertProjectRootArgument(claude.mcpServers['novel-writer'].args);
   assert.equal(claude.mcpServers['novel-writer'].cwd, undefined);
+  assert.equal(claude.mcpServers['novel-writer'].command, 'npx');
+  assert.equal(claude.mcpServers['keep-me'].command, 'keep-command');
 
   const gemini = fs.readFileSync(path.join(root, '.gemini', 'settings.json'), 'utf8');
   assert.match(gemini, /keep this/);
@@ -346,6 +372,8 @@ command = "keep-command"
   const geminiConfig = parseJsonc(gemini);
   assertProjectRootArgument(geminiConfig.mcpServers['novel-writer'].args);
   assert.equal(geminiConfig.mcpServers['novel-writer'].cwd, root);
+  assert.equal(geminiConfig.mcpServers['novel-writer'].command, 'npx');
+  assert.equal(geminiConfig.mcpServers['keep-me'].command, 'keep-command');
 
   const opencode = JSON.parse(fs.readFileSync(path.join(root, 'opencode.json'), 'utf8'));
   assert.deepEqual(opencode.mcp['novel-writer'].command.slice(0, 2), ['npx', '--yes']);
@@ -378,6 +406,27 @@ test('Windows MCP command shell-proofs special characters in bound project root'
   assert.equal(decodeProjectRoot(command.args[rootIndex + 1]), root);
   assert.throws(() => decodeProjectRoot('not+a+base64url'), /invalid/);
   assert.throws(() => decodeProjectRoot(Buffer.from('relative/path').toString('base64url')), /absolute/);
+});
+
+test('installer resets only the project-bound MCP cache', t => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novel-writer-cache-project-'));
+  const cachePath = getMcpCachePath(root);
+  const siblingCache = getMcpCachePath(`${root}-other`);
+  t.after(() => {
+    fs.rmSync(root, { recursive: true, force: true });
+    fs.rmSync(cachePath, { recursive: true, force: true });
+    fs.rmSync(siblingCache, { recursive: true, force: true });
+  });
+
+  fs.mkdirSync(cachePath, { recursive: true });
+  fs.writeFileSync(path.join(cachePath, 'broken-package.json'), 'broken');
+  fs.mkdirSync(siblingCache, { recursive: true });
+  fs.writeFileSync(path.join(siblingCache, 'keep.txt'), 'keep');
+
+  assert.equal(resetMcpCache(root), cachePath);
+  assert.equal(fs.existsSync(path.join(cachePath, 'broken-package.json')), false);
+  assert.equal(fs.existsSync(cachePath), true);
+  assert.equal(fs.readFileSync(path.join(siblingCache, 'keep.txt'), 'utf8'), 'keep');
 });
 
 test('MCP server exposes and executes story lookup tools', async t => {

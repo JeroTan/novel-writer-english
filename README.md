@@ -36,10 +36,10 @@ Novel Writer English is completely free, open-source, platform-agnostic, and bas
 Run this in your novel project root:
 
 ```bash
-npx novel-writer-english
+npx --yes --prefer-online novel-writer-english@latest
 ```
 
-The interactive installer asks which AI tools you use, then sets up commands, skills, templates, project MCP configuration, and a concise `NOVEL_WORKFLOW.md` guide automatically. Restart the selected AI tool after installation; it starts the read-only MCP server automatically from project configuration.
+The interactive installer asks which AI tools you use, then sets up commands, skills, templates, project MCP configuration, and a concise `NOVEL_WORKFLOW.md` guide automatically. MCP uses an isolated project-bound npm cache that is rebuilt when the installer runs again, while managed agent configuration is updated in place. Restart the selected AI tool after installation; it starts the read-only MCP server automatically from project configuration.
 
 ## Story Lookup MCP
 
